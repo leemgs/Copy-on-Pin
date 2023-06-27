@@ -17,7 +17,7 @@
 * MC Mutants: Evaluating and Improving Testing for Memory Consistency Specifications
   * Reese Levine, Tianhao Guo, Mingun Cho (Univ. of California, Santa Cruz); Alan Baker, Raph Levien, David Neto (Google); Andrew Quinn, Tyler Sorensen (Univ. of California, Santa Cruz)
 
-* (skip) Stepwise Debugging for Hardware Accelerators
+* Stepwise Debugging for Hardware Accelerators
   * Griffin Berlstein, Rachit Nigam (Cornell Univ.); Chris Gyurgyik (Google); Adrian Sampson (Cornell Univ.)
 
 * (skip) Compiling Distributed System Models with PGo
