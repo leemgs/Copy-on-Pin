@@ -20,6 +20,6 @@
 * Stepwise Debugging for Hardware Accelerators
   * Griffin Berlstein, Rachit Nigam (Cornell Univ.); Chris Gyurgyik (Google); Adrian Sampson (Cornell Univ.)
 
-* (skip) Compiling Distributed System Models with PGo
+* Compiling Distributed System Models with PGo
   * Finn Hackett, Shayan Hosseini, Renato Costa, Matthew Do, Ivan Beschastnikh (Univ. of British Columbia)
 
