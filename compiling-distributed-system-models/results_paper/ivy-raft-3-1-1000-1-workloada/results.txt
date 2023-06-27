@@ -1,0 +1,82 @@
+Compiling /home/azbench/image/ycsb_ivy_raft.sc
+load YCSB
+/usr/bin/java  -classpath /home/azbench/image/YCSB/conf:/home/azbench/image/YCSB/core/target/core-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/core/target/dependency/HdrHistogram-2.1.4.jar:/home/azbench/image/YCSB/core/target/dependency/htrace-core4-4.1.0-incubating.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-core-asl-1.9.4.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-mapper-asl-1.9.4.jar:/home/azbench/image/YCSB/vard/target/vard-binding-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/vard/target/dependency/scala-library-2.13.8.jar:/home/azbench/image/YCSB/vard/target/dependency/vard-client_2.13-0.1.0-SNAPSHOT.jar site.ycsb.Client -load -db site.ycsb.db.vard.VardClient -P workloads/workloada -p threadcount=1 -p operationcount=1000 -p vard.endpoints=10.0.0.4:4000,10.0.0.5:4000,10.0.0.6:4000 -p vard.ivy_mode=true
+Command line: -load -db site.ycsb.db.vard.VardClient -P workloads/workloada -p threadcount=1 -p operationcount=1000 -p vard.endpoints=10.0.0.4:4000,10.0.0.5:4000,10.0.0.6:4000 -p vard.ivy_mode=true
+YCSB Client 0.18.0-SNAPSHOT
+
+Loading workload...
+Starting test.
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+[OVERALL], RunTime(ms), 10000
+[OVERALL], Throughput(ops/sec), 100.0
+[TOTAL_GCS_G1_Young_Generation], Count, 1
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 7
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 0.06999999999999999
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 1
+[TOTAL_GC_TIME], Time(ms), 7
+[TOTAL_GC_TIME_%], Time(%), 0.06999999999999999
+[CLEANUP], Operations, 1
+[CLEANUP], AverageLatency(us), 63.0
+[CLEANUP], MinLatency(us), 63
+[CLEANUP], MaxLatency(us), 63
+[CLEANUP], 95thPercentileLatency(us), 63
+[CLEANUP], 99thPercentileLatency(us), 63
+[INSERT], Operations, 1000
+[INSERT], AverageLatency(us), 9740.662
+[INSERT], MinLatency(us), 710
+[INSERT], MaxLatency(us), 52639
+[INSERT], 95thPercentileLatency(us), 45503
+[INSERT], 99thPercentileLatency(us), 47263
+[INSERT], Return=OK, 1000
+run YCSB
+/usr/bin/java  -classpath /home/azbench/image/YCSB/conf:/home/azbench/image/YCSB/core/target/core-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/core/target/dependency/HdrHistogram-2.1.4.jar:/home/azbench/image/YCSB/core/target/dependency/htrace-core4-4.1.0-incubating.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-core-asl-1.9.4.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-mapper-asl-1.9.4.jar:/home/azbench/image/YCSB/vard/target/vard-binding-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/vard/target/dependency/scala-library-2.13.8.jar:/home/azbench/image/YCSB/vard/target/dependency/vard-client_2.13-0.1.0-SNAPSHOT.jar site.ycsb.Client -t -db site.ycsb.db.vard.VardClient -P workloads/workloada -p threadcount=1 -p operationcount=1000 -p vard.endpoints=10.0.0.4:4000,10.0.0.5:4000,10.0.0.6:4000 -p vard.ivy_mode=true
+Command line: -t -db site.ycsb.db.vard.VardClient -P workloads/workloada -p threadcount=1 -p operationcount=1000 -p vard.endpoints=10.0.0.4:4000,10.0.0.5:4000,10.0.0.6:4000 -p vard.ivy_mode=true
+YCSB Client 0.18.0-SNAPSHOT
+
+Loading workload...
+Starting test.
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+[OVERALL], RunTime(ms), 14515
+[OVERALL], Throughput(ops/sec), 68.89424733034791
+[TOTAL_GCS_G1_Young_Generation], Count, 1
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 7
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 0.04822597313124354
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 1
+[TOTAL_GC_TIME], Time(ms), 7
+[TOTAL_GC_TIME_%], Time(%), 0.04822597313124354
+[READ], Operations, 510
+[READ], AverageLatency(us), 9506.83725490196
+[READ], MinLatency(us), 789
+[READ], MaxLatency(us), 47295
+[READ], 95thPercentileLatency(us), 45407
+[READ], 99thPercentileLatency(us), 46143
+[READ], Return=OK, 510
+[CLEANUP], Operations, 1
+[CLEANUP], AverageLatency(us), 47.0
+[CLEANUP], MinLatency(us), 47
+[CLEANUP], MaxLatency(us), 47
+[CLEANUP], 95thPercentileLatency(us), 47
+[CLEANUP], 99thPercentileLatency(us), 47
+[UPDATE], Operations, 490
+[UPDATE], AverageLatency(us), 19272.64081632653
+[UPDATE], MinLatency(us), 2080
+[UPDATE], MaxLatency(us), 56863
+[UPDATE], 95thPercentileLatency(us), 48191
+[UPDATE], 99thPercentileLatency(us), 49695
+[UPDATE], Return=OK, 490

@@ -1,0 +1,21 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  
+  config.vm.box = "azbench" # $ vagrant box add ../package.box --name azbench
+
+  config.vm.define "client" do |client|
+    client.vm.network "private_network", ip: "192.168.56.10"
+    # this is to make sure the client has enough RAM, matters sometimes. otherwise it just has 2GB
+    client.vm.provider "virtualbox" do |v|
+      v.memory = 4096
+    end
+  end
+
+  (1..4).each do |i|
+    config.vm.define "vm-#{i}" do |vm|
+      vm.vm.network "private_network", ip: "192.168.56.#{i+10}"
+    end
+  end
+end

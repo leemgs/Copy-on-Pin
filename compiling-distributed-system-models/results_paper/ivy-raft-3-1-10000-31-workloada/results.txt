@@ -1,0 +1,253 @@
+load YCSB
+/usr/bin/java  -classpath /home/azbench/image/YCSB/conf:/home/azbench/image/YCSB/core/target/core-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/core/target/dependency/HdrHistogram-2.1.4.jar:/home/azbench/image/YCSB/core/target/dependency/htrace-core4-4.1.0-incubating.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-core-asl-1.9.4.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-mapper-asl-1.9.4.jar:/home/azbench/image/YCSB/vard/target/vard-binding-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/vard/target/dependency/scala-library-2.13.8.jar:/home/azbench/image/YCSB/vard/target/dependency/vard-client_2.13-0.1.0-SNAPSHOT.jar site.ycsb.Client -load -db site.ycsb.db.vard.VardClient -P workloads/workloada -p threadcount=31 -p operationcount=10000 -p vard.endpoints=10.0.0.4:4000,10.0.0.5:4000,10.0.0.6:4000 -p vard.ivy_mode=true
+Command line: -load -db site.ycsb.db.vard.VardClient -P workloads/workloada -p threadcount=31 -p operationcount=10000 -p vard.endpoints=10.0.0.4:4000,10.0.0.5:4000,10.0.0.6:4000 -p vard.ivy_mode=true
+YCSB Client 0.18.0-SNAPSHOT
+
+Loading workload...
+Starting test.
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+not leader...
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+not leader...
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+not leader...
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+not leader...
+not leader...
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+not leader...
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+not leader...
+not leader...
+not leader...
+not leader...
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+[OVERALL], RunTime(ms), 1614
+[OVERALL], Throughput(ops/sec), 619.5786864931846
+[TOTAL_GCS_G1_Young_Generation], Count, 1
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 6
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 0.37174721189591076
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 1
+[TOTAL_GC_TIME], Time(ms), 6
+[TOTAL_GC_TIME_%], Time(%), 0.37174721189591076
+[CLEANUP], Operations, 31
+[CLEANUP], AverageLatency(us), 39.903225806451616
+[CLEANUP], MinLatency(us), 25
+[CLEANUP], MaxLatency(us), 77
+[CLEANUP], 95thPercentileLatency(us), 57
+[CLEANUP], 99thPercentileLatency(us), 77
+[INSERT], Operations, 1000
+[INSERT], AverageLatency(us), 37542.333
+[INSERT], MinLatency(us), 867
+[INSERT], MaxLatency(us), 85695
+[INSERT], 95thPercentileLatency(us), 51199
+[INSERT], 99thPercentileLatency(us), 80255
+[INSERT], Return=OK, 1000
+run YCSB
+/usr/bin/java  -classpath /home/azbench/image/YCSB/conf:/home/azbench/image/YCSB/core/target/core-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/core/target/dependency/HdrHistogram-2.1.4.jar:/home/azbench/image/YCSB/core/target/dependency/htrace-core4-4.1.0-incubating.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-core-asl-1.9.4.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-mapper-asl-1.9.4.jar:/home/azbench/image/YCSB/vard/target/vard-binding-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/vard/target/dependency/scala-library-2.13.8.jar:/home/azbench/image/YCSB/vard/target/dependency/vard-client_2.13-0.1.0-SNAPSHOT.jar site.ycsb.Client -t -db site.ycsb.db.vard.VardClient -P workloads/workloada -p threadcount=31 -p operationcount=10000 -p vard.endpoints=10.0.0.4:4000,10.0.0.5:4000,10.0.0.6:4000 -p vard.ivy_mode=true
+Command line: -t -db site.ycsb.db.vard.VardClient -P workloads/workloada -p threadcount=31 -p operationcount=10000 -p vard.endpoints=10.0.0.4:4000,10.0.0.5:4000,10.0.0.6:4000 -p vard.ivy_mode=true
+YCSB Client 0.18.0-SNAPSHOT
+
+Loading workload...
+Starting test.
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+not leader...
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+not leader...
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+not leader...
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+not leader...
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+not leader...
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+[OVERALL], RunTime(ms), 23546
+[OVERALL], Throughput(ops/sec), 424.7005860868088
+[TOTAL_GCS_G1_Young_Generation], Count, 1
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 8
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 0.03397604688694471
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 1
+[TOTAL_GC_TIME], Time(ms), 8
+[TOTAL_GC_TIME_%], Time(%), 0.03397604688694471
+[READ], Operations, 4998
+[READ], AverageLatency(us), 42036.2525010004
+[READ], MinLatency(us), 763
+[READ], MaxLatency(us), 94399
+[READ], 95thPercentileLatency(us), 58559
+[READ], 99thPercentileLatency(us), 84671
+[READ], Return=OK, 4998
+[CLEANUP], Operations, 31
+[CLEANUP], AverageLatency(us), 48.774193548387096
+[CLEANUP], MinLatency(us), 32
+[CLEANUP], MaxLatency(us), 57
+[CLEANUP], 95thPercentileLatency(us), 56
+[CLEANUP], 99thPercentileLatency(us), 57
+[UPDATE], Operations, 5002
+[UPDATE], AverageLatency(us), 83182.37604958017
+[UPDATE], MinLatency(us), 2408
+[UPDATE], MaxLatency(us), 164351
+[UPDATE], 95thPercentileLatency(us), 124415
+[UPDATE], 99thPercentileLatency(us), 135935
+[UPDATE], Return=OK, 5002

@@ -1,0 +1,63 @@
+loading YCSB
+***************** properties *****************
+"updateproportion"="0.5"
+"threadcount"="4"
+"readproportion"="0.5"
+"scanproportion"="0"
+"operationcount"="10000"
+"requestdistribution"="zipfian"
+"readallfields"="true"
+"recordcount"="1000"
+"dotransactions"="false"
+"raftres.config"="/tmp/9373767658740286499.yaml"
+"workload"="core"
+"insertproportion"="0"
+**********************************************
+2022/07/02 02:55:51 relaxed mailboxes started listening on: 10.0.0.7:8004
+2022/07/02 02:55:51 relaxed mailboxes started listening on: 10.0.0.7:8002
+2022/07/02 02:55:51 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/07/02 02:55:51 fd change state: archetype = 22, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:55:51 fd change state: archetype = 23, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:55:51 fd change state: archetype = 24, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:55:51 relaxed mailboxes started listening on: 10.0.0.7:8001
+2022/07/02 02:55:52 archetype 31 finished, err = <nil>
+2022/07/02 02:55:52 archetype 30 finished, err = <nil>
+2022/07/02 02:55:53 archetype 29 finished, err = <nil>
+2022/07/02 02:55:53 archetype 28 finished, err = <nil>
+Run finished, takes 2.400989626s
+INSERT - Takes(s): 2.4, Count: 1000, OPS: 418.3, Avg(us): 7613, Min(us): 2497, Max(us): 404306, 99th(us): 14000, 99.9th(us): 205000, 99.99th(us): 405000
+running YCSB
+***************** properties *****************
+"workload"="core"
+"scanproportion"="0"
+"threadcount"="4"
+"raftres.config"="/tmp/9373767658740286499.yaml"
+"dotransactions"="true"
+"readproportion"="0.5"
+"recordcount"="1000"
+"operationcount"="10000"
+"updateproportion"="0.5"
+"requestdistribution"="zipfian"
+"insertproportion"="0"
+"readallfields"="true"
+**********************************************
+2022/07/02 02:55:58 relaxed mailboxes started listening on: 10.0.0.7:8001
+2022/07/02 02:55:58 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/07/02 02:55:58 fd change state: archetype = 24, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:55:58 fd change state: archetype = 23, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:55:58 fd change state: archetype = 22, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:55:58 relaxed mailboxes started listening on: 10.0.0.7:8002
+2022/07/02 02:55:59 relaxed mailboxes started listening on: 10.0.0.7:8004
+READ   - Takes(s): 9.8, Count: 1862, OPS: 190.2, Avg(us): 7491, Min(us): 2483, Max(us): 387294, 99th(us): 14000, 99.9th(us): 212000, 99.99th(us): 388000
+UPDATE - Takes(s): 10.0, Count: 1816, OPS: 181.9, Avg(us): 14316, Min(us): 6206, Max(us): 412378, 99th(us): 23000, 99.9th(us): 26000, 99.99th(us): 413000
+READ   - Takes(s): 19.8, Count: 3732, OPS: 188.6, Avg(us): 7319, Min(us): 2483, Max(us): 387294, 99th(us): 15000, 99.9th(us): 19000, 99.99th(us): 388000
+UPDATE - Takes(s): 20.0, Count: 3656, OPS: 183.0, Avg(us): 14379, Min(us): 6206, Max(us): 412378, 99th(us): 24000, 99.9th(us): 28000, 99.99th(us): 413000
+2022/07/02 02:56:19 archetype 29 finished, err = <nil>
+2022/07/02 02:56:28 archetype 30 finished, err = <nil>
+2022/07/02 02:56:28 archetype 28 finished, err = <nil>
+READ   - Takes(s): 29.8, Count: 5091, OPS: 170.9, Avg(us): 7433, Min(us): 2483, Max(us): 387294, 99th(us): 16000, 99.9th(us): 19000, 99.99th(us): 388000
+UPDATE - Takes(s): 30.0, Count: 4861, OPS: 162.1, Avg(us): 14723, Min(us): 6206, Max(us): 412378, 99th(us): 25000, 99.9th(us): 29000, 99.99th(us): 413000
+2022/07/02 02:56:29 archetype 31 finished, err = <nil>
+Run finished, takes 30.538194503s
+READ   - Takes(s): 30.3, Count: 5115, OPS: 168.6, Avg(us): 7434, Min(us): 2483, Max(us): 387294, 99th(us): 16000, 99.9th(us): 19000, 99.99th(us): 388000
+UPDATE - Takes(s): 30.5, Count: 4885, OPS: 160.1, Avg(us): 14722, Min(us): 6206, Max(us): 412378, 99th(us): 25000, 99.9th(us): 29000, 99.99th(us): 413000

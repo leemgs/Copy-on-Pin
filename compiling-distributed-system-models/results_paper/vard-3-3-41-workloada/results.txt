@@ -1,0 +1,1304 @@
+load YCSB
+/usr/bin/java  -classpath /home/azbench/image/YCSB/conf:/home/azbench/image/YCSB/core/target/core-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/core/target/dependency/HdrHistogram-2.1.4.jar:/home/azbench/image/YCSB/core/target/dependency/htrace-core4-4.1.0-incubating.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-core-asl-1.9.4.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-mapper-asl-1.9.4.jar:/home/azbench/image/YCSB/vard/target/vard-binding-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/vard/target/dependency/scala-library-2.13.8.jar:/home/azbench/image/YCSB/vard/target/dependency/vard-client_2.13-0.1.0-SNAPSHOT.jar site.ycsb.Client -load -db site.ycsb.db.vard.VardClient -P workloads/workloada -p threadcount=41 -p operationcount=2000 -p vard.endpoints=10.0.0.4:4000,10.0.0.5:4000,10.0.0.6:4000 -p vard.raw_utf8=true -s
+Command line: -load -db site.ycsb.db.vard.VardClient -P workloads/workloada -p threadcount=41 -p operationcount=2000 -p vard.endpoints=10.0.0.4:4000,10.0.0.5:4000,10.0.0.6:4000 -p vard.raw_utf8=true -s
+YCSB Client 0.18.0-SNAPSHOT
+
+Loading workload...
+Starting test.
+2022-07-05 22:53:38:498 0 sec: 0 operations; est completion in 0 second 
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+java.io.IOException: Connection reset by peer
+	at java.base/sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:245)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:353)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.$anonfun$readAll$1(VardClient.scala:49)
+	at scala.runtime.java8.JFunction0$mcI$sp.apply(JFunction0$mcI$sp.scala:17)
+	at scala.collection.Iterator$$anon$27.next(Iterator.scala:1128)
+	at scala.collection.Iterator$$anon$3$$anon$4$$anon$5.next(Iterator.scala:393)
+	at scala.collection.Iterator$$anon$3.next(Iterator.scala:403)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.readAll(VardClient.scala:52)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$recvImpl$1(VardClient.scala:162)
+	at scala.util.Try$.apply(Try.scala:210)
+	at com.github.fhackett.vardclient.VardClient$socket$.recvImpl(VardClient.scala:160)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$2(VardClient.scala:152)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$1(VardClient.scala:151)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$8(VardClient.scala:114)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$7(VardClient.scala:113)
+	at scala.collection.Iterator$$anon$9.next(Iterator.scala:577)
+	at scala.collection.Iterator$$anon$18.next(Iterator.scala:944)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$socket$.findSocketChannel(VardClient.scala:122)
+	at com.github.fhackett.vardclient.VardClient$socket$.proc(VardClient.scala:149)
+	at com.github.fhackett.vardclient.VardClient.put(VardClient.scala:223)
+	at site.ycsb.db.vard.VardClient.insert(VardClient.java:114)
+	at site.ycsb.DBWrapper.insert(DBWrapper.java:227)
+	at site.ycsb.workloads.CoreWorkload.doInsert(CoreWorkload.java:621)
+	at site.ycsb.ClientThread.run(ClientThread.java:135)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.IOException: Connection reset by peer
+	at java.base/sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:245)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:353)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.$anonfun$readAll$1(VardClient.scala:49)
+	at scala.runtime.java8.JFunction0$mcI$sp.apply(JFunction0$mcI$sp.scala:17)
+	at scala.collection.Iterator$$anon$27.next(Iterator.scala:1128)
+	at scala.collection.Iterator$$anon$3$$anon$4$$anon$5.next(Iterator.scala:393)
+	at scala.collection.Iterator$$anon$3.next(Iterator.scala:403)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.readAll(VardClient.scala:52)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$recvImpl$1(VardClient.scala:162)
+	at scala.util.Try$.apply(Try.scala:210)
+	at com.github.fhackett.vardclient.VardClient$socket$.recvImpl(VardClient.scala:160)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$2(VardClient.scala:152)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$1(VardClient.scala:151)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$8(VardClient.scala:114)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$7(VardClient.scala:113)
+	at scala.collection.Iterator$$anon$9.next(Iterator.scala:577)
+	at scala.collection.Iterator$$anon$18.next(Iterator.scala:944)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$socket$.findSocketChannel(VardClient.scala:122)
+	at com.github.fhackett.vardclient.VardClient$socket$.proc(VardClient.scala:149)
+	at com.github.fhackett.vardclient.VardClient.put(VardClient.scala:223)
+	at site.ycsb.db.vard.VardClient.insert(VardClient.java:114)
+	at site.ycsb.DBWrapper.insert(DBWrapper.java:227)
+	at site.ycsb.workloads.CoreWorkload.doInsert(CoreWorkload.java:621)
+	at site.ycsb.ClientThread.run(ClientThread.java:135)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Error inserting, not retrying any more. number of attempts: 1Insertion Retry Limit: 0
+java.io.IOException: Connection reset by peer
+	at java.base/sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:245)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:353)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.$anonfun$readAll$1(VardClient.scala:49)
+	at scala.runtime.java8.JFunction0$mcI$sp.apply(JFunction0$mcI$sp.scala:17)
+	at scala.collection.Iterator$$anon$27.next(Iterator.scala:1128)
+	at scala.collection.Iterator$$anon$3$$anon$4$$anon$5.next(Iterator.scala:393)
+	at scala.collection.Iterator$$anon$3.next(Iterator.scala:403)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.readAll(VardClient.scala:52)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$recvImpl$1(VardClient.scala:162)
+	at scala.util.Try$.apply(Try.scala:210)
+	at com.github.fhackett.vardclient.VardClient$socket$.recvImpl(VardClient.scala:160)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$2(VardClient.scala:152)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$1(VardClient.scala:151)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$8(VardClient.scala:114)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$7(VardClient.scala:113)
+	at scala.collection.Iterator$$anon$9.next(Iterator.scala:577)
+	at scala.collection.Iterator$$anon$18.next(Iterator.scala:944)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$socket$.findSocketChannel(VardClient.scala:122)
+	at com.github.fhackett.vardclient.VardClient$socket$.proc(VardClient.scala:149)
+	at com.github.fhackett.vardclient.VardClient.put(VardClient.scala:223)
+	at site.ycsb.db.vard.VardClient.insert(VardClient.java:114)
+	at site.ycsb.DBWrapper.insert(DBWrapper.java:227)
+	at site.ycsb.workloads.CoreWorkload.doInsert(CoreWorkload.java:621)
+	at site.ycsb.ClientThread.run(ClientThread.java:135)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Error inserting, not retrying any more. number of attempts: 1Insertion Retry Limit: 0
+java.io.IOException: Connection reset by peer
+	at java.base/sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:245)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:353)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.$anonfun$readAll$1(VardClient.scala:49)
+	at scala.runtime.java8.JFunction0$mcI$sp.apply(JFunction0$mcI$sp.scala:17)
+	at scala.collection.Iterator$$anon$27.next(Iterator.scala:1128)
+	at scala.collection.Iterator$$anon$3$$anon$4$$anon$5.next(Iterator.scala:393)
+	at scala.collection.Iterator$$anon$3.next(Iterator.scala:403)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.readAll(VardClient.scala:52)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$recvImpl$1(VardClient.scala:162)
+	at scala.util.Try$.apply(Try.scala:210)
+	at com.github.fhackett.vardclient.VardClient$socket$.recvImpl(VardClient.scala:160)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$2(VardClient.scala:152)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$1(VardClient.scala:151)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$8(VardClient.scala:114)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$7(VardClient.scala:113)
+	at scala.collection.Iterator$$anon$9.next(Iterator.scala:577)
+	at scala.collection.Iterator$$anon$18.next(Iterator.scala:944)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$socket$.findSocketChannel(VardClient.scala:122)
+	at com.github.fhackett.vardclient.VardClient$socket$.proc(VardClient.scala:149)
+	at com.github.fhackett.vardclient.VardClient.put(VardClient.scala:223)
+	at site.ycsb.db.vard.VardClient.insert(VardClient.java:114)
+	at site.ycsb.DBWrapper.insert(DBWrapper.java:227)
+	at site.ycsb.workloads.CoreWorkload.doInsert(CoreWorkload.java:621)
+	at site.ycsb.ClientThread.run(ClientThread.java:135)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Error inserting, not retrying any more. number of attempts: 1Insertion Retry Limit: 0
+Error inserting, not retrying any more. number of attempts: 1Insertion Retry Limit: 0
+java.io.IOException: Connection reset by peer
+	at java.base/sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:245)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:353)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.$anonfun$readAll$1(VardClient.scala:49)
+	at scala.runtime.java8.JFunction0$mcI$sp.apply(JFunction0$mcI$sp.scala:17)
+	at scala.collection.Iterator$$anon$27.next(Iterator.scala:1128)
+	at scala.collection.Iterator$$anon$3$$anon$4$$anon$5.next(Iterator.scala:393)
+	at scala.collection.Iterator$$anon$3.next(Iterator.scala:403)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.readAll(VardClient.scala:52)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$recvImpl$1(VardClient.scala:162)
+	at scala.util.Try$.apply(Try.scala:210)
+	at com.github.fhackett.vardclient.VardClient$socket$.recvImpl(VardClient.scala:160)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$2(VardClient.scala:152)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$1(VardClient.scala:151)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$8(VardClient.scala:114)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$7(VardClient.scala:113)
+	at scala.collection.Iterator$$anon$9.next(Iterator.scala:577)
+	at scala.collection.Iterator$$anon$18.next(Iterator.scala:944)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$socket$.findSocketChannel(VardClient.scala:122)
+	at com.github.fhackett.vardclient.VardClient$socket$.proc(VardClient.scala:149)
+	at com.github.fhackett.vardclient.VardClient.put(VardClient.scala:223)
+	at site.ycsb.db.vard.VardClient.insert(VardClient.java:114)
+	at site.ycsb.DBWrapper.insert(DBWrapper.java:227)
+	at site.ycsb.workloads.CoreWorkload.doInsert(CoreWorkload.java:621)
+	at site.ycsb.ClientThread.run(ClientThread.java:135)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.IOException: Connection reset by peer
+	at java.base/sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:245)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:353)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.$anonfun$readAll$1(VardClient.scala:49)
+	at scala.runtime.java8.JFunction0$mcI$sp.apply(JFunction0$mcI$sp.scala:17)
+	at scala.collection.Iterator$$anon$27.next(Iterator.scala:1128)
+	at scala.collection.Iterator$$anon$3$$anon$4$$anon$5.next(Iterator.scala:393)
+	at scala.collection.Iterator$$anon$3.next(Iterator.scala:403)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.readAll(VardClient.scala:52)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$recvImpl$1(VardClient.scala:162)
+	at scala.util.Try$.apply(Try.scala:210)
+	at com.github.fhackett.vardclient.VardClient$socket$.recvImpl(VardClient.scala:160)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$2(VardClient.scala:152)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$1(VardClient.scala:151)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$8(VardClient.scala:114)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$7(VardClient.scala:113)
+	at scala.collection.Iterator$$anon$9.next(Iterator.scala:577)
+	at scala.collection.Iterator$$anon$18.next(Iterator.scala:944)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$socket$.findSocketChannel(VardClient.scala:122)
+	at com.github.fhackett.vardclient.VardClient$socket$.proc(VardClient.scala:149)
+	at com.github.fhackett.vardclient.VardClient.put(VardClient.scala:223)
+	at site.ycsb.db.vard.VardClient.insert(VardClient.java:114)
+	at site.ycsb.DBWrapper.insert(DBWrapper.java:227)
+	at site.ycsb.workloads.CoreWorkload.doInsert(CoreWorkload.java:621)
+	at site.ycsb.ClientThread.run(ClientThread.java:135)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.IOException: Connection reset by peer
+	at java.base/sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:245)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:353)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.$anonfun$readAll$1(VardClient.scala:49)
+	at scala.runtime.java8.JFunction0$mcI$sp.apply(JFunction0$mcI$sp.scala:17)
+	at scala.collection.Iterator$$anon$27.next(Iterator.scala:1128)
+	at scala.collection.Iterator$$anon$3$$anon$4$$anon$5.next(Iterator.scala:393)
+	at scala.collection.Iterator$$anon$3.next(Iterator.scala:403)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.readAll(VardClient.scala:52)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$recvImpl$1(VardClient.scala:162)
+	at scala.util.Try$.apply(Try.scala:210)
+	at com.github.fhackett.vardclient.VardClient$socket$.recvImpl(VardClient.scala:160)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$2(VardClient.scala:152)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$1(VardClient.scala:151)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$8(VardClient.scala:114)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$7(VardClient.scala:113)
+	at scala.collection.Iterator$$anon$9.next(Iterator.scala:577)
+	at scala.collection.Iterator$$anon$18.next(Iterator.scala:944)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$socket$.findSocketChannel(VardClient.scala:122)
+	at com.github.fhackett.vardclient.VardClient$socket$.proc(VardClient.scala:149)
+	at com.github.fhackett.vardclient.VardClient.put(VardClient.scala:223)
+	at site.ycsb.db.vard.VardClient.insert(VardClient.java:114)
+	at site.ycsb.DBWrapper.insert(DBWrapper.java:227)
+	at site.ycsb.workloads.CoreWorkload.doInsert(CoreWorkload.java:621)
+	at site.ycsb.ClientThread.run(ClientThread.java:135)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Error inserting, not retrying any more. number of attempts: 1Insertion Retry Limit: 0
+Error inserting, not retrying any more. number of attempts: 1Insertion Retry Limit: 0
+Error inserting, not retrying any more. number of attempts: 1Insertion Retry Limit: 0
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+2022-07-05 22:53:48:460 10 sec: 329 operations; 32.9 current ops/sec; est completion in 21 seconds [CLEANUP: Count=7, Max=7, Min=2, Avg=3, 90=3, 99=7, 99.9=7, 99.99=7] [INSERT: Count=329, Max=2314239, Min=128064, Avg=961640.56, 90=1168383, 99=2095103, 99.9=2314239, 99.99=2314239] [INSERT-FAILED: Count=7, Max=245759, Min=240768, Avg=243245.71, 90=245247, 99=245759, 99.9=245759, 99.99=245759] 
+2022-07-05 22:53:58:459 20 sec: 708 operations; 37.9 current ops/sec; est completion in 9 second [CLEANUP: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] [INSERT: Count=379, Max=1142783, Min=613888, Avg=906213.66, 90=1040383, 99=1125375, 99.9=1142783, 99.99=1142783] [INSERT-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] 
+2022-07-05 22:54:01:708 23 sec: 829 operations; 37.25 current ops/sec; est completion in 5 second [CLEANUP: Count=34, Max=96, Min=31, Avg=58.62, 90=76, 99=96, 99.9=96, 99.99=96] [INSERT: Count=121, Max=1069055, Min=189184, Avg=753972.36, 90=946687, 99=1027071, 99.9=1069055, 99.99=1069055] [INSERT-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] 
+[OVERALL], RunTime(ms), 23249
+[OVERALL], Throughput(ops/sec), 35.65744763215622
+[TOTAL_GCS_G1_Young_Generation], Count, 1
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 8
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 0.034410082154071146
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 1
+[TOTAL_GC_TIME], Time(ms), 8
+[TOTAL_GC_TIME_%], Time(%), 0.034410082154071146
+[CLEANUP], Operations, 41
+[CLEANUP], AverageLatency(us), 49.1219512195122
+[CLEANUP], MinLatency(us), 2
+[CLEANUP], MaxLatency(us), 96
+[CLEANUP], 95thPercentileLatency(us), 76
+[CLEANUP], 99thPercentileLatency(us), 96
+[INSERT], Operations, 829
+[INSERT], AverageLatency(us), 905989.5971049457
+[INSERT], MinLatency(us), 128064
+[INSERT], MaxLatency(us), 2314239
+[INSERT], 95thPercentileLatency(us), 1141759
+[INSERT], 99thPercentileLatency(us), 1809407
+[INSERT], Return=OK, 829
+[INSERT], Return=ERROR, 7
+[INSERT-FAILED], Operations, 7
+[INSERT-FAILED], AverageLatency(us), 243245.7142857143
+[INSERT-FAILED], MinLatency(us), 240768
+[INSERT-FAILED], MaxLatency(us), 245759
+[INSERT-FAILED], 95thPercentileLatency(us), 245759
+[INSERT-FAILED], 99thPercentileLatency(us), 245759
+run YCSB
+/usr/bin/java  -classpath /home/azbench/image/YCSB/conf:/home/azbench/image/YCSB/core/target/core-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/core/target/dependency/HdrHistogram-2.1.4.jar:/home/azbench/image/YCSB/core/target/dependency/htrace-core4-4.1.0-incubating.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-core-asl-1.9.4.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-mapper-asl-1.9.4.jar:/home/azbench/image/YCSB/vard/target/vard-binding-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/vard/target/dependency/scala-library-2.13.8.jar:/home/azbench/image/YCSB/vard/target/dependency/vard-client_2.13-0.1.0-SNAPSHOT.jar site.ycsb.Client -t -db site.ycsb.db.vard.VardClient -P workloads/workloada -p threadcount=41 -p operationcount=2000 -p vard.endpoints=10.0.0.4:4000,10.0.0.5:4000,10.0.0.6:4000 -p vard.raw_utf8=true -s
+Command line: -t -db site.ycsb.db.vard.VardClient -P workloads/workloada -p threadcount=41 -p operationcount=2000 -p vard.endpoints=10.0.0.4:4000,10.0.0.5:4000,10.0.0.6:4000 -p vard.raw_utf8=true -s
+YCSB Client 0.18.0-SNAPSHOT
+
+Loading workload...
+Starting test.
+2022-07-05 22:54:01:973 0 sec: 0 operations; est completion in 0 second 
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+java.io.IOException: Connection reset by peer
+	at java.base/sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:245)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:353)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.$anonfun$readAll$1(VardClient.scala:49)
+	at scala.runtime.java8.JFunction0$mcI$sp.apply(JFunction0$mcI$sp.scala:17)
+	at scala.collection.Iterator$$anon$27.next(Iterator.scala:1128)
+	at scala.collection.Iterator$$anon$3$$anon$4$$anon$5.next(Iterator.scala:393)
+	at scala.collection.Iterator$$anon$3.next(Iterator.scala:403)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.readAll(VardClient.scala:52)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$recvImpl$1(VardClient.scala:162)
+	at scala.util.Try$.apply(Try.scala:210)
+	at com.github.fhackett.vardclient.VardClient$socket$.recvImpl(VardClient.scala:160)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$2(VardClient.scala:152)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$1(VardClient.scala:151)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$8(VardClient.scala:114)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$7(VardClient.scala:113)
+	at scala.collection.Iterator$$anon$9.next(Iterator.scala:577)
+	at scala.collection.Iterator$$anon$18.next(Iterator.scala:944)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$socket$.findSocketChannel(VardClient.scala:122)
+	at com.github.fhackett.vardclient.VardClient$socket$.proc(VardClient.scala:149)
+	at com.github.fhackett.vardclient.VardClient.get(VardClient.scala:234)
+	at site.ycsb.db.vard.VardClient.read(VardClient.java:64)
+	at site.ycsb.db.vard.VardClient.update(VardClient.java:85)
+	at site.ycsb.DBWrapper.update(DBWrapper.java:204)
+	at site.ycsb.workloads.CoreWorkload.doTransactionUpdate(CoreWorkload.java:834)
+	at site.ycsb.workloads.CoreWorkload.doTransaction(CoreWorkload.java:667)
+	at site.ycsb.ClientThread.run(ClientThread.java:122)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.io.IOException: Connection reset by peer
+	at java.base/sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:245)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:353)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.$anonfun$readAll$1(VardClient.scala:49)
+	at scala.runtime.java8.JFunction0$mcI$sp.apply(JFunction0$mcI$sp.scala:17)
+	at scala.collection.Iterator$$anon$27.next(Iterator.scala:1128)
+	at scala.collection.Iterator$$anon$3$$anon$4$$anon$5.next(Iterator.scala:393)
+	at scala.collection.Iterator$$anon$3.next(Iterator.scala:403)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$ChannelHelpers.readAll(VardClient.scala:52)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$recvImpl$1(VardClient.scala:162)
+	at scala.util.Try$.apply(Try.scala:210)
+	at com.github.fhackett.vardclient.VardClient$socket$.recvImpl(VardClient.scala:160)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$2(VardClient.scala:152)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$proc$1(VardClient.scala:151)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$8(VardClient.scala:114)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at com.github.fhackett.vardclient.VardClient$socket$.$anonfun$findSocketChannel$7(VardClient.scala:113)
+	at scala.collection.Iterator$$anon$9.next(Iterator.scala:577)
+	at scala.collection.Iterator$$anon$18.next(Iterator.scala:944)
+	at scala.collection.IterableOnceOps.find(IterableOnce.scala:621)
+	at scala.collection.IterableOnceOps.find$(IterableOnce.scala:618)
+	at scala.collection.AbstractIterator.find(Iterator.scala:1293)
+	at com.github.fhackett.vardclient.VardClient$socket$.findSocketChannel(VardClient.scala:122)
+	at com.github.fhackett.vardclient.VardClient$socket$.proc(VardClient.scala:149)
+	at com.github.fhackett.vardclient.VardClient.get(VardClient.scala:234)
+	at site.ycsb.db.vard.VardClient.read(VardClient.java:64)
+	at site.ycsb.DBWrapper.read(DBWrapper.java:141)
+	at site.ycsb.workloads.CoreWorkload.doTransactionRead(CoreWorkload.java:742)
+	at site.ycsb.workloads.CoreWorkload.doTransaction(CoreWorkload.java:664)
+	at site.ycsb.ClientThread.run(ClientThread.java:122)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+not leader...
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+2022-07-05 22:54:11:935 10 sec: 250 operations; 25 current ops/sec; est completion in 1 minute [UPDATE-FAILED: Count=1, Max=249983, Min=249856, Avg=249920, 90=249983, 99=249983, 99.9=249983, 99.99=249983] [READ: Count=139, Max=2527231, Min=285696, Avg=1049778.65, 90=1192959, 99=2263039, 99.9=2527231, 99.99=2527231] [READ-FAILED: Count=1, Max=251775, Min=251648, Avg=251712, 90=251775, 99=251775, 99.9=251775, 99.99=251775] [UPDATE: Count=109, Max=3438591, Min=623104, Avg=1995170.06, 90=2527231, 99=3334143, 99.9=3438591, 99.99=3438591] 
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+2022-07-05 22:54:21:934 20 sec: 539 operations; 28.9 current ops/sec; est completion in 55 seconds [UPDATE-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] [READ: Count=144, Max=1269759, Min=664064, Avg=949640.89, 90=1134591, 99=1259519, 99.9=1269759, 99.99=1269759] [READ-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] [UPDATE: Count=145, Max=2381823, Min=1483776, Avg=1934989.24, 90=2289663, 99=2379775, 99.9=2381823, 99.99=2381823] 
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+2022-07-05 22:54:31:935 30 sec: 810 operations; 27.1 current ops/sec; est completion in 45 seconds [UPDATE-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] [READ: Count=131, Max=1260543, Min=630272, Avg=998538.75, 90=1123327, 99=1260543, 99.9=1260543, 99.99=1260543] [READ-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] [UPDATE: Count=140, Max=2330623, Min=1575936, Avg=1978817.83, 90=2142207, 99=2289663, 99.9=2330623, 99.99=2330623] 
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+2022-07-05 22:54:41:934 40 sec: 1086 operations; 27.6 current ops/sec; est completion in 34 seconds [UPDATE-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] [READ: Count=150, Max=1289215, Min=678912, Avg=987888.64, 90=1183743, 99=1289215, 99.9=1289215, 99.99=1289215] [READ-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] [UPDATE: Count=126, Max=2488319, Min=1549312, Avg=1992903.11, 90=2291711, 99=2486271, 99.9=2488319, 99.99=2488319] 
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+2022-07-05 22:54:51:934 50 sec: 1363 operations; 27.7 current ops/sec; est completion in 24 seconds [UPDATE-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] [READ: Count=128, Max=1298431, Min=653824, Avg=976144, 90=1177599, 99=1288191, 99.9=1298431, 99.99=1298431] [READ-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] [UPDATE: Count=149, Max=2422783, Min=1485824, Avg=1985697.5, 90=2238463, 99=2416639, 99.9=2422783, 99.99=2422783] 
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+2022-07-05 22:55:01:934 60 sec: 1652 operations; 28.9 current ops/sec; est completion in 13 seconds [UPDATE-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] [READ: Count=139, Max=1392639, Min=630784, Avg=920240.81, 90=1112063, 99=1329151, 99.9=1392639, 99.99=1392639] [READ-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] [UPDATE: Count=150, Max=2559999, Min=1385472, Avg=1858198.19, 90=2203647, 99=2498559, 99.9=2559999, 99.99=2559999] 
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+2022-07-05 22:55:11:935 70 sec: 1935 operations; 28.3 current ops/sec; est completion in 3 second [UPDATE-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] [READ: Count=147, Max=1258495, Min=631808, Avg=902009.9, 90=991743, 99=1179647, 99.9=1258495, 99.99=1258495] [CLEANUP: Count=24, Max=88, Min=7, Avg=47.71, 90=77, 99=88, 99.9=88, 99.99=88] [READ-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] [UPDATE: Count=136, Max=2277375, Min=1533952, Avg=1791574.59, 90=1936383, 99=2258943, 99.9=2277375, 99.99=2277375] 
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.6:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+2022-07-05 22:55:16:784 74 sec: 2000 operations; 13.4 current ops/sec; [UPDATE-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] [READ: Count=28, Max=804863, Min=97984, Avg=645101.71, 90=770559, 99=804863, 99.9=804863, 99.99=804863] [CLEANUP: Count=17, Max=86, Min=34, Avg=57.41, 90=84, 99=86, 99.9=86, 99.99=86] [READ-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=NaN, 90=0, 99=0, 99.9=0, 99.99=0] [UPDATE: Count=37, Max=1901567, Min=276224, Avg=1290952.65, 90=1616895, 99=1901567, 99.9=1901567, 99.99=1901567] 
+[OVERALL], RunTime(ms), 74850
+[OVERALL], Throughput(ops/sec), 26.720106880427522
+[TOTAL_GCS_G1_Young_Generation], Count, 1
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 7
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 0.009352037408149633
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 1
+[TOTAL_GC_TIME], Time(ms), 7
+[TOTAL_GC_TIME_%], Time(%), 0.009352037408149633
+[UPDATE-FAILED], Operations, 1
+[UPDATE-FAILED], AverageLatency(us), 249920.0
+[UPDATE-FAILED], MinLatency(us), 249856
+[UPDATE-FAILED], MaxLatency(us), 249983
+[UPDATE-FAILED], 95thPercentileLatency(us), 249983
+[UPDATE-FAILED], 99thPercentileLatency(us), 249983
+[READ], Operations, 1006
+[READ], AverageLatency(us), 959421.0735586481
+[READ], MinLatency(us), 97984
+[READ], MaxLatency(us), 2527231
+[READ], 95thPercentileLatency(us), 1218559
+[READ], 99thPercentileLatency(us), 1588223
+[READ], Return=OK, 1006
+[READ], Return=ERROR, 1
+[CLEANUP], Operations, 41
+[CLEANUP], AverageLatency(us), 51.73170731707317
+[CLEANUP], MinLatency(us), 7
+[CLEANUP], MaxLatency(us), 88
+[CLEANUP], 95thPercentileLatency(us), 85
+[CLEANUP], 99thPercentileLatency(us), 88
+[READ-FAILED], Operations, 1
+[READ-FAILED], AverageLatency(us), 251712.0
+[READ-FAILED], MinLatency(us), 251648
+[READ-FAILED], MaxLatency(us), 251775
+[READ-FAILED], 95thPercentileLatency(us), 251775
+[READ-FAILED], 99thPercentileLatency(us), 251775
+[UPDATE], Operations, 992
+[UPDATE], AverageLatency(us), 1907465.0322580645
+[UPDATE], MinLatency(us), 276224
+[UPDATE], MaxLatency(us), 3438591
+[UPDATE], 95thPercentileLatency(us), 2314239
+[UPDATE], 99thPercentileLatency(us), 2592767
+[UPDATE], Return=OK, 992
+[UPDATE], Return=ERROR, 1

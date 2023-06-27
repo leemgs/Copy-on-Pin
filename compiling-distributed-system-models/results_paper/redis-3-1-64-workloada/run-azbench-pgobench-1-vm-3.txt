@@ -1,0 +1,25 @@
+Compiling /home/azbench/image/run_redis_server.sc
+(numServers,3,serverIdx,2)
+6379/tcp:             5990
+7997:C 25 Oct 2022 05:21:49.857 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+7997:C 25 Oct 2022 05:21:49.857 # Redis version=5.0.7, bits=64, commit=00000000, modified=0, pid=7997, just started
+7997:C 25 Oct 2022 05:21:49.857 # Configuration loaded
+7997:S 25 Oct 2022 05:21:49.858 * Running mode=standalone, port=6379.
+7997:S 25 Oct 2022 05:21:49.858 # Server initialized
+7997:S 25 Oct 2022 05:21:49.858 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+7997:S 25 Oct 2022 05:21:49.858 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+7997:S 25 Oct 2022 05:21:49.858 * DB loaded from disk: 0.000 seconds
+7997:S 25 Oct 2022 05:21:49.858 * Before turning into a replica, using my master parameters to synthesize a cached master: I may be able to synchronize with the new master with just a partial transfer.
+7997:S 25 Oct 2022 05:21:49.858 * Ready to accept connections
+7997:S 25 Oct 2022 05:21:49.859 * Connecting to MASTER 10.0.0.4:6379
+7997:S 25 Oct 2022 05:21:49.859 * MASTER <-> REPLICA sync started
+7997:S 25 Oct 2022 05:21:49.861 * Non blocking connect for SYNC fired the event.
+7997:S 25 Oct 2022 05:21:49.861 * Master replied to PING, replication can continue...
+7997:S 25 Oct 2022 05:21:49.862 * Trying a partial resynchronization (request 289c8c9072dd167eb516831535456c12309952e8:1).
+7997:S 25 Oct 2022 05:21:49.862 * Successful partial resynchronization with master.
+7997:S 25 Oct 2022 05:21:49.862 * MASTER <-> REPLICA sync: Master accepted a Partial Resynchronization.
+7997:signal-handler (1666675339) Received SIGTERM scheduling shutdown...
+7997:S 25 Oct 2022 05:22:19.280 # Connection with master lost.
+7997:S 25 Oct 2022 05:22:19.280 * Caching the disconnected master state.
+7997:S 25 Oct 2022 05:22:19.282 # User requested shutdown...
+7997:S 25 Oct 2022 05:22:19.282 # Redis is now ready to exit, bye bye...

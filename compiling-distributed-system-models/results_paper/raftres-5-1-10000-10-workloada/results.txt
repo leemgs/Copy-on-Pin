@@ -1,0 +1,97 @@
+Compiling /home/azbench/image/RaftResMagic.sc
+Compiling /home/azbench/image/go_ycsb_raftres.sc
+loading YCSB
+***************** properties *****************
+"updateproportion"="0.5"
+"raftres.config"="/tmp/9632395510642002069.yaml"
+"dotransactions"="false"
+"workload"="core"
+"readproportion"="0.5"
+"operationcount"="10000"
+"readallfields"="true"
+"insertproportion"="0"
+"recordcount"="1000"
+"scanproportion"="0"
+"requestdistribution"="zipfian"
+"threadcount"="10"
+**********************************************
+2022/07/03 17:55:09 relaxed mailboxes started listening on: 10.0.0.7:8004
+2022/07/03 17:55:09 relaxed mailboxes started listening on: 10.0.0.7:8010
+2022/07/03 17:55:09 relaxed mailboxes started listening on: 10.0.0.7:8007
+2022/07/03 17:55:09 fd change state: archetype = 37, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/03 17:55:09 fd change state: archetype = 38, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/03 17:55:09 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/07/03 17:55:09 fd change state: archetype = 40, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/03 17:55:09 relaxed mailboxes started listening on: 10.0.0.7:8008
+2022/07/03 17:55:09 fd change state: archetype = 36, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/03 17:55:09 fd change state: archetype = 39, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/03 17:55:09 relaxed mailboxes started listening on: 10.0.0.7:8006
+2022/07/03 17:55:09 relaxed mailboxes started listening on: 10.0.0.7:8002
+2022/07/03 17:55:09 relaxed mailboxes started listening on: 10.0.0.7:8005
+2022/07/03 17:55:09 relaxed mailboxes started listening on: 10.0.0.7:8001
+2022/07/03 17:55:09 relaxed mailboxes started listening on: 10.0.0.7:8009
+2022/07/03 17:55:10 archetype 49 finished, err = <nil>
+2022/07/03 17:55:10 archetype 54 finished, err = <nil>
+2022/07/03 17:55:10 archetype 55 finished, err = <nil>
+2022/07/03 17:55:10 archetype 53 finished, err = <nil>
+2022/07/03 17:55:10 archetype 47 finished, err = <nil>
+2022/07/03 17:55:10 archetype 51 finished, err = <nil>
+2022/07/03 17:55:10 archetype 46 finished, err = <nil>
+2022/07/03 17:55:10 archetype 50 finished, err = <nil>
+2022/07/03 17:55:10 archetype 48 finished, err = <nil>
+2022/07/03 17:55:11 archetype 52 finished, err = <nil>
+Run finished, takes 1.600930134s
+INSERT - Takes(s): 1.6, Count: 1000, OPS: 629.1, Avg(us): 12902, Min(us): 3826, Max(us): 215898, 99th(us): 22000, 99.9th(us): 216000, 99.99th(us): 216000
+running YCSB
+***************** properties *****************
+"operationcount"="10000"
+"updateproportion"="0.5"
+"recordcount"="1000"
+"workload"="core"
+"scanproportion"="0"
+"readproportion"="0.5"
+"requestdistribution"="zipfian"
+"threadcount"="10"
+"raftres.config"="/tmp/9632395510642002069.yaml"
+"dotransactions"="true"
+"insertproportion"="0"
+"readallfields"="true"
+**********************************************
+2022/07/03 17:55:16 relaxed mailboxes started listening on: 10.0.0.7:8010
+2022/07/03 17:55:16 relaxed mailboxes started listening on: 10.0.0.7:8002
+2022/07/03 17:55:16 relaxed mailboxes started listening on: 10.0.0.7:8008
+2022/07/03 17:55:16 relaxed mailboxes started listening on: 10.0.0.7:8004
+2022/07/03 17:55:16 relaxed mailboxes started listening on: 10.0.0.7:8006
+2022/07/03 17:55:16 relaxed mailboxes started listening on: 10.0.0.7:8005
+2022/07/03 17:55:16 relaxed mailboxes started listening on: 10.0.0.7:8007
+2022/07/03 17:55:16 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/07/03 17:55:16 fd change state: archetype = 40, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/03 17:55:16 fd change state: archetype = 37, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/03 17:55:16 fd change state: archetype = 39, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/03 17:55:16 fd change state: archetype = 36, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/03 17:55:16 fd change state: archetype = 38, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/03 17:55:16 relaxed mailboxes started listening on: 10.0.0.7:8001
+2022/07/03 17:55:16 relaxed mailboxes started listening on: 10.0.0.7:8009
+2022/07/03 17:55:17 client 3 sending timeout
+2022/07/03 17:55:17 client 5 sending timeout
+2022/07/03 17:55:17 client 4 sending timeout
+2022/07/03 17:55:17 client 7 sending timeout
+2022/07/03 17:55:17 client 4 sent timeout
+2022/07/03 17:55:17 client 5 sent timeout
+2022/07/03 17:55:17 client 3 sent timeout
+2022/07/03 17:55:17 client 7 sent timeout
+READ   - Takes(s): 10.0, Count: 3337, OPS: 333.9, Avg(us): 9369, Min(us): 3312, Max(us): 404466, 99th(us): 20000, 99.9th(us): 25000, 99.99th(us): 201000
+UPDATE - Takes(s): 9.8, Count: 3419, OPS: 349.3, Avg(us): 20063, Min(us): 8637, Max(us): 1227552, 99th(us): 36000, 99.9th(us): 1017000, 99.99th(us): 1228000
+2022/07/03 17:55:28 archetype 46 finished, err = <nil>
+2022/07/03 17:55:28 archetype 53 finished, err = <nil>
+2022/07/03 17:55:28 archetype 47 finished, err = <nil>
+2022/07/03 17:55:28 archetype 55 finished, err = <nil>
+2022/07/03 17:55:28 archetype 49 finished, err = <nil>
+2022/07/03 17:55:29 archetype 48 finished, err = <nil>
+2022/07/03 17:55:33 archetype 54 finished, err = <nil>
+2022/07/03 17:55:34 archetype 51 finished, err = <nil>
+2022/07/03 17:55:34 archetype 50 finished, err = <nil>
+2022/07/03 17:55:35 archetype 52 finished, err = <nil>
+Run finished, takes 18.856240225s
+READ   - Takes(s): 18.8, Count: 4963, OPS: 263.3, Avg(us): 9338, Min(us): 2870, Max(us): 404466, 99th(us): 21000, 99.9th(us): 26000, 99.99th(us): 405000
+UPDATE - Takes(s): 18.6, Count: 5037, OPS: 270.2, Avg(us): 19662, Min(us): 8367, Max(us): 1227552, 99th(us): 36000, 99.9th(us): 405000, 99.99th(us): 1228000

@@ -1,0 +1,28 @@
+Compiling /home/azbench/image/run_redis_server.sc
+(numServers,3,serverIdx,1)
+21683:C 25 Oct 2022 05:42:44.276 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+21683:C 25 Oct 2022 05:42:44.276 # Redis version=5.0.7, bits=64, commit=00000000, modified=0, pid=21683, just started
+21683:C 25 Oct 2022 05:42:44.276 # Configuration loaded
+21683:S 25 Oct 2022 05:42:44.277 * Running mode=standalone, port=6379.
+21683:S 25 Oct 2022 05:42:44.277 # Server initialized
+21683:S 25 Oct 2022 05:42:44.277 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+21683:S 25 Oct 2022 05:42:44.277 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+21683:S 25 Oct 2022 05:42:44.277 * DB loaded from disk: 0.000 seconds
+21683:S 25 Oct 2022 05:42:44.277 * Before turning into a replica, using my master parameters to synthesize a cached master: I may be able to synchronize with the new master with just a partial transfer.
+21683:S 25 Oct 2022 05:42:44.277 * Ready to accept connections
+21683:S 25 Oct 2022 05:42:44.279 * Connecting to MASTER 10.0.0.4:6379
+21683:S 25 Oct 2022 05:42:44.279 * MASTER <-> REPLICA sync started
+21683:S 25 Oct 2022 05:42:44.280 * Non blocking connect for SYNC fired the event.
+21683:S 25 Oct 2022 05:42:44.280 * Master replied to PING, replication can continue...
+21683:S 25 Oct 2022 05:42:44.281 * Trying a partial resynchronization (request 5aac4ab4321d684b6ba9fcaf06bcecda44a8f9b1:1).
+21683:S 25 Oct 2022 05:42:44.282 * Full resync from master: 95721c23f6c97ed61116c345b7ca1275bd951c15:0
+21683:S 25 Oct 2022 05:42:44.282 * Discarding previously cached master state.
+21683:S 25 Oct 2022 05:42:44.446 * MASTER <-> REPLICA sync: receiving 175 bytes from master
+21683:S 25 Oct 2022 05:42:44.446 * MASTER <-> REPLICA sync: Flushing old data
+21683:S 25 Oct 2022 05:42:44.446 * MASTER <-> REPLICA sync: Loading DB in memory
+21683:S 25 Oct 2022 05:42:44.446 * MASTER <-> REPLICA sync: Finished with success
+21683:signal-handler (1666676591) Received SIGTERM scheduling shutdown...
+21683:S 25 Oct 2022 05:43:11.288 # Connection with master lost.
+21683:S 25 Oct 2022 05:43:11.288 * Caching the disconnected master state.
+21683:S 25 Oct 2022 05:43:11.308 # User requested shutdown...
+21683:S 25 Oct 2022 05:43:11.308 # Redis is now ready to exit, bye bye...

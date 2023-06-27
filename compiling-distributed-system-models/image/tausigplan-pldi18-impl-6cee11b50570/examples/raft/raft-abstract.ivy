@@ -1,0 +1,393 @@
+#lang ivy1.6
+
+module totallyordered(t) = {
+    axiom X:t <= X                        # Reflexivity
+    axiom X:t <= Y & Y <= Z -> X <= Z     # Transitivity
+    axiom X:t <= Y & Y <= X -> X = Y      # Anti-symmetry
+    axiom X:t <= Y | Y <= X               # Totality
+    axiom 0 <= X:t                        # 0 is minimal
+
+    # Aliases: <, >, >=
+    axiom X:t < Y <-> X <= Y & X ~= Y
+    axiom X:t > Y <-> Y < X
+    axiom X:t >= Y <-> Y <= X
+}
+
+# types
+
+type node
+type quorum
+relation member(N:node, Q:quorum)
+axiom forall Q1:quorum, Q2:quorum. exists N:node. member(N, Q1) & member(N, Q2)
+
+type history
+type value
+type term
+type index
+
+instantiate totallyordered(term)
+instantiate totallyordered(index)
+
+# messages
+
+relation request_vote_nolog_msg(C:node, T:term)
+relation request_vote_msg(C:node, T:term, I:index, LOGT:term)
+relation vote_msg(N:node, T:term, C:node)
+relation append_entry_msg(N:node, T:term, I:index, LOGT:term, V:value, PI:index, PT:term)
+relation append_reply_msg(N:node, T:term, I:index)
+
+init ~request_vote_nolog_msg(C, T)
+init ~request_vote_msg(C, T, I, LOGT)
+init ~vote_msg(N, T, C)
+init ~append_entry_msg(N, T, I, LOGT, V, PI, PT)
+init ~append_reply_msg(N, T, I)
+
+# node state
+
+function hist(N:node) : history
+relation term_bigeq(N:node, T:term)
+relation term_bigger(N:node, T:term)
+relation curr_term(N:node, T:term)
+relation is_leader(N:node)
+
+init term_bigeq(N,T) <-> T = 0
+init ~term_bigger(N, T)
+init curr_term(N,T) <-> T = 0
+init ~is_leader(N)
+init ~filled_ix(hist(N), IX)
+
+# auxiliary methods
+
+action set_term(n:node, t:term) = {
+    curr_term(n, T) :=  T = t;
+    term_bigeq(n, T) :=  t >= T;
+    term_bigger(n, T) :=  t > T;
+    is_leader(n) := false;
+}
+
+action get_term(n:node) returns (t:term) = {
+    assume curr_term(n,T) <-> T = t;
+    assume term_bigeq(n, T) <->  t >= T;
+    assume term_bigger(n, T) <->  t > T;
+}
+
+# global ghost state
+
+relation committed(IX:index, V:value)
+init ~committed(IX, V)
+
+#     relation inited(H: history) # The histories that were part of this RAFT execution
+#     init inited(H) -> ~filled_ix(H, IX)
+#     init inited(hist(N))
+
+#     # COMMITED HISTORY:
+function commit_history : history
+function commit_ix : index
+function commit_term : term
+function commit_quorum : quorum
+init ~filled_ix(commit_history, IX)
+init commit_ix = 0
+init commit_term = 0
+#     init ~inited(commited_history)
+
+#     # TERM PROPERTIES
+function term_leader(T:term) : node
+function voting_quorum(T: term) : quorum
+relation started(T:term)
+function term_hist(T: term) : history
+
+init ~filled_ix(term_hist(T), IX)
+init ~started(T)
+
+# histories
+
+relation logt_at_ix(H: history, IX: index, LOGT: term)
+relation filled_ix(H: history, IX:index)
+function val_at_ix(H: history, IX: index) : value
+
+axiom logt_at_ix(H, IX, LOGT1) & logt_at_ix(H, IX, LOGT2) -> LOGT1 = LOGT2
+axiom logt_at_ix(H, IX, LOGT) -> filled_ix(H, IX)
+axiom filled_ix(H, IX) & SMALLIX < IX -> filled_ix(H, SMALLIX)
+
+action clear_history returns (h: history) = {
+    assume ~filled_ix(h, IX);
+}
+
+action strip_history(h: history, ix: index) returns (h2:history) = {
+    assume logt_at_ix(h2, IX, LOGT) <-> logt_at_ix(h, IX, LOGT) & IX <= ix;
+    assume IX <= ix -> val_at_ix(h2, IX) = val_at_ix(h, IX);
+    assume filled_ix(h2, IX) <-> filled_ix(h, IX) & IX <= ix;
+}
+
+action append_to_hist(h: history, ix: index, logt: term, v: value) returns (h2:history) = {
+    assert filled_ix(h, IX) <-> IX < ix;
+    assume logt_at_ix(h2, IX, LOGT) <-> (logt_at_ix(h, IX, LOGT) | (ix = IX & logt = LOGT));
+    assume filled_ix(h2, IX) <-> (filled_ix(h, IX) | ix = IX);
+    assume IX < ix -> val_at_ix(h2, IX) = val_at_ix(h, IX);
+    assume val_at_ix(h2, ix) = v;
+}
+
+action get_next_ix(h: history) returns (ix: index) = {
+    assume filled_ix(h, IX) <-> IX < ix
+}
+
+action get_logt_at_ix(h: history, ix: index) returns (logt: term) = {
+    assume logt_at_ix(h, ix, logt);
+}
+
+# index succ and pred
+
+action minus_one(ix: index) returns (newix: index) = {
+    assert ix > 0;
+    assume newix < ix;
+    assume ~(newix < MIDDLE & MIDDLE < ix);
+}
+
+action plus_one(ix: index) returns (newix: index) = {
+    assume newix > ix;
+    assume ~(ix < MIDDLE & MIDDLE < newix);
+}
+
+# protocol actions
+
+action request_vote_nolog(cand: node, t:term) = {
+    assume ~term_bigeq(cand, t);
+    assume ~filled_ix(hist(cand), IX);
+    request_vote_nolog_msg(cand, t) := true;
+    # vote for self
+    vote_msg(cand, t, cand) := true;
+    call set_term(cand, t);
+}
+export request_vote_nolog
+
+action request_vote(cand: node, t:term, logt:term, ix:index) = {
+    assume ~term_bigeq(cand, t);
+    assume logt_at_ix(hist(cand), ix, logt);
+    assume IX > ix -> ~filled_ix(hist(cand), IX);
+    request_vote_msg(cand, t, ix, logt) := true;
+    # vote for self
+    vote_msg(cand, t, cand) := true;
+    call set_term(cand, t);
+}
+export request_vote
+
+action vote_nolog(n:node, t:term, cand: node) = {
+    assume request_vote_nolog_msg(cand, t); # A candidate that has no log requested our vote
+    assume ~filled_ix(hist(n), IX);
+    assume ~term_bigeq(n, t);       # We still haven't join this term so we can vote
+    vote_msg(n, t, cand) := true;
+    call set_term(n, t);
+}
+export vote_nolog
+
+action vote(n:node, logt: term, ix: index, t:term, cand: node) = {
+    assume request_vote_msg(cand, t, ix, logt); # A candidate requested our vote, it reports about its log.
+    var h := hist(n);
+    assume T > logt -> ~logt_at_ix(h, IX, T);     # The candidate log reaches the term we expect.
+    assume logt_at_ix(h, IX1, logt) & IX2 > ix    # If same term then check it has
+            -> ~filled_ix(h, IX2);                #       at least the same length.
+    assume ~term_bigeq(n, t);                 # We still haven't join this term so we can vote.
+    vote_msg(n, t, cand) := true;
+    call set_term(n, t);
+}
+export vote
+
+action become_leader(cand: node, t:term, q:quorum) = {
+    assume curr_term(cand, t) & ~is_leader(cand);
+    assume forall N:node. member(N,q) -> vote_msg(N, t, cand);
+    is_leader(cand) := true;
+    # ghost code:
+    started(t) := true;
+    term_leader(t) := cand;
+    voting_quorum(t) := q;
+    term_hist(t) := hist(cand);
+}
+export become_leader
+
+action leader_new_entry(leader: node, v: value) = {
+    assume is_leader(leader);
+    var t := get_term(leader);
+    var lhist := hist(leader);
+    var ix := get_next_ix(lhist);
+    hist(leader) := append_to_hist(lhist, ix, t, v);
+    # ghost
+    #inited(hist(leader)) := true;
+    term_hist(t) := hist(leader);
+}
+export leader_new_entry
+
+action request_append_entry(leader: node, ix:index, logt:term, v:value) = {
+    var lhist := hist(leader);
+    var t := get_term(leader);
+    assume is_leader(leader);
+    assume logt_at_ix(lhist, ix, logt);
+    assume val_at_ix(lhist, ix) = v;
+    var previx : index;
+    var prevt : term;
+    if ix ~= 0 {
+        previx := minus_one(ix);
+        prevt := get_logt_at_ix(lhist, previx);
+    } else {
+        previx := 0;
+    };
+    # send request
+    append_entry_msg(leader, t, ix, logt, v, previx, prevt) := true;
+    # reply to self
+    append_reply_msg(leader, t, ix) := true;
+}
+export request_append_entry
+
+action receive_append_entry(n:node, leader:node, t:term, ix:index, logt:term, v:value, previx:index, prevt:term) = {
+    assume append_entry_msg(leader, t, ix, logt, v, previx, prevt);
+
+    var h := hist(n);
+    var node_term := get_term(n);
+    assume ~is_leader(n) & node_term <= t;
+    assume ~logt_at_ix(h, ix, logt);
+    # assume previx matches (otherwise we ignore)
+    assume ix ~= 0 -> logt_at_ix(h, previx, prevt);
+
+    # jump to term t
+    call set_term(n, t);
+
+    # Replacing or appending
+    if ix = 0 {
+        h := clear_history;
+    } else {
+        h := strip_history(h, previx);
+    };
+    h := append_to_hist(h, ix, logt, v);
+    hist(n) := h;
+    # inited(h) := true; # ghost
+    append_reply_msg(n, t, ix) := true;
+}
+export receive_append_entry
+
+action commit(leader: node, t:term, ix:index, q:quorum) = {
+    assume forall N. member(N, q) -> append_reply_msg(N, t, ix);
+    assume curr_term(leader, t);
+    assume is_leader(leader);
+    assume logt_at_ix(hist(leader), ix, t);
+    committed(IX, V) := committed(IX, V) | (IX <= ix & val_at_ix(hist(leader), IX) = V);
+
+    # ghost:
+    if ~filled_ix(commit_history, ix) {
+        commit_history := strip_history(hist(leader), ix);
+        # inited(commit_history) := true;
+        commit_ix := ix;
+        commit_term := t;
+        commit_quorum := q;
+    };
+
+    # safety property:
+    assert committed(IX, V1) & committed(IX, V2) -> V1 = V2
+}
+export commit
+
+# inductive invariant
+
+# curr_term, term_bigeq, term_bigger
+conjecture curr_term(N,T) <-> term_bigeq(N,T) & ~term_bigger(N,T)
+conjecture curr_term(N,T1) & curr_term(N,T2) -> T1 = T2
+conjecture term_bigeq(N,T) & T > TSMALL -> term_bigger(N,TSMALL)
+conjecture term_bigger(N,TSMALL) -> term_bigeq(N,TSMALL)
+
+# leader election basics
+conjecture is_leader(N) & curr_term(N, T) -> term_leader(T) = N & started(T)
+conjecture term_leader(T) = N & started(T) -> term_bigeq(N, T)
+conjecture term_leader(T) = N & started(T) & curr_term(N,T) -> is_leader(N)
+conjecture started(T) & member(N, voting_quorum(T)) -> vote_msg(N, T, term_leader(T))
+conjecture vote_msg(N, T, C1) & vote_msg(N, T, C2) -> C1 = C2
+conjecture request_vote_msg(C, T, IX, LOGT) -> ~request_vote_nolog_msg(C, T)
+conjecture request_vote_nolog_msg(C, T) -> ~request_vote_msg(C, T, IX, LOGT)
+conjecture request_vote_msg(C, T, IX, LOGT) -> vote_msg(C, T, C)
+conjecture request_vote_nolog_msg(C, T) -> vote_msg(C, T, C)
+conjecture request_vote_msg(C, T, IX, LOGT) -> term_bigeq(C, T)
+conjecture request_vote_nolog_msg(C, T) -> term_bigeq(C, T)
+conjecture vote_msg(N, T, C) -> term_bigeq(N, T)
+conjecture vote_msg(N, T, C) -> term_bigeq(C, T)
+conjecture started(T) -> term_bigeq(term_leader(T), T)
+
+# histories basics
+conjecture filled_ix(term_hist(T), IX) -> started(T)
+conjecture ~started(T) -> ~filled_ix(term_hist(T),IX)
+conjecture started(T) & curr_term(term_leader(T), T) -> hist(term_leader(T)) = term_hist(T)
+conjecture logt_at_ix(term_hist(T), IX, LOGT) -> LOGT <= T
+conjecture logt_at_ix(hist(N), IX, LOGT) & ~term_bigger(N, T) -> LOGT <= T
+conjecture ((started(T) & H = term_hist(T)) | H = commit_history | H = hist(N)) & logt_at_ix(H, IX, LOGT) -> logt_at_ix(term_hist(LOGT), IX, LOGT)
+
+# append_entry_msg basics
+conjecture append_entry_msg(N, T, I, LT, V, PI, PT) -> started(T)
+conjecture append_entry_msg(N, T, I, LT, V, PI, PT) -> logt_at_ix(term_hist(T), I, LT)
+conjecture append_entry_msg(N, T, I, LT, V, PI, PT) -> val_at_ix(term_hist(T), I) = V
+conjecture append_entry_msg(N, T, I, LT, V, PI, PT) & I > 0 -> logt_at_ix(term_hist(T), PI, PT)
+conjecture append_entry_msg(N, T, I, LT, V, PI, PT) & I > 0 -> (PI < I & (PI < J -> I <= J))
+
+# more advanced - connection between "active" (inited) histories
+
+#axiom filled_ix(H, IX) -> exists T. logt_at_ix(H, IX, T)
+
+# histories are monotone
+conjecture ((started(T) & H = term_hist(T)) | H = commit_history | H = hist(N)) & logt_at_ix(H, IX1, LOGT1) & logt_at_ix(H, IX2, LOGT2) & IX1 <= IX2 -> LOGT1 <= LOGT2
+
+# two histories with same LOGT at same IX are identical up to IX
+conjecture (
+    ((started(T1) & H1 = term_hist(T1)) | H1 = commit_history | H1 = hist(N)) & # inited(H1)
+    ((started(T2) & H2 = term_hist(T2)) | H2 = commit_history | H2 = hist(N)) & # inited(H2)
+    logt_at_ix(H1, IX2, LOGT) &
+    logt_at_ix(H2, IX2, LOGT) &
+    IX1 <= IX2
+) -> (
+    (logt_at_ix(H1, IX1, OTHERT) <-> logt_at_ix(H2, IX1, OTHERT)) &
+    (filled_ix(H1, IX1) <-> filled_ix(H2, IX1)) &
+    val_at_ix(H1, IX1) = val_at_ix(H2, IX1)
+)
+
+# two histories with same LOGT, different IX's
+conjecture (
+    ((started(T1) & H1 = term_hist(T1)) | H1 = commit_history | H1 = hist(N)) & # inited(H1)
+    ((started(T2) & H2 = term_hist(T2)) | H2 = commit_history | H2 = hist(N)) & # inited(H2)
+    logt_at_ix(H1, IX1, LOGT) &
+    logt_at_ix(H2, IX2, LOGT) &
+    IX1 <= IX2
+) -> logt_at_ix(H2, IX1, LOGT)
+
+# append_entry_msg consistency
+conjecture append_reply_msg(N, T, IX) -> filled_ix(term_hist(T), IX)
+conjecture append_reply_msg(N, T, IX) -> term_bigeq(N, T)
+
+# connection between voting and logs
+conjecture request_vote_msg(term_leader(T), T, IX, LOGT) & started(T) -> logt_at_ix(term_hist(T), IX, LOGT)
+conjecture request_vote_msg(C, T, IX, LOGT) & ~term_bigger(C, T) & ~started(T) -> logt_at_ix(hist(C), IX, LOGT)
+conjecture request_vote_msg(C, T, IX, LOGT) & ~term_bigger(C, T) & ~started(T) & BIGIX > IX -> ~filled_ix(hist(C), BIGIX)
+conjecture request_vote_nolog_msg(C, T) & ~term_bigger(C, T) & ~started(T) -> ~filled_ix(hist(C), IX)
+
+# stong voters and strong choosable
+
+# choosable entries remain in history of higher terms
+conjecture
+(logt_at_ix(term_hist(T), IX, T) & (exists Q. forall N. member(N, Q) -> (append_reply_msg(N, T, IX) | ~term_bigger(N, T)))) # choosable(T, IX)
+& T2 > T & started(T2) -> logt_at_ix(term_hist(T2), IX, T)
+
+# strong voters continue to carry data voted if there is a choosable quorum
+conjecture
+(logt_at_ix(term_hist(T), IX, T) & (exists Q. forall N. member(N, Q) -> (append_reply_msg(N, T, IX) | ~term_bigger(N, T)))) # choosable(T, IX)
+->
+forall NN.            # strong_vote(N, T, IX)
+             append_reply_msg(NN, T, IX) -> logt_at_ix(hist(NN), IX, T)
+
+# strong voters will only vote for candidates which agree with them
+conjecture
+(logt_at_ix(term_hist(T), IX, T) & (exists Q. forall N. member(N, Q) -> (append_reply_msg(N, T, IX) | ~term_bigger(N, T)))) # choosable(T, IX)
+& T2 > T &
+append_reply_msg(NN, T, IX) & # strong_vote(NN, T, IX)
+vote_msg(NN, T2, C) & ~term_bigger(C, T2) & ~started(T2) -> logt_at_ix(hist(C), IX, T)
+
+# commits
+
+conjecture commit_ix ~= 0 -> filled_ix(commit_history, commit_ix)
+conjecture filled_ix(commit_history, commit_ix) -> logt_at_ix(commit_history, commit_ix, commit_term)
+conjecture IX > commit_ix -> ~filled_ix(commit_history, IX)
+conjecture filled_ix(commit_history, commit_ix) & member(N, commit_quorum) -> append_reply_msg(N, commit_term, commit_ix)
+conjecture committed(IX, V) <-> (val_at_ix(commit_history, IX) = V & filled_ix(commit_history, IX))
+conjecture committed(IX, V1) & committed(IX, V2) -> V1 = V2

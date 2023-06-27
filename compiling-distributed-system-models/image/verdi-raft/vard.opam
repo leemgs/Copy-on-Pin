@@ -1,0 +1,35 @@
+opam-version: "2.0"
+version: "dev"
+maintainer: "palmskog@gmail.com"
+
+homepage: "https://github.com/uwplse/verdi-raft"
+dev-repo: "git+https://github.com/uwplse/verdi-raft.git"
+bug-reports: "https://github.com/uwplse/verdi-raft/issues"
+license: "BSD-2-Clause"
+synopsis: "Fault-tolerant distributed key-value store using a verified implementation of Raft consensus"
+
+build: [
+  ["./configure"]
+  [make "-j%{jobs}%" "vard"]
+]
+depends: [
+  "ocaml" {>= "4.05.0"}
+  "coq" {>= "8.7" & < "8.12~"}
+  "coq-verdi" {= "dev"}
+  "coq-struct-tact" {= "dev"}
+  "coq-cheerios" {= "dev"}
+  "verdi-runtime" {= "dev"}
+  "ocamlbuild" {build}
+  "ounit" {with-test & >= "2.0.0"}
+]
+
+authors: [
+  "Justin Adsuara"
+  "Steve Anton"
+  "Ryan Doenges"
+  "Karl Palmskog"
+  "Pavel Panchekha"
+  "Zachary Tatlock"
+  "James R. Wilcox"
+  "Doug Woos"
+]

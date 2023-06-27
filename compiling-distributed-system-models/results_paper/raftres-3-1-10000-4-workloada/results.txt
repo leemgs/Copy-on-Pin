@@ -1,0 +1,69 @@
+loading YCSB
+***************** properties *****************
+"raftres.config"="/tmp/8174718064082859965.yaml"
+"workload"="core"
+"updateproportion"="0.5"
+"readproportion"="0.5"
+"requestdistribution"="zipfian"
+"operationcount"="10000"
+"scanproportion"="0"
+"recordcount"="1000"
+"threadcount"="4"
+"dotransactions"="false"
+"insertproportion"="0"
+"readallfields"="true"
+**********************************************
+2022/07/02 02:46:21 fd change state: archetype = 22, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:46:21 fd change state: archetype = 24, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:46:21 fd change state: archetype = 23, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:46:21 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/07/02 02:46:21 relaxed mailboxes started listening on: 10.0.0.7:8001
+2022/07/02 02:46:21 relaxed mailboxes started listening on: 10.0.0.7:8004
+2022/07/02 02:46:21 relaxed mailboxes started listening on: 10.0.0.7:8002
+2022/07/02 02:46:22 archetype 28 finished, err = <nil>
+2022/07/02 02:46:22 archetype 30 finished, err = <nil>
+2022/07/02 02:46:23 archetype 29 finished, err = <nil>
+2022/07/02 02:46:23 archetype 31 finished, err = <nil>
+Run finished, takes 2.200543296s
+INSERT - Takes(s): 2.0, Count: 1000, OPS: 500.7, Avg(us): 7289, Min(us): 2841, Max(us): 204588, 99th(us): 13000, 99.9th(us): 205000, 99.99th(us): 205000
+running YCSB
+***************** properties *****************
+"raftres.config"="/tmp/8174718064082859965.yaml"
+"readproportion"="0.5"
+"recordcount"="1000"
+"workload"="core"
+"scanproportion"="0"
+"operationcount"="10000"
+"updateproportion"="0.5"
+"threadcount"="4"
+"readallfields"="true"
+"insertproportion"="0"
+"dotransactions"="true"
+"requestdistribution"="zipfian"
+**********************************************
+2022/07/02 02:46:28 relaxed mailboxes started listening on: 10.0.0.7:8004
+2022/07/02 02:46:28 relaxed mailboxes started listening on: 10.0.0.7:8002
+2022/07/02 02:46:28 relaxed mailboxes started listening on: 10.0.0.7:8001
+2022/07/02 02:46:28 fd change state: archetype = 22, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:46:28 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/07/02 02:46:28 fd change state: archetype = 24, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:46:28 fd change state: archetype = 23, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:46:29 client 2 sending timeout
+2022/07/02 02:46:29 client 1 sending timeout
+2022/07/02 02:46:29 client 3 sending timeout
+2022/07/02 02:46:29 client 2 sent timeout
+2022/07/02 02:46:29 client 1 sent timeout
+2022/07/02 02:46:29 client 3 sent timeout
+READ   - Takes(s): 10.0, Count: 1918, OPS: 191.9, Avg(us): 8184, Min(us): 2655, Max(us): 1213946, 99th(us): 13000, 99.9th(us): 1209000, 99.99th(us): 1214000
+UPDATE - Takes(s): 9.8, Count: 1890, OPS: 193.2, Avg(us): 12828, Min(us): 6037, Max(us): 23786, 99th(us): 22000, 99.9th(us): 24000, 99.99th(us): 24000
+READ   - Takes(s): 20.0, Count: 3959, OPS: 198.0, Avg(us): 7342, Min(us): 2655, Max(us): 1213946, 99th(us): 14000, 99.9th(us): 201000, 99.99th(us): 1214000
+UPDATE - Takes(s): 19.8, Count: 3915, OPS: 197.9, Avg(us): 12982, Min(us): 5707, Max(us): 31531, 99th(us): 23000, 99.9th(us): 27000, 99.99th(us): 32000
+2022/07/02 02:46:48 archetype 31 finished, err = <nil>
+2022/07/02 02:46:49 archetype 29 finished, err = <nil>
+READ   - Takes(s): 30.0, Count: 4950, OPS: 165.0, Avg(us): 7342, Min(us): 2655, Max(us): 1213946, 99th(us): 15000, 99.9th(us): 24000, 99.99th(us): 1214000
+UPDATE - Takes(s): 29.8, Count: 4894, OPS: 164.3, Avg(us): 13342, Min(us): 5707, Max(us): 33963, 99th(us): 25000, 99.9th(us): 31000, 99.99th(us): 34000
+2022/07/02 02:46:58 archetype 28 finished, err = <nil>
+2022/07/02 02:46:59 archetype 30 finished, err = <nil>
+Run finished, takes 31.191972588s
+READ   - Takes(s): 31.2, Count: 5022, OPS: 161.0, Avg(us): 7340, Min(us): 2655, Max(us): 1213946, 99th(us): 15000, 99.9th(us): 22000, 99.99th(us): 1214000
+UPDATE - Takes(s): 31.0, Count: 4978, OPS: 160.7, Avg(us): 13372, Min(us): 5707, Max(us): 33963, 99th(us): 25000, 99.9th(us): 31000, 99.99th(us): 34000

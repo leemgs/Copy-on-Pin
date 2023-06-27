@@ -1,0 +1,57 @@
+Compiling /home/azbench/image/PBKVSMagic.sc
+Compiling /home/azbench/image/go_ycsb_pbkvs.sc
+loading YCSB
+2022/10/25 06:31:37 resetting client failure detector
+2022/10/25 06:31:37 resetting client failure detector
+2022/10/25 06:31:37 resetting client failure detector
+***************** properties *****************
+"readallfields"="true"
+"updateproportion"="0.5"
+"threadcount"="1"
+"readproportion"="0.5"
+"pbkvs.config"="/tmp/6048520116989677232.yaml"
+"dotransactions"="false"
+"insertproportion"="0"
+"scanproportion"="0"
+"requestdistribution"="zipfian"
+"operationcount"="10000"
+"workload"="core"
+"recordcount"="1000"
+**********************************************
+2022/10/25 06:31:37 fd change state: archetype = 1, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/25 06:31:37 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/10/25 06:31:37 fd change state: archetype = 2, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/25 06:31:37 fd change state: archetype = 3, old state = uninitialized, new state = alive. Due to rpc call reply
+Run finished, takes 6.000880768s
+INSERT - Takes(s): 5.2, Count: 1000, OPS: 192.8, Avg(us): 5605, Min(us): 2965, Max(us): 813519, 99th(us): 8000, 99.9th(us): 205000, 99.99th(us): 814000
+running YCSB
+2022/10/25 06:31:48 resetting client failure detector
+2022/10/25 06:31:48 resetting client failure detector
+2022/10/25 06:31:48 resetting client failure detector
+***************** properties *****************
+"threadcount"="1"
+"pbkvs.config"="/tmp/6048520116989677232.yaml"
+"operationcount"="10000"
+"requestdistribution"="zipfian"
+"insertproportion"="0"
+"workload"="core"
+"updateproportion"="0.5"
+"scanproportion"="0"
+"readallfields"="true"
+"readproportion"="0.5"
+"dotransactions"="true"
+"recordcount"="1000"
+**********************************************
+2022/10/25 06:31:48 fd change state: archetype = 1, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/25 06:31:48 fd change state: archetype = 2, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/25 06:31:48 fd change state: archetype = 3, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/25 06:31:48 relaxed mailboxes started listening on: 10.0.0.7:8003
+READ   - Takes(s): 9.8, Count: 1329, OPS: 135.9, Avg(us): 1273, Min(us): 740, Max(us): 6583, 99th(us): 4000, 99.9th(us): 6000, 99.99th(us): 7000
+UPDATE - Takes(s): 9.8, Count: 1391, OPS: 142.1, Avg(us): 5953, Min(us): 3804, Max(us): 211940, 99th(us): 11000, 99.9th(us): 13000, 99.99th(us): 212000
+READ   - Takes(s): 19.8, Count: 2789, OPS: 141.0, Avg(us): 1291, Min(us): 740, Max(us): 6583, 99th(us): 4000, 99.9th(us): 7000, 99.99th(us): 7000
+UPDATE - Takes(s): 19.8, Count: 2792, OPS: 141.1, Avg(us): 5853, Min(us): 3771, Max(us): 211940, 99th(us): 11000, 99.9th(us): 14000, 99.99th(us): 212000
+READ   - Takes(s): 29.8, Count: 4167, OPS: 139.9, Avg(us): 1303, Min(us): 740, Max(us): 6673, 99th(us): 4000, 99.9th(us): 6000, 99.99th(us): 7000
+UPDATE - Takes(s): 29.8, Count: 4182, OPS: 140.4, Avg(us): 5855, Min(us): 3754, Max(us): 211940, 99th(us): 11000, 99.9th(us): 14000, 99.99th(us): 212000
+Run finished, takes 36.20039686s
+READ   - Takes(s): 36.0, Count: 4975, OPS: 138.3, Avg(us): 1295, Min(us): 740, Max(us): 7231, 99th(us): 4000, 99.9th(us): 7000, 99.99th(us): 8000
+UPDATE - Takes(s): 36.0, Count: 5025, OPS: 139.6, Avg(us): 5817, Min(us): 3754, Max(us): 211940, 99th(us): 11000, 99.9th(us): 14000, 99.99th(us): 212000

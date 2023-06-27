@@ -1,0 +1,472 @@
+Compiling /home/azbench/image/run_raftkvs_server.sc
+2022/07/02 06:22:37 removing badger files
+2022/07/02 06:22:37 persist false
+2022/07/02 06:22:37 Monitor: started listening on 10.0.0.4:9000
+2022/07/02 06:22:37 relaxed mailboxes started listening on: 10.0.0.4:8000
+2022/07/02 06:22:37 fd change state: archetype = 1, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 06:22:37 fd change state: archetype = 3, old state = uninitialized, new state = failed. Due to dial error: dial tcp 10.0.0.6:9000: connect: connection refused
+2022/07/02 06:22:37 fd change state: archetype = 2, old state = uninitialized, new state = failed. Due to dial error: dial tcp 10.0.0.5:9000: connect: connection refused
+2022/07/02 06:22:38 failed to dial 10.0.0.5:8000, aborting: dial tcp 10.0.0.5:8000: connect: connection refused
+2022/07/02 06:22:38 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:22:38 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:22:38 failed to dial 10.0.0.5:8000, aborting: dial tcp 10.0.0.5:8000: connect: connection refused
+2022/07/02 06:22:38 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:22:38 failed to dial 10.0.0.5:8000, aborting: dial tcp 10.0.0.5:8000: connect: connection refused
+2022/07/02 06:22:38 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:22:38 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:22:38 failed to dial 10.0.0.5:8000, aborting: dial tcp 10.0.0.5:8000: connect: connection refused
+2022/07/02 06:22:38 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:22:39 failed to dial 10.0.0.5:8000, aborting: dial tcp 10.0.0.5:8000: connect: connection refused
+2022/07/02 06:22:39 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:22:39 fd change state: archetype = 2, old state = failed, new state = alive. Due to rpc call reply
+2022/07/02 06:22:41 fd change state: archetype = 3, old state = failed, new state = alive. Due to rpc call reply
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8007, aborting: dial tcp 10.0.0.7:8007: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:22:59 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8003, aborting: dial tcp 10.0.0.7:8003: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 failed to dial 10.0.0.7:8058, aborting: dial tcp 10.0.0.7:8058: connect: connection refused
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:00 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:06 failed to dial 10.0.0.7:8038, aborting: dial tcp 10.0.0.7:8038: connect: connection refused
+2022/07/02 06:23:06 failed to dial 10.0.0.7:8038, aborting: dial tcp 10.0.0.7:8038: connect: connection refused
+2022/07/02 06:23:06 failed to dial 10.0.0.7:8038, aborting: dial tcp 10.0.0.7:8038: connect: connection refused
+2022/07/02 06:23:06 failed to dial 10.0.0.7:8038, aborting: dial tcp 10.0.0.7:8038: connect: connection refused
+2022/07/02 06:23:06 failed to dial 10.0.0.7:8038, aborting: dial tcp 10.0.0.7:8038: connect: connection refused
+2022/07/02 06:23:06 failed to dial 10.0.0.7:8038, aborting: dial tcp 10.0.0.7:8038: connect: connection refused
+2022/07/02 06:23:06 failed to dial 10.0.0.7:8038, aborting: dial tcp 10.0.0.7:8038: connect: connection refused
+2022/07/02 06:23:06 failed to dial 10.0.0.7:8038, aborting: dial tcp 10.0.0.7:8038: connect: connection refused
+2022/07/02 06:23:06 failed to dial 10.0.0.7:8038, aborting: dial tcp 10.0.0.7:8038: connect: connection refused
+2022/07/02 06:23:06 failed to dial 10.0.0.7:8038, aborting: dial tcp 10.0.0.7:8038: connect: connection refused
+2022/07/02 06:23:06 failed to dial 10.0.0.7:8038, aborting: dial tcp 10.0.0.7:8038: connect: connection refused
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:50234->10.0.0.7:8013: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:40886->10.0.0.7:8032: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:57170->10.0.0.7:8058: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:43336->10.0.0.7:8051: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:40472->10.0.0.7:8001: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:36066->10.0.0.7:8039: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:50102->10.0.0.7:8045: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:34120->10.0.0.7:8033: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:35250->10.0.0.7:8003: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:35014->10.0.0.7:8024: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:58276->10.0.0.7:8012: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:32810->10.0.0.7:8043: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:60048->10.0.0.7:8029: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:47626->10.0.0.7:8035: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:57562->10.0.0.7:8060: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:40876->10.0.0.7:8005: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:32788->10.0.0.7:8023: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:42234->10.0.0.7:8055: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:52990->10.0.0.7:8044: write: broken pipe
+2022/07/02 06:23:07 network error during remote value write, aborting: write tcp 10.0.0.4:51454->10.0.0.7:8027: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:52544->10.0.0.7:8020: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:57112->10.0.0.7:8007: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:56690->10.0.0.7:8011: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:49742->10.0.0.7:8030: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:48796->10.0.0.7:8059: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:47026->10.0.0.7:8049: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:40320->10.0.0.7:8021: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:49300->10.0.0.7:8046: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:51828->10.0.0.7:8018: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:41698->10.0.0.7:8042: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:44158->10.0.0.7:8052: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:59690->10.0.0.7:8031: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:42790->10.0.0.7:8034: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:43714->10.0.0.7:8054: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:40746->10.0.0.7:8026: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:37880->10.0.0.7:8022: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:43650->10.0.0.7:8056: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:43172->10.0.0.7:8036: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:59558->10.0.0.7:8057: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:52346->10.0.0.7:8014: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:45770->10.0.0.7:8040: write: broken pipe
+2022/07/02 06:23:08 network error during remote value write, aborting: write tcp 10.0.0.4:48858->10.0.0.7:8047: write: broken pipe
+2022/07/02 06:23:09 network error during remote value write, aborting: write tcp 10.0.0.4:34084->10.0.0.7:8019: write: broken pipe
+2022/07/02 06:23:09 network error during remote value write, aborting: write tcp 10.0.0.4:41386->10.0.0.7:8015: write: broken pipe
+2022/07/02 06:23:09 network error during remote value write, aborting: write tcp 10.0.0.4:37368->10.0.0.7:8010: write: broken pipe
+2022/07/02 06:23:09 network error during remote value write, aborting: write tcp 10.0.0.4:53084->10.0.0.7:8037: write: broken pipe
+2022/07/02 06:23:09 network error during remote value write, aborting: write tcp 10.0.0.4:46124->10.0.0.7:8006: write: broken pipe
+2022/07/02 06:23:09 network error during remote value write, aborting: write tcp 10.0.0.4:48074->10.0.0.7:8002: write: broken pipe
+2022/07/02 06:23:09 network error during remote value write, aborting: write tcp 10.0.0.4:33822->10.0.0.7:8008: write: broken pipe
+2022/07/02 06:23:09 network error during remote value write, aborting: write tcp 10.0.0.4:58156->10.0.0.7:8041: write: broken pipe
+2022/07/02 06:23:09 network error during remote value write, aborting: write tcp 10.0.0.4:54468->10.0.0.7:8048: write: broken pipe
+2022/07/02 06:23:09 network error during remote value write, aborting: write tcp 10.0.0.4:44006->10.0.0.7:8053: write: broken pipe
+2022/07/02 06:23:09 network error during remote value write, aborting: write tcp 10.0.0.4:58698->10.0.0.7:8017: write: broken pipe
+2022/07/02 06:23:09 network error during remote value write, aborting: write tcp 10.0.0.4:42664->10.0.0.7:8004: write: broken pipe
+2022/07/02 06:23:09 network error during remote value write, aborting: write tcp 10.0.0.4:44240->10.0.0.7:8025: write: broken pipe
+2022/07/02 06:23:09 network error during remote value write, aborting: write tcp 10.0.0.4:37054->10.0.0.7:8038: write: broken pipe
+2022/07/02 06:23:09 network error during remote value write, aborting: write tcp 10.0.0.4:34616->10.0.0.7:8050: write: broken pipe
+2022/07/02 06:23:10 network error during remote value write, aborting: write tcp 10.0.0.4:45662->10.0.0.7:8016: write: broken pipe
+2022/07/02 06:23:10 network error during remote value write, aborting: write tcp 10.0.0.4:59470->10.0.0.7:8009: write: broken pipe
+2022/07/02 06:23:10 network error during remote value write, aborting: write tcp 10.0.0.4:38768->10.0.0.7:8028: write: broken pipe
+2022/07/02 06:23:11 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:11 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:11 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:11 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:11 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:12 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:12 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:12 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:12 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:12 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:12 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:12 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:12 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:12 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:12 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:12 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:12 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:12 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:12 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:13 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:14 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:15 received SIGTERM
+2022/07/02 06:23:15 handleConn err = EOF, value = defaultInitValue
+2022/07/02 06:23:15 network error during remote value write, aborting: write tcp 10.0.0.4:56836->10.0.0.6:8000: write: broken pipe
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused
+2022/07/02 06:23:15 failed to dial 10.0.0.6:8000, aborting: dial tcp 10.0.0.6:8000: connect: connection refused

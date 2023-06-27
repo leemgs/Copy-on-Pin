@@ -1,0 +1,180 @@
+load YCSB
+/usr/bin/java  -classpath /home/azbench/image/YCSB/conf:/home/azbench/image/YCSB/core/target/core-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/core/target/dependency/HdrHistogram-2.1.4.jar:/home/azbench/image/YCSB/core/target/dependency/htrace-core4-4.1.0-incubating.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-core-asl-1.9.4.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-mapper-asl-1.9.4.jar:/home/azbench/image/YCSB/vard/target/vard-binding-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/vard/target/dependency/scala-library-2.13.8.jar:/home/azbench/image/YCSB/vard/target/dependency/vard-client_2.13-0.1.0-SNAPSHOT.jar site.ycsb.Client -load -db site.ycsb.db.vard.VardClient -P workloads/workloada -p threadcount=11 -p operationcount=2000 -p vard.endpoints=10.0.0.4:4000,10.0.0.5:4000,10.0.0.6:4000 -p vard.raw_utf8=true -s
+Command line: -load -db site.ycsb.db.vard.VardClient -P workloads/workloada -p threadcount=11 -p operationcount=2000 -p vard.endpoints=10.0.0.4:4000,10.0.0.5:4000,10.0.0.6:4000 -p vard.raw_utf8=true -s
+YCSB Client 0.18.0-SNAPSHOT
+
+Loading workload...
+Starting test.
+2022-07-05 21:56:11:331 0 sec: 0 operations; est completion in 0 second 
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+2022-07-05 21:56:21:297 10 sec: 224 operations; 22.4 current ops/sec; est completion in 35 seconds [INSERT: Count=224, Max=775679, Min=92992, Avg=464799, 90=532991, 99=665087, 99.9=775679, 99.99=775679] 
+2022-07-05 21:56:31:296 20 sec: 429 operations; 20.5 current ops/sec; est completion in 27 seconds [INSERT: Count=205, Max=1295359, Min=404736, Avg=541243.94, 90=594943, 99=1196031, 99.9=1295359, 99.99=1295359] 
+2022-07-05 21:56:41:297 30 sec: 638 operations; 20.9 current ops/sec; est completion in 18 seconds [INSERT: Count=209, Max=756223, Min=370176, Avg=526686.93, 90=616959, 99=725503, 99.9=756223, 99.99=756223] 
+2022-07-05 21:56:51:296 40 sec: 851 operations; 21.3 current ops/sec; est completion in 8 second [INSERT: Count=213, Max=1084415, Min=362240, Avg=515483.04, 90=578559, 99=1055743, 99.9=1084415, 99.99=1084415] 
+2022-07-05 21:56:57:940 46 sec: 1000 operations; 22.43 current ops/sec; [CLEANUP: Count=11, Max=104, Min=38, Avg=62, 90=76, 99=104, 99.9=104, 99.99=104] [INSERT: Count=149, Max=616959, Min=94592, Avg=486228.4, 90=556543, 99=592895, 99.9=616959, 99.99=616959] 
+[OVERALL], RunTime(ms), 46644
+[OVERALL], Throughput(ops/sec), 21.43898464968699
+[TOTAL_GCS_G1_Young_Generation], Count, 1
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 8
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 0.017151187719749595
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 1
+[TOTAL_GC_TIME], Time(ms), 8
+[TOTAL_GC_TIME_%], Time(%), 0.017151187719749595
+[CLEANUP], Operations, 11
+[CLEANUP], AverageLatency(us), 62.0
+[CLEANUP], MinLatency(us), 38
+[CLEANUP], MaxLatency(us), 104
+[CLEANUP], 95thPercentileLatency(us), 76
+[CLEANUP], 99thPercentileLatency(us), 104
+[INSERT], Operations, 1000
+[INSERT], AverageLatency(us), 507393.472
+[INSERT], MinLatency(us), 92992
+[INSERT], MaxLatency(us), 1295359
+[INSERT], 95thPercentileLatency(us), 653823
+[INSERT], 99thPercentileLatency(us), 1039359
+[INSERT], Return=OK, 1000
+run YCSB
+/usr/bin/java  -classpath /home/azbench/image/YCSB/conf:/home/azbench/image/YCSB/core/target/core-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/core/target/dependency/HdrHistogram-2.1.4.jar:/home/azbench/image/YCSB/core/target/dependency/htrace-core4-4.1.0-incubating.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-core-asl-1.9.4.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-mapper-asl-1.9.4.jar:/home/azbench/image/YCSB/vard/target/vard-binding-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/vard/target/dependency/scala-library-2.13.8.jar:/home/azbench/image/YCSB/vard/target/dependency/vard-client_2.13-0.1.0-SNAPSHOT.jar site.ycsb.Client -t -db site.ycsb.db.vard.VardClient -P workloads/workloada -p threadcount=11 -p operationcount=2000 -p vard.endpoints=10.0.0.4:4000,10.0.0.5:4000,10.0.0.6:4000 -p vard.raw_utf8=true -s
+Command line: -t -db site.ycsb.db.vard.VardClient -P workloads/workloada -p threadcount=11 -p operationcount=2000 -p vard.endpoints=10.0.0.4:4000,10.0.0.5:4000,10.0.0.6:4000 -p vard.raw_utf8=true -s
+YCSB Client 0.18.0-SNAPSHOT
+
+Loading workload...
+Starting test.
+2022-07-05 21:56:58:163 0 sec: 0 operations; est completion in 0 second 
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.6:4000
+try connecting to /10.0.0.5:4000
+not leader...
+not leader...
+try connecting to /10.0.0.4:4000
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.5:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+not leader...
+try connecting to /10.0.0.4:4000
+2022-07-05 21:57:08:132 10 sec: 144 operations; 14.4 current ops/sec; est completion in 2 minutes [READ: Count=90, Max=873471, Min=110976, Avg=522768, 90=652287, 99=732159, 99.9=873471, 99.99=873471] [UPDATE: Count=54, Max=1352703, Min=796160, Avg=1049372.44, 90=1207295, 99=1227775, 99.9=1352703, 99.99=1352703] 
+2022-07-05 21:57:18:132 20 sec: 286 operations; 14.2 current ops/sec; est completion in 2 minutes [READ: Count=77, Max=607743, Min=457728, Avg=524753.45, 90=573439, 99=602111, 99.9=607743, 99.99=607743] [UPDATE: Count=65, Max=1132543, Min=897536, Avg=1041368.62, 90=1116159, 99=1121279, 99.9=1132543, 99.99=1132543] 
+2022-07-05 21:57:28:132 30 sec: 416 operations; 13 current ops/sec; est completion in 1 minute [READ: Count=55, Max=1360895, Min=405248, Avg=529603.49, 90=592895, 99=1347583, 99.9=1360895, 99.99=1360895] [UPDATE: Count=75, Max=1893375, Min=834048, Avg=1029427.2, 90=1188863, 99=1884159, 99.9=1893375, 99.99=1893375] 
+2022-07-05 21:57:38:132 40 sec: 533 operations; 11.7 current ops/sec; est completion in 1 minute [READ: Count=56, Max=1360895, Min=377600, Avg=633648, 90=963583, 99=1359871, 99.9=1360895, 99.99=1360895] [UPDATE: Count=61, Max=2228223, Min=889856, Avg=1329785.7, 90=1965055, 99=2220031, 99.9=2228223, 99.99=2228223] 
+2022-07-05 21:57:48:132 50 sec: 665 operations; 13.2 current ops/sec; est completion in 1 minute [READ: Count=62, Max=896511, Min=394496, Avg=541342.97, 90=594943, 99=819199, 99.9=896511, 99.99=896511] [UPDATE: Count=70, Max=1588223, Min=857088, Avg=1074154.06, 90=1219583, 99=1509375, 99.9=1588223, 99.99=1588223] 
+2022-07-05 21:57:58:132 60 sec: 798 operations; 13.3 current ops/sec; est completion in 1 minute [READ: Count=70, Max=963583, Min=421120, Avg=562836.11, 90=750591, 99=950271, 99.9=963583, 99.99=963583] [UPDATE: Count=63, Max=1608703, Min=892928, Avg=1136501.84, 90=1357823, 99=1550335, 99.9=1608703, 99.99=1608703] 
+2022-07-05 21:58:08:132 70 sec: 914 operations; 11.6 current ops/sec; est completion in 1 minute [READ: Count=57, Max=920063, Min=419840, Avg=618864.28, 90=782335, 99=861183, 99.9=920063, 99.99=920063] [UPDATE: Count=59, Max=1593343, Min=849920, Avg=1211726.1, 90=1442815, 99=1573887, 99.9=1593343, 99.99=1593343] 
+2022-07-05 21:58:18:132 80 sec: 1056 operations; 14.2 current ops/sec; est completion in 1 minute [READ: Count=79, Max=831999, Min=408832, Avg=544040.51, 90=626175, 99=818687, 99.9=831999, 99.99=831999] [UPDATE: Count=63, Max=1287167, Min=904704, Avg=1090283.68, 90=1231871, 99=1282047, 99.9=1287167, 99.99=1287167] 
+2022-07-05 21:58:28:132 90 sec: 1174 operations; 11.8 current ops/sec; est completion in 1 minute [READ: Count=49, Max=887295, Min=478720, Avg=590970.78, 90=686079, 99=887295, 99.9=887295, 99.99=887295] [UPDATE: Count=69, Max=1394687, Min=966144, Avg=1137934.84, 90=1217535, 99=1379327, 99.9=1394687, 99.99=1394687] 
+2022-07-05 21:58:38:132 100 sec: 1298 operations; 12.4 current ops/sec; est completion in 55 seconds [READ: Count=61, Max=987647, Min=408320, Avg=595147.54, 90=707071, 99=969215, 99.9=987647, 99.99=987647] [UPDATE: Count=63, Max=1567743, Min=780800, Avg=1189741.71, 90=1427455, 99=1563647, 99.9=1567743, 99.99=1567743] 
+2022-07-05 21:58:48:132 110 sec: 1427 operations; 12.9 current ops/sec; est completion in 45 seconds [READ: Count=67, Max=789503, Min=465408, Avg=589044.54, 90=702463, 99=784895, 99.9=789503, 99.99=789503] [UPDATE: Count=62, Max=1481727, Min=946176, Avg=1171773.94, 90=1375231, 99=1432575, 99.9=1481727, 99.99=1481727] 
+2022-07-05 21:58:58:132 120 sec: 1559 operations; 13.2 current ops/sec; est completion in 34 seconds [READ: Count=64, Max=913407, Min=403200, Avg=544386, 90=613375, 99=866815, 99.9=913407, 99.99=913407] [UPDATE: Count=68, Max=1448959, Min=877056, Avg=1094121.41, 90=1223679, 99=1403903, 99.9=1448959, 99.99=1448959] 
+2022-07-05 21:59:08:132 130 sec: 1699 operations; 14 current ops/sec; est completion in 24 seconds [READ: Count=70, Max=790015, Min=372736, Avg=511641.6, 90=586239, 99=755711, 99.9=790015, 99.99=790015] [UPDATE: Count=70, Max=1352703, Min=856064, Avg=1041846.86, 90=1259519, 99=1342463, 99.9=1352703, 99.99=1352703] 
+2022-07-05 21:59:18:132 140 sec: 1834 operations; 13.5 current ops/sec; est completion in 13 seconds [READ: Count=72, Max=977919, Min=418560, Avg=573392, 90=741887, 99=947199, 99.9=977919, 99.99=977919] [UPDATE: Count=63, Max=1549311, Min=965120, Avg=1122824.13, 90=1321983, 99=1492991, 99.9=1549311, 99.99=1549311] 
+2022-07-05 21:59:28:132 150 sec: 1966 operations; 13.2 current ops/sec; est completion in 3 second [READ: Count=56, Max=1013247, Min=348928, Avg=482736, 90=532479, 99=848895, 99.9=1013247, 99.99=1013247] [CLEANUP: Count=3, Max=67, Min=50, Avg=58.67, 90=67, 99=67, 99.9=67, 99.99=67] [UPDATE: Count=76, Max=1639423, Min=783360, Avg=987068.63, 90=1246207, 99=1629183, 99.9=1639423, 99.99=1639423] 
+2022-07-05 21:59:30:344 152 sec: 2000 operations; 15.37 current ops/sec; [READ: Count=17, Max=357631, Min=103680, Avg=244203.29, 90=322047, 99=357631, 99.9=357631, 99.99=357631] [CLEANUP: Count=8, Max=75, Min=34, Avg=53.88, 90=62, 99=75, 99.9=75, 99.99=75] [UPDATE: Count=17, Max=807423, Min=132096, Avg=557782.59, 90=737791, 99=807423, 99.9=807423, 99.99=807423] 
+[OVERALL], RunTime(ms), 152213
+[OVERALL], Throughput(ops/sec), 13.139482173007561
+[TOTAL_GCS_G1_Young_Generation], Count, 1
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 7
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 0.004598818760552646
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 1
+[TOTAL_GC_TIME], Time(ms), 7
+[TOTAL_GC_TIME_%], Time(%), 0.004598818760552646
+[READ], Operations, 1002
+[READ], AverageLatency(us), 550035.8642714571
+[READ], MinLatency(us), 103680
+[READ], MaxLatency(us), 1360895
+[READ], 95thPercentileLatency(us), 790015
+[READ], 99thPercentileLatency(us), 977919
+[READ], Return=OK, 1002
+[CLEANUP], Operations, 11
+[CLEANUP], AverageLatency(us), 55.18181818181818
+[CLEANUP], MinLatency(us), 34
+[CLEANUP], MaxLatency(us), 75
+[CLEANUP], 95thPercentileLatency(us), 67
+[CLEANUP], 99thPercentileLatency(us), 75
+[UPDATE], Operations, 998
+[UPDATE], AverageLatency(us), 1100538.4208416834
+[UPDATE], MinLatency(us), 132096
+[UPDATE], MaxLatency(us), 2228223
+[UPDATE], 95thPercentileLatency(us), 1458175
+[UPDATE], 99thPercentileLatency(us), 1884159
+[UPDATE], Return=OK, 998

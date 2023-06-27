@@ -1,0 +1,181 @@
+{
+  "name": "pgobench",
+  "experimentRepetitions": 5,
+  "vmSize": "Standard_B8ms",
+  "provisionCmd": "bash ./provision.sh",
+  "experiments": [
+    {
+      "name": "etcd",
+      "clientCmd": "./amm ycsb_etcd.sc",
+      "serverCmd": "./amm run_etcd_server.sc",
+      "excludeConfigKeys": ["operationCount"],
+      "config": [
+        {
+          "serverCount": 3,
+          "operationCount": 10000,
+          "threadCount": 1,
+          "workload": "workloada"
+        },
+        {
+          "serverCount": 3,
+          "operationCount": 40000,
+          "threadCount": {"from":  20, "to":  80, "step":  20},
+          "workload": "workloada"
+        },
+        {
+          "serverCount": 3,
+          "operationCount": 100000,
+          "threadCount": {"from":  100, "to":  300, "step": 25},
+          "workload": "workloada"
+        },
+        {
+          "serverCount": 3,
+          "operationCount": 100000,
+          "threadCount": [350, 400, 500, 600, 700, 800, 1000],
+          "workload": "workloada"
+        }
+      ]
+    },
+    {
+      "name": "raftkvs",
+      "clientCmd": "./amm go_ycsb_raftkvs.sc",
+      "serverCmd": "./amm run_raftkvs_server.sc",
+      "config": [
+        {
+          "serverCount": 3,
+          "operationCount": 10000,
+          "threadCount": 1,
+          "workload": "workloada"
+        },
+        {
+          "serverCount": 3,
+          "operationCount": 10000,
+          "threadCount": [8, 12, 16],
+          "workload": "workloada"
+        }
+      ]
+    },
+    {
+      "name": "raftres",
+      "clientCmd": "./amm go_ycsb_raftres.sc",
+      "serverCmd": "./amm run_raftres_server.sc",
+      "config": [
+        {
+          "serverCount": 3,
+          "operationCount": 10000,
+          "threadCount": 1,
+          "workload": "workloada"
+        },
+        {
+          "serverCount": 3,
+          "operationCount": 10000,
+          "threadCount": [4, 8, 12, 16, 20, 24, 32, 40],
+          "workload": "workloada"
+        }
+      ]
+    },
+    {
+      "name": "ivy-raft",
+      "clientCmd": "./amm ycsb_ivy_raft.sc",
+      "serverCmd": "./amm run_ivy_raft_server.sc",
+      "config": [
+        {
+          "serverCount": 3,
+          "operationCount": 1000,
+          "threadCount": 1,
+          "workload": "workloada"
+        },
+        {
+          "serverCount": 3,
+          "operationCount": 10000,
+          "threadCount": {"from":  11, "to":  41, "step":  10},
+          "workload": "workloada"
+        },
+        {
+          "serverCount": 3,
+          "operationCount": 10000,
+          "threadCount": [{"from":  51, "to":  111, "step":  20}, 81, 101],
+          "workload": "workloada"
+        }
+      ]
+    },
+    {
+      "name": "shopcart",
+      "clientCmd": "sleep 30",
+      "serverCmd": "./amm run_shopcart_node.sc",
+      "config": {
+        "serverCount": [4, 8, 12]
+      }
+    },
+    {
+      "name": "roshi",
+      "clientCmd": "sleep 30",
+      "serverCmd": "./amm run_roshi_node.sc",
+      "config": {
+        "serverCount": [4, 8, 12]
+      }
+    },
+    {
+      "name": "ironkv",
+      "clientCmd": "./amm ycsb_ironkv.sc",
+      "serverCmd": "./amm run_ironkv_server.sc",
+      "excludeConfigKeys": ["operationCount"],
+      "config": [
+        {
+          "serverCount": 3,
+          "operationCount": 10000,
+          "threadCount": {"from":  1, "to":  101, "step":  10},
+          "workload": "workloada"
+        },
+        {
+          "serverCount": 3,
+          "operationCount": 10000,
+          "threadCount": [111, 121, 151],
+          "workload": "workloada"
+        }
+      ]
+    },
+    {
+      "name": "redis",
+      "clientCmd": "./amm go_ycsb_redis.sc",
+      "serverCmd": "./amm run_redis_server.sc",
+      "excludeConfigKeys": ["operationCount"],
+      "config": [
+        {
+          "serverCount": 3,
+          "operationCount": 1000000,
+          "threadCount": [80],
+          "workload": "workloada"
+        }
+      ]
+    },
+    {
+      "name": "pbkvs",
+      "clientCmd": "./amm go_ycsb_pbkvs.sc",
+      "serverCmd": "./amm run_pbkvs_server.sc",
+      "excludeConfigKeys": ["operationCount"],
+      "config": [
+        {
+          "serverCount": 3,
+          "operationCount": 10000,
+          "threadCount": [25, 30],
+          "workload": "workloada"
+        }
+      ]
+    },
+    {
+      "name": "vard",
+      "clientCmd": "./amm ycsb_vard.sc",
+      "serverCmd": "./amm run_vard_server.sc",
+      "excludeConfigKeys": ["operationCount"],
+      "config": [
+        {
+          "serverCount": 3,
+          "operationCount": 2000,
+          "threadCount": [26, {"from":  11, "to":  51, "step":  10}],
+          "workload" : "workloada"
+        }
+      ]
+    }
+  ]
+}

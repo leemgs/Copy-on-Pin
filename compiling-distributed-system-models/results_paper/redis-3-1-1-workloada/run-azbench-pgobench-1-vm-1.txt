@@ -1,0 +1,26 @@
+Compiling /home/azbench/image/run_redis_server.sc
+(numServers,3,serverIdx,0)
+3939:C 25 Oct 2022 05:05:28.955 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+3939:C 25 Oct 2022 05:05:28.955 # Redis version=5.0.7, bits=64, commit=00000000, modified=0, pid=3939, just started
+3939:C 25 Oct 2022 05:05:28.955 # Configuration loaded
+3939:M 25 Oct 2022 05:05:28.962 * Running mode=standalone, port=6379.
+3939:M 25 Oct 2022 05:05:28.962 # Server initialized
+3939:M 25 Oct 2022 05:05:28.962 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+3939:M 25 Oct 2022 05:05:28.962 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+3939:M 25 Oct 2022 05:05:28.962 * Ready to accept connections
+3939:M 25 Oct 2022 05:05:31.009 * Replica 10.0.0.5:6379 asks for synchronization
+3939:M 25 Oct 2022 05:05:31.009 * Full resync requested by replica 10.0.0.5:6379
+3939:M 25 Oct 2022 05:05:31.010 * Starting BGSAVE for SYNC with target: disk
+3939:M 25 Oct 2022 05:05:31.010 * Background saving started by pid 3943
+3943:C 25 Oct 2022 05:05:31.028 * DB saved on disk
+3943:C 25 Oct 2022 05:05:31.029 * RDB: 0 MB of memory used by copy-on-write
+3939:M 25 Oct 2022 05:05:31.068 * Background saving terminated with success
+3939:M 25 Oct 2022 05:05:31.069 * Synchronization with replica 10.0.0.5:6379 succeeded
+3939:M 25 Oct 2022 05:05:33.726 * Replica 10.0.0.6:6379 asks for synchronization
+3939:M 25 Oct 2022 05:05:33.726 * Full resync requested by replica 10.0.0.6:6379
+3939:M 25 Oct 2022 05:05:33.726 * Starting BGSAVE for SYNC with target: disk
+3939:M 25 Oct 2022 05:05:33.726 * Background saving started by pid 3944
+3944:C 25 Oct 2022 05:05:33.736 * DB saved on disk
+3944:C 25 Oct 2022 05:05:33.736 * RDB: 0 MB of memory used by copy-on-write
+3939:M 25 Oct 2022 05:05:33.776 * Background saving terminated with success
+3939:M 25 Oct 2022 05:05:33.776 * Synchronization with replica 10.0.0.6:6379 succeeded

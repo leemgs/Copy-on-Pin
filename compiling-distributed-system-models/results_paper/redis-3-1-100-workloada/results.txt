@@ -1,0 +1,47 @@
+loading YCSB
+2022/10/25 05:32:38 resetting client failure detector
+2022/10/25 05:32:38 resetting client failure detector
+2022/10/25 05:32:38 resetting client failure detector
+***************** properties *****************
+"updateproportion"="0.5"
+"readallfields"="true"
+"insertproportion"="0"
+"threadcount"="100"
+"requestdistribution"="zipfian"
+"operationcount"="1000000"
+"recordcount"="1000"
+"readproportion"="0.5"
+"redis.addr"="10.0.0.4:6379"
+"dotransactions"="false"
+"workload"="core"
+"scanproportion"="0"
+"redis.numreplicas"="2"
+**********************************************
+Run finished, takes 61.093036ms
+INSERT - Takes(s): 0.0, Count: 999, OPS: 25921.2, Avg(us): 4362, Min(us): 692, Max(us): 28055, 99th(us): 25000, 99.9th(us): 29000, 99.99th(us): 29000
+running YCSB
+2022/10/25 05:32:43 resetting client failure detector
+2022/10/25 05:32:43 resetting client failure detector
+2022/10/25 05:32:43 resetting client failure detector
+***************** properties *****************
+"readallfields"="true"
+"updateproportion"="0.5"
+"threadcount"="100"
+"redis.addr"="10.0.0.4:6379"
+"dotransactions"="true"
+"operationcount"="1000000"
+"workload"="core"
+"redis.numreplicas"="2"
+"insertproportion"="0"
+"requestdistribution"="zipfian"
+"scanproportion"="0"
+"readproportion"="0.5"
+"recordcount"="1000"
+**********************************************
+READ   - Takes(s): 10.0, Count: 254170, OPS: 25478.7, Avg(us): 938, Min(us): 146, Max(us): 32341, 99th(us): 3000, 99.9th(us): 7000, 99.99th(us): 13000
+UPDATE - Takes(s): 10.0, Count: 254200, OPS: 25487.4, Avg(us): 2939, Min(us): 855, Max(us): 34029, 99th(us): 8000, 99.9th(us): 13000, 99.99th(us): 26000
+READ   - Takes(s): 20.0, Count: 500846, OPS: 25075.1, Avg(us): 954, Min(us): 135, Max(us): 76425, 99th(us): 3000, 99.9th(us): 7000, 99.99th(us): 21000
+UPDATE - Takes(s): 20.0, Count: 499129, OPS: 24992.7, Avg(us): 2971, Min(us): 616, Max(us): 80125, 99th(us): 9000, 99.9th(us): 13000, 99.99th(us): 30000
+Run finished, takes 20.056846925s
+READ   - Takes(s): 20.0, Count: 500860, OPS: 25005.3, Avg(us): 954, Min(us): 135, Max(us): 76425, 99th(us): 3000, 99.9th(us): 7000, 99.99th(us): 21000
+UPDATE - Takes(s): 20.0, Count: 499140, OPS: 24923.0, Avg(us): 2972, Min(us): 616, Max(us): 80125, 99th(us): 9000, 99.9th(us): 13000, 99.99th(us): 30000

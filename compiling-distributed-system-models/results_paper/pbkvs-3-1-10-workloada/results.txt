@@ -1,0 +1,71 @@
+loading YCSB
+2022/10/25 06:37:14 resetting client failure detector
+2022/10/25 06:37:14 resetting client failure detector
+2022/10/25 06:37:14 resetting client failure detector
+***************** properties *****************
+"requestdistribution"="zipfian"
+"scanproportion"="0"
+"pbkvs.config"="/tmp/3191762740665806425.yaml"
+"readallfields"="true"
+"insertproportion"="0"
+"recordcount"="1000"
+"workload"="core"
+"updateproportion"="0.5"
+"threadcount"="10"
+"operationcount"="10000"
+"dotransactions"="false"
+"readproportion"="0.5"
+**********************************************
+2022/10/25 06:37:14 relaxed mailboxes started listening on: 10.0.0.7:8013
+2022/10/25 06:37:14 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/10/25 06:37:14 relaxed mailboxes started listening on: 10.0.0.7:8007
+2022/10/25 06:37:14 fd change state: archetype = 1, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/25 06:37:14 relaxed mailboxes started listening on: 10.0.0.7:8021
+2022/10/25 06:37:14 relaxed mailboxes started listening on: 10.0.0.7:8011
+2022/10/25 06:37:14 relaxed mailboxes started listening on: 10.0.0.7:8009
+2022/10/25 06:37:14 relaxed mailboxes started listening on: 10.0.0.7:8005
+2022/10/25 06:37:14 relaxed mailboxes started listening on: 10.0.0.7:8019
+2022/10/25 06:37:14 fd change state: archetype = 3, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/25 06:37:14 fd change state: archetype = 2, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/25 06:37:14 relaxed mailboxes started listening on: 10.0.0.7:8017
+2022/10/25 06:37:14 relaxed mailboxes started listening on: 10.0.0.7:8015
+Run finished, takes 4.801066026s
+INSERT - Takes(s): 4.4, Count: 1000, OPS: 228.1, Avg(us): 42567, Min(us): 30898, Max(us): 458830, 99th(us): 56000, 99.9th(us): 454000, 99.99th(us): 459000
+running YCSB
+2022/10/25 06:37:24 resetting client failure detector
+2022/10/25 06:37:24 resetting client failure detector
+2022/10/25 06:37:24 resetting client failure detector
+***************** properties *****************
+"requestdistribution"="zipfian"
+"operationcount"="10000"
+"recordcount"="1000"
+"threadcount"="10"
+"pbkvs.config"="/tmp/3191762740665806425.yaml"
+"readproportion"="0.5"
+"updateproportion"="0.5"
+"dotransactions"="true"
+"workload"="core"
+"readallfields"="true"
+"scanproportion"="0"
+"insertproportion"="0"
+**********************************************
+2022/10/25 06:37:24 relaxed mailboxes started listening on: 10.0.0.7:8007
+2022/10/25 06:37:24 fd change state: archetype = 1, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/25 06:37:24 relaxed mailboxes started listening on: 10.0.0.7:8013
+2022/10/25 06:37:24 fd change state: archetype = 3, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/25 06:37:24 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/10/25 06:37:24 relaxed mailboxes started listening on: 10.0.0.7:8005
+2022/10/25 06:37:24 fd change state: archetype = 2, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/25 06:37:24 relaxed mailboxes started listening on: 10.0.0.7:8011
+2022/10/25 06:37:24 relaxed mailboxes started listening on: 10.0.0.7:8019
+2022/10/25 06:37:24 relaxed mailboxes started listening on: 10.0.0.7:8017
+2022/10/25 06:37:24 relaxed mailboxes started listening on: 10.0.0.7:8021
+2022/10/25 06:37:24 relaxed mailboxes started listening on: 10.0.0.7:8009
+2022/10/25 06:37:24 relaxed mailboxes started listening on: 10.0.0.7:8015
+READ   - Takes(s): 9.8, Count: 1765, OPS: 180.2, Avg(us): 18470, Min(us): 6035, Max(us): 409524, 99th(us): 31000, 99.9th(us): 408000, 99.99th(us): 410000
+UPDATE - Takes(s): 9.6, Count: 1739, OPS: 181.4, Avg(us): 38651, Min(us): 19915, Max(us): 433281, 99th(us): 52000, 99.9th(us): 429000, 99.99th(us): 434000
+READ   - Takes(s): 19.8, Count: 3568, OPS: 180.2, Avg(us): 18001, Min(us): 5751, Max(us): 409524, 99th(us): 31000, 99.9th(us): 213000, 99.99th(us): 410000
+UPDATE - Takes(s): 19.6, Count: 3546, OPS: 181.1, Avg(us): 38212, Min(us): 19915, Max(us): 433281, 99th(us): 53000, 99.9th(us): 421000, 99.99th(us): 434000
+Run finished, takes 28.127980299s
+READ   - Takes(s): 27.9, Count: 5036, OPS: 180.3, Avg(us): 17858, Min(us): 925, Max(us): 409524, 99th(us): 31000, 99.9th(us): 205000, 99.99th(us): 410000
+UPDATE - Takes(s): 27.7, Count: 4964, OPS: 179.1, Avg(us): 38233, Min(us): 5138, Max(us): 433281, 99th(us): 54000, 99.9th(us): 418000, 99.99th(us): 434000

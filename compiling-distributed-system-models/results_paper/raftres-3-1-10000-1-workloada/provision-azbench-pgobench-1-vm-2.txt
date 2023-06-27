@@ -1,0 +1,1238 @@
++ '[' '!' -e /home/azbench/.apt-updated ']'
++ sudo apt-get install -y default-jdk maven scons python3 virtualenv cmake pkg-config python3-ply python3-pygraphviz python3-tk tix libssl-dev libreadline-dev valgrind
+Reading package lists...
+Building dependency tree...
+Reading state information...
+cmake is already the newest version (3.16.3-1ubuntu1).
+default-jdk is already the newest version (2:1.11-72).
+libreadline-dev is already the newest version (8.0-4).
+pkg-config is already the newest version (0.29.1-0ubuntu4).
+python3 is already the newest version (3.8.2-0ubuntu2).
+maven is already the newest version (3.6.3-1).
+python3-pygraphviz is already the newest version (1.5-4build1).
+scons is already the newest version (3.1.2-2).
+tix is already the newest version (8.4.3-10).
+libssl-dev is already the newest version (1.1.1f-1ubuntu2.15).
+python3-ply is already the newest version (3.11-3ubuntu0.1).
+python3-tk is already the newest version (3.8.10-0ubuntu1~20.04).
+valgrind is already the newest version (1:3.15.0-1ubuntu9.1).
+virtualenv is already the newest version (20.0.17-1ubuntu0.4).
+0 upgraded, 0 newly installed, 0 to remove and 54 not upgraded.
++ java -version
+openjdk version "11.0.15" 2022-04-19
+OpenJDK Runtime Environment (build 11.0.15+10-Ubuntu-0ubuntu0.20.04.1)
+OpenJDK 64-Bit Server VM (build 11.0.15+10-Ubuntu-0ubuntu0.20.04.1, mixed mode, sharing)
++ mvn -version
+[1mApache Maven 3.6.3[m
+Maven home: /usr/share/maven
+Java version: 11.0.15, vendor: Private Build, runtime: /usr/lib/jvm/java-11-openjdk-amd64
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "5.13.0-1023-azure", arch: "amd64", family: "unix"
++ bash ./ensure_sbt.sh
++ '[' '!' -e /home/azbench/.sbt-present ']'
++ sbt -version
+sbt version in this project: 1.6.2
+sbt script version: 1.6.2
++ ./amm hello.sc
+Hello from Scala
++ pushd ironkv-client
+~/image/ironkv-client ~/image
++ sbt publishM2
+[info] welcome to sbt 1.6.2 (Private Build Java 11.0.15)
+[info] loading project definition from /home/azbench/image/ironkv-client/project
+[info] loading settings for project root from build.sbt ...
+[info] set current project to ironkv-client (in build file:/home/azbench/image/ironkv-client/)
+[info] Wrote /home/azbench/image/ironkv-client/target/scala-2.13/ironkv-client_2.13-0.1.0-SNAPSHOT.pom
+[info] 	published ironkv-client_2.13 to file:/home/azbench/.m2/repository/com/github/fhackett/ironkv-client_2.13/0.1.0-SNAPSHOT/ironkv-client_2.13-0.1.0-SNAPSHOT.pom
+[info] 	published ironkv-client_2.13 to file:/home/azbench/.m2/repository/com/github/fhackett/ironkv-client_2.13/0.1.0-SNAPSHOT/ironkv-client_2.13-0.1.0-SNAPSHOT.jar
+[info] 	published ironkv-client_2.13 to file:/home/azbench/.m2/repository/com/github/fhackett/ironkv-client_2.13/0.1.0-SNAPSHOT/ironkv-client_2.13-0.1.0-SNAPSHOT-sources.jar
+[info] 	published ironkv-client_2.13 to file:/home/azbench/.m2/repository/com/github/fhackett/ironkv-client_2.13/0.1.0-SNAPSHOT/ironkv-client_2.13-0.1.0-SNAPSHOT-javadoc.jar
+[success] Total time: 5 s, completed Jul 2, 2022, 2:16:53 AM
++ popd
+~/image
++ pushd vard-client
+~/image/vard-client ~/image
++ sbt publishM2
+[info] welcome to sbt 1.6.2 (Private Build Java 11.0.15)
+[info] loading project definition from /home/azbench/image/vard-client/project
+[info] loading settings for project root from build.sbt ...
+[info] set current project to vard-client (in build file:/home/azbench/image/vard-client/)
+[info] Wrote /home/azbench/image/vard-client/target/scala-2.13/vard-client_2.13-0.1.0-SNAPSHOT.pom
+[info] 	published vard-client_2.13 to file:/home/azbench/.m2/repository/com/github/fhackett/vard-client_2.13/0.1.0-SNAPSHOT/vard-client_2.13-0.1.0-SNAPSHOT.pom
+[info] 	published vard-client_2.13 to file:/home/azbench/.m2/repository/com/github/fhackett/vard-client_2.13/0.1.0-SNAPSHOT/vard-client_2.13-0.1.0-SNAPSHOT.jar
+[info] 	published vard-client_2.13 to file:/home/azbench/.m2/repository/com/github/fhackett/vard-client_2.13/0.1.0-SNAPSHOT/vard-client_2.13-0.1.0-SNAPSHOT-sources.jar
+[info] 	published vard-client_2.13 to file:/home/azbench/.m2/repository/com/github/fhackett/vard-client_2.13/0.1.0-SNAPSHOT/vard-client_2.13-0.1.0-SNAPSHOT-javadoc.jar
+[success] Total time: 1 s, completed Jul 2, 2022, 2:16:58 AM
++ popd
+~/image
++ pushd YCSB
+~/image/YCSB ~/image
++ mvn -Psource-run -pl site.ycsb:ironkv-binding -am package -DskipTests
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/usr/share/maven/lib/guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Build Order:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] YCSB Root                                                          [pom]
+[[1;34mINFO[m] Core YCSB                                                          [jar]
+[[1;34mINFO[m] YCSB Datastore Binding Parent                                      [pom]
+[[1;34mINFO[m] ironkv-binding                                                     [jar]
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------------< [0;36msite.ycsb:root[0;1m >---------------------------[m
+[[1;34mINFO[m] [1mBuilding YCSB Root 0.18.0-SNAPSHOT                                 [1/4][m
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(enforce-maven)[m @ [36mroot[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:2.16:check[m [1m(validate)[m @ [36mroot[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------------< [0;36msite.ycsb:core[0;1m >---------------------------[m
+[[1;34mINFO[m] [1mBuilding Core YCSB 0.18.0-SNAPSHOT                                 [2/4][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(enforce-maven)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:2.16:check[m [1m(validate)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:compile[m [1m(default-compile)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 63 source files to /home/azbench/image/YCSB/core/target/classes
+[[1;34mINFO[m] /home/azbench/image/YCSB/core/src/main/java/site/ycsb/CommandLine.java: Some input files use or override a deprecated API.
+[[1;34mINFO[m] /home/azbench/image/YCSB/core/src/main/java/site/ycsb/CommandLine.java: Recompile with -Xlint:deprecation for details.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/azbench/image/YCSB/core/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:testCompile[m [1m(default-testCompile)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.12.4:test[m [1m(default-test)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Tests are skipped.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:2.4:jar[m [1m(default-jar)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/azbench/image/YCSB/core/target/core-0.18.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:2.8:copy-dependencies[m [1m(stage-dependencies)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] htrace-core4-4.1.0-incubating.jar already exists in destination.
+[[1;34mINFO[m] HdrHistogram-2.1.4.jar already exists in destination.
+[[1;34mINFO[m] jackson-mapper-asl-1.9.4.jar already exists in destination.
+[[1;34mINFO[m] jackson-core-asl-1.9.4.jar already exists in destination.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------------< [0;36msite.ycsb:binding-parent[0;1m >----------------------[m
+[[1;34mINFO[m] [1mBuilding YCSB Datastore Binding Parent 0.18.0-SNAPSHOT             [3/4][m
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(enforce-maven)[m @ [36mbinding-parent[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:2.16:check[m [1m(validate)[m @ [36mbinding-parent[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:2.10:copy-dependencies[m [1m(stage-dependencies)[m @ [36mbinding-parent[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------------< [0;36msite.ycsb:ironkv-binding[0;1m >----------------------[m
+[[1;34mINFO[m] [1mBuilding ironkv-binding 0.18.0-SNAPSHOT                            [4/4][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(enforce-maven)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:2.16:check[m [1m(validate)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/azbench/image/YCSB/ironkv/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:compile[m [1m(default-compile)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 2 source files to /home/azbench/image/YCSB/ironkv/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/azbench/image/YCSB/ironkv/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:testCompile[m [1m(default-testCompile)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.12.4:test[m [1m(default-test)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] Tests are skipped.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:2.4:jar[m [1m(default-jar)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/azbench/image/YCSB/ironkv/target/ironkv-binding-0.18.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:2.10:copy-dependencies[m [1m(stage-dependencies)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] com.lihaoyi:ujson_2.13:jar:2.0.0 already exists in destination.
+[[1;34mINFO[m] com.lihaoyi:upickle_2.13:jar:2.0.0 already exists in destination.
+[[1;34mINFO[m] com.lihaoyi:upack_2.13:jar:2.0.0 already exists in destination.
+[[1;34mINFO[m] com.lihaoyi:geny_2.13:jar:0.7.1 already exists in destination.
+[[1;34mINFO[m] com.lihaoyi:os-lib_2.13:jar:0.8.1 already exists in destination.
+[[1;34mINFO[m] org.scala-lang:scala-library:jar:2.13.8 already exists in destination.
+[[1;34mINFO[m] com.github.fhackett:ironkv-client_2.13:jar:0.1.0-SNAPSHOT already exists in destination.
+[[1;34mINFO[m] com.lihaoyi:upickle-core_2.13:jar:2.0.0 already exists in destination.
+[[1;34mINFO[m] com.lihaoyi:upickle-implicits_2.13:jar:2.0.0 already exists in destination.
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Summary for YCSB Root 0.18.0-SNAPSHOT:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] YCSB Root .......................................... [1;32mSUCCESS[m [  5.337 s]
+[[1;34mINFO[m] Core YCSB .......................................... [1;32mSUCCESS[m [  6.624 s]
+[[1;34mINFO[m] YCSB Datastore Binding Parent ...................... [1;32mSUCCESS[m [  0.808 s]
+[[1;34mINFO[m] ironkv-binding ..................................... [1;32mSUCCESS[m [  0.935 s]
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  14.011 s
+[[1;34mINFO[m] Finished at: 2022-07-02T02:17:14Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
++ mvn -Psource-run -pl site.ycsb:vard-binding -am package -DskipTests
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/usr/share/maven/lib/guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Build Order:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] YCSB Root                                                          [pom]
+[[1;34mINFO[m] Core YCSB                                                          [jar]
+[[1;34mINFO[m] YCSB Datastore Binding Parent                                      [pom]
+[[1;34mINFO[m] vard-binding                                                       [jar]
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------------< [0;36msite.ycsb:root[0;1m >---------------------------[m
+[[1;34mINFO[m] [1mBuilding YCSB Root 0.18.0-SNAPSHOT                                 [1/4][m
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(enforce-maven)[m @ [36mroot[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:2.16:check[m [1m(validate)[m @ [36mroot[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------------< [0;36msite.ycsb:core[0;1m >---------------------------[m
+[[1;34mINFO[m] [1mBuilding Core YCSB 0.18.0-SNAPSHOT                                 [2/4][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(enforce-maven)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:2.16:check[m [1m(validate)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:compile[m [1m(default-compile)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 63 source files to /home/azbench/image/YCSB/core/target/classes
+[[1;34mINFO[m] /home/azbench/image/YCSB/core/src/main/java/site/ycsb/CommandLine.java: Some input files use or override a deprecated API.
+[[1;34mINFO[m] /home/azbench/image/YCSB/core/src/main/java/site/ycsb/CommandLine.java: Recompile with -Xlint:deprecation for details.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/azbench/image/YCSB/core/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:testCompile[m [1m(default-testCompile)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.12.4:test[m [1m(default-test)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Tests are skipped.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:2.4:jar[m [1m(default-jar)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/azbench/image/YCSB/core/target/core-0.18.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:2.8:copy-dependencies[m [1m(stage-dependencies)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] htrace-core4-4.1.0-incubating.jar already exists in destination.
+[[1;34mINFO[m] HdrHistogram-2.1.4.jar already exists in destination.
+[[1;34mINFO[m] jackson-mapper-asl-1.9.4.jar already exists in destination.
+[[1;34mINFO[m] jackson-core-asl-1.9.4.jar already exists in destination.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------------< [0;36msite.ycsb:binding-parent[0;1m >----------------------[m
+[[1;34mINFO[m] [1mBuilding YCSB Datastore Binding Parent 0.18.0-SNAPSHOT             [3/4][m
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(enforce-maven)[m @ [36mbinding-parent[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:2.16:check[m [1m(validate)[m @ [36mbinding-parent[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:2.10:copy-dependencies[m [1m(stage-dependencies)[m @ [36mbinding-parent[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----------------------< [0;36msite.ycsb:vard-binding[0;1m >-----------------------[m
+[[1;34mINFO[m] [1mBuilding vard-binding 0.18.0-SNAPSHOT                              [4/4][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(enforce-maven)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:2.16:check[m [1m(validate)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/azbench/image/YCSB/vard/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:compile[m [1m(default-compile)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 2 source files to /home/azbench/image/YCSB/vard/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/azbench/image/YCSB/vard/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:testCompile[m [1m(default-testCompile)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.12.4:test[m [1m(default-test)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] Tests are skipped.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:2.4:jar[m [1m(default-jar)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/azbench/image/YCSB/vard/target/vard-binding-0.18.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:2.10:copy-dependencies[m [1m(stage-dependencies)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] com.github.fhackett:vard-client_2.13:jar:0.1.0-SNAPSHOT already exists in destination.
+[[1;34mINFO[m] org.scala-lang:scala-library:jar:2.13.8 already exists in destination.
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Summary for YCSB Root 0.18.0-SNAPSHOT:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] YCSB Root .......................................... [1;32mSUCCESS[m [  0.952 s]
+[[1;34mINFO[m] Core YCSB .......................................... [1;32mSUCCESS[m [  1.966 s]
+[[1;34mINFO[m] YCSB Datastore Binding Parent ...................... [1;32mSUCCESS[m [  0.302 s]
+[[1;34mINFO[m] vard-binding ....................................... [1;32mSUCCESS[m [  0.349 s]
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  3.813 s
+[[1;34mINFO[m] Finished at: 2022-07-02T02:17:19Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
++ popd
+~/image
++ ./etcd-v3.5.4-linux-amd64/etcd --version
+etcd Version: 3.5.4
+Git SHA: 08407ff76
+Go Version: go1.16.15
+Go OS/Arch: linux/amd64
++ '[' '!' -e /home/azbench/.dotnet-installed ']'
++ pushd Ironclad/ironfleet
+~/image/Ironclad/ironfleet ~/image
++ scons --no-verify --dafny-path=../../dafny
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+scons: `.' is up to date.
+scons: done building targets.
++ popd
+~/image
++ sudo apt-get install -y make gcc opam
+Reading package lists...
+Building dependency tree...
+Reading state information...
+gcc is already the newest version (4:9.3.0-1ubuntu2).
+make is already the newest version (4.2.1-1.2).
+opam is already the newest version (2.0.5-1ubuntu1).
+0 upgraded, 0 newly installed, 0 to remove and 54 not upgraded.
++ '[' '!' -e /home/azbench/.verdi-raft-built ']'
++ sudo apt-get install -y opam ocaml ocaml-native-compilers camlp4-extra
+Reading package lists...
+Building dependency tree...
+Reading state information...
+ocaml is already the newest version (4.08.1-8).
+ocaml set to manually installed.
+ocaml-nox is already the newest version (4.08.1-8).
+ocaml-nox set to manually installed.
+opam is already the newest version (2.0.5-1ubuntu1).
+The following additional packages will be installed:
+  libcamlp4-ocaml-dev libfindlib-ocaml libfindlib-ocaml-dev ocaml-findlib
+The following NEW packages will be installed:
+  camlp4 libcamlp4-ocaml-dev libfindlib-ocaml libfindlib-ocaml-dev
+  ocaml-findlib
+0 upgraded, 5 newly installed, 0 to remove and 54 not upgraded.
+Need to get 24.0 MB of archives.
+After this operation, 168 MB of additional disk space will be used.
+Get:1 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libcamlp4-ocaml-dev amd64 4.08+1-1 [15.8 MB]
+Get:2 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 camlp4 amd64 4.08+1-1 [7438 kB]
+Get:3 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libfindlib-ocaml amd64 1.8.1-1build3 [170 kB]
+Get:4 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libfindlib-ocaml-dev amd64 1.8.1-1build3 [154 kB]
+Get:5 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 ocaml-findlib amd64 1.8.1-1build3 [457 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 24.0 MB in 2s (15.7 MB/s)
+Selecting previously unselected package libcamlp4-ocaml-dev.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 79924 files and directories currently installed.)
+Preparing to unpack .../libcamlp4-ocaml-dev_4.08+1-1_amd64.deb ...
+Unpacking libcamlp4-ocaml-dev (4.08+1-1) ...
+Selecting previously unselected package camlp4.
+Preparing to unpack .../camlp4_4.08+1-1_amd64.deb ...
+Unpacking camlp4 (4.08+1-1) ...
+Selecting previously unselected package libfindlib-ocaml.
+Preparing to unpack .../libfindlib-ocaml_1.8.1-1build3_amd64.deb ...
+Unpacking libfindlib-ocaml (1.8.1-1build3) ...
+Selecting previously unselected package libfindlib-ocaml-dev.
+Preparing to unpack .../libfindlib-ocaml-dev_1.8.1-1build3_amd64.deb ...
+Unpacking libfindlib-ocaml-dev (1.8.1-1build3) ...
+Selecting previously unselected package ocaml-findlib.
+Preparing to unpack .../ocaml-findlib_1.8.1-1build3_amd64.deb ...
+Unpacking ocaml-findlib (1.8.1-1build3) ...
+Setting up libcamlp4-ocaml-dev (4.08+1-1) ...
+Setting up libfindlib-ocaml (1.8.1-1build3) ...
+Setting up camlp4 (4.08+1-1) ...
+Setting up ocaml-findlib (1.8.1-1build3) ...
+Setting up libfindlib-ocaml-dev (1.8.1-1build3) ...
+Processing triggers for man-db (2.9.1-1) ...
++ echo no
++ opam init
+[NOTE] Will configure from built-in defaults.
+Checking for available remotes: rsync and local, git, mercurial, darcs. Perfect!
+
+<><> Fetching repository information ><><><><><><><><><><><><><><><><><><><><><>
+[default] Initialised
+
+<><> Required setup - please read <><><><><><><><><><><><><><><><><><><><><><><>
+
+  In normal operation, opam only alters files within ~/.opam.
+
+  However, to best integrate with your system, some environment variables
+  should be set. If you allow it to, this initialisation step will update
+  your bash configuration by adding the following line to ~/.profile:
+
+    test -r /home/azbench/.opam/opam-init/init.sh && . /home/azbench/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+  Otherwise, every time you want to access your opam installation, you will
+  need to run:
+
+    eval $(opam env)
+
+  You can always re-run this setup with 'opam init' later.
+
+Do you want opam to modify ~/.profile? [N/y/f]
+(default is 'no', use 'f' to choose a different file) A hook can be added to opam's init scripts to ensure that the shell remains in sync with the opam environment when they are loaded. Set that up? [y/N] n
+
+<><> Creating initial switch (ocaml-system>=4.02.3) <><><><><><><><><><><><><><>
+
+<><> Gathering sources ><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+<><> Processing actions <><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+∗ installed base-bigarray.base
+∗ installed base-threads.base
+∗ installed base-unix.base
+∗ installed ocaml-system.4.08.1
+∗ installed ocaml-config.1
+∗ installed ocaml.4.08.1
+Done.
+# Run eval $(opam env) to update the current shell environment
++ opam repo add coq-extra-dev https://coq.inria.fr/opam/extra-dev
+[coq-extra-dev] Initialised
+[NOTE] Repository coq-extra-dev has been added to the selections of switch default only.
+       Run `opam repository add coq-extra-dev --all-switches|--set-default' to use it in all existing switches, or in newly created switches, respectively.
+
++ opam pin -y coq-cheerios https://github.com/uwplse/cheerios.git#9c7f66e57b91f706d70afa8ed99d64ed98ab367d
+[coq-cheerios.dev: git]
+[coq-cheerios.dev: git]
+[coq-cheerios.dev: git]
+[coq-cheerios.dev: git]
+[coq-cheerios.dev: git]
+[coq-cheerios.dev: git]
+[coq-cheerios.dev: git]
+[coq-cheerios.dev: git]
+[coq-cheerios.dev: git]
+[coq-cheerios.dev] synchronised from git+https://github.com/uwplse/cheerios.git#9c7f66e57b91f706d70afa8ed99d64ed98ab367d
+coq-cheerios is now pinned to git+https://github.com/uwplse/cheerios.git#9c7f66e57b91f706d70afa8ed99d64ed98ab367d (version dev)
+
+The following actions will be performed:
+  ∗ install ocamlfind       1.9.5  [required by coq]
+  ∗ install conf-findutils  1      [required by coq]
+  ∗ install num             1.4    [required by coq]
+  ∗ install coq             8.11.2 [required by coq-cheerios]
+  ∗ install coq-struct-tact dev    [required by coq-cheerios]
+  ∗ install coq-cheerios    dev*
+===== ∗ 6 =====
+
+<><> Gathering sources ><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+[num.1.4] downloaded from cache at https://opam.ocaml.org/cache
+[coq.8.11.2] downloaded from cache at https://opam.ocaml.org/cache
+[ocamlfind.1.9.5] downloaded from cache at https://opam.ocaml.org/cache
+[coq-struct-tact.dev] synchronised from git+https://github.com/uwplse/StructTact.git#master
+
+<><> Processing actions <><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+∗ installed conf-findutils.1
+∗ installed ocamlfind.1.9.5
+∗ installed num.1.4
+∗ installed coq.8.11.2
+∗ installed coq-struct-tact.dev
+∗ installed coq-cheerios.dev
+Done.
+# Run eval $(opam env) to update the current shell environment
++ opam install -y coq-struct-tact coq-cheerios coq-verdi
+
+<><> Synchronising pinned packages ><><><><><><><><><><><><><><><><><><><><><><>
+[coq-cheerios.dev] no changes from git+https://github.com/uwplse/cheerios.git#9c7f66e57b91f706d70afa8ed99d64ed98ab367d
+
+[NOTE] Package coq-cheerios is already installed (current version is dev).
+[NOTE] Package coq-struct-tact is already installed (current version is dev).
+The following actions will be performed:
+  ∗ install coq-inf-seq-ext dev [required by coq-verdi]
+  ∗ install coq-verdi       dev
+===== ∗ 2 =====
+
+<><> Gathering sources ><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+[coq-inf-seq-ext.dev] synchronised from git+https://github.com/DistributedComponents/InfSeqExt.git#master
+[coq-verdi.dev] synchronised from git+https://github.com/uwplse/verdi.git#master
+
+<><> Processing actions <><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+∗ installed coq-inf-seq-ext.dev
+∗ installed coq-verdi.dev
+Done.
+# Run eval $(opam env) to update the current shell environment
++ opam install -y yojson.1.7.0
+The following actions will be performed:
+  ∗ install dune          3.3.1 [required by yojson]
+  ∗ install easy-format   1.3.4 [required by yojson]
+  ∗ install cppo          1.6.9 [required by yojson]
+  ∗ install camlp-streams 5.0.1 [required by biniou]
+  ∗ install biniou        1.2.2 [required by yojson]
+  ∗ install yojson        1.7.0
+===== ∗ 6 =====
+
+<><> Gathering sources ><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+[biniou.1.2.2] downloaded from cache at https://opam.ocaml.org/cache
+[camlp-streams.5.0.1] downloaded from cache at https://opam.ocaml.org/cache
+[cppo.1.6.9] downloaded from cache at https://opam.ocaml.org/cache
+[easy-format.1.3.4] downloaded from cache at https://opam.ocaml.org/cache
+[dune.3.3.1] downloaded from cache at https://opam.ocaml.org/cache
+[yojson.1.7.0] downloaded from cache at https://opam.ocaml.org/cache
+
+<><> Processing actions <><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+∗ installed dune.3.3.1
+∗ installed easy-format.1.3.4
+∗ installed camlp-streams.5.0.1
+∗ installed biniou.1.2.2
+∗ installed cppo.1.6.9
+∗ installed yojson.1.7.0
+Done.
+# Run eval $(opam env) to update the current shell environment
++ opam repo add distributedcomponents-dev http://opam-dev.distributedcomponents.net
+[distributedcomponents-dev] Initialised
+[NOTE] Repository distributedcomponents-dev has been added to the selections of switch default only.
+       Run `opam repository add distributedcomponents-dev --all-switches|--set-default' to use it in all existing switches, or in newly created switches, respectively.
+
++ opam install -y verdi-runtime cheerios-runtime ocamlbuild
+The following actions will be performed:
+  ∗ install base64           3.5.0  [required by verdi-runtime]
+  ∗ install ocamlbuild       0.14.1
+  ∗ install topkg            1.0.5  [required by verdi-runtime]
+  ∗ install cheerios-runtime dev
+  ∗ install verdi-runtime    dev
+===== ∗ 5 =====
+
+<><> Gathering sources ><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+[base64.3.5.0] downloaded from cache at https://opam.ocaml.org/cache
+[ocamlbuild.0.14.1] downloaded from cache at https://opam.ocaml.org/cache
+[cheerios-runtime.dev] synchronised from git+https://github.com/uwplse/cheerios.git#master
+[topkg.1.0.5] downloaded from cache at https://opam.ocaml.org/cache
+[verdi-runtime.dev] synchronised from git+https://github.com/DistributedComponents/verdi-runtime.git#master
+
+<><> Processing actions <><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+∗ installed base64.3.5.0
+∗ installed ocamlbuild.0.14.1
+∗ installed cheerios-runtime.dev
+∗ installed topkg.1.0.5
+∗ installed verdi-runtime.dev
+Done.
+# Run eval $(opam env) to update the current shell environment
+++ opam env
++ eval 'OPAM_SWITCH_PREFIX='\''/home/azbench/.opam/default'\'';' export 'OPAM_SWITCH_PREFIX;' 'CAML_LD_LIBRARY_PATH='\''/home/azbench/.opam/default/lib/stublibs:/usr/local/lib/ocaml/4.08.1/stublibs:/usr/lib/ocaml/stublibs'\'';' export 'CAML_LD_LIBRARY_PATH;' 'OCAML_TOPLEVEL_PATH='\''/home/azbench/.opam/default/lib/toplevel'\'';' export 'OCAML_TOPLEVEL_PATH;' 'MANPATH='\'':/home/azbench/.opam/default/man'\'';' export 'MANPATH;' 'PATH='\''/home/azbench/.opam/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'\'';' export 'PATH;'
+++ OPAM_SWITCH_PREFIX=/home/azbench/.opam/default
+++ export OPAM_SWITCH_PREFIX
+++ CAML_LD_LIBRARY_PATH=/home/azbench/.opam/default/lib/stublibs:/usr/local/lib/ocaml/4.08.1/stublibs:/usr/lib/ocaml/stublibs
+++ export CAML_LD_LIBRARY_PATH
+++ OCAML_TOPLEVEL_PATH=/home/azbench/.opam/default/lib/toplevel
+++ export OCAML_TOPLEVEL_PATH
+++ MANPATH=:/home/azbench/.opam/default/man
+++ export MANPATH
+++ PATH=/home/azbench/.opam/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+++ export PATH
++ pushd verdi-raft
+~/image/verdi-raft ~/image
++ ./configure
++ make quick
+coq_makefile -f _CoqProject -o Makefile.coq
+make -f Makefile.coq quick
+make[1]: Entering directory '/home/azbench/image/verdi-raft'
+COQDEP VFILES
+COQC -vio raft/RaftState.v
+COQC -vio raft/Raft.v
+COQC -vio raft/RaftRefinementInterface.v
+COQC -vio raft/CroniesCorrectInterface.v
+COQC -vio raft/MaxIndexSanityInterface.v
+COQC -vio raft/VotesLeCurrentTermInterface.v
+COQC -vio raft/TermSanityInterface.v
+COQC -vio raft/CommonDefinitions.v
+COQC -vio raft/TraceUtil.v
+COQC -vio raft/OutputCorrectInterface.v
+COQC -vio raft/LeaderCompletenessInterface.v
+COQC -vio raft/StateMachineSafetyPrimeInterface.v
+COQC -vio raft/NoAppendEntriesRepliesToSelfInterface.v
+COQC -vio raft/CroniesTermInterface.v
+COQC -vio raft/LeaderLogsSublogInterface.v
+COQC -vio raft/RefinementCommonDefinitions.v
+COQC -vio raft/LastAppliedCommitIndexMatchingInterface.v
+COQC -vio raft/LeaderLogsVotesWithLogInterface.v
+COQC -vio raft/PrevLogCandidateEntriesTermInterface.v
+COQC -vio raft/CommonTheorems.v
+COQC -vio raft/VotedForTermSanityInterface.v
+COQC -vio raft/LogMatchingInterface.v
+COQC -vio raft/RefinedLogMatchingLemmasInterface.v
+COQC -vio raft/AppendEntriesLeaderInterface.v
+COQC -vio raft/AllEntriesLogMatchingInterface.v
+COQC -vio raft/LeaderLogsTermSanityInterface.v
+COQC -vio raft/CommitRecordedCommittedInterface.v
+COQC -vio raft/StateMachineSafetyInterface.v
+COQC -vio raft/AppliedEntriesMonotonicInterface.v
+COQC -vio raft/TransitiveCommitInterface.v
+COQC -vio raft/StateMachineCorrectInterface.v
+COQC -vio raft/AppendEntriesRequestReplyCorrespondenceInterface.v
+COQC -vio raft/UniqueIndicesInterface.v
+COQC -vio raft/EveryEntryWasCreatedHostLogInterface.v
+COQC -vio raft/AppliedImpliesInputInterface.v
+COQC -vio raft/SortedInterface.v
+COQC -vio raft/AppendEntriesRequestLeaderLogsInterface.v
+COQC -vio raft/CandidatesVoteForSelvesInterface.v
+COQC -vio raft/VotesCorrectInterface.v
+COQC -vio raft/InputBeforeOutputInterface.v
+COQC -vio raft/VotesWithLogSortedInterface.v
+COQC -vio raft/VotesVotesWithLogCorrespondInterface.v
+COQC -vio raft/CurrentTermGtZeroInterface.v
+COQC -vio raft/AllEntriesVotesWithLogInterface.v
+COQC -vio raft/AppendEntriesRequestsCameFromLeadersInterface.v
+COQC -vio raft/RaftMsgRefinementInterface.v
+COQC -vio raft/GhostLogLogMatchingInterface.v
+COQC -vio raft/VotesReceivedMoreUpToDateInterface.v
+COQC -vio raft/CandidateTermGtLogInterface.v
+COQC -vio raft/RequestVoteReplyMoreUpToDateInterface.v
+COQC -vio raft/RequestVoteTermSanityInterface.v
+COQC -vio raft/OutputGreatestIdInterface.v
+COQC -vio raft/AllEntriesLeaderSublogInterface.v
+COQC -vio raft/TermsAndIndicesFromOneLogInterface.v
+COQC -vio raft/TermsAndIndicesFromOneInterface.v
+COQC -vio raft/AllEntriesLogInterface.v
+COQC -vio raft/PrevLogLeaderSublogInterface.v
+COQC -vio raft/LeaderLogsSortedInterface.v
+COQC -vio raft/OneLeaderLogPerTermInterface.v
+COQC -vio raft/LeadersHaveLeaderLogsInterface.v
+COQC -vio raft/OneLeaderPerTermInterface.v
+COQC -vio raft/MatchIndexLeaderInterface.v
+COQC -vio raft/CausalOrderPreservedInterface.v
+COQC -vio raft/RequestVoteReplyTermSanityInterface.v
+COQC -vio raft/LeadersHaveLeaderLogsStrongInterface.v
+COQC -vio raft/LeaderLogsCandidateEntriesInterface.v
+COQC -vio raft/AppendEntriesReplySublogInterface.v
+COQC -vio raft/LeaderSublogInterface.v
+COQC -vio raft/AllEntriesLeaderLogsTermInterface.v
+COQC -vio raft/VotedForMoreUpToDateInterface.v
+COQC -vio raft/GhostLogAllEntriesInterface.v
+COQC -vio raft/NoAppendEntriesToSelfInterface.v
+COQC -vio raft/SpecLemmas.v
+COQC -vio raft/RefinementCommonTheorems.v
+COQC -vio raft/LogAllEntriesInterface.v
+COQC -vio raft/MatchIndexAllEntriesInterface.v
+COQC -vio raft/OutputImpliesAppliedInterface.v
+COQC -vio raft/LeaderLogsContiguousInterface.v
+COQC -vio raft/GhostLogsLogPropertiesInterface.v
+COQC -vio raft/AllEntriesLeaderLogsInterface.v
+COQC -vio raft/LogsLeaderLogsInterface.v
+COQC -vio raft/LeaderLogsLogMatchingInterface.v
+COQC -vio raft/NextIndexSafetyInterface.v
+COQC -vio raft/Linearizability.v
+COQC -vio raft/RaftLinearizableProofs.v
+COQC -vio raft/CandidateEntriesInterface.v
+COQC -vio raft/MatchIndexSanityInterface.v
+COQC -vio raft/NoAppendEntriesToLeaderInterface.v
+COQC -vio raft/RequestVoteMaxIndexMaxTermInterface.v
+COQC -vio raft/PrefixWithinTermInterface.v
+COQC -vio raft/AppendEntriesRequestTermSanityInterface.v
+COQC -vio raft/RefinementSpecLemmas.v
+COQC -vio raft/DecompositionWithPostState.v
+COQC -vio raft/InLogInAllEntriesInterface.v
+COQC -vio raft/StateTraceInvariant.v
+COQC -vio raft/LeaderLogsPreservedInterface.v
+COQC -vio raft/AllEntriesCandidateEntriesInterface.v
+COQC -vio raft/EveryEntryWasCreatedInterface.v
+COQC -vio raft/AllEntriesTermSanityInterface.v
+COQC -vio raft/AllEntriesIndicesGt0Interface.v
+COQC -vio raft/GhostLogCorrectInterface.v
+COQC -vio raft/VotesWithLogTermSanityInterface.v
+COQC -vio raft/LastAppliedLeCommitIndexInterface.v
+COQC -vio raft/LeaderLogsLogPropertiesInterface.v
+COQC -vio raft-proofs/PrevLogLeaderSublogProof.v
+COQC -vio raft-proofs/CandidateEntriesProof.v
+File "./raft-proofs/CandidateEntriesProof.v", line 370, characters 2-360:
+Warning: Casts are ignored in patterns [cast-in-pattern,automation]
+COQC -vio raft-proofs/CausalOrderPreservedProof.v
+COQC -vio raft-proofs/LogMatchingProof.v
+COQC -vio raft-proofs/LeaderLogsLogPropertiesProof.v
+COQC -vio raft-proofs/LastAppliedCommitIndexMatchingProof.v
+COQC -vio raft-proofs/MatchIndexLeaderProof.v
+COQC -vio raft-proofs/StateMachineSafetyProof.v
+COQC -vio raft-proofs/CroniesCorrectProof.v
+COQC -vio raft-proofs/UniqueIndicesProof.v
+COQC -vio raft-proofs/SortedProof.v
+COQC -vio raft-proofs/TermsAndIndicesFromOneLogProof.v
+COQC -vio raft-proofs/AppliedImpliesInputProof.v
+COQC -vio raft-proofs/StateMachineSafetyPrimeProof.v
+COQC -vio raft-proofs/RequestVoteReplyTermSanityProof.v
+COQC -vio raft-proofs/EveryEntryWasCreatedProof.v
+COQC -vio raft-proofs/AllEntriesLogMatchingProof.v
+COQC -vio raft-proofs/OutputCorrectProof.v
+COQC -vio raft-proofs/InputBeforeOutputProof.v
+COQC -vio raft-proofs/OutputImpliesAppliedProof.v
+COQC -vio raft-proofs/TermSanityProof.v
+COQC -vio raft-proofs/LeaderSublogProof.v
+File "./raft-proofs/LeaderSublogProof.v", line 29, characters 2-360:
+Warning: Casts are ignored in patterns [cast-in-pattern,automation]
+COQC -vio raft-proofs/RaftRefinementProof.v
+COQC -vio raft-proofs/CroniesTermProof.v
+COQC -vio raft-proofs/VotesLeCurrentTermProof.v
+COQC -vio raft-proofs/VotesCorrectProof.v
+COQC -vio raft-proofs/CandidatesVoteForSelvesProof.v
+COQC -vio raft-proofs/OneLeaderPerTermProof.v
+COQC -vio raft-proofs/AppliedEntriesMonotonicProof.v
+COQC -vio raft-proofs/LeaderCompletenessProof.v
+COQC -vio raft-proofs/TransitiveCommitProof.v
+COQC -vio raft-proofs/AllEntriesLeaderLogsProof.v
+COQC -vio raft-proofs/LeaderLogsTermSanityProof.v
+COQC -vio raft-proofs/AllEntriesTermSanityProof.v
+COQC -vio raft-proofs/VotesWithLogTermSanityProof.v
+COQC -vio raft-proofs/LeaderLogsPreservedProof.v
+COQC -vio raft-proofs/PrefixWithinTermProof.v
+COQC -vio raft-proofs/EveryEntryWasCreatedHostLogProof.v
+COQC -vio raft-proofs/LeaderLogsVotesWithLogProof.v
+COQC -vio raft-proofs/AllEntriesLogProof.v
+COQC -vio raft-proofs/AllEntriesVotesWithLogProof.v
+COQC -vio raft-proofs/VotesWithLogSortedProof.v
+COQC -vio raft-proofs/LeaderLogsLogMatchingProof.v
+COQC -vio raft-proofs/AppendEntriesRequestLeaderLogsProof.v
+File "./raft-proofs/AppendEntriesRequestLeaderLogsProof.v", line 111, characters 2-360:
+Warning: Casts are ignored in patterns [cast-in-pattern,automation]
+COQC -vio raft-proofs/AppendEntriesRequestsCameFromLeadersProof.v
+File "./raft-proofs/AppendEntriesRequestsCameFromLeadersProof.v", line 24, characters 2-360:
+Warning: Casts are ignored in patterns [cast-in-pattern,automation]
+COQC -vio raft-proofs/LeaderLogsSortedProof.v
+COQC -vio raft-proofs/LeaderLogsContiguousProof.v
+COQC -vio raft-proofs/LogsLeaderLogsProof.v
+File "./raft-proofs/LogsLeaderLogsProof.v", line 182, characters 2-360:
+Warning: Casts are ignored in patterns [cast-in-pattern,automation]
+COQC -vio raft-proofs/OneLeaderLogPerTermProof.v
+COQC -vio raft-proofs/LeaderLogsSublogProof.v
+COQC -vio raft-proofs/LeadersHaveLeaderLogsProof.v
+COQC -vio raft-proofs/LeadersHaveLeaderLogsStrongProof.v
+COQC -vio raft-proofs/NextIndexSafetyProof.v
+COQC -vio raft-proofs/RefinedLogMatchingLemmasProof.v
+COQC -vio raft-proofs/LeaderLogsCandidateEntriesProof.v
+COQC -vio raft-proofs/AllEntriesCandidateEntriesProof.v
+COQC -vio raft-proofs/AppendEntriesRequestTermSanityProof.v
+COQC -vio raft-proofs/AllEntriesLeaderSublogProof.v
+COQC -vio raft-proofs/LastAppliedLeCommitIndexProof.v
+COQC -vio raft-proofs/AllEntriesLeaderLogsTermProof.v
+COQC -vio raft-proofs/StateMachineCorrectProof.v
+COQC -vio raft-proofs/OutputGreatestIdProof.v
+COQC -vio raft-proofs/CurrentTermGtZeroProof.v
+COQC -vio raft-proofs/TermsAndIndicesFromOneProof.v
+COQC -vio raft-proofs/CandidateTermGtLogProof.v
+COQC -vio raft-proofs/VotesVotesWithLogCorrespondProof.v
+COQC -vio raft-proofs/AllEntriesIndicesGt0Proof.v
+COQC -vio raft-proofs/PrevLogCandidateEntriesTermProof.v
+COQC -vio raft-proofs/MatchIndexAllEntriesProof.v
+COQC -vio raft-proofs/MatchIndexSanityProof.v
+COQC -vio raft-proofs/NoAppendEntriesToLeaderProof.v
+COQC -vio raft-proofs/NoAppendEntriesToSelfProof.v
+COQC -vio raft-proofs/NoAppendEntriesRepliesToSelfProof.v
+COQC -vio raft-proofs/LogAllEntriesProof.v
+COQC -vio raft-proofs/AppendEntriesReplySublogProof.v
+COQC -vio raft-proofs/AppendEntriesRequestReplyCorrespondenceProof.v
+COQC -vio raft-proofs/AppendEntriesLeaderProof.v
+COQC -vio raft-proofs/RequestVoteMaxIndexMaxTermProof.v
+COQC -vio raft-proofs/RequestVoteReplyMoreUpToDateProof.v
+COQC -vio raft-proofs/RequestVoteTermSanityProof.v
+COQC -vio raft-proofs/VotedForMoreUpToDateProof.v
+COQC -vio raft-proofs/VotedForTermSanityProof.v
+COQC -vio raft-proofs/VotesReceivedMoreUpToDateProof.v
+COQC -vio raft-proofs/RaftMsgRefinementProof.v
+COQC -vio raft-proofs/GhostLogCorrectProof.v
+COQC -vio raft-proofs/GhostLogsLogPropertiesProof.v
+COQC -vio raft-proofs/InLogInAllEntriesProof.v
+COQC -vio raft-proofs/GhostLogAllEntriesProof.v
+COQC -vio raft-proofs/GhostLogLogMatchingProof.v
+COQC -vio raft-proofs/EndToEndLinearizability.v
+COQC -vio systems/VarDRaft.v
+COQC -vio systems/VarDRaftSerializers.v
+COQC -vio systems/VarDRaftSerialized.v
+COQC -vio systems/VarDRaftSerializedCorrect.v
+COQC -vio systems/VarDRaftSerializedLog.v
+COQC -vio systems/VarDRaftSerializedLogCorrect.v
+COQC -vio systems/VarDRaftLog.v
+COQC -vio systems/VarDRaftLogCorrect.v
+COQC -vio systems/VarDRaftCorrect.v
+COQC -vio extraction/vard/coq/ExtractVarDRaft.v
+COQC -vio extraction/vard-serialized/coq/ExtractVarDRaftSerialized.v
+COQC -vio extraction/vard-log/coq/ExtractVarDRaftLog.v
+COQC -vio extraction/vard-serialized-log/coq/ExtractVarDRaftSerializedLog.v
+COQC -vio extraction/vard-debug/coq/ExtractVarDRaftDebug.v
+Makefile.coq:396: "'make quick' is deprecated, use 'make vio' or consider using 'vos' files"
+make[1]: Leaving directory '/home/azbench/image/verdi-raft'
++ make vard
+make -C extraction/vard
+make[1]: Entering directory '/home/azbench/image/verdi-raft/extraction/vard'
+make -C ../.. extraction/vard/ml/VarDRaft.ml
+make[2]: Entering directory '/home/azbench/image/verdi-raft'
+make -f Makefile.coq extraction/vard/ml/VarDRaft.ml
+make[3]: Entering directory '/home/azbench/image/verdi-raft'
+COQC raft/RaftState.v
+COQC raft/Raft.v
+COQC systems/VarDRaft.v
+"coqc"  -q   -Q raft VerdiRaft -Q raft-proofs VerdiRaft -Q systems VerdiRaft -Q extraction/vard/coq VerdiRaft -Q extraction/vard-serialized/coq VerdiRaft -Q extraction/vard-log/coq VerdiRaft -Q extraction/vard-serialized-log/coq VerdiRaft -Q extraction/vard-debug/coq VerdiRaft  extraction/vard/coq/ExtractVarDRaft.v
+File "./extraction/vard/coq/ExtractVarDRaft.v", line 16, characters 0-118:
+Warning: The extraction is currently set to bypass opacity, the following
+opaque constant bodies have been accessed
+: OrderedTypeEx.PositiveOrderedTypeBits.compare
+  OrderedTypeEx.PositiveOrderedTypeBits.eq_dec In_dec.
+ [extraction-opaque-accessed,extraction]
+make[3]: Leaving directory '/home/azbench/image/verdi-raft'
+make[2]: Leaving directory '/home/azbench/image/verdi-raft'
+make -C ../.. extraction/vard/ml/VarDRaft.mli
+make[2]: Entering directory '/home/azbench/image/verdi-raft'
+make -f Makefile.coq extraction/vard/ml/VarDRaft.mli
+make[3]: Entering directory '/home/azbench/image/verdi-raft'
+make[3]: 'extraction/vard/ml/VarDRaft.mli' is up to date.
+make[3]: Leaving directory '/home/azbench/image/verdi-raft'
+make[2]: Leaving directory '/home/azbench/image/verdi-raft'
+ocamlbuild -tag safe_string -package verdi-runtime -I ml -cflag -g vard.native
+ocamldep.opt -modules ml/vard.ml > ml/vard.ml.depends
+ocamldep.opt -modules ml/VarDArrangement.ml > ml/VarDArrangement.ml.depends
+ocamldep.opt -modules ml/VarDRaft.mli > ml/VarDRaft.mli.depends
+ocamldep.opt -modules ml/VarDSerialization.ml > ml/VarDSerialization.ml.depends
+ocamlc.opt -c -g -I /home/azbench/.opam/default/lib/base64 -I /home/azbench/.opam/default/lib/biniou -I /home/azbench/.opam/default/lib/bytes -I /home/azbench/.opam/default/lib/camlp-streams -I /home/azbench/.opam/default/lib/cheerios-runtime -I /home/azbench/.opam/default/lib/easy-format -I /home/azbench/.opam/default/lib/verdi-runtime -I /home/azbench/.opam/default/lib/yojson -I /usr/lib/ocaml -safe-string -I ml -o ml/VarDRaft.cmi ml/VarDRaft.mli
+ocamlc.opt -c -g -I /home/azbench/.opam/default/lib/base64 -I /home/azbench/.opam/default/lib/biniou -I /home/azbench/.opam/default/lib/bytes -I /home/azbench/.opam/default/lib/camlp-streams -I /home/azbench/.opam/default/lib/cheerios-runtime -I /home/azbench/.opam/default/lib/easy-format -I /home/azbench/.opam/default/lib/verdi-runtime -I /home/azbench/.opam/default/lib/yojson -I /usr/lib/ocaml -safe-string -I ml -o ml/VarDSerialization.cmo ml/VarDSerialization.ml
+ocamlc.opt -c -g -I /home/azbench/.opam/default/lib/base64 -I /home/azbench/.opam/default/lib/biniou -I /home/azbench/.opam/default/lib/bytes -I /home/azbench/.opam/default/lib/camlp-streams -I /home/azbench/.opam/default/lib/cheerios-runtime -I /home/azbench/.opam/default/lib/easy-format -I /home/azbench/.opam/default/lib/verdi-runtime -I /home/azbench/.opam/default/lib/yojson -I /usr/lib/ocaml -safe-string -I ml -o ml/VarDArrangement.cmo ml/VarDArrangement.ml
+ocamlc.opt -c -g -I /home/azbench/.opam/default/lib/base64 -I /home/azbench/.opam/default/lib/biniou -I /home/azbench/.opam/default/lib/bytes -I /home/azbench/.opam/default/lib/camlp-streams -I /home/azbench/.opam/default/lib/cheerios-runtime -I /home/azbench/.opam/default/lib/easy-format -I /home/azbench/.opam/default/lib/verdi-runtime -I /home/azbench/.opam/default/lib/yojson -I /usr/lib/ocaml -safe-string -I ml -o ml/vard.cmo ml/vard.ml
+ocamldep.opt -modules ml/VarDRaft.ml > ml/VarDRaft.ml.depends
+ocamlopt.opt -c -g -I /home/azbench/.opam/default/lib/base64 -I /home/azbench/.opam/default/lib/biniou -I /home/azbench/.opam/default/lib/bytes -I /home/azbench/.opam/default/lib/camlp-streams -I /home/azbench/.opam/default/lib/cheerios-runtime -I /home/azbench/.opam/default/lib/easy-format -I /home/azbench/.opam/default/lib/verdi-runtime -I /home/azbench/.opam/default/lib/yojson -I /usr/lib/ocaml -safe-string -I ml -o ml/VarDRaft.cmx ml/VarDRaft.ml
++ ocamlopt.opt -c -g -I /home/azbench/.opam/default/lib/base64 -I /home/azbench/.opam/default/lib/biniou -I /home/azbench/.opam/default/lib/bytes -I /home/azbench/.opam/default/lib/camlp-streams -I /home/azbench/.opam/default/lib/cheerios-runtime -I /home/azbench/.opam/default/lib/easy-format -I /home/azbench/.opam/default/lib/verdi-runtime -I /home/azbench/.opam/default/lib/yojson -I /usr/lib/ocaml -safe-string -I ml -o ml/VarDRaft.cmx ml/VarDRaft.ml
+File "ml/VarDRaft.ml", line 17, characters 20-34:
+17 | let pred = fun n -> Pervasives.max 0 (n-1)
+                         ^^^^^^^^^^^^^^
+Alert deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+File "ml/VarDRaft.ml", line 66, characters 32-47:
+66 |     (fun len0 -> start :: (seq (Pervasives.succ start) len0))
+                                     ^^^^^^^^^^^^^^^
+Alert deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+File "ml/VarDRaft.ml", line 438, characters 17-32:
+438 |      | Some _ -> Pervasives.succ (Coq__1.add (cardinal l) (cardinal r))
+                       ^^^^^^^^^^^^^^^
+Alert deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+File "ml/VarDRaft.ml", line 1320, characters 11-26:
+1320 |   let t0 = Pervasives.succ state.currentTerm in
+                  ^^^^^^^^^^^^^^^
+Alert deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+File "ml/VarDRaft.ml", line 1365, characters 25-39:
+1365 |                         (Pervasives.max state.commitIndex
+                                ^^^^^^^^^^^^^^
+Alert deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+File "ml/VarDRaft.ml", line 1366, characters 27-41:
+1366 |                           (Pervasives.min leaderCommit
+                                  ^^^^^^^^^^^^^^
+Alert deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+File "ml/VarDRaft.ml", line 1394, characters 33-47:
+1394 |                                 (Pervasives.max state.commitIndex
+                                        ^^^^^^^^^^^^^^
+Alert deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+File "ml/VarDRaft.ml", line 1395, characters 35-49:
+1395 |                                   (Pervasives.min leaderCommit
+                                          ^^^^^^^^^^^^^^
+Alert deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+File "ml/VarDRaft.ml", line 1422, characters 20-34:
+1422 |                    (Pervasives.max
+                           ^^^^^^^^^^^^^^
+Alert deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+File "ml/VarDRaft.ml", line 1428, characters 18-32:
+1428 |                  (Pervasives.max
+                         ^^^^^^^^^^^^^^
+Alert deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+File "ml/VarDRaft.ml", line 1430, characters 20-35:
+1430 |                    (Pervasives.succ index0)))), [])
+                           ^^^^^^^^^^^^^^^
+Alert deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+File "ml/VarDRaft.ml", line 1481, characters 17-32:
+1481 |       (fun n1 -> Pervasives.succ (div2 n1))
+                        ^^^^^^^^^^^^^^^
+Alert deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+File "ml/VarDRaft.ml", line 1488, characters 8-23:
+1488 |   (<=) (Pervasives.succ
+               ^^^^^^^^^^^^^^^
+Alert deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+File "ml/VarDRaft.ml", line 1674, characters 41-55:
+1674 |     ((fun a b c -> List.fold_left a c b) Pervasives.max
+                                                ^^^^^^^^^^^^^^
+Alert deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+File "ml/VarDRaft.ml", line 1722, characters 17-32:
+1722 |     let index0 = Pervasives.succ
+                        ^^^^^^^^^^^^^^^
+Alert deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+ocamlopt.opt -c -g -I /home/azbench/.opam/default/lib/base64 -I /home/azbench/.opam/default/lib/biniou -I /home/azbench/.opam/default/lib/bytes -I /home/azbench/.opam/default/lib/camlp-streams -I /home/azbench/.opam/default/lib/cheerios-runtime -I /home/azbench/.opam/default/lib/easy-format -I /home/azbench/.opam/default/lib/verdi-runtime -I /home/azbench/.opam/default/lib/yojson -I /usr/lib/ocaml -safe-string -I ml -o ml/VarDSerialization.cmx ml/VarDSerialization.ml
++ ocamlopt.opt -c -g -I /home/azbench/.opam/default/lib/base64 -I /home/azbench/.opam/default/lib/biniou -I /home/azbench/.opam/default/lib/bytes -I /home/azbench/.opam/default/lib/camlp-streams -I /home/azbench/.opam/default/lib/cheerios-runtime -I /home/azbench/.opam/default/lib/easy-format -I /home/azbench/.opam/default/lib/verdi-runtime -I /home/azbench/.opam/default/lib/yojson -I /usr/lib/ocaml -safe-string -I ml -o ml/VarDSerialization.cmx ml/VarDSerialization.ml
+File "_none_", line 1:
+Warning 58: no cmx file was found in path for module Util, and its interface was not compiled with -opaque
+ocamlopt.opt -c -g -I /home/azbench/.opam/default/lib/base64 -I /home/azbench/.opam/default/lib/biniou -I /home/azbench/.opam/default/lib/bytes -I /home/azbench/.opam/default/lib/camlp-streams -I /home/azbench/.opam/default/lib/cheerios-runtime -I /home/azbench/.opam/default/lib/easy-format -I /home/azbench/.opam/default/lib/verdi-runtime -I /home/azbench/.opam/default/lib/yojson -I /usr/lib/ocaml -safe-string -I ml -o ml/VarDArrangement.cmx ml/VarDArrangement.ml
+ocamlopt.opt -c -g -I /home/azbench/.opam/default/lib/base64 -I /home/azbench/.opam/default/lib/biniou -I /home/azbench/.opam/default/lib/bytes -I /home/azbench/.opam/default/lib/camlp-streams -I /home/azbench/.opam/default/lib/cheerios-runtime -I /home/azbench/.opam/default/lib/easy-format -I /home/azbench/.opam/default/lib/verdi-runtime -I /home/azbench/.opam/default/lib/yojson -I /usr/lib/ocaml -safe-string -I ml -o ml/vard.cmx ml/vard.ml
++ ocamlopt.opt -c -g -I /home/azbench/.opam/default/lib/base64 -I /home/azbench/.opam/default/lib/biniou -I /home/azbench/.opam/default/lib/bytes -I /home/azbench/.opam/default/lib/camlp-streams -I /home/azbench/.opam/default/lib/cheerios-runtime -I /home/azbench/.opam/default/lib/easy-format -I /home/azbench/.opam/default/lib/verdi-runtime -I /home/azbench/.opam/default/lib/yojson -I /usr/lib/ocaml -safe-string -I ml -o ml/vard.cmx ml/vard.ml
+File "_none_", line 1:
+Warning 58: no cmx file was found in path for module Opts, and its interface was not compiled with -opaque
+File "_none_", line 1:
+Warning 58: no cmx file was found in path for module Shim, and its interface was not compiled with -opaque
+ocamlopt.opt -I /home/azbench/.opam/default/lib/base64 -I /home/azbench/.opam/default/lib/biniou -I /home/azbench/.opam/default/lib/bytes -I /home/azbench/.opam/default/lib/camlp-streams -I /home/azbench/.opam/default/lib/cheerios-runtime -I /home/azbench/.opam/default/lib/easy-format -I /home/azbench/.opam/default/lib/verdi-runtime -I /home/azbench/.opam/default/lib/yojson -I /usr/lib/ocaml /usr/lib/ocaml/unix.cmxa /usr/lib/ocaml/str.cmxa /home/azbench/.opam/default/lib/cheerios-runtime/cheerios_runtime.cmxa /home/azbench/.opam/default/lib/camlp-streams/camlp_streams.cmxa /home/azbench/.opam/default/lib/easy-format/easy_format.cmxa /home/azbench/.opam/default/lib/biniou/biniou.cmxa /home/azbench/.opam/default/lib/yojson/yojson.cmxa /home/azbench/.opam/default/lib/base64/base64.cmxa /home/azbench/.opam/default/lib/verdi-runtime/verdi_runtime.cmxa -I ml ml/VarDRaft.cmx ml/VarDSerialization.cmx ml/VarDArrangement.cmx ml/vard.cmx -o ml/vard.native
+make[1]: Leaving directory '/home/azbench/image/verdi-raft/extraction/vard'
++ popd
+~/image
++ touch /home/azbench/.verdi-raft-built
++ export PATH=/home/azbench/.opam/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/azbench/image/go1.18.2.linux-amd64/go/bin
++ PATH=/home/azbench/.opam/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/azbench/image/go1.18.2.linux-amd64/go/bin
++ pushd pgo/systems/raftkvs
+~/image/pgo/systems/raftkvs ~/image
++ make build
+go build -o server cmd/server/*.go
+go: downloading github.com/pkg/profile v1.6.0
+go: downloading github.com/dgraph-io/badger/v3 v3.2103.2
+go: downloading github.com/spf13/viper v1.11.0
+go: downloading github.com/mitchellh/mapstructure v1.4.3
+go: downloading github.com/fsnotify/fsnotify v1.5.1
+go: downloading github.com/spf13/afero v1.8.2
+go: downloading github.com/spf13/cast v1.4.1
+go: downloading github.com/spf13/jwalterweatherman v1.1.0
+go: downloading github.com/spf13/pflag v1.0.5
+go: downloading github.com/benbjohnson/immutable v0.3.0
+go: downloading go.uber.org/multierr v1.7.0
+go: downloading github.com/subosito/gotenv v1.2.0
+go: downloading github.com/hashicorp/hcl v1.0.0
+go: downloading gopkg.in/ini.v1 v1.66.4
+go: downloading github.com/magiconair/properties v1.8.6
+go: downloading github.com/pelletier/go-toml v1.9.4
+go: downloading gopkg.in/yaml.v2 v2.4.0
+go: downloading golang.org/x/sys v0.0.0-20220412211240-33da011f77ad
+go: downloading github.com/segmentio/fasthash v1.0.3
+go: downloading go.uber.org/atomic v1.9.0
+go: downloading golang.org/x/text v0.3.7
+go: downloading github.com/dgraph-io/ristretto v0.1.0
+go: downloading github.com/dustin/go-humanize v1.0.0
+go: downloading github.com/golang/protobuf v1.5.2
+go: downloading github.com/pkg/errors v0.9.1
+go: downloading go.opencensus.io v0.23.0
+go: downloading github.com/gogo/protobuf v1.3.2
+go: downloading github.com/golang/snappy v0.0.3
+go: downloading github.com/google/flatbuffers v1.12.1
+go: downloading github.com/cespare/xxhash v1.1.0
+go: downloading github.com/klauspost/compress v1.12.3
+go: downloading golang.org/x/net v0.0.0-20220412020605-290c469a71a5
+go: downloading golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
+go: downloading google.golang.org/protobuf v1.28.0
+go: downloading github.com/cespare/xxhash/v2 v2.1.1
+go: downloading github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
+go: downloading github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da
+go build -o client cmd/client/*.go
++ popd
+~/image
++ pushd pgo/systems/raftres
+~/image/pgo/systems/raftres ~/image
++ make build
+go build -o server cmd/server/*.go
+go: downloading github.com/spf13/viper v1.3.2
+go: downloading github.com/golang/protobuf v1.3.1
+go: downloading go.opencensus.io v0.22.5
+go: downloading golang.org/x/sys v0.0.0-20210124154548-22da62e12c0c
+go: downloading golang.org/x/net v0.0.0-20201021035429-f5854403a974
+go: downloading github.com/fsnotify/fsnotify v1.4.7
+go: downloading github.com/magiconair/properties v1.8.0
+go: downloading github.com/mitchellh/mapstructure v1.1.2
+go: downloading github.com/pelletier/go-toml v1.2.0
+go: downloading github.com/spf13/afero v1.1.2
+go: downloading github.com/spf13/cast v1.3.0
+go: downloading github.com/spf13/jwalterweatherman v1.0.0
+go: downloading github.com/spf13/pflag v1.0.3
+go: downloading gopkg.in/yaml.v2 v2.2.2
+go: downloading golang.org/x/text v0.3.3
+go: downloading github.com/golang/groupcache v0.0.0-20190702054246-869f871628b6
++ popd
+~/image
++ pushd pgo/systems/shopcart
+~/image/pgo/systems/shopcart ~/image
++ make build
+go build -o node cmd/*.go
+go: downloading github.com/spf13/viper v1.12.0
+go: downloading golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a
+go: downloading golang.org/x/net v0.0.0-20220520000938-2e3eb7b945c2
+go: downloading github.com/fsnotify/fsnotify v1.5.4
+go: downloading github.com/mitchellh/mapstructure v1.5.0
+go: downloading github.com/spf13/cast v1.5.0
+go: downloading github.com/subosito/gotenv v1.3.0
+go: downloading github.com/pelletier/go-toml/v2 v2.0.1
+go: downloading gopkg.in/yaml.v3 v3.0.0
+go: downloading github.com/pelletier/go-toml v1.9.5
++ popd
+~/image
++ pushd go-ycsb
+~/image/go-ycsb ~/image
++ make
+go build -o bin/go-ycsb cmd/go-ycsb/*
+go: downloading github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e
+go: downloading github.com/spf13/cobra v1.0.0
+go: downloading github.com/boltdb/bolt v1.3.1
+go: downloading github.com/aerospike/aerospike-client-go v1.35.2
+go: downloading go.mongodb.org/mongo-driver v1.0.2
+go: downloading github.com/XiaoMi/pegasus-go-client v0.0.0-20181029071519-9400942c5d1c
+go: downloading go.etcd.io/etcd/client/v3 v3.5.0
+go: downloading github.com/DistCompiler/pgo/systems/raftkvs v0.0.0-20220628060057-cff18d37ca1a
+go: downloading github.com/dgraph-io/badger v1.5.4
+go: downloading github.com/go-redis/redis/v8 v8.11.4
+go: downloading github.com/go-sql-driver/mysql v1.6.0
+go: downloading github.com/minio/minio-go v6.0.14+incompatible
+go: downloading github.com/google/uuid v1.1.2
+go: downloading github.com/mattn/go-sqlite3 v2.0.1+incompatible
+go: downloading github.com/gocql/gocql v0.0.0-20181124151448-70385f88b28b
+go: downloading github.com/DistCompiler/pgo/systems/raftres v0.0.0-20220628060057-cff18d37ca1a
+go: downloading github.com/lib/pq v1.1.1
+go: downloading github.com/pingcap/errors v0.11.5-0.20201126102027-b0a155152ca3
+go: downloading gopkg.in/tomb.v2 v2.0.0-20161208151619-d5d1b5820637
+go: downloading github.com/UBC-NSS/pgo/distsys v0.0.0-20220628055826-9453fed15759
+go: downloading go.etcd.io/etcd/api/v3 v3.5.2
+go: downloading go.etcd.io/etcd/client/pkg/v3 v3.5.2
+go: downloading go.uber.org/zap v1.17.0
+go: downloading google.golang.org/grpc v1.45.0
+go: downloading github.com/yuin/gopher-lua v0.0.0-20181031023651-12c4817b42c5
+go: downloading github.com/cespare/xxhash/v2 v2.1.2
+go: downloading github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f
+go: downloading github.com/dgryski/go-farm v0.0.0-20190423205320-6a90982ecee2
+go: downloading github.com/hailocab/go-hostpool v0.0.0-20160125115350-e80d13ce29ed
+go: downloading gopkg.in/inf.v0 v0.9.1
+go: downloading github.com/apache/thrift v0.0.0-20171203172758-327ebb6c2b6d
+go: downloading google.golang.org/genproto v0.0.0-20220407144326-9054f6ed7bac
+go: downloading github.com/coreos/go-semver v0.3.0
+go: downloading github.com/coreos/go-systemd/v22 v22.3.2
+go: downloading github.com/go-ini/ini v1.49.0
+go: downloading github.com/mitchellh/go-homedir v1.1.0
+go: downloading golang.org/x/crypto v0.0.0-20220411220226-7b82a4e95df4
+go: downloading github.com/AndreasBriese/bbloom v0.0.0-20180913140656-343706a395b7
+go: downloading github.com/go-stack/stack v1.8.0
+go: downloading github.com/xdg/scram v0.0.0-20180814205039-7eeb5667e42c
+go: downloading github.com/xdg/stringprep v1.0.0
++ popd
+~/image
++ '[' '!' -e /home/azbench/.redis-installed ']'
++ sudo apt-get install -y redis-server
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libhiredis0.14 libjemalloc2 liblua5.1-0 lua-bitop lua-cjson redis-tools
+Suggested packages:
+  ruby-redis
+The following NEW packages will be installed:
+  libhiredis0.14 libjemalloc2 liblua5.1-0 lua-bitop lua-cjson redis-server
+  redis-tools
+0 upgraded, 7 newly installed, 0 to remove and 54 not upgraded.
+Need to get 915 kB of archives.
+After this operation, 4077 kB of additional disk space will be used.
+Get:1 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libhiredis0.14 amd64 0.14.0-6 [30.2 kB]
+Get:2 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libjemalloc2 amd64 5.2.1-1ubuntu1 [235 kB]
+Get:3 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 liblua5.1-0 amd64 5.1.5-8.1build4 [99.9 kB]
+Get:4 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 lua-bitop amd64 1.0.2-5 [6680 B]
+Get:5 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 lua-cjson amd64 2.1.0+dfsg-2.1 [17.4 kB]
+Get:6 http://azure.archive.ubuntu.com/ubuntu focal-updates/universe amd64 redis-tools amd64 5:5.0.7-2ubuntu0.1 [489 kB]
+Get:7 http://azure.archive.ubuntu.com/ubuntu focal-updates/universe amd64 redis-server amd64 5:5.0.7-2ubuntu0.1 [37.4 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 915 kB in 0s (2100 kB/s)
+Selecting previously unselected package libhiredis0.14:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 80249 files and directories currently installed.)
+Preparing to unpack .../0-libhiredis0.14_0.14.0-6_amd64.deb ...
+Unpacking libhiredis0.14:amd64 (0.14.0-6) ...
+Selecting previously unselected package libjemalloc2:amd64.
+Preparing to unpack .../1-libjemalloc2_5.2.1-1ubuntu1_amd64.deb ...
+Unpacking libjemalloc2:amd64 (5.2.1-1ubuntu1) ...
+Selecting previously unselected package liblua5.1-0:amd64.
+Preparing to unpack .../2-liblua5.1-0_5.1.5-8.1build4_amd64.deb ...
+Unpacking liblua5.1-0:amd64 (5.1.5-8.1build4) ...
+Selecting previously unselected package lua-bitop:amd64.
+Preparing to unpack .../3-lua-bitop_1.0.2-5_amd64.deb ...
+Unpacking lua-bitop:amd64 (1.0.2-5) ...
+Selecting previously unselected package lua-cjson:amd64.
+Preparing to unpack .../4-lua-cjson_2.1.0+dfsg-2.1_amd64.deb ...
+Unpacking lua-cjson:amd64 (2.1.0+dfsg-2.1) ...
+Selecting previously unselected package redis-tools.
+Preparing to unpack .../5-redis-tools_5%3a5.0.7-2ubuntu0.1_amd64.deb ...
+Unpacking redis-tools (5:5.0.7-2ubuntu0.1) ...
+Selecting previously unselected package redis-server.
+Preparing to unpack .../6-redis-server_5%3a5.0.7-2ubuntu0.1_amd64.deb ...
+Unpacking redis-server (5:5.0.7-2ubuntu0.1) ...
+Setting up libjemalloc2:amd64 (5.2.1-1ubuntu1) ...
+Setting up lua-cjson:amd64 (2.1.0+dfsg-2.1) ...
+Setting up lua-bitop:amd64 (1.0.2-5) ...
+Setting up liblua5.1-0:amd64 (5.1.5-8.1build4) ...
+Setting up libhiredis0.14:amd64 (0.14.0-6) ...
+Setting up redis-tools (5:5.0.7-2ubuntu0.1) ...
+Setting up redis-server (5:5.0.7-2ubuntu0.1) ...
+Created symlink /etc/systemd/system/redis.service → /lib/systemd/system/redis-server.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/redis-server.service → /lib/systemd/system/redis-server.service.
+Processing triggers for systemd (245.4-4ubuntu3.17) ...
+Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.7) ...
++ sudo systemctl stop redis-server.service
++ sudo systemctl disable redis-server.service
+Synchronizing state of redis-server.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install disable redis-server
+Removed /etc/systemd/system/redis.service.
+Removed /etc/systemd/system/multi-user.target.wants/redis-server.service.
++ touch /home/azbench/.redis_installed
++ pushd roshi/roshi-server
+~/image/roshi/roshi-server ~/image
++ go build -buildvcs=false
+go: downloading github.com/gorilla/pat v1.0.1
+go: downloading github.com/peterbourgon/g2s v0.0.0-20170223122336-d4e7ad98afea
+go: downloading github.com/garyburd/redigo v1.6.0
+go: downloading github.com/prometheus/client_golang v0.9.4
+go: downloading github.com/tsenart/tb v0.0.0-20181025101425-0d2499c8b6e9
+go: downloading github.com/gorilla/context v1.1.1
+go: downloading github.com/gorilla/mux v1.7.4
+go: downloading github.com/prometheus/procfs v0.1.3
+go: downloading github.com/beorn7/perks v1.0.1
+go: downloading github.com/golang/protobuf v1.4.2
+go: downloading github.com/prometheus/client_model v0.2.0
+go: downloading github.com/prometheus/common v0.4.1
+go: downloading github.com/matttproud/golang_protobuf_extensions v1.0.1
+go: downloading google.golang.org/protobuf v1.23.0
+go: downloading golang.org/x/sys v0.0.0-20200615200032-f1bc736245b1
++ popd
+~/image
++ pushd roshi/roshi-walker
+~/image/roshi/roshi-walker ~/image
++ go build -buildvcs=false
++ popd
+~/image
++ pushd roshiapp
+~/image/roshiapp ~/image
++ make build
+go build cmd/*.go
+go: downloading github.com/shayanh/roshi v0.0.2
++ popd
+~/image
++ '[' '!' -e /home/azbench/py_venv ']'
++ virtualenv --clear /home/azbench/py_venv
+created virtual environment CPython3.8.10.final.0-64 in 467ms
+  creator CPython3Posix(dest=/home/azbench/py_venv, clear=True, global=False)
+  seeder FromAppData(download=False, pip=latest, setuptools=latest, wheel=latest, pkg_resources=latest, via=copy, app_data_dir=/home/azbench/.local/share/virtualenv/seed-app-data/v1.0.1.debian.1)
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
++ source /home/azbench/py_venv/bin/activate
+++ '[' /home/azbench/py_venv/bin/activate = ./provision.sh ']'
+++ deactivate nondestructive
+++ unset -f pydoc
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ '[' -n /usr/bin/bash ']'
+++ hash -r
+++ '[' -z '' ']'
+++ unset VIRTUAL_ENV
+++ '[' '!' nondestructive = nondestructive ']'
+++ VIRTUAL_ENV=/home/azbench/py_venv
+++ export VIRTUAL_ENV
+++ _OLD_VIRTUAL_PATH=/home/azbench/.opam/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/azbench/image/go1.18.2.linux-amd64/go/bin
+++ PATH=/home/azbench/py_venv/bin:/home/azbench/.opam/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/azbench/image/go1.18.2.linux-amd64/go/bin
+++ export PATH
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ '[' x '!=' x ']'
++++ basename /home/azbench/py_venv
+++ PS1='(py_venv) '
+++ export PS1
+++ alias pydoc
+++ true
+++ '[' -n /usr/bin/bash ']'
+++ hash -r
++ pushd tausigplan-pldi18-impl-6cee11b50570
+~/image/tausigplan-pldi18-impl-6cee11b50570 ~/image
++ pushd evaluation
+~/image/tausigplan-pldi18-impl-6cee11b50570/evaluation ~/image/tausigplan-pldi18-impl-6cee11b50570 ~/image
++ make raft
+echo '#define VERSION "'1'"' > src/version.h
+mkdir -p build
+g++ -O3 -std=c++11 -w -I ../examples/raft/ -o build/server ../examples/raft/raft.cpp src/common.cpp src/kvstore.cpp src/server.cpp -lpthread
++ popd
+~/image/tausigplan-pldi18-impl-6cee11b50570 ~/image
++ popd
+~/image

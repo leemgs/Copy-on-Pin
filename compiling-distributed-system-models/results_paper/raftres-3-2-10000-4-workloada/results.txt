@@ -1,0 +1,65 @@
+loading YCSB
+***************** properties *****************
+"threadcount"="4"
+"updateproportion"="0.5"
+"scanproportion"="0"
+"operationcount"="10000"
+"raftres.config"="/tmp/4812582216887931793.yaml"
+"readproportion"="0.5"
+"requestdistribution"="zipfian"
+"workload"="core"
+"readallfields"="true"
+"dotransactions"="false"
+"recordcount"="1000"
+"insertproportion"="0"
+**********************************************
+2022/07/02 02:48:46 relaxed mailboxes started listening on: 10.0.0.7:8001
+2022/07/02 02:48:46 relaxed mailboxes started listening on: 10.0.0.7:8004
+2022/07/02 02:48:46 fd change state: archetype = 23, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:48:46 fd change state: archetype = 22, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:48:46 fd change state: archetype = 24, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:48:46 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/07/02 02:48:46 relaxed mailboxes started listening on: 10.0.0.7:8002
+2022/07/02 02:48:48 archetype 31 finished, err = <nil>
+2022/07/02 02:48:48 archetype 28 finished, err = <nil>
+2022/07/02 02:48:48 archetype 30 finished, err = <nil>
+2022/07/02 02:48:48 archetype 29 finished, err = <nil>
+Run finished, takes 2.600635378s
+INSERT - Takes(s): 2.6, Count: 1000, OPS: 386.1, Avg(us): 9030, Min(us): 5205, Max(us): 404736, 99th(us): 14000, 99.9th(us): 404000, 99.99th(us): 405000
+running YCSB
+***************** properties *****************
+"readproportion"="0.5"
+"threadcount"="4"
+"dotransactions"="true"
+"readallfields"="true"
+"updateproportion"="0.5"
+"insertproportion"="0"
+"requestdistribution"="zipfian"
+"operationcount"="10000"
+"scanproportion"="0"
+"raftres.config"="/tmp/4812582216887931793.yaml"
+"recordcount"="1000"
+"workload"="core"
+**********************************************
+2022/07/02 02:48:53 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/07/02 02:48:54 relaxed mailboxes started listening on: 10.0.0.7:8002
+2022/07/02 02:48:54 relaxed mailboxes started listening on: 10.0.0.7:8001
+2022/07/02 02:48:54 fd change state: archetype = 24, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:48:54 fd change state: archetype = 23, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:48:54 fd change state: archetype = 22, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 02:48:54 relaxed mailboxes started listening on: 10.0.0.7:8004
+2022/07/02 02:48:54 client 1 sending timeout
+2022/07/02 02:48:55 client 1 sent timeout
+READ   - Takes(s): 9.8, Count: 1837, OPS: 187.5, Avg(us): 7963, Min(us): 2633, Max(us): 1209555, 99th(us): 14000, 99.9th(us): 404000, 99.99th(us): 1210000
+UPDATE - Takes(s): 9.8, Count: 1797, OPS: 183.5, Avg(us): 14090, Min(us): 6155, Max(us): 205837, 99th(us): 23000, 99.9th(us): 26000, 99.99th(us): 206000
+READ   - Takes(s): 19.8, Count: 3677, OPS: 185.7, Avg(us): 7544, Min(us): 2479, Max(us): 1209555, 99th(us): 15000, 99.9th(us): 23000, 99.99th(us): 1210000
+UPDATE - Takes(s): 19.8, Count: 3665, OPS: 185.1, Avg(us): 14235, Min(us): 6155, Max(us): 205837, 99th(us): 24000, 99.9th(us): 32000, 99.99th(us): 206000
+2022/07/02 02:49:14 archetype 30 finished, err = <nil>
+READ   - Takes(s): 29.8, Count: 4927, OPS: 165.4, Avg(us): 7604, Min(us): 2479, Max(us): 1209555, 99th(us): 16000, 99.9th(us): 22000, 99.99th(us): 1210000
+UPDATE - Takes(s): 29.8, Count: 4968, OPS: 166.7, Avg(us): 14593, Min(us): 6155, Max(us): 205837, 99th(us): 25000, 99.9th(us): 32000, 99.99th(us): 206000
+2022/07/02 02:49:24 archetype 29 finished, err = <nil>
+2022/07/02 02:49:24 archetype 31 finished, err = <nil>
+2022/07/02 02:49:24 archetype 28 finished, err = <nil>
+Run finished, takes 30.741878102s
+READ   - Takes(s): 30.5, Count: 4982, OPS: 163.1, Avg(us): 7599, Min(us): 2479, Max(us): 1209555, 99th(us): 16000, 99.9th(us): 22000, 99.99th(us): 1210000
+UPDATE - Takes(s): 30.5, Count: 5018, OPS: 164.3, Avg(us): 14596, Min(us): 6155, Max(us): 205837, 99th(us): 25000, 99.9th(us): 32000, 99.99th(us): 206000

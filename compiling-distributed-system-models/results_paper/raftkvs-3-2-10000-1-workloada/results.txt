@@ -1,0 +1,69 @@
+loading YCSB
+***************** properties *****************
+"dotransactions"="false"
+"workload"="core"
+"requestdistribution"="zipfian"
+"readproportion"="0.5"
+"ycsb.useints"="true"
+"insertproportion"="0"
+"updateproportion"="0.5"
+"recordcount"="1000"
+"readallfields"="true"
+"scanproportion"="0"
+"raftkvs.config"="/tmp/13844884200903605920.yaml"
+"threadcount"="1"
+"operationcount"="10000"
+**********************************************
+2022/07/01 01:11:38 relaxed mailboxes started listening on: 10.0.0.5:8001
+2022/07/01 01:11:39 fd change state: archetype = 1, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/01 01:11:39 fd change state: archetype = 3, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/01 01:11:39 fd change state: archetype = 2, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/01 01:11:45 archetype 19 finished, err = <nil>
+Run finished, takes 7.001348922s
+INSERT - Takes(s): 7.0, Count: 1000, OPS: 143.1, Avg(us): 6941, Min(us): 4026, Max(us): 209205, 99th(us): 15000, 99.9th(us): 20000, 99.99th(us): 210000
+running YCSB
+***************** properties *****************
+"recordcount"="1000"
+"dotransactions"="true"
+"requestdistribution"="zipfian"
+"threadcount"="1"
+"workload"="core"
+"readallfields"="true"
+"insertproportion"="0"
+"ycsb.useints"="true"
+"readproportion"="0.5"
+"operationcount"="10000"
+"raftkvs.config"="/tmp/13844884200903605920.yaml"
+"updateproportion"="0.5"
+"scanproportion"="0"
+**********************************************
+2022/07/01 01:11:50 relaxed mailboxes started listening on: 10.0.0.5:8001
+2022/07/01 01:11:51 fd change state: archetype = 1, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/01 01:11:51 fd change state: archetype = 3, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/01 01:11:51 fd change state: archetype = 2, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/01 01:11:51 client 1 sending timeout
+2022/07/01 01:11:51 client 1 sent timeout
+READ   - Takes(s): 9.0, Count: 482, OPS: 53.7, Avg(us): 6650, Min(us): 3970, Max(us): 19629, 99th(us): 16000, 99.9th(us): 20000, 99.99th(us): 20000
+UPDATE - Takes(s): 9.0, Count: 438, OPS: 48.7, Avg(us): 15479, Min(us): 9994, Max(us): 1020844, 99th(us): 24000, 99.9th(us): 1021000, 99.99th(us): 1021000
+READ   - Takes(s): 19.0, Count: 986, OPS: 52.0, Avg(us): 6601, Min(us): 3903, Max(us): 19629, 99th(us): 15000, 99.9th(us): 20000, 99.99th(us): 20000
+UPDATE - Takes(s): 19.0, Count: 944, OPS: 49.7, Avg(us): 14256, Min(us): 9690, Max(us): 1020844, 99th(us): 25000, 99.9th(us): 1021000, 99.99th(us): 1021000
+READ   - Takes(s): 29.0, Count: 1488, OPS: 51.4, Avg(us): 6620, Min(us): 3398, Max(us): 19629, 99th(us): 15000, 99.9th(us): 18000, 99.99th(us): 20000
+UPDATE - Takes(s): 29.0, Count: 1435, OPS: 49.5, Avg(us): 14000, Min(us): 9646, Max(us): 1020844, 99th(us): 25000, 99.9th(us): 30000, 99.99th(us): 1021000
+READ   - Takes(s): 39.0, Count: 1979, OPS: 50.8, Avg(us): 6627, Min(us): 3398, Max(us): 19629, 99th(us): 15000, 99.9th(us): 19000, 99.99th(us): 20000
+UPDATE - Takes(s): 39.0, Count: 1922, OPS: 49.3, Avg(us): 13953, Min(us): 9295, Max(us): 1020844, 99th(us): 25000, 99.9th(us): 30000, 99.99th(us): 1021000
+READ   - Takes(s): 49.0, Count: 2511, OPS: 51.3, Avg(us): 6686, Min(us): 3398, Max(us): 20242, 99th(us): 15000, 99.9th(us): 19000, 99.99th(us): 21000
+UPDATE - Takes(s): 49.0, Count: 2383, OPS: 48.7, Avg(us): 13902, Min(us): 9239, Max(us): 1020844, 99th(us): 25000, 99.9th(us): 30000, 99.99th(us): 1021000
+READ   - Takes(s): 59.0, Count: 2985, OPS: 50.6, Avg(us): 6735, Min(us): 3398, Max(us): 20242, 99th(us): 15000, 99.9th(us): 20000, 99.99th(us): 21000
+UPDATE - Takes(s): 59.0, Count: 2860, OPS: 48.5, Avg(us): 13915, Min(us): 9239, Max(us): 1020844, 99th(us): 25000, 99.9th(us): 30000, 99.99th(us): 1021000
+READ   - Takes(s): 69.0, Count: 3436, OPS: 49.8, Avg(us): 6766, Min(us): 3398, Max(us): 23219, 99th(us): 15000, 99.9th(us): 20000, 99.99th(us): 24000
+UPDATE - Takes(s): 69.0, Count: 3348, OPS: 48.5, Avg(us): 13929, Min(us): 9239, Max(us): 1020844, 99th(us): 25000, 99.9th(us): 30000, 99.99th(us): 1021000
+READ   - Takes(s): 79.0, Count: 3901, OPS: 49.4, Avg(us): 6807, Min(us): 3398, Max(us): 23219, 99th(us): 15000, 99.9th(us): 21000, 99.99th(us): 24000
+UPDATE - Takes(s): 79.0, Count: 3821, OPS: 48.4, Avg(us): 13952, Min(us): 9239, Max(us): 1020844, 99th(us): 25000, 99.9th(us): 30000, 99.99th(us): 1021000
+READ   - Takes(s): 89.0, Count: 4379, OPS: 49.2, Avg(us): 6821, Min(us): 3398, Max(us): 23219, 99th(us): 16000, 99.9th(us): 20000, 99.99th(us): 24000
+UPDATE - Takes(s): 89.0, Count: 4290, OPS: 48.2, Avg(us): 13984, Min(us): 9239, Max(us): 1020844, 99th(us): 25000, 99.9th(us): 30000, 99.99th(us): 1021000
+READ   - Takes(s): 99.0, Count: 4858, OPS: 49.1, Avg(us): 6831, Min(us): 3398, Max(us): 23820, 99th(us): 16000, 99.9th(us): 21000, 99.99th(us): 24000
+UPDATE - Takes(s): 99.0, Count: 4767, OPS: 48.2, Avg(us): 13982, Min(us): 9239, Max(us): 1020844, 99th(us): 26000, 99.9th(us): 31000, 99.99th(us): 1021000
+2022/07/01 01:13:35 archetype 19 finished, err = <nil>
+Run finished, takes 1m44.201255376s
+READ   - Takes(s): 103.2, Count: 5049, OPS: 48.9, Avg(us): 6836, Min(us): 3398, Max(us): 23820, 99th(us): 16000, 99.9th(us): 21000, 99.99th(us): 24000
+UPDATE - Takes(s): 103.2, Count: 4951, OPS: 48.0, Avg(us): 13977, Min(us): 9239, Max(us): 1020844, 99th(us): 26000, 99.9th(us): 31000, 99.99th(us): 1021000

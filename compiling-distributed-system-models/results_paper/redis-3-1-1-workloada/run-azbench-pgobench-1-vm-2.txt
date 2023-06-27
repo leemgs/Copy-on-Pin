@@ -1,0 +1,20 @@
+Compiling /home/azbench/image/run_redis_server.sc
+(numServers,3,serverIdx,1)
+3914:C 25 Oct 2022 05:05:30.994 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+3914:C 25 Oct 2022 05:05:30.994 # Redis version=5.0.7, bits=64, commit=00000000, modified=0, pid=3914, just started
+3914:C 25 Oct 2022 05:05:30.994 # Configuration loaded
+3914:S 25 Oct 2022 05:05:31.003 * Running mode=standalone, port=6379.
+3914:S 25 Oct 2022 05:05:31.003 # Server initialized
+3914:S 25 Oct 2022 05:05:31.003 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+3914:S 25 Oct 2022 05:05:31.003 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+3914:S 25 Oct 2022 05:05:31.003 * Ready to accept connections
+3914:S 25 Oct 2022 05:05:31.003 * Connecting to MASTER 10.0.0.4:6379
+3914:S 25 Oct 2022 05:05:31.003 * MASTER <-> REPLICA sync started
+3914:S 25 Oct 2022 05:05:31.006 * Non blocking connect for SYNC fired the event.
+3914:S 25 Oct 2022 05:05:31.007 * Master replied to PING, replication can continue...
+3914:S 25 Oct 2022 05:05:31.008 * Partial resynchronization not possible (no cached master)
+3914:S 25 Oct 2022 05:05:31.009 * Full resync from master: 1b2a5a149b262f67731cfd630b4ded8be7baf34b:0
+3914:S 25 Oct 2022 05:05:31.068 * MASTER <-> REPLICA sync: receiving 175 bytes from master
+3914:S 25 Oct 2022 05:05:31.068 * MASTER <-> REPLICA sync: Flushing old data
+3914:S 25 Oct 2022 05:05:31.068 * MASTER <-> REPLICA sync: Loading DB in memory
+3914:S 25 Oct 2022 05:05:31.068 * MASTER <-> REPLICA sync: Finished with success

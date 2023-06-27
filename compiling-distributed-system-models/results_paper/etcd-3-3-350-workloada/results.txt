@@ -1,0 +1,71 @@
+load YCSB
+/usr/bin/java  -classpath /home/azbench/image/YCSB/conf:/home/azbench/image/YCSB/core/target/core-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/core/target/dependency/HdrHistogram-2.1.4.jar:/home/azbench/image/YCSB/core/target/dependency/htrace-core4-4.1.0-incubating.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-core-asl-1.9.4.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-mapper-asl-1.9.4.jar:/home/azbench/image/YCSB/etcd/target/etcd-binding-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/etcd/target/dependency/animal-sniffer-annotations-1.19.jar:/home/azbench/image/YCSB/etcd/target/dependency/annotations-4.1.1.4.jar:/home/azbench/image/YCSB/etcd/target/dependency/auto-service-annotations-1.0.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/checker-qual-3.12.0.jar:/home/azbench/image/YCSB/etcd/target/dependency/error_prone_annotations-2.7.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/failsafe-2.4.4.jar:/home/azbench/image/YCSB/etcd/target/dependency/failureaccess-1.0.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/grpc-api-1.42.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/grpc-context-1.42.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/grpc-core-1.42.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/grpc-grpclb-1.42.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/grpc-netty-1.42.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/grpc-protobuf-1.42.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/grpc-protobuf-lite-1.42.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/grpc-stub-1.42.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/gson-2.8.6.jar:/home/azbench/image/YCSB/etcd/target/dependency/guava-31.0.1-jre.jar:/home/azbench/image/YCSB/etcd/target/dependency/j2objc-annotations-1.3.jar:/home/azbench/image/YCSB/etcd/target/dependency/javax.annotation-api-1.3.2.jar:/home/azbench/image/YCSB/etcd/target/dependency/jetcd-api-0.6.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/jetcd-common-0.6.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/jetcd-core-0.6.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/jetcd-grpc-0.6.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/jsr305-3.0.2.jar:/home/azbench/image/YCSB/etcd/target/dependency/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-buffer-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-codec-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-codec-http-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-codec-http2-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-codec-socks-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-common-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-handler-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-handler-proxy-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-resolver-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-transport-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/perfmark-api-0.25.0.jar:/home/azbench/image/YCSB/etcd/target/dependency/proto-google-common-protos-2.0.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/protobuf-java-3.17.2.jar:/home/azbench/image/YCSB/etcd/target/dependency/protobuf-java-util-3.17.2.jar:/home/azbench/image/YCSB/etcd/target/dependency/slf4j-api-1.7.25.jar:/home/azbench/image/YCSB/etcd/target/dependency/slf4j-simple-1.7.36.jar:/home/azbench/image/YCSB/etcd/target/dependency/spotbugs-annotations-4.5.0.jar site.ycsb.Client -load -db site.ycsb.db.etcd.EtcdClient -P workloads/workloada -p threadcount=350 -p operationcount=100000 -p etcd.endpoints=tcp://10.0.0.6:2379,tcp://10.0.0.4:2379,tcp://10.0.0.7:2379
+Command line: -load -db site.ycsb.db.etcd.EtcdClient -P workloads/workloada -p threadcount=350 -p operationcount=100000 -p etcd.endpoints=tcp://10.0.0.6:2379,tcp://10.0.0.4:2379,tcp://10.0.0.7:2379
+YCSB Client 0.18.0-SNAPSHOT
+
+Loading workload...
+Starting test.
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+[OVERALL], RunTime(ms), 2630
+[OVERALL], Throughput(ops/sec), 380.22813688212926
+[TOTAL_GCS_G1_Young_Generation], Count, 2
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 28
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 1.064638783269962
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 2
+[TOTAL_GC_TIME], Time(ms), 28
+[TOTAL_GC_TIME_%], Time(%), 1.064638783269962
+[CLEANUP], Operations, 350
+[CLEANUP], AverageLatency(us), 301.84
+[CLEANUP], MinLatency(us), 38
+[CLEANUP], MaxLatency(us), 8439
+[CLEANUP], 95thPercentileLatency(us), 1635
+[CLEANUP], 99thPercentileLatency(us), 4083
+[INSERT], Operations, 1000
+[INSERT], AverageLatency(us), 618680.736
+[INSERT], MinLatency(us), 49600
+[INSERT], MaxLatency(us), 1738751
+[INSERT], 95thPercentileLatency(us), 1654783
+[INSERT], 99thPercentileLatency(us), 1719295
+[INSERT], Return=OK, 1000
+run YCSB
+/usr/bin/java  -classpath /home/azbench/image/YCSB/conf:/home/azbench/image/YCSB/core/target/core-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/core/target/dependency/HdrHistogram-2.1.4.jar:/home/azbench/image/YCSB/core/target/dependency/htrace-core4-4.1.0-incubating.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-core-asl-1.9.4.jar:/home/azbench/image/YCSB/core/target/dependency/jackson-mapper-asl-1.9.4.jar:/home/azbench/image/YCSB/etcd/target/etcd-binding-0.18.0-SNAPSHOT.jar:/home/azbench/image/YCSB/etcd/target/dependency/animal-sniffer-annotations-1.19.jar:/home/azbench/image/YCSB/etcd/target/dependency/annotations-4.1.1.4.jar:/home/azbench/image/YCSB/etcd/target/dependency/auto-service-annotations-1.0.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/checker-qual-3.12.0.jar:/home/azbench/image/YCSB/etcd/target/dependency/error_prone_annotations-2.7.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/failsafe-2.4.4.jar:/home/azbench/image/YCSB/etcd/target/dependency/failureaccess-1.0.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/grpc-api-1.42.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/grpc-context-1.42.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/grpc-core-1.42.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/grpc-grpclb-1.42.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/grpc-netty-1.42.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/grpc-protobuf-1.42.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/grpc-protobuf-lite-1.42.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/grpc-stub-1.42.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/gson-2.8.6.jar:/home/azbench/image/YCSB/etcd/target/dependency/guava-31.0.1-jre.jar:/home/azbench/image/YCSB/etcd/target/dependency/j2objc-annotations-1.3.jar:/home/azbench/image/YCSB/etcd/target/dependency/javax.annotation-api-1.3.2.jar:/home/azbench/image/YCSB/etcd/target/dependency/jetcd-api-0.6.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/jetcd-common-0.6.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/jetcd-core-0.6.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/jetcd-grpc-0.6.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/jsr305-3.0.2.jar:/home/azbench/image/YCSB/etcd/target/dependency/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-buffer-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-codec-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-codec-http-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-codec-http2-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-codec-socks-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-common-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-handler-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-handler-proxy-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-resolver-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/netty-transport-4.1.63.Final.jar:/home/azbench/image/YCSB/etcd/target/dependency/perfmark-api-0.25.0.jar:/home/azbench/image/YCSB/etcd/target/dependency/proto-google-common-protos-2.0.1.jar:/home/azbench/image/YCSB/etcd/target/dependency/protobuf-java-3.17.2.jar:/home/azbench/image/YCSB/etcd/target/dependency/protobuf-java-util-3.17.2.jar:/home/azbench/image/YCSB/etcd/target/dependency/slf4j-api-1.7.25.jar:/home/azbench/image/YCSB/etcd/target/dependency/slf4j-simple-1.7.36.jar:/home/azbench/image/YCSB/etcd/target/dependency/spotbugs-annotations-4.5.0.jar site.ycsb.Client -t -db site.ycsb.db.etcd.EtcdClient -P workloads/workloada -p threadcount=350 -p operationcount=100000 -p etcd.endpoints=tcp://10.0.0.6:2379,tcp://10.0.0.4:2379,tcp://10.0.0.7:2379
+Command line: -t -db site.ycsb.db.etcd.EtcdClient -P workloads/workloada -p threadcount=350 -p operationcount=100000 -p etcd.endpoints=tcp://10.0.0.6:2379,tcp://10.0.0.4:2379,tcp://10.0.0.7:2379
+YCSB Client 0.18.0-SNAPSHOT
+
+Loading workload...
+Starting test.
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+[OVERALL], RunTime(ms), 62588
+[OVERALL], Throughput(ops/sec), 1597.7503674825846
+[TOTAL_GCS_G1_Young_Generation], Count, 10
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 140
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 0.22368505144756182
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 10
+[TOTAL_GC_TIME], Time(ms), 140
+[TOTAL_GC_TIME_%], Time(%), 0.22368505144756182
+[READ], Operations, 50096
+[READ], AverageLatency(us), 154122.1418476525
+[READ], MinLatency(us), 2558
+[READ], MaxLatency(us), 1627135
+[READ], 95thPercentileLatency(us), 354815
+[READ], 99thPercentileLatency(us), 598015
+[READ], Return=OK, 50096
+[CLEANUP], Operations, 350
+[CLEANUP], AverageLatency(us), 271.62
+[CLEANUP], MinLatency(us), 56
+[CLEANUP], MaxLatency(us), 4703
+[CLEANUP], 95thPercentileLatency(us), 1097
+[CLEANUP], 99thPercentileLatency(us), 2685
+[UPDATE], Operations, 49904
+[UPDATE], AverageLatency(us), 272022.3239820455
+[UPDATE], MinLatency(us), 20736
+[UPDATE], MaxLatency(us), 1744895
+[UPDATE], 95thPercentileLatency(us), 575999
+[UPDATE], 99thPercentileLatency(us), 823807
+[UPDATE], Return=OK, 49904

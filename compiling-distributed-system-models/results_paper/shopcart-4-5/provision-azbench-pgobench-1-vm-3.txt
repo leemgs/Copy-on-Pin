@@ -1,0 +1,428 @@
++ '[' '!' -e /home/azbench/.apt-updated ']'
++ sudo apt-get install -y default-jdk maven scons python3 virtualenv cmake pkg-config python3-ply python3-pygraphviz python3-tk tix libssl-dev libreadline-dev valgrind
+Reading package lists...
+Building dependency tree...
+Reading state information...
+cmake is already the newest version (3.16.3-1ubuntu1).
+default-jdk is already the newest version (2:1.11-72).
+libreadline-dev is already the newest version (8.0-4).
+pkg-config is already the newest version (0.29.1-0ubuntu4).
+python3 is already the newest version (3.8.2-0ubuntu2).
+maven is already the newest version (3.6.3-1).
+python3-pygraphviz is already the newest version (1.5-4build1).
+scons is already the newest version (3.1.2-2).
+tix is already the newest version (8.4.3-10).
+libssl-dev is already the newest version (1.1.1f-1ubuntu2.15).
+python3-ply is already the newest version (3.11-3ubuntu0.1).
+python3-tk is already the newest version (3.8.10-0ubuntu1~20.04).
+valgrind is already the newest version (1:3.15.0-1ubuntu9.1).
+virtualenv is already the newest version (20.0.17-1ubuntu0.4).
+0 upgraded, 0 newly installed, 0 to remove and 24 not upgraded.
++ java -version
+openjdk version "11.0.15" 2022-04-19
+OpenJDK Runtime Environment (build 11.0.15+10-Ubuntu-0ubuntu0.20.04.1)
+OpenJDK 64-Bit Server VM (build 11.0.15+10-Ubuntu-0ubuntu0.20.04.1, mixed mode, sharing)
++ mvn -version
+[1mApache Maven 3.6.3[m
+Maven home: /usr/share/maven
+Java version: 11.0.15, vendor: Private Build, runtime: /usr/lib/jvm/java-11-openjdk-amd64
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "5.13.0-1031-azure", arch: "amd64", family: "unix"
++ bash ./ensure_sbt.sh
++ '[' '!' -e /home/azbench/.sbt-present ']'
++ sbt -version
+sbt version in this project: 1.6.2
+sbt script version: 1.6.2
++ ./amm hello.sc
+Hello from Scala
++ pushd ironkv-client
+~/image/ironkv-client ~/image
++ sbt publishM2
+[info] welcome to sbt 1.6.2 (Private Build Java 11.0.15)
+[info] loading project definition from /home/azbench/image/ironkv-client/project
+[info] loading settings for project root from build.sbt ...
+[info] set current project to ironkv-client (in build file:/home/azbench/image/ironkv-client/)
+[info] Wrote /home/azbench/image/ironkv-client/target/scala-2.13/ironkv-client_2.13-0.1.0-SNAPSHOT.pom
+[info] 	published ironkv-client_2.13 to file:/home/azbench/.m2/repository/com/github/fhackett/ironkv-client_2.13/0.1.0-SNAPSHOT/ironkv-client_2.13-0.1.0-SNAPSHOT.pom
+[info] 	published ironkv-client_2.13 to file:/home/azbench/.m2/repository/com/github/fhackett/ironkv-client_2.13/0.1.0-SNAPSHOT/ironkv-client_2.13-0.1.0-SNAPSHOT.jar
+[info] 	published ironkv-client_2.13 to file:/home/azbench/.m2/repository/com/github/fhackett/ironkv-client_2.13/0.1.0-SNAPSHOT/ironkv-client_2.13-0.1.0-SNAPSHOT-sources.jar
+[info] 	published ironkv-client_2.13 to file:/home/azbench/.m2/repository/com/github/fhackett/ironkv-client_2.13/0.1.0-SNAPSHOT/ironkv-client_2.13-0.1.0-SNAPSHOT-javadoc.jar
+[success] Total time: 1 s, completed Jul 4, 2022, 8:22:29 AM
++ popd
+~/image
++ pushd vard-client
+~/image/vard-client ~/image
++ sbt publishM2
+[info] welcome to sbt 1.6.2 (Private Build Java 11.0.15)
+[info] loading project definition from /home/azbench/image/vard-client/project
+[info] loading settings for project root from build.sbt ...
+[info] set current project to vard-client (in build file:/home/azbench/image/vard-client/)
+[info] Wrote /home/azbench/image/vard-client/target/scala-2.13/vard-client_2.13-0.1.0-SNAPSHOT.pom
+[info] 	published vard-client_2.13 to file:/home/azbench/.m2/repository/com/github/fhackett/vard-client_2.13/0.1.0-SNAPSHOT/vard-client_2.13-0.1.0-SNAPSHOT.pom
+[info] 	published vard-client_2.13 to file:/home/azbench/.m2/repository/com/github/fhackett/vard-client_2.13/0.1.0-SNAPSHOT/vard-client_2.13-0.1.0-SNAPSHOT.jar
+[info] 	published vard-client_2.13 to file:/home/azbench/.m2/repository/com/github/fhackett/vard-client_2.13/0.1.0-SNAPSHOT/vard-client_2.13-0.1.0-SNAPSHOT-sources.jar
+[info] 	published vard-client_2.13 to file:/home/azbench/.m2/repository/com/github/fhackett/vard-client_2.13/0.1.0-SNAPSHOT/vard-client_2.13-0.1.0-SNAPSHOT-javadoc.jar
+[success] Total time: 0 s, completed Jul 4, 2022, 8:22:34 AM
++ popd
+~/image
++ pushd YCSB
+~/image/YCSB ~/image
++ mvn -Psource-run -pl site.ycsb:ironkv-binding -am package -DskipTests
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/usr/share/maven/lib/guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Build Order:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] YCSB Root                                                          [pom]
+[[1;34mINFO[m] Core YCSB                                                          [jar]
+[[1;34mINFO[m] YCSB Datastore Binding Parent                                      [pom]
+[[1;34mINFO[m] ironkv-binding                                                     [jar]
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------------< [0;36msite.ycsb:root[0;1m >---------------------------[m
+[[1;34mINFO[m] [1mBuilding YCSB Root 0.18.0-SNAPSHOT                                 [1/4][m
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(enforce-maven)[m @ [36mroot[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:2.16:check[m [1m(validate)[m @ [36mroot[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------------< [0;36msite.ycsb:core[0;1m >---------------------------[m
+[[1;34mINFO[m] [1mBuilding Core YCSB 0.18.0-SNAPSHOT                                 [2/4][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(enforce-maven)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:2.16:check[m [1m(validate)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:compile[m [1m(default-compile)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 63 source files to /home/azbench/image/YCSB/core/target/classes
+[[1;34mINFO[m] /home/azbench/image/YCSB/core/src/main/java/site/ycsb/CommandLine.java: Some input files use or override a deprecated API.
+[[1;34mINFO[m] /home/azbench/image/YCSB/core/src/main/java/site/ycsb/CommandLine.java: Recompile with -Xlint:deprecation for details.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/azbench/image/YCSB/core/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:testCompile[m [1m(default-testCompile)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.12.4:test[m [1m(default-test)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Tests are skipped.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:2.4:jar[m [1m(default-jar)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/azbench/image/YCSB/core/target/core-0.18.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:2.8:copy-dependencies[m [1m(stage-dependencies)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] htrace-core4-4.1.0-incubating.jar already exists in destination.
+[[1;34mINFO[m] HdrHistogram-2.1.4.jar already exists in destination.
+[[1;34mINFO[m] jackson-mapper-asl-1.9.4.jar already exists in destination.
+[[1;34mINFO[m] jackson-core-asl-1.9.4.jar already exists in destination.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------------< [0;36msite.ycsb:binding-parent[0;1m >----------------------[m
+[[1;34mINFO[m] [1mBuilding YCSB Datastore Binding Parent 0.18.0-SNAPSHOT             [3/4][m
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(enforce-maven)[m @ [36mbinding-parent[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:2.16:check[m [1m(validate)[m @ [36mbinding-parent[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:2.10:copy-dependencies[m [1m(stage-dependencies)[m @ [36mbinding-parent[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------------< [0;36msite.ycsb:ironkv-binding[0;1m >----------------------[m
+[[1;34mINFO[m] [1mBuilding ironkv-binding 0.18.0-SNAPSHOT                            [4/4][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(enforce-maven)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:2.16:check[m [1m(validate)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/azbench/image/YCSB/ironkv/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:compile[m [1m(default-compile)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 2 source files to /home/azbench/image/YCSB/ironkv/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/azbench/image/YCSB/ironkv/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:testCompile[m [1m(default-testCompile)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.12.4:test[m [1m(default-test)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] Tests are skipped.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:2.4:jar[m [1m(default-jar)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/azbench/image/YCSB/ironkv/target/ironkv-binding-0.18.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:2.10:copy-dependencies[m [1m(stage-dependencies)[m @ [36mironkv-binding[0;1m ---[m
+[[1;34mINFO[m] com.lihaoyi:ujson_2.13:jar:2.0.0 already exists in destination.
+[[1;34mINFO[m] com.lihaoyi:upickle_2.13:jar:2.0.0 already exists in destination.
+[[1;34mINFO[m] com.lihaoyi:upack_2.13:jar:2.0.0 already exists in destination.
+[[1;34mINFO[m] com.lihaoyi:geny_2.13:jar:0.7.1 already exists in destination.
+[[1;34mINFO[m] com.lihaoyi:os-lib_2.13:jar:0.8.1 already exists in destination.
+[[1;34mINFO[m] org.scala-lang:scala-library:jar:2.13.8 already exists in destination.
+[[1;34mINFO[m] com.github.fhackett:ironkv-client_2.13:jar:0.1.0-SNAPSHOT already exists in destination.
+[[1;34mINFO[m] com.lihaoyi:upickle-core_2.13:jar:2.0.0 already exists in destination.
+[[1;34mINFO[m] com.lihaoyi:upickle-implicits_2.13:jar:2.0.0 already exists in destination.
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Summary for YCSB Root 0.18.0-SNAPSHOT:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] YCSB Root .......................................... [1;32mSUCCESS[m [  0.965 s]
+[[1;34mINFO[m] Core YCSB .......................................... [1;32mSUCCESS[m [  1.988 s]
+[[1;34mINFO[m] YCSB Datastore Binding Parent ...................... [1;32mSUCCESS[m [  0.302 s]
+[[1;34mINFO[m] ironkv-binding ..................................... [1;32mSUCCESS[m [  0.241 s]
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  3.740 s
+[[1;34mINFO[m] Finished at: 2022-07-04T08:22:39Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
++ mvn -Psource-run -pl site.ycsb:vard-binding -am package -DskipTests
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/usr/share/maven/lib/guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Build Order:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] YCSB Root                                                          [pom]
+[[1;34mINFO[m] Core YCSB                                                          [jar]
+[[1;34mINFO[m] YCSB Datastore Binding Parent                                      [pom]
+[[1;34mINFO[m] vard-binding                                                       [jar]
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------------< [0;36msite.ycsb:root[0;1m >---------------------------[m
+[[1;34mINFO[m] [1mBuilding YCSB Root 0.18.0-SNAPSHOT                                 [1/4][m
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(enforce-maven)[m @ [36mroot[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:2.16:check[m [1m(validate)[m @ [36mroot[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------------< [0;36msite.ycsb:core[0;1m >---------------------------[m
+[[1;34mINFO[m] [1mBuilding Core YCSB 0.18.0-SNAPSHOT                                 [2/4][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(enforce-maven)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:2.16:check[m [1m(validate)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:compile[m [1m(default-compile)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 63 source files to /home/azbench/image/YCSB/core/target/classes
+[[1;34mINFO[m] /home/azbench/image/YCSB/core/src/main/java/site/ycsb/CommandLine.java: Some input files use or override a deprecated API.
+[[1;34mINFO[m] /home/azbench/image/YCSB/core/src/main/java/site/ycsb/CommandLine.java: Recompile with -Xlint:deprecation for details.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/azbench/image/YCSB/core/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:testCompile[m [1m(default-testCompile)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.12.4:test[m [1m(default-test)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Tests are skipped.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:2.4:jar[m [1m(default-jar)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/azbench/image/YCSB/core/target/core-0.18.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:2.8:copy-dependencies[m [1m(stage-dependencies)[m @ [36mcore[0;1m ---[m
+[[1;34mINFO[m] htrace-core4-4.1.0-incubating.jar already exists in destination.
+[[1;34mINFO[m] HdrHistogram-2.1.4.jar already exists in destination.
+[[1;34mINFO[m] jackson-mapper-asl-1.9.4.jar already exists in destination.
+[[1;34mINFO[m] jackson-core-asl-1.9.4.jar already exists in destination.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------------< [0;36msite.ycsb:binding-parent[0;1m >----------------------[m
+[[1;34mINFO[m] [1mBuilding YCSB Datastore Binding Parent 0.18.0-SNAPSHOT             [3/4][m
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(enforce-maven)[m @ [36mbinding-parent[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:2.16:check[m [1m(validate)[m @ [36mbinding-parent[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:2.10:copy-dependencies[m [1m(stage-dependencies)[m @ [36mbinding-parent[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----------------------< [0;36msite.ycsb:vard-binding[0;1m >-----------------------[m
+[[1;34mINFO[m] [1mBuilding vard-binding 0.18.0-SNAPSHOT                              [4/4][m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M1:enforce[m [1m(enforce-maven)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-checkstyle-plugin:2.16:check[m [1m(validate)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/azbench/image/YCSB/vard/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:compile[m [1m(default-compile)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 2 source files to /home/azbench/image/YCSB/vard/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/azbench/image/YCSB/vard/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.7.0:testCompile[m [1m(default-testCompile)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.12.4:test[m [1m(default-test)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] Tests are skipped.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:2.4:jar[m [1m(default-jar)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/azbench/image/YCSB/vard/target/vard-binding-0.18.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-dependency-plugin:2.10:copy-dependencies[m [1m(stage-dependencies)[m @ [36mvard-binding[0;1m ---[m
+[[1;34mINFO[m] com.github.fhackett:vard-client_2.13:jar:0.1.0-SNAPSHOT already exists in destination.
+[[1;34mINFO[m] org.scala-lang:scala-library:jar:2.13.8 already exists in destination.
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Summary for YCSB Root 0.18.0-SNAPSHOT:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] YCSB Root .......................................... [1;32mSUCCESS[m [  0.963 s]
+[[1;34mINFO[m] Core YCSB .......................................... [1;32mSUCCESS[m [  2.051 s]
+[[1;34mINFO[m] YCSB Datastore Binding Parent ...................... [1;32mSUCCESS[m [  0.289 s]
+[[1;34mINFO[m] vard-binding ....................................... [1;32mSUCCESS[m [  0.200 s]
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  3.756 s
+[[1;34mINFO[m] Finished at: 2022-07-04T08:22:44Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
++ popd
+~/image
++ ./etcd-v3.5.4-linux-amd64/etcd --version
+etcd Version: 3.5.4
+Git SHA: 08407ff76
+Go Version: go1.16.15
+Go OS/Arch: linux/amd64
++ '[' '!' -e /home/azbench/.dotnet-installed ']'
++ pushd Ironclad/ironfleet
+~/image/Ironclad/ironfleet ~/image
++ scons --no-verify --dafny-path=../../dafny
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+scons: `.' is up to date.
+scons: done building targets.
++ popd
+~/image
++ sudo apt-get install -y make gcc opam
+Reading package lists...
+Building dependency tree...
+Reading state information...
+gcc is already the newest version (4:9.3.0-1ubuntu2).
+make is already the newest version (4.2.1-1.2).
+opam is already the newest version (2.0.5-1ubuntu1).
+0 upgraded, 0 newly installed, 0 to remove and 24 not upgraded.
++ '[' '!' -e /home/azbench/.verdi-raft-built ']'
++ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/azbench/image/go1.18.2.linux-amd64/go/bin
++ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/azbench/image/go1.18.2.linux-amd64/go/bin
++ pushd pgo/systems/raftkvs
+~/image/pgo/systems/raftkvs ~/image
++ make build
+go build -o server cmd/server/*.go
+go build -o client cmd/client/*.go
++ popd
+~/image
++ pushd pgo/systems/raftres
+~/image/pgo/systems/raftres ~/image
++ make build
+go build -o server cmd/server/*.go
++ popd
+~/image
++ pushd pgo/systems/shopcart
+~/image/pgo/systems/shopcart ~/image
++ make build
+go build -o node cmd/*.go
++ popd
+~/image
++ pushd go-ycsb
+~/image/go-ycsb ~/image
++ make
+go build -o bin/go-ycsb cmd/go-ycsb/*
++ popd
+~/image
++ '[' '!' -e /home/azbench/.redis-installed ']'
++ sudo apt-get install -y redis-server
+Reading package lists...
+Building dependency tree...
+Reading state information...
+redis-server is already the newest version (5:5.0.7-2ubuntu0.1).
+0 upgraded, 0 newly installed, 0 to remove and 24 not upgraded.
++ sudo systemctl stop redis-server.service
++ sudo systemctl disable redis-server.service
+Synchronizing state of redis-server.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install disable redis-server
++ touch /home/azbench/.redis_installed
++ pushd roshi/roshi-server
+~/image/roshi/roshi-server ~/image
++ go build -buildvcs=false
++ popd
+~/image
++ pushd roshi/roshi-walker
+~/image/roshi/roshi-walker ~/image
++ go build -buildvcs=false
++ popd
+~/image
++ pushd roshiapp
+~/image/roshiapp ~/image
++ make build
+go build cmd/*.go
++ popd
+~/image
++ '[' '!' -e /home/azbench/py_venv ']'
++ source /home/azbench/py_venv/bin/activate
+++ '[' /home/azbench/py_venv/bin/activate = ./provision.sh ']'
+++ deactivate nondestructive
+++ unset -f pydoc
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ '[' -n /usr/bin/bash ']'
+++ hash -r
+++ '[' -z '' ']'
+++ unset VIRTUAL_ENV
+++ '[' '!' nondestructive = nondestructive ']'
+++ VIRTUAL_ENV=/home/azbench/py_venv
+++ export VIRTUAL_ENV
+++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/azbench/image/go1.18.2.linux-amd64/go/bin
+++ PATH=/home/azbench/py_venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/azbench/image/go1.18.2.linux-amd64/go/bin
+++ export PATH
+++ '[' -z '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ '[' x '!=' x ']'
++++ basename /home/azbench/py_venv
+++ PS1='(py_venv) '
+++ export PS1
+++ alias pydoc
+++ true
+++ '[' -n /usr/bin/bash ']'
+++ hash -r
++ pushd tausigplan-pldi18-impl-6cee11b50570
+~/image/tausigplan-pldi18-impl-6cee11b50570 ~/image
++ pushd evaluation
+~/image/tausigplan-pldi18-impl-6cee11b50570/evaluation ~/image/tausigplan-pldi18-impl-6cee11b50570 ~/image
++ make raft
+echo '#define VERSION "'1'"' > src/version.h
+mkdir -p build
+g++ -O3 -std=c++11 -w -I ../examples/raft/ -o build/server ../examples/raft/raft.cpp src/common.cpp src/kvstore.cpp src/server.cpp -lpthread
++ popd
+~/image/tausigplan-pldi18-impl-6cee11b50570 ~/image
++ popd
+~/image

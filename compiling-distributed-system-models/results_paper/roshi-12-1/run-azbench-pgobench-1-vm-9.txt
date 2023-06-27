@@ -1,0 +1,123 @@
+Compiling /home/azbench/image/run_roshi_node.sc
+(numServers,12,serverIdx,8)
+starting redis
+13502:C 05 Jul 2022 10:05:53.404 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+13502:C 05 Jul 2022 10:05:53.404 # Redis version=5.0.7, bits=64, commit=00000000, modified=0, pid=13502, just started
+13502:C 05 Jul 2022 10:05:53.404 # Configuration loaded
+13502:M 05 Jul 2022 10:05:53.406 * Running mode=standalone, port=6379.
+13502:M 05 Jul 2022 10:05:53.406 # Server initialized
+13502:M 05 Jul 2022 10:05:53.406 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+13502:M 05 Jul 2022 10:05:53.406 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+13502:M 05 Jul 2022 10:05:53.406 * Ready to accept connections
+starting roshi server
+10:05:56.442633 GOMAXPROCS 8
+10:05:56.443002 using SendAllReadAll read strategy
+10:05:56.443017 using RateLimitedRepairs repair strategy
+10:05:56.443041 cluster 1: 1 instance(s)
+10:05:56.443044 1 cluster(s)
+10:05:56.443167 listening on :6302
+starting roshi app
+roshi app started
+RESULT 0 9 4.325628058s
+RESULT 1 9 10.614437ms
+RESULT 2 9 26.868594ms
+RESULT 3 9 22.130877ms
+RESULT 4 9 32.409813ms
+RESULT 5 9 40.18294ms
+RESULT 6 9 36.507027ms
+RESULT 7 9 16.576757ms
+RESULT 8 9 58.700405ms
+RESULT 9 9 43.687952ms
+RESULT 10 9 33.664617ms
+RESULT 11 9 50.136375ms
+RESULT 12 9 36.642728ms
+RESULT 13 9 44.306255ms
+RESULT 14 9 42.485048ms
+RESULT 15 9 45.080257ms
+RESULT 16 9 41.030844ms
+RESULT 17 9 37.880932ms
+RESULT 18 9 49.347972ms
+RESULT 19 9 45.919161ms
+RESULT 20 9 46.353862ms
+RESULT 21 9 39.842439ms
+RESULT 22 9 42.92915ms
+RESULT 23 9 37.031729ms
+RESULT 24 9 62.092217ms
+RESULT 25 9 37.837132ms
+RESULT 26 9 42.246847ms
+RESULT 27 9 48.510169ms
+RESULT 28 9 53.564387ms
+RESULT 29 9 47.568266ms
+RESULT 30 9 37.964433ms
+RESULT 31 9 50.318776ms
+RESULT 32 9 41.592245ms
+RESULT 33 9 59.055106ms
+RESULT 34 9 58.096903ms
+RESULT 35 9 40.21264ms
+RESULT 36 9 51.67658ms
+RESULT 37 9 53.500887ms
+RESULT 38 9 55.275493ms
+RESULT 39 9 53.095985ms
+RESULT 40 9 44.788756ms
+RESULT 41 9 46.381062ms
+RESULT 42 9 59.592808ms
+RESULT 43 9 50.569476ms
+RESULT 44 9 51.447979ms
+RESULT 45 9 51.40468ms
+RESULT 46 9 50.532576ms
+RESULT 47 9 52.396082ms
+RESULT 48 9 51.422779ms
+RESULT 49 9 49.887375ms
+RESULT 50 9 74.324459ms
+RESULT 51 9 59.428307ms
+RESULT 52 9 52.114881ms
+RESULT 53 9 64.640326ms
+RESULT 54 9 53.540387ms
+RESULT 55 9 44.807056ms
+RESULT 56 9 55.346993ms
+RESULT 57 9 56.393197ms
+RESULT 58 9 41.735146ms
+RESULT 59 9 58.787305ms
+RESULT 60 9 54.729691ms
+RESULT 61 9 60.09901ms
+RESULT 62 9 56.832798ms
+RESULT 63 9 59.548108ms
+RESULT 64 9 46.482562ms
+RESULT 65 9 57.543001ms
+RESULT 66 9 58.905806ms
+RESULT 67 9 54.842792ms
+RESULT 68 9 70.438146ms
+RESULT 69 9 57.4118ms
+RESULT 70 9 58.931905ms
+RESULT 71 9 60.01671ms
+RESULT 72 9 48.051268ms
+RESULT 73 9 66.870633ms
+RESULT 74 9 61.070414ms
+RESULT 75 9 62.656718ms
+RESULT 76 9 35.814925ms
+RESULT 77 9 55.019492ms
+RESULT 78 9 71.222248ms
+RESULT 79 9 64.840927ms
+RESULT 80 9 50.295176ms
+RESULT 81 9 72.380152ms
+RESULT 82 9 61.055413ms
+RESULT 83 9 52.147982ms
+RESULT 84 9 69.292142ms
+RESULT 85 9 72.006052ms
+RESULT 86 9 53.896888ms
+RESULT 87 9 66.682533ms
+RESULT 88 9 55.541894ms
+RESULT 89 9 65.103027ms
+RESULT 90 9 65.82633ms
+RESULT 91 9 64.568825ms
+RESULT 92 9 59.018108ms
+RESULT 93 9 83.017772ms
+RESULT 94 9 76.678521ms
+RESULT 95 9 52.494625ms
+RESULT 96 9 76.772421ms
+RESULT 97 9 59.935585ms
+RESULT 98 9 79.845546ms
+RESULT 99 9 70.743473ms
+13502:signal-handler (1657015571) Received SIGTERM scheduling shutdown...
+13502:M 05 Jul 2022 10:06:11.037 # User requested shutdown...
+13502:M 05 Jul 2022 10:06:11.037 # Redis is now ready to exit, bye bye...

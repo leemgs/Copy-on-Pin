@@ -1,0 +1,66 @@
+Compiling /home/azbench/image/run_pbkvs_server.sc
+2022/10/25 07:06:09 resetting client failure detector
+2022/10/25 07:06:09 running archetype 3 inside a monitor 10.0.0.6:8003
+2022/10/25 07:06:09 archetype {3} recovered from panic: could not listen on address 10.0.0.6:8001: listen tcp 10.0.0.6:8001: bind: address already in use
+goroutine 9 [running]:
+runtime/debug.Stack()
+	/home/azbench/image/go1.18.2.linux-amd64/go/src/runtime/debug/stack.go:24 +0x65
+github.com/UBC-NSS/pgo/distsys/resources.(*Monitor).RunArchetype.func1()
+	/home/azbench/image/pgo/distsys/resources/fd.go:102 +0xa5
+panic({0x8f4120, 0xc0000a2140})
+	/home/azbench/image/go1.18.2.linux-amd64/go/src/runtime/panic.go:838 +0x207
+github.com/UBC-NSS/pgo/distsys/resources.newRelaxedMailboxesLocal({0xc000029070, 0xd}, {0xc00037c0c0, 0x4, 0xc0000c8000?})
+	/home/azbench/image/pgo/distsys/resources/relaxedmailboxes.go:75 +0x353
+github.com/UBC-NSS/pgo/distsys/resources.NewRelaxedMailboxes.func1({{0xa45ac8?, 0xc0000a0038?}})
+	/home/azbench/image/pgo/distsys/resources/relaxedmailboxes.go:40 +0xaf
+github.com/UBC-NSS/pgo/distsys/resources.(*IncMap).Index(0xc00000f410, {{0xa45ac8?, 0xc0000a0038?}})
+	/home/azbench/image/pgo/distsys/resources/incmap.go:40 +0xaf
+github.com/UBC-NSS/pgo/distsys.ArchetypeInterface.Read({0xc000121d80?}, {0xc0003631b0, 0xd}, {0xc00009c1d0?, 0x1, 0x1})
+	/home/azbench/image/pgo/distsys/archetypeinterface.go:60 +0x222
+github.com/DistCompiler/pgo/systems/pbkvs.glob..func5({0x8f8fe0?})
+	/home/azbench/image/pgo/systems/pbkvs/pbkvs.go:529 +0x39f
+github.com/UBC-NSS/pgo/distsys.(*MPCalContext).Run(0xc000161680)
+	/home/azbench/image/pgo/distsys/mpcalctx.go:572 +0x2af
+github.com/UBC-NSS/pgo/distsys/resources.(*Monitor).RunArchetype(0xc000020c30, 0xc000161680)
+	/home/azbench/image/pgo/distsys/resources/fd.go:110 +0x186
+github.com/DistCompiler/pgo/systems/pbkvs/bootstrap.(*Replica).Run(...)
+	/home/azbench/image/pgo/systems/pbkvs/bootstrap/server.go:62
+main.main.func1()
+	/home/azbench/image/pgo/systems/pbkvs/cmd/server/main.go:35 +0x26
+created by main.main
+	/home/azbench/image/pgo/systems/pbkvs/cmd/server/main.go:34 +0x365
+
+2022/10/25 07:06:09 archetype {3} recovered from panic: could not listen on address 10.0.0.6:8001: listen tcp 10.0.0.6:8001: bind: address already in use
+goroutine 9 [running]:
+runtime/debug.Stack()
+	/home/azbench/image/go1.18.2.linux-amd64/go/src/runtime/debug/stack.go:24 +0x65
+github.com/UBC-NSS/pgo/distsys/resources.(*Monitor).RunArchetype.func1()
+	/home/azbench/image/pgo/distsys/resources/fd.go:102 +0xa5
+panic({0x8f4120, 0xc0000a2140})
+	/home/azbench/image/go1.18.2.linux-amd64/go/src/runtime/panic.go:838 +0x207
+github.com/UBC-NSS/pgo/distsys/resources.newRelaxedMailboxesLocal({0xc000029070, 0xd}, {0xc00037c0c0, 0x4, 0xc0000c8000?})
+	/home/azbench/image/pgo/distsys/resources/relaxedmailboxes.go:75 +0x353
+github.com/UBC-NSS/pgo/distsys/resources.NewRelaxedMailboxes.func1({{0xa45ac8?, 0xc0000a0038?}})
+	/home/azbench/image/pgo/distsys/resources/relaxedmailboxes.go:40 +0xaf
+github.com/UBC-NSS/pgo/distsys/resources.(*IncMap).Index(0xc00000f410, {{0xa45ac8?, 0xc0000a0038?}})
+	/home/azbench/image/pgo/distsys/resources/incmap.go:40 +0xaf
+github.com/UBC-NSS/pgo/distsys.ArchetypeInterface.Read({0xc000121d80?}, {0xc0003631b0, 0xd}, {0xc00009c1d0?, 0x1, 0x1})
+	/home/azbench/image/pgo/distsys/archetypeinterface.go:60 +0x222
+github.com/DistCompiler/pgo/systems/pbkvs.glob..func5({0x8f8fe0?})
+	/home/azbench/image/pgo/systems/pbkvs/pbkvs.go:529 +0x39f
+github.com/UBC-NSS/pgo/distsys.(*MPCalContext).Run(0xc000161680)
+	/home/azbench/image/pgo/distsys/mpcalctx.go:572 +0x2af
+github.com/UBC-NSS/pgo/distsys/resources.(*Monitor).RunArchetype(0xc000020c30, 0xc000161680)
+	/home/azbench/image/pgo/distsys/resources/fd.go:110 +0x186
+github.com/DistCompiler/pgo/systems/pbkvs/bootstrap.(*Replica).Run(...)
+	/home/azbench/image/pgo/systems/pbkvs/bootstrap/server.go:62
+main.main.func1()
+	/home/azbench/image/pgo/systems/pbkvs/cmd/server/main.go:35 +0x26
+created by main.main
+	/home/azbench/image/pgo/systems/pbkvs/cmd/server/main.go:34 +0x365
+
+2022/10/25 07:06:09 listen tcp 10.0.0.6:8003: bind: address already in use
+os.SubprocessException: CommandResult 1
+
+  os.proc.call(ProcessOps.scala:85)
+  ammonite.$file.run_pbkvs_server$.<clinit>(run_pbkvs_server.sc:7)

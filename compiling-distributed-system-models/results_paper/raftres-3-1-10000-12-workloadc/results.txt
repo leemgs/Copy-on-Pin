@@ -1,0 +1,148 @@
+loading YCSB
+***************** properties *****************
+"requestdistribution"="zipfian"
+"readproportion"="1"
+"recordcount"="1000"
+"readallfields"="true"
+"scanproportion"="0"
+"updateproportion"="0"
+"threadcount"="12"
+"raftres.config"="/tmp/736733761691042046.yaml"
+"insertproportion"="0"
+"dotransactions"="false"
+"workload"="core"
+"operationcount"="10000"
+**********************************************
+2022/07/02 19:05:42 relaxed mailboxes started listening on: 10.0.0.7:8009
+2022/07/02 19:05:42 relaxed mailboxes started listening on: 10.0.0.7:8012
+2022/07/02 19:05:42 relaxed mailboxes started listening on: 10.0.0.7:8005
+2022/07/02 19:05:42 relaxed mailboxes started listening on: 10.0.0.7:8006
+2022/07/02 19:05:42 relaxed mailboxes started listening on: 10.0.0.7:8007
+2022/07/02 19:05:42 relaxed mailboxes started listening on: 10.0.0.7:8008
+2022/07/02 19:05:42 relaxed mailboxes started listening on: 10.0.0.7:8010
+2022/07/02 19:05:42 relaxed mailboxes started listening on: 10.0.0.7:8001
+2022/07/02 19:05:42 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/07/02 19:05:42 relaxed mailboxes started listening on: 10.0.0.7:8004
+2022/07/02 19:05:42 relaxed mailboxes started listening on: 10.0.0.7:8002
+2022/07/02 19:05:42 fd change state: archetype = 24, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 19:05:42 relaxed mailboxes started listening on: 10.0.0.7:8011
+2022/07/02 19:05:42 fd change state: archetype = 22, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 19:05:42 fd change state: archetype = 23, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 19:05:43 archetype 32 finished, err = <nil>
+2022/07/02 19:05:43 archetype 31 finished, err = <nil>
+2022/07/02 19:05:43 archetype 39 finished, err = <nil>
+2022/07/02 19:05:43 archetype 28 finished, err = <nil>
+2022/07/02 19:05:43 archetype 29 finished, err = <nil>
+2022/07/02 19:05:43 archetype 30 finished, err = <nil>
+2022/07/02 19:05:43 archetype 37 finished, err = <nil>
+2022/07/02 19:05:43 archetype 34 finished, err = <nil>
+2022/07/02 19:05:43 archetype 36 finished, err = <nil>
+2022/07/02 19:05:43 archetype 33 finished, err = <nil>
+2022/07/02 19:05:43 archetype 35 finished, err = <nil>
+2022/07/02 19:05:43 archetype 38 finished, err = <nil>
+Run finished, takes 1.201002613s
+INSERT - Takes(s): 1.2, Count: 996, OPS: 835.9, Avg(us): 11949, Min(us): 3157, Max(us): 217816, 99th(us): 204000, 99.9th(us): 218000, 99.99th(us): 218000
+running YCSB
+***************** properties *****************
+"dotransactions"="true"
+"scanproportion"="0"
+"requestdistribution"="zipfian"
+"operationcount"="10000"
+"readallfields"="true"
+"workload"="core"
+"updateproportion"="0"
+"raftres.config"="/tmp/736733761691042046.yaml"
+"readproportion"="1"
+"threadcount"="12"
+"recordcount"="1000"
+"insertproportion"="0"
+**********************************************
+2022/07/02 19:05:48 relaxed mailboxes started listening on: 10.0.0.7:8010
+2022/07/02 19:05:48 relaxed mailboxes started listening on: 10.0.0.7:8006
+2022/07/02 19:05:48 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/07/02 19:05:48 relaxed mailboxes started listening on: 10.0.0.7:8002
+2022/07/02 19:05:48 relaxed mailboxes started listening on: 10.0.0.7:8011
+2022/07/02 19:05:48 relaxed mailboxes started listening on: 10.0.0.7:8005
+2022/07/02 19:05:48 relaxed mailboxes started listening on: 10.0.0.7:8004
+2022/07/02 19:05:48 fd change state: archetype = 22, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 19:05:48 relaxed mailboxes started listening on: 10.0.0.7:8007
+2022/07/02 19:05:48 fd change state: archetype = 24, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 19:05:48 relaxed mailboxes started listening on: 10.0.0.7:8012
+2022/07/02 19:05:48 relaxed mailboxes started listening on: 10.0.0.7:8008
+2022/07/02 19:05:48 relaxed mailboxes started listening on: 10.0.0.7:8001
+2022/07/02 19:05:48 relaxed mailboxes started listening on: 10.0.0.7:8009
+2022/07/02 19:05:48 fd change state: archetype = 23, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 19:05:49 client 9 sending timeout
+2022/07/02 19:05:49 client 10 sending timeout
+2022/07/02 19:05:49 client 12 sending timeout
+2022/07/02 19:05:49 client 1 sending timeout
+2022/07/02 19:05:49 client 5 sending timeout
+2022/07/02 19:05:49 client 6 sending timeout
+2022/07/02 19:05:49 client 4 sending timeout
+2022/07/02 19:05:49 client 6 sent timeout
+2022/07/02 19:05:49 client 10 sent timeout
+2022/07/02 19:05:49 client 5 sent timeout
+2022/07/02 19:05:49 client 4 sent timeout
+2022/07/02 19:05:49 client 12 sent timeout
+2022/07/02 19:05:49 client 1 sent timeout
+2022/07/02 19:05:49 client 9 sent timeout
+2022/07/02 19:05:49 key not found
+2022/07/02 19:05:50 key not found
+2022/07/02 19:05:50 key not found
+2022/07/02 19:05:50 key not found
+2022/07/02 19:05:50 key not found
+2022/07/02 19:05:50 key not found
+2022/07/02 19:05:50 key not found
+2022/07/02 19:05:50 key not found
+2022/07/02 19:05:50 key not found
+2022/07/02 19:05:50 key not found
+2022/07/02 19:05:50 key not found
+2022/07/02 19:05:50 key not found
+2022/07/02 19:05:51 key not found
+2022/07/02 19:05:51 key not found
+2022/07/02 19:05:51 key not found
+2022/07/02 19:05:51 key not found
+2022/07/02 19:05:51 key not found
+2022/07/02 19:05:51 key not found
+2022/07/02 19:05:51 key not found
+2022/07/02 19:05:51 key not found
+2022/07/02 19:05:52 key not found
+2022/07/02 19:05:52 key not found
+2022/07/02 19:05:52 key not found
+2022/07/02 19:05:52 key not found
+2022/07/02 19:05:52 key not found
+2022/07/02 19:05:52 key not found
+2022/07/02 19:05:53 key not found
+2022/07/02 19:05:53 key not found
+2022/07/02 19:05:53 key not found
+2022/07/02 19:05:53 key not found
+2022/07/02 19:05:53 key not found
+2022/07/02 19:05:53 key not found
+2022/07/02 19:05:53 key not found
+2022/07/02 19:05:54 key not found
+2022/07/02 19:05:54 key not found
+2022/07/02 19:05:54 key not found
+2022/07/02 19:05:54 archetype 34 finished, err = <nil>
+2022/07/02 19:05:54 archetype 38 finished, err = <nil>
+2022/07/02 19:05:54 archetype 30 finished, err = <nil>
+2022/07/02 19:05:55 key not found
+2022/07/02 19:05:55 key not found
+2022/07/02 19:05:55 archetype 37 finished, err = <nil>
+2022/07/02 19:05:55 archetype 36 finished, err = <nil>
+2022/07/02 19:05:55 archetype 39 finished, err = <nil>
+2022/07/02 19:05:56 key not found
+2022/07/02 19:05:56 key not found
+2022/07/02 19:05:56 key not found
+2022/07/02 19:05:56 key not found
+2022/07/02 19:05:57 archetype 35 finished, err = <nil>
+2022/07/02 19:05:57 archetype 29 finished, err = <nil>
+2022/07/02 19:05:58 archetype 33 finished, err = <nil>
+2022/07/02 19:05:58 key not found
+READ   - Takes(s): 10.0, Count: 9930, OPS: 993.8, Avg(us): 9630, Min(us): 2658, Max(us): 1224024, 99th(us): 19000, 99.9th(us): 206000, 99.99th(us): 1225000
+READ_ERROR - Takes(s): 8.6, Count: 43, OPS: 5.0, Avg(us): 8755, Min(us): 4360, Max(us): 22196, 99th(us): 23000, 99.9th(us): 23000, 99.99th(us): 23000
+2022/07/02 19:05:58 archetype 31 finished, err = <nil>
+2022/07/02 19:05:58 archetype 28 finished, err = <nil>
+2022/07/02 19:05:58 archetype 32 finished, err = <nil>
+Run finished, takes 10.068459962s
+READ   - Takes(s): 10.1, Count: 9953, OPS: 989.4, Avg(us): 9628, Min(us): 2658, Max(us): 1224024, 99th(us): 19000, 99.9th(us): 206000, 99.99th(us): 1225000
+READ_ERROR - Takes(s): 8.7, Count: 43, OPS: 5.0, Avg(us): 8755, Min(us): 4360, Max(us): 22196, 99th(us): 23000, 99.9th(us): 23000, 99.99th(us): 23000

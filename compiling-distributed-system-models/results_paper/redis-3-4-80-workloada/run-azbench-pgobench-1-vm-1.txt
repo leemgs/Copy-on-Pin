@@ -1,0 +1,30 @@
+Compiling /home/azbench/image/run_redis_server.sc
+(numServers,3,serverIdx,0)
+21745:C 25 Oct 2022 05:42:42.339 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+21745:C 25 Oct 2022 05:42:42.339 # Redis version=5.0.7, bits=64, commit=00000000, modified=0, pid=21745, just started
+21745:C 25 Oct 2022 05:42:42.339 # Configuration loaded
+21745:M 25 Oct 2022 05:42:42.339 * Running mode=standalone, port=6379.
+21745:M 25 Oct 2022 05:42:42.339 # Server initialized
+21745:M 25 Oct 2022 05:42:42.339 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+21745:M 25 Oct 2022 05:42:42.339 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+21745:M 25 Oct 2022 05:42:42.340 * DB loaded from disk: 0.000 seconds
+21745:M 25 Oct 2022 05:42:42.340 * Ready to accept connections
+21745:M 25 Oct 2022 05:42:44.282 * Replica 10.0.0.5:6379 asks for synchronization
+21745:M 25 Oct 2022 05:42:44.282 * Partial resynchronization not accepted: Replication ID mismatch (Replica asked for '5aac4ab4321d684b6ba9fcaf06bcecda44a8f9b1', my replication IDs are '3e8e04f17452d795692526d968e262c1f268541b' and '0000000000000000000000000000000000000000')
+21745:M 25 Oct 2022 05:42:44.282 * Starting BGSAVE for SYNC with target: disk
+21745:M 25 Oct 2022 05:42:44.282 * Background saving started by pid 21749
+21749:C 25 Oct 2022 05:42:44.443 * DB saved on disk
+21749:C 25 Oct 2022 05:42:44.443 * RDB: 0 MB of memory used by copy-on-write
+21745:M 25 Oct 2022 05:42:44.446 * Background saving terminated with success
+21745:M 25 Oct 2022 05:42:44.446 * Synchronization with replica 10.0.0.5:6379 succeeded
+21745:M 25 Oct 2022 05:42:45.841 * Replica 10.0.0.6:6379 asks for synchronization
+21745:M 25 Oct 2022 05:42:45.842 * Partial resynchronization not accepted: Replication ID mismatch (Replica asked for '5aac4ab4321d684b6ba9fcaf06bcecda44a8f9b1', my replication IDs are '95721c23f6c97ed61116c345b7ca1275bd951c15' and '0000000000000000000000000000000000000000')
+21745:M 25 Oct 2022 05:42:45.842 * Starting BGSAVE for SYNC with target: disk
+21745:M 25 Oct 2022 05:42:45.842 * Background saving started by pid 21750
+21750:C 25 Oct 2022 05:42:45.858 * DB saved on disk
+21750:C 25 Oct 2022 05:42:45.858 * RDB: 0 MB of memory used by copy-on-write
+21745:M 25 Oct 2022 05:42:45.951 * Background saving terminated with success
+21745:M 25 Oct 2022 05:42:45.951 * Synchronization with replica 10.0.0.6:6379 succeeded
+21745:signal-handler (1666676591) Received SIGTERM scheduling shutdown...
+21745:M 25 Oct 2022 05:43:11.288 # User requested shutdown...
+21745:M 25 Oct 2022 05:43:11.288 # Redis is now ready to exit, bye bye...

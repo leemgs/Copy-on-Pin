@@ -1,0 +1,328 @@
+loading YCSB
+***************** properties *****************
+"recordcount"="1000"
+"readallfields"="true"
+"scanproportion"="0"
+"raftres.config"="/tmp/11846636120699978017.yaml"
+"dotransactions"="false"
+"workload"="core"
+"insertproportion"="0"
+"operationcount"="10000"
+"updateproportion"="0.5"
+"requestdistribution"="zipfian"
+"readproportion"="0.5"
+"threadcount"="24"
+**********************************************
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8017
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8004
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8001
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8008
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8006
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8005
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8007
+2022/07/02 03:31:36 fd change state: archetype = 23, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 03:31:36 fd change state: archetype = 24, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 03:31:36 fd change state: archetype = 22, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8011
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8014
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8016
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8018
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8020
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8009
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8002
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8012
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8021
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8019
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8010
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8024
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8015
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8022
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8023
+2022/07/02 03:31:36 relaxed mailboxes started listening on: 10.0.0.7:8013
+2022/07/02 03:31:37 archetype 46 finished, err = <nil>
+2022/07/02 03:31:37 archetype 31 finished, err = <nil>
+2022/07/02 03:31:37 archetype 37 finished, err = <nil>
+2022/07/02 03:31:37 archetype 44 finished, err = <nil>
+2022/07/02 03:31:37 archetype 34 finished, err = <nil>
+2022/07/02 03:31:37 archetype 35 finished, err = <nil>
+2022/07/02 03:31:37 archetype 39 finished, err = <nil>
+2022/07/02 03:31:37 archetype 28 finished, err = <nil>
+2022/07/02 03:31:37 archetype 49 finished, err = <nil>
+2022/07/02 03:31:37 archetype 38 finished, err = <nil>
+2022/07/02 03:31:37 archetype 33 finished, err = <nil>
+2022/07/02 03:31:37 archetype 50 finished, err = <nil>
+2022/07/02 03:31:37 archetype 40 finished, err = <nil>
+2022/07/02 03:31:37 archetype 51 finished, err = <nil>
+2022/07/02 03:31:37 archetype 41 finished, err = <nil>
+2022/07/02 03:31:37 archetype 48 finished, err = <nil>
+2022/07/02 03:31:37 archetype 47 finished, err = <nil>
+2022/07/02 03:31:37 archetype 36 finished, err = <nil>
+2022/07/02 03:31:37 archetype 42 finished, err = <nil>
+2022/07/02 03:31:37 archetype 43 finished, err = <nil>
+2022/07/02 03:31:37 archetype 45 finished, err = <nil>
+2022/07/02 03:31:37 archetype 30 finished, err = <nil>
+2022/07/02 03:31:37 archetype 32 finished, err = <nil>
+2022/07/02 03:31:37 archetype 29 finished, err = <nil>
+Run finished, takes 1.001639294s
+INSERT - Takes(s): 1.0, Count: 984, OPS: 1002.5, Avg(us): 20213, Min(us): 4081, Max(us): 225543, 99th(us): 222000, 99.9th(us): 226000, 99.99th(us): 226000
+running YCSB
+***************** properties *****************
+"readallfields"="true"
+"workload"="core"
+"dotransactions"="true"
+"recordcount"="1000"
+"insertproportion"="0"
+"operationcount"="10000"
+"updateproportion"="0.5"
+"raftres.config"="/tmp/11846636120699978017.yaml"
+"scanproportion"="0"
+"threadcount"="24"
+"readproportion"="0.5"
+"requestdistribution"="zipfian"
+**********************************************
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8015
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8008
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8019
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8023
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8013
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8012
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8007
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8010
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8018
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8005
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8009
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8017
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8002
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8016
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8024
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8021
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8014
+2022/07/02 03:31:42 fd change state: archetype = 22, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 03:31:42 fd change state: archetype = 24, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 03:31:42 fd change state: archetype = 23, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 03:31:42 key not found
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8001
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8020
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8006
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8022
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8011
+2022/07/02 03:31:42 relaxed mailboxes started listening on: 10.0.0.7:8004
+2022/07/02 03:31:42 key not found
+2022/07/02 03:31:42 key not found
+2022/07/02 03:31:42 key not found
+2022/07/02 03:31:42 key not found
+2022/07/02 03:31:42 key not found
+2022/07/02 03:31:42 key not found
+2022/07/02 03:31:43 key not found
+2022/07/02 03:31:43 key not found
+2022/07/02 03:31:43 key not found
+2022/07/02 03:31:43 key not found
+2022/07/02 03:31:43 client 2 sending timeout
+2022/07/02 03:31:43 client 8 sending timeout
+2022/07/02 03:31:43 client 13 sending timeout
+2022/07/02 03:31:43 client 24 sending timeout
+2022/07/02 03:31:43 client 9 sending timeout
+2022/07/02 03:31:43 client 20 sending timeout
+2022/07/02 03:31:43 client 5 sending timeout
+2022/07/02 03:31:43 client 10 sending timeout
+2022/07/02 03:31:43 client 16 sending timeout
+2022/07/02 03:31:43 client 4 sending timeout
+2022/07/02 03:31:43 client 1 sending timeout
+2022/07/02 03:31:43 client 8 sent timeout
+2022/07/02 03:31:43 client 13 sent timeout
+2022/07/02 03:31:43 client 10 sent timeout
+2022/07/02 03:31:43 key not found
+2022/07/02 03:31:43 key not found
+2022/07/02 03:31:43 key not found
+2022/07/02 03:31:43 key not found
+2022/07/02 03:31:43 client 9 sent timeout
+2022/07/02 03:31:43 client 5 sent timeout
+2022/07/02 03:31:43 client 2 sent timeout
+2022/07/02 03:31:43 client 16 sent timeout
+2022/07/02 03:31:43 client 24 sent timeout
+2022/07/02 03:31:43 key not found
+2022/07/02 03:31:43 client 1 sent timeout
+2022/07/02 03:31:43 key not found
+2022/07/02 03:31:43 client 4 sent timeout
+2022/07/02 03:31:43 client 20 sent timeout
+2022/07/02 03:31:43 key not found
+2022/07/02 03:31:43 key not found
+2022/07/02 03:31:43 key not found
+2022/07/02 03:31:43 key not found
+2022/07/02 03:31:44 key not found
+2022/07/02 03:31:44 key not found
+2022/07/02 03:31:44 key not found
+2022/07/02 03:31:44 key not found
+2022/07/02 03:31:44 key not found
+2022/07/02 03:31:44 key not found
+2022/07/02 03:31:44 key not found
+2022/07/02 03:31:44 key not found
+2022/07/02 03:31:44 key not found
+2022/07/02 03:31:44 key not found
+2022/07/02 03:31:44 key not found
+2022/07/02 03:31:44 key not found
+2022/07/02 03:31:44 key not found
+2022/07/02 03:31:44 key not found
+2022/07/02 03:31:44 key not found
+2022/07/02 03:31:44 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:45 key not found
+2022/07/02 03:31:46 key not found
+2022/07/02 03:31:46 key not found
+2022/07/02 03:31:46 key not found
+2022/07/02 03:31:46 key not found
+2022/07/02 03:31:46 key not found
+2022/07/02 03:31:46 key not found
+2022/07/02 03:31:46 key not found
+2022/07/02 03:31:46 key not found
+2022/07/02 03:31:46 key not found
+2022/07/02 03:31:46 key not found
+2022/07/02 03:31:46 key not found
+2022/07/02 03:31:46 key not found
+2022/07/02 03:31:46 key not found
+2022/07/02 03:31:46 key not found
+2022/07/02 03:31:46 key not found
+2022/07/02 03:31:46 key not found
+2022/07/02 03:31:47 key not found
+2022/07/02 03:31:47 key not found
+2022/07/02 03:31:47 key not found
+2022/07/02 03:31:47 key not found
+2022/07/02 03:31:47 key not found
+2022/07/02 03:31:47 key not found
+2022/07/02 03:31:47 key not found
+2022/07/02 03:31:47 key not found
+2022/07/02 03:31:47 key not found
+2022/07/02 03:31:47 key not found
+2022/07/02 03:31:47 key not found
+2022/07/02 03:31:47 key not found
+2022/07/02 03:31:48 key not found
+2022/07/02 03:31:48 key not found
+2022/07/02 03:31:48 key not found
+2022/07/02 03:31:48 key not found
+2022/07/02 03:31:48 key not found
+2022/07/02 03:31:48 key not found
+2022/07/02 03:31:48 key not found
+2022/07/02 03:31:48 key not found
+2022/07/02 03:31:49 key not found
+2022/07/02 03:31:49 key not found
+2022/07/02 03:31:49 key not found
+2022/07/02 03:31:50 key not found
+2022/07/02 03:31:50 key not found
+2022/07/02 03:31:50 key not found
+2022/07/02 03:31:50 key not found
+2022/07/02 03:31:50 key not found
+2022/07/02 03:31:50 key not found
+2022/07/02 03:31:50 key not found
+2022/07/02 03:31:50 key not found
+2022/07/02 03:31:50 key not found
+2022/07/02 03:31:51 key not found
+2022/07/02 03:31:51 key not found
+2022/07/02 03:31:51 key not found
+2022/07/02 03:31:51 key not found
+2022/07/02 03:31:52 key not found
+READ   - Takes(s): 10.0, Count: 3186, OPS: 318.9, Avg(us): 25227, Min(us): 3888, Max(us): 1427980, 99th(us): 241000, 99.9th(us): 1008000, 99.99th(us): 1428000
+READ_ERROR - Takes(s): 9.6, Count: 51, OPS: 5.3, Avg(us): 26960, Min(us): 6173, Max(us): 272400, 99th(us): 273000, 99.9th(us): 273000, 99.99th(us): 273000
+UPDATE - Takes(s): 9.8, Count: 3048, OPS: 311.1, Avg(us): 50587, Min(us): 8582, Max(us): 1463768, 99th(us): 503000, 99.9th(us): 1240000, 99.99th(us): 1464000
+UPDATE_ERROR - Takes(s): 9.8, Count: 58, OPS: 5.9, Avg(us): 33294, Min(us): 4603, Max(us): 325247, 99th(us): 326000, 99.9th(us): 326000, 99.99th(us): 326000
+2022/07/02 03:31:52 key not found
+2022/07/02 03:31:52 key not found
+2022/07/02 03:31:52 archetype 49 finished, err = <nil>
+2022/07/02 03:31:52 archetype 48 finished, err = <nil>
+2022/07/02 03:31:52 archetype 50 finished, err = <nil>
+2022/07/02 03:31:52 key not found
+2022/07/02 03:31:53 key not found
+2022/07/02 03:31:53 key not found
+2022/07/02 03:31:53 key not found
+2022/07/02 03:31:53 key not found
+2022/07/02 03:31:53 key not found
+2022/07/02 03:31:53 key not found
+2022/07/02 03:31:54 key not found
+2022/07/02 03:31:54 key not found
+2022/07/02 03:31:54 archetype 37 finished, err = <nil>
+2022/07/02 03:31:54 key not found
+2022/07/02 03:31:54 archetype 32 finished, err = <nil>
+2022/07/02 03:31:55 key not found
+2022/07/02 03:31:55 key not found
+2022/07/02 03:31:55 key not found
+2022/07/02 03:31:55 archetype 43 finished, err = <nil>
+2022/07/02 03:31:55 key not found
+2022/07/02 03:31:55 key not found
+2022/07/02 03:31:55 key not found
+2022/07/02 03:31:55 archetype 31 finished, err = <nil>
+2022/07/02 03:31:56 key not found
+2022/07/02 03:31:56 archetype 51 finished, err = <nil>
+2022/07/02 03:31:56 key not found
+2022/07/02 03:31:57 key not found
+2022/07/02 03:31:57 key not found
+2022/07/02 03:31:58 key not found
+2022/07/02 03:31:58 key not found
+2022/07/02 03:31:58 key not found
+2022/07/02 03:31:58 key not found
+2022/07/02 03:31:58 key not found
+2022/07/02 03:31:59 key not found
+2022/07/02 03:31:59 archetype 30 finished, err = <nil>
+2022/07/02 03:31:59 key not found
+2022/07/02 03:31:59 key not found
+2022/07/02 03:32:00 archetype 34 finished, err = <nil>
+2022/07/02 03:32:00 archetype 45 finished, err = <nil>
+2022/07/02 03:32:00 archetype 39 finished, err = <nil>
+2022/07/02 03:32:00 archetype 44 finished, err = <nil>
+2022/07/02 03:32:00 archetype 41 finished, err = <nil>
+2022/07/02 03:32:01 key not found
+2022/07/02 03:32:02 archetype 35 finished, err = <nil>
+2022/07/02 03:32:02 archetype 29 finished, err = <nil>
+READ   - Takes(s): 20.0, Count: 4325, OPS: 216.3, Avg(us): 31972, Min(us): 3888, Max(us): 1427980, 99th(us): 272000, 99.9th(us): 416000, 99.99th(us): 1428000
+READ_ERROR - Takes(s): 19.6, Count: 65, OPS: 3.3, Avg(us): 29061, Min(us): 6173, Max(us): 272400, 99th(us): 273000, 99.9th(us): 273000, 99.99th(us): 273000
+UPDATE - Takes(s): 19.8, Count: 4155, OPS: 209.9, Avg(us): 62632, Min(us): 8582, Max(us): 1463768, 99th(us): 527000, 99.9th(us): 1228000, 99.99th(us): 1464000
+UPDATE_ERROR - Takes(s): 19.8, Count: 75, OPS: 3.8, Avg(us): 33550, Min(us): 4603, Max(us): 325247, 99th(us): 326000, 99.9th(us): 326000, 99.99th(us): 326000
+2022/07/02 03:32:02 archetype 28 finished, err = <nil>
+2022/07/02 03:32:02 archetype 36 finished, err = <nil>
+2022/07/02 03:32:02 key not found
+2022/07/02 03:32:03 key not found
+2022/07/02 03:32:03 key not found
+2022/07/02 03:32:03 key not found
+2022/07/02 03:32:03 key not found
+2022/07/02 03:32:03 key not found
+2022/07/02 03:32:03 key not found
+2022/07/02 03:32:03 key not found
+2022/07/02 03:32:03 key not found
+2022/07/02 03:32:04 key not found
+2022/07/02 03:32:04 key not found
+2022/07/02 03:32:04 key not found
+2022/07/02 03:32:04 key not found
+2022/07/02 03:32:04 key not found
+2022/07/02 03:32:04 key not found
+2022/07/02 03:32:05 key not found
+2022/07/02 03:32:05 key not found
+2022/07/02 03:32:05 archetype 38 finished, err = <nil>
+2022/07/02 03:32:05 key not found
+2022/07/02 03:32:05 archetype 33 finished, err = <nil>
+2022/07/02 03:32:05 key not found
+2022/07/02 03:32:05 archetype 46 finished, err = <nil>
+2022/07/02 03:32:05 archetype 42 finished, err = <nil>
+2022/07/02 03:32:06 archetype 40 finished, err = <nil>
+2022/07/02 03:32:06 archetype 47 finished, err = <nil>
+Run finished, takes 24.060859109s
+READ   - Takes(s): 24.1, Count: 5024, OPS: 208.9, Avg(us): 28993, Min(us): 3888, Max(us): 1427980, 99th(us): 267000, 99.9th(us): 409000, 99.99th(us): 1428000
+READ_ERROR - Takes(s): 23.6, Count: 74, OPS: 3.1, Avg(us): 26594, Min(us): 6173, Max(us): 272400, 99th(us): 273000, 99.9th(us): 273000, 99.99th(us): 273000
+UPDATE - Takes(s): 23.9, Count: 4801, OPS: 201.2, Avg(us): 57331, Min(us): 8582, Max(us): 1463768, 99th(us): 521000, 99.9th(us): 1228000, 99.99th(us): 1464000
+UPDATE_ERROR - Takes(s): 23.8, Count: 85, OPS: 3.6, Avg(us): 30561, Min(us): 4603, Max(us): 325247, 99th(us): 326000, 99.9th(us): 326000, 99.99th(us): 326000

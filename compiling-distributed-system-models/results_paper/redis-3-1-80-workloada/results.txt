@@ -1,0 +1,49 @@
+loading YCSB
+2022/10/25 05:29:19 resetting client failure detector
+2022/10/25 05:29:19 resetting client failure detector
+2022/10/25 05:29:19 resetting client failure detector
+***************** properties *****************
+"scanproportion"="0"
+"redis.numreplicas"="2"
+"insertproportion"="0"
+"requestdistribution"="zipfian"
+"threadcount"="80"
+"redis.addr"="10.0.0.4:6379"
+"recordcount"="1000"
+"workload"="core"
+"readallfields"="true"
+"readproportion"="0.5"
+"updateproportion"="0.5"
+"operationcount"="1000000"
+"dotransactions"="false"
+**********************************************
+Run finished, takes 49.285355ms
+INSERT - Takes(s): 0.0, Count: 959, OPS: 32174.2, Avg(us): 3392, Min(us): 819, Max(us): 22077, 99th(us): 21000, 99.9th(us): 23000, 99.99th(us): 23000
+running YCSB
+2022/10/25 05:29:24 resetting client failure detector
+2022/10/25 05:29:24 resetting client failure detector
+2022/10/25 05:29:24 resetting client failure detector
+***************** properties *****************
+"redis.numreplicas"="2"
+"dotransactions"="true"
+"insertproportion"="0"
+"redis.addr"="10.0.0.4:6379"
+"recordcount"="1000"
+"readproportion"="0.5"
+"updateproportion"="0.5"
+"scanproportion"="0"
+"operationcount"="1000000"
+"readallfields"="true"
+"threadcount"="80"
+"requestdistribution"="zipfian"
+"workload"="core"
+**********************************************
+READ   - Takes(s): 10.0, Count: 258839, OPS: 25889.6, Avg(us): 653, Min(us): 121, Max(us): 19164, 99th(us): 3000, 99.9th(us): 6000, 99.99th(us): 12000
+READ_ERROR - Takes(s): 10.0, Count: 9240, OPS: 924.5, Avg(us): 579, Min(us): 108, Max(us): 13027, 99th(us): 2000, 99.9th(us): 6000, 99.99th(us): 14000
+UPDATE - Takes(s): 10.0, Count: 259462, OPS: 25957.4, Avg(us): 2326, Min(us): 736, Max(us): 28391, 99th(us): 8000, 99.9th(us): 11000, 99.99th(us): 18000
+UPDATE_ERROR - Takes(s): 10.0, Count: 9199, OPS: 921.6, Avg(us): 575, Min(us): 120, Max(us): 16128, 99th(us): 2000, 99.9th(us): 6000, 99.99th(us): 17000
+Run finished, takes 19.257322389s
+READ   - Takes(s): 19.3, Count: 482476, OPS: 25057.5, Avg(us): 673, Min(us): 121, Max(us): 19164, 99th(us): 3000, 99.9th(us): 6000, 99.99th(us): 12000
+READ_ERROR - Takes(s): 19.3, Count: 17221, OPS: 894.5, Avg(us): 598, Min(us): 106, Max(us): 13027, 99th(us): 2000, 99.9th(us): 6000, 99.99th(us): 11000
+UPDATE - Takes(s): 19.3, Count: 483237, OPS: 25099.8, Avg(us): 2368, Min(us): 642, Max(us): 28391, 99th(us): 8000, 99.9th(us): 12000, 99.99th(us): 19000
+UPDATE_ERROR - Takes(s): 19.2, Count: 17064, OPS: 887.0, Avg(us): 597, Min(us): 120, Max(us): 16128, 99th(us): 2000, 99.9th(us): 6000, 99.99th(us): 12000

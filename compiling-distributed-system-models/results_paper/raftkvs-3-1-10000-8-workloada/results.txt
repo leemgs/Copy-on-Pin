@@ -1,0 +1,461 @@
+Compiling /home/azbench/image/RaftKVSMagic.sc
+Compiling /home/azbench/image/go_ycsb_raftkvs.sc
+loading YCSB
+***************** properties *****************
+"workload"="core"
+"readallfields"="true"
+"requestdistribution"="zipfian"
+"raftkvs.config"="/tmp/5909389010764984464.yaml"
+"scanproportion"="0"
+"dotransactions"="false"
+"updateproportion"="0.5"
+"insertproportion"="0"
+"operationcount"="10000"
+"threadcount"="8"
+"ycsb.useints"="true"
+"recordcount"="1000"
+"readproportion"="0.5"
+**********************************************
+2022/07/02 03:59:54 relaxed mailboxes started listening on: 10.0.0.7:8002
+2022/07/02 03:59:54 relaxed mailboxes started listening on: 10.0.0.7:8005
+2022/07/02 03:59:54 relaxed mailboxes started listening on: 10.0.0.7:8006
+2022/07/02 03:59:54 relaxed mailboxes started listening on: 10.0.0.7:8004
+2022/07/02 03:59:54 fd change state: archetype = 1, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 03:59:54 fd change state: archetype = 3, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 03:59:54 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/07/02 03:59:54 relaxed mailboxes started listening on: 10.0.0.7:8008
+2022/07/02 03:59:54 fd change state: archetype = 2, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 03:59:54 relaxed mailboxes started listening on: 10.0.0.7:8007
+2022/07/02 03:59:55 relaxed mailboxes started listening on: 10.0.0.7:8001
+2022/07/02 03:59:58 client 2 sending timeout
+2022/07/02 03:59:58 client 4 sending timeout
+2022/07/02 03:59:58 client 7 sending timeout
+2022/07/02 03:59:58 client 3 sending timeout
+2022/07/02 03:59:58 client 8 sending timeout
+2022/07/02 03:59:58 client 1 sending timeout
+2022/07/02 03:59:58 client 6 sending timeout
+2022/07/02 03:59:58 client 8 sent timeout
+2022/07/02 03:59:58 client 5 sending timeout
+2022/07/02 03:59:58 client 3 sent timeout
+2022/07/02 03:59:58 client 7 sent timeout
+2022/07/02 03:59:58 client 1 sent timeout
+2022/07/02 03:59:58 client 6 sent timeout
+2022/07/02 03:59:58 client 4 sent timeout
+2022/07/02 03:59:58 client 5 sent timeout
+2022/07/02 03:59:58 client 2 sent timeout
+2022/07/02 04:00:00 archetype 24 finished, err = <nil>
+2022/07/02 04:00:00 archetype 25 finished, err = <nil>
+2022/07/02 04:00:00 archetype 20 finished, err = <nil>
+2022/07/02 04:00:00 archetype 26 finished, err = <nil>
+2022/07/02 04:00:00 archetype 23 finished, err = <nil>
+2022/07/02 04:00:00 archetype 21 finished, err = <nil>
+2022/07/02 04:00:00 archetype 22 finished, err = <nil>
+2022/07/02 04:00:01 archetype 19 finished, err = <nil>
+Run finished, takes 6.470397479s
+INSERT - Takes(s): 6.5, Count: 1000, OPS: 154.9, Avg(us): 44069, Min(us): 5284, Max(us): 1027870, 99th(us): 213000, 99.9th(us): 1021000, 99.99th(us): 1028000
+running YCSB
+***************** properties *****************
+"threadcount"="8"
+"updateproportion"="0.5"
+"scanproportion"="0"
+"operationcount"="10000"
+"readallfields"="true"
+"insertproportion"="0"
+"raftkvs.config"="/tmp/5909389010764984464.yaml"
+"ycsb.useints"="true"
+"dotransactions"="true"
+"readproportion"="0.5"
+"recordcount"="1000"
+"workload"="core"
+"requestdistribution"="zipfian"
+**********************************************
+2022/07/02 04:00:06 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/07/02 04:00:06 relaxed mailboxes started listening on: 10.0.0.7:8006
+2022/07/02 04:00:06 fd change state: archetype = 3, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 04:00:06 relaxed mailboxes started listening on: 10.0.0.7:8008
+2022/07/02 04:00:06 relaxed mailboxes started listening on: 10.0.0.7:8007
+2022/07/02 04:00:06 fd change state: archetype = 1, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 04:00:06 relaxed mailboxes started listening on: 10.0.0.7:8004
+2022/07/02 04:00:06 fd change state: archetype = 2, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/07/02 04:00:06 relaxed mailboxes started listening on: 10.0.0.7:8002
+2022/07/02 04:00:06 relaxed mailboxes started listening on: 10.0.0.7:8001
+2022/07/02 04:00:06 relaxed mailboxes started listening on: 10.0.0.7:8005
+2022/07/02 04:00:07 client 5 sending timeout
+2022/07/02 04:00:07 client 4 sending timeout
+2022/07/02 04:00:07 client 2 sending timeout
+2022/07/02 04:00:07 client 8 sending timeout
+2022/07/02 04:00:07 client 1 sending timeout
+2022/07/02 04:00:07 client 3 sending timeout
+2022/07/02 04:00:07 client 6 sending timeout
+2022/07/02 04:00:07 client 7 sending timeout
+2022/07/02 04:00:07 client 4 sent timeout
+2022/07/02 04:00:07 client 3 sent timeout
+2022/07/02 04:00:07 client 7 sent timeout
+2022/07/02 04:00:07 client 1 sent timeout
+2022/07/02 04:00:07 client 6 sent timeout
+2022/07/02 04:00:07 client 8 sent timeout
+2022/07/02 04:00:07 client 2 sent timeout
+2022/07/02 04:00:07 client 5 sent timeout
+2022/07/02 04:00:08 client 4 sending timeout
+2022/07/02 04:00:08 client 3 sending timeout
+2022/07/02 04:00:08 client 4 sent timeout
+2022/07/02 04:00:08 client 7 sending timeout
+2022/07/02 04:00:08 client 3 sent timeout
+2022/07/02 04:00:08 client 7 sent timeout
+2022/07/02 04:00:08 client 1 sending timeout
+2022/07/02 04:00:08 client 1 sent timeout
+2022/07/02 04:00:09 client 1 sending timeout
+2022/07/02 04:00:09 client 1 sent timeout
+2022/07/02 04:00:10 client 1 sending timeout
+2022/07/02 04:00:10 client 1 sent timeout
+READ   - Takes(s): 8.6, Count: 552, OPS: 64.5, Avg(us): 46627, Min(us): 5180, Max(us): 2245781, 99th(us): 211000, 99.9th(us): 2246000, 99.99th(us): 2246000
+UPDATE - Takes(s): 8.6, Count: 494, OPS: 57.7, Avg(us): 106993, Min(us): 14036, Max(us): 4655686, 99th(us): 1445000, 99.9th(us): 4656000, 99.99th(us): 4656000
+2022/07/02 04:00:19 client 3 sending timeout
+2022/07/02 04:00:19 client 1 sending timeout
+2022/07/02 04:00:19 client 4 sending timeout
+2022/07/02 04:00:19 client 7 sending timeout
+2022/07/02 04:00:19 client 6 sending timeout
+2022/07/02 04:00:19 client 6 sent timeout
+2022/07/02 04:00:19 client 5 sending timeout
+2022/07/02 04:00:19 client 2 sending timeout
+2022/07/02 04:00:19 client 2 sent timeout
+2022/07/02 04:00:19 client 8 sending timeout
+2022/07/02 04:00:19 client 4 sent timeout
+2022/07/02 04:00:19 client 7 sent timeout
+2022/07/02 04:00:19 client 3 sent timeout
+2022/07/02 04:00:19 client 8 sent timeout
+2022/07/02 04:00:19 client 5 sent timeout
+2022/07/02 04:00:19 client 1 sent timeout
+READ   - Takes(s): 18.6, Count: 1069, OPS: 57.6, Avg(us): 47426, Min(us): 5180, Max(us): 2245781, 99th(us): 217000, 99.9th(us): 2245000, 99.99th(us): 2246000
+UPDATE - Takes(s): 18.6, Count: 1055, OPS: 56.9, Avg(us): 99546, Min(us): 13871, Max(us): 4655686, 99th(us): 1027000, 99.9th(us): 2295000, 99.99th(us): 4656000
+2022/07/02 04:00:26 client 3 sending timeout
+2022/07/02 04:00:26 client 3 sent timeout
+2022/07/02 04:00:26 client 2 sending timeout
+2022/07/02 04:00:26 client 7 sending timeout
+2022/07/02 04:00:26 client 5 sending timeout
+2022/07/02 04:00:26 client 5 sent timeout
+2022/07/02 04:00:26 client 6 sending timeout
+2022/07/02 04:00:26 client 6 sent timeout
+2022/07/02 04:00:26 client 1 sending timeout
+2022/07/02 04:00:26 client 8 sending timeout
+2022/07/02 04:00:26 client 8 sent timeout
+2022/07/02 04:00:26 client 4 sending timeout
+2022/07/02 04:00:26 client 7 sent timeout
+2022/07/02 04:00:26 client 2 sent timeout
+2022/07/02 04:00:26 client 4 sent timeout
+2022/07/02 04:00:26 client 1 sent timeout
+2022/07/02 04:00:28 client 1 sending timeout
+2022/07/02 04:00:28 client 1 sent timeout
+2022/07/02 04:00:28 client 5 sending timeout
+2022/07/02 04:00:28 client 5 sent timeout
+2022/07/02 04:00:28 client 6 sending timeout
+2022/07/02 04:00:28 client 3 sending timeout
+2022/07/02 04:00:28 client 4 sending timeout
+2022/07/02 04:00:28 client 7 sending timeout
+2022/07/02 04:00:28 client 7 sent timeout
+2022/07/02 04:00:28 client 2 sending timeout
+2022/07/02 04:00:28 client 6 sent timeout
+2022/07/02 04:00:28 client 8 sending timeout
+2022/07/02 04:00:28 client 3 sent timeout
+2022/07/02 04:00:28 client 2 sent timeout
+2022/07/02 04:00:28 client 8 sent timeout
+2022/07/02 04:00:28 client 4 sent timeout
+2022/07/02 04:00:31 client 1 sending timeout
+2022/07/02 04:00:31 client 3 sending timeout
+2022/07/02 04:00:31 client 7 sending timeout
+2022/07/02 04:00:31 client 4 sending timeout
+2022/07/02 04:00:31 client 6 sending timeout
+2022/07/02 04:00:31 client 8 sending timeout
+2022/07/02 04:00:31 client 3 sent timeout
+2022/07/02 04:00:31 client 8 sent timeout
+2022/07/02 04:00:31 client 4 sent timeout
+2022/07/02 04:00:31 client 6 sent timeout
+2022/07/02 04:00:31 client 2 sending timeout
+2022/07/02 04:00:31 client 2 sent timeout
+2022/07/02 04:00:31 client 5 sending timeout
+2022/07/02 04:00:31 client 5 sent timeout
+2022/07/02 04:00:31 client 7 sent timeout
+2022/07/02 04:00:31 client 1 sent timeout
+2022/07/02 04:00:35 client 3 sending timeout
+2022/07/02 04:00:35 client 4 sending timeout
+2022/07/02 04:00:35 client 6 sending timeout
+2022/07/02 04:00:35 client 7 sending timeout
+2022/07/02 04:00:35 client 8 sending timeout
+2022/07/02 04:00:35 client 5 sending timeout
+2022/07/02 04:00:35 client 5 sent timeout
+2022/07/02 04:00:35 client 3 sent timeout
+2022/07/02 04:00:35 client 1 sending timeout
+2022/07/02 04:00:35 client 1 sent timeout
+2022/07/02 04:00:35 client 2 sending timeout
+2022/07/02 04:00:35 client 2 sent timeout
+2022/07/02 04:00:35 client 6 sent timeout
+2022/07/02 04:00:35 client 4 sent timeout
+2022/07/02 04:00:35 client 8 sent timeout
+2022/07/02 04:00:35 client 7 sent timeout
+READ   - Takes(s): 28.6, Count: 1612, OPS: 56.4, Avg(us): 48943, Min(us): 5180, Max(us): 2245781, 99th(us): 279000, 99.9th(us): 2245000, 99.99th(us): 2246000
+UPDATE - Takes(s): 28.6, Count: 1594, OPS: 55.8, Avg(us): 100929, Min(us): 13871, Max(us): 4655686, 99th(us): 1058000, 99.9th(us): 2295000, 99.99th(us): 4656000
+2022/07/02 04:00:40 client 1 sending timeout
+2022/07/02 04:00:40 client 2 sending timeout
+2022/07/02 04:00:40 client 5 sending timeout
+2022/07/02 04:00:40 client 4 sending timeout
+2022/07/02 04:00:40 client 7 sending timeout
+2022/07/02 04:00:40 client 8 sending timeout
+2022/07/02 04:00:40 client 3 sending timeout
+2022/07/02 04:00:40 client 6 sending timeout
+2022/07/02 04:00:40 client 6 sent timeout
+2022/07/02 04:00:40 client 3 sent timeout
+2022/07/02 04:00:40 client 7 sent timeout
+2022/07/02 04:00:40 client 5 sent timeout
+2022/07/02 04:00:40 client 1 sent timeout
+2022/07/02 04:00:40 client 4 sent timeout
+2022/07/02 04:00:40 client 8 sent timeout
+2022/07/02 04:00:40 client 2 sent timeout
+READ   - Takes(s): 38.6, Count: 2409, OPS: 62.5, Avg(us): 44709, Min(us): 5180, Max(us): 2245781, 99th(us): 260000, 99.9th(us): 1438000, 99.99th(us): 2246000
+UPDATE - Takes(s): 38.6, Count: 2357, OPS: 61.1, Avg(us): 89410, Min(us): 13871, Max(us): 4655686, 99th(us): 1032000, 99.9th(us): 1458000, 99.99th(us): 4656000
+2022/07/02 04:00:52 client 4 sending timeout
+2022/07/02 04:00:52 client 8 sending timeout
+2022/07/02 04:00:52 client 4 sent timeout
+2022/07/02 04:00:52 client 7 sending timeout
+2022/07/02 04:00:52 client 5 sending timeout
+2022/07/02 04:00:52 client 3 sending timeout
+2022/07/02 04:00:52 client 6 sending timeout
+2022/07/02 04:00:52 client 1 sending timeout
+2022/07/02 04:00:52 client 1 sent timeout
+2022/07/02 04:00:52 client 2 sending timeout
+2022/07/02 04:00:52 client 2 sent timeout
+2022/07/02 04:00:52 client 7 sent timeout
+2022/07/02 04:00:52 client 5 sent timeout
+2022/07/02 04:00:52 client 6 sent timeout
+2022/07/02 04:00:52 client 8 sent timeout
+2022/07/02 04:00:52 client 3 sent timeout
+2022/07/02 04:00:55 client 6 sending timeout
+2022/07/02 04:00:55 client 3 sending timeout
+2022/07/02 04:00:55 client 4 sending timeout
+2022/07/02 04:00:55 client 1 sending timeout
+2022/07/02 04:00:55 client 2 sending timeout
+2022/07/02 04:00:55 client 5 sending timeout
+2022/07/02 04:00:55 client 5 sent timeout
+2022/07/02 04:00:55 client 8 sending timeout
+2022/07/02 04:00:55 client 8 sent timeout
+2022/07/02 04:00:55 client 7 sending timeout
+2022/07/02 04:00:55 client 7 sent timeout
+2022/07/02 04:00:55 client 3 sent timeout
+2022/07/02 04:00:55 client 1 sent timeout
+2022/07/02 04:00:55 client 4 sent timeout
+2022/07/02 04:00:55 client 2 sent timeout
+2022/07/02 04:00:55 client 6 sent timeout
+READ   - Takes(s): 48.6, Count: 3066, OPS: 63.1, Avg(us): 44063, Min(us): 5180, Max(us): 2245781, 99th(us): 267000, 99.9th(us): 1025000, 99.99th(us): 2246000
+UPDATE - Takes(s): 48.6, Count: 2974, OPS: 61.2, Avg(us): 88977, Min(us): 13871, Max(us): 4655686, 99th(us): 1032000, 99.9th(us): 1458000, 99.99th(us): 4656000
+2022/07/02 04:00:57 client 3 sending timeout
+2022/07/02 04:00:57 client 8 sending timeout
+2022/07/02 04:00:57 client 5 sending timeout
+2022/07/02 04:00:57 client 5 sent timeout
+2022/07/02 04:00:57 client 6 sending timeout
+2022/07/02 04:00:57 client 2 sending timeout
+2022/07/02 04:00:57 client 1 sending timeout
+2022/07/02 04:00:57 client 1 sent timeout
+2022/07/02 04:00:57 client 8 sent timeout
+2022/07/02 04:00:57 client 4 sending timeout
+2022/07/02 04:00:57 client 4 sent timeout
+2022/07/02 04:00:57 client 7 sending timeout
+2022/07/02 04:00:57 client 2 sent timeout
+2022/07/02 04:00:57 client 7 sent timeout
+2022/07/02 04:00:57 client 3 sent timeout
+2022/07/02 04:00:57 client 6 sent timeout
+2022/07/02 04:00:59 client 6 sending timeout
+2022/07/02 04:00:59 client 5 sending timeout
+2022/07/02 04:00:59 client 8 sending timeout
+2022/07/02 04:00:59 client 1 sending timeout
+2022/07/02 04:00:59 client 4 sending timeout
+2022/07/02 04:00:59 client 3 sending timeout
+2022/07/02 04:00:59 client 5 sent timeout
+2022/07/02 04:00:59 client 8 sent timeout
+2022/07/02 04:00:59 client 1 sent timeout
+2022/07/02 04:00:59 client 7 sending timeout
+2022/07/02 04:00:59 client 4 sent timeout
+2022/07/02 04:00:59 client 3 sent timeout
+2022/07/02 04:00:59 client 2 sending timeout
+2022/07/02 04:00:59 client 2 sent timeout
+2022/07/02 04:00:59 client 6 sent timeout
+2022/07/02 04:00:59 client 7 sent timeout
+2022/07/02 04:01:01 client 7 sending timeout
+2022/07/02 04:01:01 client 4 sending timeout
+2022/07/02 04:01:01 client 1 sending timeout
+2022/07/02 04:01:01 client 8 sending timeout
+2022/07/02 04:01:01 client 6 sending timeout
+2022/07/02 04:01:01 client 5 sending timeout
+2022/07/02 04:01:01 client 2 sending timeout
+2022/07/02 04:01:01 client 7 sent timeout
+2022/07/02 04:01:01 client 3 sending timeout
+2022/07/02 04:01:01 client 3 sent timeout
+2022/07/02 04:01:01 client 1 sent timeout
+2022/07/02 04:01:01 client 4 sent timeout
+2022/07/02 04:01:01 client 5 sent timeout
+2022/07/02 04:01:01 client 6 sent timeout
+2022/07/02 04:01:01 client 8 sent timeout
+2022/07/02 04:01:01 client 2 sent timeout
+2022/07/02 04:01:04 client 6 sending timeout
+2022/07/02 04:01:04 client 1 sending timeout
+2022/07/02 04:01:04 client 7 sending timeout
+2022/07/02 04:01:04 client 7 sent timeout
+2022/07/02 04:01:04 client 4 sending timeout
+2022/07/02 04:01:04 client 1 sent timeout
+2022/07/02 04:01:04 client 3 sending timeout
+2022/07/02 04:01:04 client 2 sending timeout
+2022/07/02 04:01:04 client 5 sending timeout
+2022/07/02 04:01:04 client 8 sending timeout
+2022/07/02 04:01:04 client 6 sent timeout
+2022/07/02 04:01:04 client 4 sent timeout
+2022/07/02 04:01:04 client 5 sent timeout
+2022/07/02 04:01:04 client 2 sent timeout
+2022/07/02 04:01:04 client 3 sent timeout
+2022/07/02 04:01:04 client 8 sent timeout
+READ   - Takes(s): 58.6, Count: 3552, OPS: 60.7, Avg(us): 44066, Min(us): 5180, Max(us): 2245781, 99th(us): 270000, 99.9th(us): 1025000, 99.99th(us): 2246000
+UPDATE - Takes(s): 58.6, Count: 3494, OPS: 59.7, Avg(us): 90877, Min(us): 13871, Max(us): 4655686, 99th(us): 1047000, 99.9th(us): 1445000, 99.99th(us): 4656000
+2022/07/02 04:01:06 client 1 sending timeout
+2022/07/02 04:01:06 client 3 sending timeout
+2022/07/02 04:01:06 client 3 sent timeout
+2022/07/02 04:01:06 client 4 sending timeout
+2022/07/02 04:01:06 client 6 sending timeout
+2022/07/02 04:01:06 client 1 sent timeout
+2022/07/02 04:01:06 client 4 sent timeout
+2022/07/02 04:01:06 client 6 sent timeout
+2022/07/02 04:01:10 client 4 sending timeout
+2022/07/02 04:01:10 client 6 sending timeout
+2022/07/02 04:01:10 client 5 sending timeout
+2022/07/02 04:01:10 client 2 sending timeout
+2022/07/02 04:01:10 client 8 sending timeout
+2022/07/02 04:01:10 client 3 sending timeout
+2022/07/02 04:01:10 client 3 sent timeout
+2022/07/02 04:01:10 client 7 sending timeout
+2022/07/02 04:01:10 client 1 sending timeout
+2022/07/02 04:01:10 client 6 sent timeout
+2022/07/02 04:01:10 client 7 sent timeout
+2022/07/02 04:01:10 client 8 sent timeout
+2022/07/02 04:01:10 client 2 sent timeout
+2022/07/02 04:01:10 client 1 sent timeout
+2022/07/02 04:01:10 client 5 sent timeout
+2022/07/02 04:01:10 client 4 sent timeout
+2022/07/02 04:01:13 client 3 sending timeout
+2022/07/02 04:01:13 client 3 sent timeout
+2022/07/02 04:01:13 client 2 sending timeout
+2022/07/02 04:01:13 client 6 sending timeout
+2022/07/02 04:01:13 client 1 sending timeout
+2022/07/02 04:01:13 client 7 sending timeout
+2022/07/02 04:01:13 client 5 sending timeout
+2022/07/02 04:01:13 client 8 sending timeout
+2022/07/02 04:01:13 client 4 sending timeout
+2022/07/02 04:01:13 client 6 sent timeout
+2022/07/02 04:01:13 client 5 sent timeout
+2022/07/02 04:01:13 client 7 sent timeout
+2022/07/02 04:01:13 client 8 sent timeout
+2022/07/02 04:01:13 client 1 sent timeout
+2022/07/02 04:01:13 client 2 sent timeout
+2022/07/02 04:01:13 client 4 sent timeout
+READ   - Takes(s): 68.6, Count: 4280, OPS: 62.4, Avg(us): 42581, Min(us): 5180, Max(us): 2245781, 99th(us): 268000, 99.9th(us): 1025000, 99.99th(us): 2246000
+UPDATE - Takes(s): 68.6, Count: 4162, OPS: 60.7, Avg(us): 89650, Min(us): 13075, Max(us): 4655686, 99th(us): 1055000, 99.9th(us): 1445000, 99.99th(us): 4656000
+2022/07/02 04:01:16 client 7 sending timeout
+2022/07/02 04:01:16 client 6 sending timeout
+2022/07/02 04:01:16 client 2 sending timeout
+2022/07/02 04:01:16 client 4 sending timeout
+2022/07/02 04:01:16 client 4 sent timeout
+2022/07/02 04:01:16 client 8 sending timeout
+2022/07/02 04:01:16 client 5 sending timeout
+2022/07/02 04:01:16 client 2 sent timeout
+2022/07/02 04:01:16 client 7 sent timeout
+2022/07/02 04:01:16 client 3 sending timeout
+2022/07/02 04:01:16 client 1 sending timeout
+2022/07/02 04:01:16 client 1 sent timeout
+2022/07/02 04:01:16 client 8 sent timeout
+2022/07/02 04:01:16 client 6 sent timeout
+2022/07/02 04:01:16 client 5 sent timeout
+2022/07/02 04:01:16 client 3 sent timeout
+2022/07/02 04:01:18 client 7 sending timeout
+2022/07/02 04:01:18 client 4 sending timeout
+2022/07/02 04:01:18 client 6 sending timeout
+2022/07/02 04:01:18 client 1 sending timeout
+2022/07/02 04:01:18 client 6 sent timeout
+2022/07/02 04:01:18 client 8 sending timeout
+2022/07/02 04:01:18 client 5 sending timeout
+2022/07/02 04:01:18 client 5 sent timeout
+2022/07/02 04:01:18 client 1 sent timeout
+2022/07/02 04:01:18 client 2 sending timeout
+2022/07/02 04:01:18 client 3 sending timeout
+2022/07/02 04:01:18 client 4 sent timeout
+2022/07/02 04:01:18 client 8 sent timeout
+2022/07/02 04:01:18 client 3 sent timeout
+2022/07/02 04:01:18 client 7 sent timeout
+2022/07/02 04:01:18 client 2 sent timeout
+2022/07/02 04:01:21 client 7 sending timeout
+2022/07/02 04:01:21 client 6 sending timeout
+2022/07/02 04:01:21 client 2 sending timeout
+2022/07/02 04:01:21 client 2 sent timeout
+2022/07/02 04:01:21 client 1 sending timeout
+2022/07/02 04:01:21 client 3 sending timeout
+2022/07/02 04:01:21 client 8 sending timeout
+2022/07/02 04:01:21 client 5 sending timeout
+2022/07/02 04:01:21 client 5 sent timeout
+2022/07/02 04:01:21 client 4 sending timeout
+2022/07/02 04:01:21 client 6 sent timeout
+2022/07/02 04:01:21 client 3 sent timeout
+2022/07/02 04:01:21 client 8 sent timeout
+2022/07/02 04:01:21 client 1 sent timeout
+2022/07/02 04:01:21 client 7 sent timeout
+2022/07/02 04:01:21 client 4 sent timeout
+2022/07/02 04:01:23 client 8 sending timeout
+2022/07/02 04:01:23 client 2 sending timeout
+2022/07/02 04:01:23 client 7 sending timeout
+2022/07/02 04:01:23 client 5 sending timeout
+2022/07/02 04:01:23 client 1 sending timeout
+2022/07/02 04:01:23 client 6 sending timeout
+2022/07/02 04:01:23 client 3 sending timeout
+2022/07/02 04:01:23 client 1 sent timeout
+2022/07/02 04:01:23 client 4 sending timeout
+2022/07/02 04:01:23 client 4 sent timeout
+2022/07/02 04:01:23 client 7 sent timeout
+2022/07/02 04:01:23 client 8 sent timeout
+2022/07/02 04:01:23 client 5 sent timeout
+2022/07/02 04:01:23 client 2 sent timeout
+2022/07/02 04:01:23 client 6 sent timeout
+2022/07/02 04:01:23 client 3 sent timeout
+READ   - Takes(s): 78.6, Count: 4816, OPS: 61.3, Avg(us): 42238, Min(us): 5180, Max(us): 2245781, 99th(us): 267000, 99.9th(us): 1025000, 99.99th(us): 2246000
+UPDATE - Takes(s): 78.6, Count: 4681, OPS: 59.6, Avg(us): 91971, Min(us): 13075, Max(us): 4655686, 99th(us): 1055000, 99.9th(us): 1445000, 99.99th(us): 4656000
+2022/07/02 04:01:26 client 4 sending timeout
+2022/07/02 04:01:26 client 5 sending timeout
+2022/07/02 04:01:26 client 2 sending timeout
+2022/07/02 04:01:26 client 7 sending timeout
+2022/07/02 04:01:26 client 8 sending timeout
+2022/07/02 04:01:26 client 6 sending timeout
+2022/07/02 04:01:26 client 3 sending timeout
+2022/07/02 04:01:26 client 1 sending timeout
+2022/07/02 04:01:26 client 7 sent timeout
+2022/07/02 04:01:26 client 2 sent timeout
+2022/07/02 04:01:26 client 3 sent timeout
+2022/07/02 04:01:26 client 1 sent timeout
+2022/07/02 04:01:26 client 5 sent timeout
+2022/07/02 04:01:26 client 8 sent timeout
+2022/07/02 04:01:26 client 4 sent timeout
+2022/07/02 04:01:26 client 6 sent timeout
+2022/07/02 04:01:27 archetype 26 finished, err = <nil>
+2022/07/02 04:01:28 archetype 23 finished, err = <nil>
+2022/07/02 04:01:29 client 3 sending timeout
+2022/07/02 04:01:29 client 7 sending timeout
+2022/07/02 04:01:29 client 6 sending timeout
+2022/07/02 04:01:29 client 4 sending timeout
+2022/07/02 04:01:29 client 1 sending timeout
+2022/07/02 04:01:29 client 2 sending timeout
+2022/07/02 04:01:29 client 2 sent timeout
+2022/07/02 04:01:29 client 1 sent timeout
+2022/07/02 04:01:29 client 4 sent timeout
+2022/07/02 04:01:29 client 3 sent timeout
+2022/07/02 04:01:29 client 7 sent timeout
+2022/07/02 04:01:29 client 6 sent timeout
+2022/07/02 04:01:29 archetype 20 finished, err = <nil>
+2022/07/02 04:01:30 archetype 24 finished, err = <nil>
+2022/07/02 04:01:30 archetype 21 finished, err = <nil>
+2022/07/02 04:01:31 archetype 22 finished, err = <nil>
+2022/07/02 04:01:32 archetype 19 finished, err = <nil>
+2022/07/02 04:01:32 archetype 25 finished, err = <nil>
+Run finished, takes 1m25.862395061s
+READ   - Takes(s): 84.4, Count: 5076, OPS: 60.1, Avg(us): 42495, Min(us): 5180, Max(us): 2245781, 99th(us): 270000, 99.9th(us): 1025000, 99.99th(us): 2246000
+UPDATE - Takes(s): 84.4, Count: 4924, OPS: 58.3, Avg(us): 92848, Min(us): 13075, Max(us): 4655686, 99th(us): 1055000, 99.9th(us): 1445000, 99.99th(us): 4656000

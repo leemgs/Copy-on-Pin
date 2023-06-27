@@ -1,0 +1,1 @@
+println("Hello from Scala") // this file is used to make sure Ammonite is setup

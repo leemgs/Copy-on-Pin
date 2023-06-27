@@ -1,0 +1,103 @@
+loading YCSB
+2022/10/26 19:17:18 resetting client failure detector
+2022/10/26 19:17:18 resetting client failure detector
+2022/10/26 19:17:18 resetting client failure detector
+***************** properties *****************
+"updateproportion"="0.5"
+"workload"="core"
+"readproportion"="0.5"
+"requestdistribution"="zipfian"
+"insertproportion"="0"
+"dotransactions"="false"
+"threadcount"="25"
+"recordcount"="1000"
+"readallfields"="true"
+"scanproportion"="0"
+"pbkvs.config"="/tmp/6289764428452035139.yaml"
+"operationcount"="10000"
+**********************************************
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8041
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8025
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8045
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8011
+2022/10/26 19:17:18 fd change state: archetype = 2, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/26 19:17:18 fd change state: archetype = 3, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/26 19:17:18 fd change state: archetype = 1, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8005
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8019
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8035
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8049
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8029
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8039
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8009
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8021
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8051
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8023
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8031
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8027
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8015
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8017
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8047
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8037
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8013
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8007
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8043
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8033
+2022/10/26 19:17:18 relaxed mailboxes started listening on: 10.0.0.7:8003
+Run finished, takes 4.80288017s
+INSERT - Takes(s): 4.2, Count: 1000, OPS: 238.7, Avg(us): 115423, Min(us): 84700, Max(us): 774085, 99th(us): 709000, 99.9th(us): 770000, 99.99th(us): 775000
+running YCSB
+2022/10/26 19:17:28 resetting client failure detector
+2022/10/26 19:17:28 resetting client failure detector
+2022/10/26 19:17:28 resetting client failure detector
+***************** properties *****************
+"threadcount"="25"
+"readproportion"="0.5"
+"requestdistribution"="zipfian"
+"readallfields"="true"
+"dotransactions"="true"
+"insertproportion"="0"
+"recordcount"="1000"
+"scanproportion"="0"
+"workload"="core"
+"operationcount"="10000"
+"pbkvs.config"="/tmp/6289764428452035139.yaml"
+"updateproportion"="0.5"
+**********************************************
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8013
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8025
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8009
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8047
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8003
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8049
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8011
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8019
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8045
+2022/10/26 19:17:28 fd change state: archetype = 2, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8039
+2022/10/26 19:17:28 fd change state: archetype = 3, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8037
+2022/10/26 19:17:28 fd change state: archetype = 1, old state = uninitialized, new state = alive. Due to rpc call reply
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8051
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8027
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8005
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8007
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8043
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8029
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8015
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8041
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8033
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8031
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8023
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8021
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8017
+2022/10/26 19:17:28 relaxed mailboxes started listening on: 10.0.0.7:8035
+READ   - Takes(s): 10.0, Count: 1570, OPS: 157.1, Avg(us): 51370, Min(us): 4616, Max(us): 427678, 99th(us): 75000, 99.9th(us): 427000, 99.99th(us): 428000
+UPDATE - Takes(s): 9.7, Count: 1590, OPS: 163.1, Avg(us): 105885, Min(us): 78506, Max(us): 499430, 99th(us): 438000, 99.9th(us): 497000, 99.99th(us): 500000
+READ   - Takes(s): 20.0, Count: 3202, OPS: 160.1, Avg(us): 50713, Min(us): 4616, Max(us): 427678, 99th(us): 74000, 99.9th(us): 246000, 99.99th(us): 428000
+UPDATE - Takes(s): 19.7, Count: 3235, OPS: 163.8, Avg(us): 103997, Min(us): 75279, Max(us): 499430, 99th(us): 126000, 99.9th(us): 489000, 99.99th(us): 500000
+READ   - Takes(s): 30.0, Count: 4863, OPS: 162.1, Avg(us): 49936, Min(us): 4616, Max(us): 427678, 99th(us): 72000, 99.9th(us): 246000, 99.99th(us): 428000
+UPDATE - Takes(s): 29.7, Count: 4937, OPS: 166.0, Avg(us): 102323, Min(us): 75279, Max(us): 499430, 99th(us): 124000, 99.9th(us): 487000, 99.99th(us): 500000
+Run finished, takes 30.592882987s
+READ   - Takes(s): 30.6, Count: 4968, OPS: 162.4, Avg(us): 49437, Min(us): 1079, Max(us): 427678, 99th(us): 72000, 99.9th(us): 246000, 99.99th(us): 428000
+UPDATE - Takes(s): 30.3, Count: 5032, OPS: 165.9, Avg(us): 101459, Min(us): 5149, Max(us): 499430, 99th(us): 124000, 99.9th(us): 483000, 99.99th(us): 500000
