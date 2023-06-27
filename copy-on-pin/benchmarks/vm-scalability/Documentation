@@ -1,0 +1,341 @@
+********************************************************************************
+*                                                                              *
+*                                                                              *
+*                              Documentation                                   *
+*                                                                              *
+*                                                                              *
+********************************************************************************
+
+
+The motivation behind this suite is to exercise functions and regions of the
+mm/ of the Linux kernel which are of interest to us. There are many more
+regions which have not been covered by the test cases.
+
+
+################################################################################
+#                                  KERNEL CONFIGURATION                        #
+################################################################################
+
+The test suite was developed with the help of gcov code coverage analysis tool.
+Gcov can be enabled as a configuration option in linux kernel 2.6 and upwards.
+GCOV gives a per line execution count for the source files. The supporting tool
+versions that were used in the development of the suite are
+
+gcov   - 4.6.3
+gcc    - 4.6.3
+Kernel - 3.4
+
+The test kernel needs to be configured with the following options set
+
+        CONFIG_LOCK_STAT=y
+
+        CONFIG_GCOV_KERNEL=y
+        CONFIG_GCOV_PROFILE_ALL=y
+
+        CONFIG_PERF_EVENTS=y
+        CONFIG_FTRACE_SYSCALLS=y
+
+        CONFIG_TRANSPARENT_HUGEPAGE=y
+
+Once the test kernel has been compiled and installed, a debugfs is mounted on
+/sys/kernel.  writing to the file /sys/kernel/debug/gcov/reset resets all the
+counters. The directory /sys/kernel/debug/gcov/ also has a link to the build
+directory on the test system. For more information about setting up gcov,
+consult the gcov documentation.
+
+
+################################################################################
+#                                    FILES                                     #
+################################################################################
+
+hw_vars: This file is the interface between the system and the suite and
+provides the system configuration environment information like total memory,
+cpus, nr_hugepages etc. All the /proc/meminfo output can be extracted using
+this file.
+
+This file also has functions to create and delete sparse files in the
+$SPARSE_ROOT directory which is set to /tmp/vm-scalability. Most of the cases
+work on these files. The sparse root could be made to be of either the btrfs,
+ext4 or the xfs type by suitable editing the hw_vars file.
+
+run_cases: This file first resets the counters and then executes all the test
+cases one by one. Some of the functions are invoked only during startup and are
+reset before the cases are run. Hence some cases need to enable them again via
+the case script before calling the executables so that the neccessary invoking
+functions are counted for in the source_file.gcov. Similary, some of the
+functions are invoked dynamically when a system configuration like nr_hugepages
+changes during the execution of the program. Cases like that have been covered
+by resetting such parameters from within the program.
+
+cases-*: These files call the executable files with suitable options. Some of
+them have multithreaded option while some dont.
+
+
+################################################################################
+#                                    USAGE                                     #
+################################################################################
+
+cd /path/to/suite/directory
+make all
+./run
+gcov -o /path/to/build/directory/with/the/.gcno <source_file>.c
+
+the last command produces the source_file.c.gcov file which has the coverage
+information for each line of the mm .c and .f files.
+
+Note: scripts to aumatically gather the gcno/gcda files and extract the
+source_file.gcov data coverage files are available in the gcov documentation.
+
+The cases in the suite call an exucutable file with options. Most of the cases
+work on usemem. Some of the cases that call other ececutables have been written
+in seperate files in order to modularise the code and have been named based on
+the kernel functionality they exercise.
+
+Some of the cases merely call trivial system calls and do not do anything else.
+They can be extended suitably as per need.
+
+Some cases like case-migration, case-mbind etc need a numa setup. This was
+achieved using the numa=fake=<value>. The value is the number of nodes to be
+emulated. The suite was tested with value = 2, which is the minimum value for
+inter-core page migration. passed as a kernel boot option. Those cases that
+require the numa setup need to be linked with -lnuma flag and the libnuma has
+to be installed in the system. The executables that these cases call have been
+taken from the numactl documentation and slightly modified. They have been
+found to work on a 2 node numa-emulated machine.
+
+cases which require the sysfs parameters to be using echo <value> >
+sysfs_parameter set may need tweaking based on the system configuration. The
+default values used in the case scripts may not scale well when systems
+parameters are scaled. For example, for systems with higher memory, the
+/sys/kernel/mm/transparent_hugepage/khugepaged/pages_to_scan may be needed to
+be set to a higher value or the scan_sleep_millisecs needs to be reduced or
+both. Failure to scale the values may result in disproportional or sometimes,
+no observable coverage in corresponding functions.
+
+cases can be run individually using
+
+./case-name
+
+with the suite directory as pwd. The scripts work under this assumption. Also,
+care has to taken to make sure that the sparse root is mounted. The run_cases
+script takes care of mounting the sparse partition before running the scripts.
+
+Hugepages are assumed to be of 2MB.
+
+
+################################################################################
+#                                  WARNING                                     #
+################################################################################
+
+The coverage analysis with gcov enabled by setting the
+
+CONFIG_GCOV_KERNEL=y
+CONFIG_GCOV_PROFILE_ALL=y
+
+configuration options, profiles the entire kernel. Hence the system boot time
+in considerably increased and the system runs a little slower too. Enabling
+these configuration parameters on high-end server systems have been observed to
+cause boot problems or unstable kernels with or without a lot of errors.
+
+################################################################################
+#                                  CASE DESCRIPTION                            #
+################################################################################
+
+case-000-anon:
+Fill 1/3 of total memory with anonymous pages by creating an anonymous
+memory region and continuous write to it. This test is used to exercise
+kernel's page fault handler and memory allocation.
+
+case-000-shm:
+Fill 1/3 of total memory by continuously writing to a file that is hosted
+on a tmpfs; the file is accessed with mmap.
+
+The above two test cases are meant to eat memory, they should be used
+with other test cases.
+
+Anonymous page related:
+
+case-anon-cow-seq/rand:
+Parent allocate a portion of anonymous memory and then fork several child
+processes; these child processes will write data sequentially/randomly to
+that memory region. This test is used to test kernel's copy-on-write
+functionality.
+
+case-anon-cow-seq/rand-mt:
+Since threads share the same memory space, this test doesn't seem to make
+much sense(No COW happened).
+This test is used to make sure no COW occurred and thus its performance should
+be much better than the above one.
+
+case-anon-r-rand(-mt):
+mmap a specified size of anonymous region and read at random position to
+trigger page faults. Since this is a readonly test and kernel will always use
+the same ZERO page for all the faults, this test is used to test if this fast
+path works.
+
+The -mt version use thread instead of process, it could involve the test
+of page table lock.
+
+case-anon-r-seq(-mt):
+Sequentially read instead of randomly read compared to the above test. Should
+have the same effect since the mapped physical page, i.e. the ZERO page is
+always accessible so no matter it is sequentially read or randomly read, only
+page fault occurred, no IO happened.
+
+case-anon-rx-seq-mt:
+Almost the same as case-anon-r-seq-mt, the only difference is that it does the
+allocation before the test starts. The allocation is actually a mmap of a huge
+anonymous region and that alone shouldn't take much time(on populate).
+This test is meant to see the speed difference? between prefault(this case)
+non-prefault(the above case).
+
+case-anon-rx-rand-mt:
+read randomly instead of sequentially compared to case-anon-rx-seq-mt.
+Since it's preallocated, it shouldn't matter if it is read randomly or
+sequentially so this test case is used to verify that.
+
+case-anon-w-seq/rand:
+Start N tasks and each mmap 1/2N whole system memory size of anonymous region
+and write sequentially/randomly to that region. This will trigger page
+fault and memory allocation.
+
+case-anon-w-seq/rand-mt:
+use threads instead of tasks compared to the above test case.
+
+case-anon-wx-seq/rand-mt:
+preallocate, i.e. do mmap of this anonymous memory region before the test
+starts compared to the above test case.
+
+case-direct-write:
+Open a file with O_DIRECT and then continuously write data to it till the
+world ends. The file is a sparse file.
+
+case-fork:
+start 20000 processes and do nothing. This test is used to test fork performance.
+
+case-fork-sleep:
+Almost the same as the above test, except that each task will sleep 10s before exit.
+The sleep is used to make sure there are many processes alive at the same time.
+
+case-hugetlb:
+Try to allocate 1/3 of whole memory size as huge page by manipulating the
+/proc/sys/vm/nr_hugepages file and then free them all.
+
+case-ksm:
+Start a process per node and the processes each will RW mmap a private anonymous
+region of MemTotal/1000 size and populate when mmap, then use madvise to set
+MERGEABLE to trigger KSM; sleep 1 minute and disable MERGEABLE.
+The populate will trigger a lot of zero pages so KSM should make an huge effect.
+We could measure CPU consumption and how much memory gets freed.
+
+case-ksm-hugepages:
+Start N processes, each will mmap a RW private anonymous region of size
+MemTotal/2N. The transparent hugepage is always enabled in this case so
+all allocations are done in hugepages(zeored hugepages). Then the test
+set MERGEABLE for this region and that should trigger KSM. After the set,
+sleep 30 seconds and then clear MERGEABLE flag for this region. The test
+is done now.
+Again, we could measure CPU consumption and how much memory gets freed.
+
+File related:
+case-lru-file-mmap-read/rand:
+Fork N processes and each process mmap a separate file whose size is
+ROTATE_SIZE/n and read its data sequentially/randomly to test LRU related functions.
+
+case-lru-file-mmap-write:
+Almost the same as the above test, except doing write instead of read.
+
+case-lru-file-readonce:
+Quite similar as case-lru-file-mmap-read except it is using dd to read the file.
+
+case-lru-file-readtwice:
+The file is read twice instead of once compared to the above test.
+
+case-lru-memcg:
+Set memory limit to 1/3 total memory size and then using case-lru-file-readonce
+to do the test.
+
+case-lru-shm:
+Start N task, each create a sparse file on a tmpfs with a size of MemTotal.
+Then start reading 1/2N size of its data. So the N processes will fill the
+memory half full after they are all done. It doesn't matter if the task has
+exited since the read portion of the file will always occupy the memory.
+
+case-lru-shm-rand:
+Almost the same as the above test case except the read is done in random
+order instead of sequentially.
+
+case-mbind:
+Start N processes, each allocates 1/5N MemFree memory anonymous pages, then
+move these pages to node 0 with numa_move_pages and mbind(seems duplicated
+here since mbind could also move existing pages), use get_mempolicy to verify
+if these pages are indeed at the desired node and print error messages if any.
+Then use mbind to move these pages to node 1 and verify again with get_mempolicy.
+This test is used to test if mbind's moving existing pages functionality works.
+
+case-migrate:
+/* FIXME: */ migratepages is missing.
+
+case-migrate-across-nodes:
+Start $nr_node processes, each will allocate 1/2.5N MemFree memory anonymous
+pages, then use numa_move_pages to move these pages to node 1, verify the
+move is successful; use numa_migrate_pages to migrate these pages to node 0 and
+verify if the migrate is successful.
+This test is used to test if migrate_pages is working as expected.
+KSM is enabled before the test, not sure the impact.
+
+case-mincore:
+Start N threads, each thread has a separate file as its backing store. Mmap
+that file and read in MemTotal/N bytes data randomly(which means some part
+of the memory space will never be touched). After this, use the mincore
+system call to see how many pages are in core. Then the test exits.
+
+case-mlock:
+Start N processes, each will allocate 1/3N reclaimable memory((nr_free_page +
+nr_file_page)*PAGE_SIZE) with mmap and then use mlock to lock all the allocated
+space into memory. The mlock system call will also cause the memory
+to be actually allocated.
+
+case-mmap-pread-seq/rand:
+Create a sparse file with a size of 4T and then start N processes to mmap the
+file and read its content sequentially/randomly. This is used to cause pressure
+on the LRU.
+
+case-mmap-pread-seq/rand-mt:
+Uses threads to do the read instead of processes compared to the above case.
+
+case-mmap-xread-seq/rand-mt:
+Preallocate and then all the threads will use the same memory space of their
+own allocated one. This should cause less pressue on the LRU list compared
+to the above test case.
+
+case-msync:
+Create N sparse files, each with a size of $MemTotal. For each sparse file,
+start a process to write 1/2N of the sparse file's size. After the write,
+do a msync to make sure the change in memory has reached the file.
+
+case-msync-mt:
+Create a sparse file with size of $MemTotal, before creating N threads, it
+will preallocate and prefault 1/2 memory space with mmap using this sparse
+file as backing store and then the N threads will all write data there
+using the preallocated space. When this is done, use msync to flush
+change back to the file.
+
+case-shm-pread-seq/rand:
+Start N processes to read sequentially/randomly a file hosted on a tmpfs.
+The file's size is the same as $MemTotal and the read size is half the
+file's size. The end result is the file will occupy 1/2 $MemTotal.
+
+case-shm-pread-seq/rand-mt:
+Use thread instead of process compared to the above case. Will generate
+some pressure on the page table lock.
+
+case-shm-xread-seq/rand:
+Preallocate the space using mmap before forking N processes to do the
+read compared to case-shm-pread-seq/rand. The difference between them
+is the preallocate could save these processes a mmap call.
+
+case-shm-xread-seq/rand-mt:
+Use thread instead of process compared to the above case. Since threads
+share the same VM, the page faults for some space pages may occur concurrently
+and this test may be able to test page fault's scalability.

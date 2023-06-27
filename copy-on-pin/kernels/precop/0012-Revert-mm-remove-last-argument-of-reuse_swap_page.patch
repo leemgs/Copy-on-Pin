@@ -1,0 +1,109 @@
+From cbca3fc77ca1eeb058e5838e5af7b5b627238dbf Mon Sep 17 00:00:00 2001
+From: David Hildenbrand <hildenbr@in.tum.de>
+Date: Tue, 4 Oct 2022 13:17:32 -0400
+Subject: [PATCH 12/18] Revert "mm: remove last argument of reuse_swap_page()"
+
+This reverts commit 020e87650af9f43683546729f959fdc78422a4b7.
+
+Signed-off-by: David Hildenbrand <hildenbr@in.tum.de>
+---
+ include/linux/swap.h | 6 +++---
+ mm/huge_memory.c     | 2 +-
+ mm/khugepaged.c      | 2 +-
+ mm/memory.c          | 2 +-
+ mm/swapfile.c        | 8 +++++++-
+ 5 files changed, 13 insertions(+), 7 deletions(-)
+
+diff --git a/include/linux/swap.h b/include/linux/swap.h
+index ee10d111fce9..b194733b3bff 100644
+--- a/include/linux/swap.h
++++ b/include/linux/swap.h
+@@ -515,7 +515,7 @@ extern int __swp_swapcount(swp_entry_t entry);
+ extern int swp_swapcount(swp_entry_t entry);
+ extern struct swap_info_struct *page_swap_info(struct page *);
+ extern struct swap_info_struct *swp_swap_info(swp_entry_t entry);
+-extern bool reuse_swap_page(struct page *);
++extern bool reuse_swap_page(struct page *, int *);
+ extern int try_to_free_swap(struct page *);
+ struct backing_dev_info;
+ extern int init_swap_address_space(unsigned int type, unsigned long nr_pages);
+@@ -681,8 +681,8 @@ static inline int swp_swapcount(swp_entry_t entry)
+ 	return 0;
+ }
+ 
+-#define reuse_swap_page(page) \
+-	(page_trans_huge_mapcount(page, NULL) == 1)
++#define reuse_swap_page(page, total_map_swapcount) \
++	(page_trans_huge_mapcount(page, total_map_swapcount) == 1)
+ 
+ static inline int try_to_free_swap(struct page *page)
+ {
+diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+index 4063d276534c..1186a32630da 100644
+--- a/mm/huge_memory.c
++++ b/mm/huge_memory.c
+@@ -1322,7 +1322,7 @@ vm_fault_t do_huge_pmd_wp_page(struct vm_fault *vmf)
+ 	 * We can only reuse the page if nobody else maps the huge page or it's
+ 	 * part.
+ 	 */
+-	if (reuse_swap_page(page)) {
++	if (reuse_swap_page(page, NULL)) {
+ 		pmd_t entry;
+ 		entry = pmd_mkyoung(orig_pmd);
+ 		entry = maybe_pmd_mkwrite(pmd_mkdirty(entry), vma);
+diff --git a/mm/khugepaged.c b/mm/khugepaged.c
+index 1cdf7c38b9e5..5f7eb734da26 100644
+--- a/mm/khugepaged.c
++++ b/mm/khugepaged.c
+@@ -684,7 +684,7 @@ static int __collapse_huge_page_isolate(struct vm_area_struct *vma,
+ 			goto out;
+ 		}
+ 		if (!pte_write(pteval) && PageSwapCache(page) &&
+-				!reuse_swap_page(page)) {
++				!reuse_swap_page(page, NULL)) {
+ 			/*
+ 			 * Page is in the swap cache and cannot be re-used.
+ 			 * It cannot be collapsed into a THP.
+diff --git a/mm/memory.c b/mm/memory.c
+index 7e6ec1a86fb7..b46576d6d067 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -3636,7 +3636,7 @@ vm_fault_t do_swap_page(struct vm_fault *vmf)
+ 	inc_mm_counter_fast(vma->vm_mm, MM_ANONPAGES);
+ 	dec_mm_counter_fast(vma->vm_mm, MM_SWAPENTS);
+ 	pte = mk_pte(page, vma->vm_page_prot);
+-	if ((vmf->flags & FAULT_FLAG_WRITE) && reuse_swap_page(page)) {
++	if ((vmf->flags & FAULT_FLAG_WRITE) && reuse_swap_page(page, NULL)) {
+ 		pte = maybe_mkwrite(pte_mkdirty(pte), vma);
+ 		vmf->flags &= ~FAULT_FLAG_WRITE;
+ 		ret |= VM_FAULT_WRITE;
+diff --git a/mm/swapfile.c b/mm/swapfile.c
+index d16788aae897..f74041f98f43 100644
+--- a/mm/swapfile.c
++++ b/mm/swapfile.c
+@@ -1668,8 +1668,12 @@ static int page_trans_huge_map_swapcount(struct page *page, int *total_mapcount,
+  * to it.  And as a side-effect, free up its swap: because the old content
+  * on disk will never be read, and seeking back there to write new content
+  * later would only waste time away from clustering.
++ *
++ * NOTE: total_map_swapcount should not be relied upon by the caller if
++ * reuse_swap_page() returns false, but it may be always overwritten
++ * (see the other implementation for CONFIG_SWAP=n).
+  */
+-bool reuse_swap_page(struct page *page)
++bool reuse_swap_page(struct page *page, int *total_map_swapcount)
+ {
+ 	int count, total_mapcount, total_swapcount;
+ 
+@@ -1678,6 +1682,8 @@ bool reuse_swap_page(struct page *page)
+ 		return false;
+ 	count = page_trans_huge_map_swapcount(page, &total_mapcount,
+ 					      &total_swapcount);
++	if (total_map_swapcount)
++		*total_map_swapcount = total_mapcount + total_swapcount;
+ 	if (count == 1 && PageSwapCache(page) &&
+ 	    (likely(!PageTransCompound(page)) ||
+ 	     /* The remaining swap count will be freed soon */
+-- 
+2.37.3
+

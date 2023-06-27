@@ -1,0 +1,93 @@
+From 8891232da48f637b059a3b4e329431e7ac44ff2a Mon Sep 17 00:00:00 2001
+From: David Hildenbrand <david@redhat.com>
+Date: Mon, 9 May 2022 18:20:44 -0700
+Subject: [PATCH 14/27] mm/gup: disallow follow_page(FOLL_PIN)
+
+We want to change the way we handle R/O pins on anonymous pages that might
+be shared: if we detect a possibly shared anonymous page -- mapped R/O and
+not !PageAnonExclusive() -- we want to trigger unsharing via a page fault,
+resulting in an exclusive anonymous page that can be pinned reliably
+without getting replaced via COW on the next write fault.
+
+However, the required page fault will be problematic for follow_page(): in
+contrast to ordinary GUP, follow_page() doesn't trigger faults internally.
+So we would have to end up failing a R/O pin via follow_page(), although
+there is something mapped R/O into the page table, which might be rather
+surprising.
+
+We don't seem to have follow_page(FOLL_PIN) users, and it's a purely
+internal MM function.  Let's just make our life easier and the semantics
+of follow_page() clearer by just disallowing FOLL_PIN for follow_page()
+completely.
+
+Link: https://lkml.kernel.org/r/20220428083441.37290-15-david@redhat.com
+Signed-off-by: David Hildenbrand <david@redhat.com>
+Acked-by: Vlastimil Babka <vbabka@suse.cz>
+Cc: Andrea Arcangeli <aarcange@redhat.com>
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: David Rientjes <rientjes@google.com>
+Cc: Don Dutile <ddutile@redhat.com>
+Cc: Hugh Dickins <hughd@google.com>
+Cc: Jan Kara <jack@suse.cz>
+Cc: Jann Horn <jannh@google.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>
+Cc: John Hubbard <jhubbard@nvidia.com>
+Cc: Khalid Aziz <khalid.aziz@oracle.com>
+Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: Liang Zhang <zhangliang5@huawei.com>
+Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>
+Cc: Michal Hocko <mhocko@kernel.org>
+Cc: Mike Kravetz <mike.kravetz@oracle.com>
+Cc: Mike Rapoport <rppt@linux.ibm.com>
+Cc: Nadav Amit <namit@vmware.com>
+Cc: Oded Gabbay <oded.gabbay@gmail.com>
+Cc: Oleg Nesterov <oleg@redhat.com>
+Cc: Pedro Demarchi Gomes <pedrodemargomes@gmail.com>
+Cc: Peter Xu <peterx@redhat.com>
+Cc: Rik van Riel <riel@surriel.com>
+Cc: Roman Gushchin <guro@fb.com>
+Cc: Shakeel Butt <shakeelb@google.com>
+Cc: Yang Shi <shy828301@gmail.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+Signed-off-by: David Hildenbrand <hildenbr@in.tum.de>
+---
+ mm/gup.c     | 3 +++
+ mm/hugetlb.c | 8 +++++---
+ 2 files changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/mm/gup.c b/mm/gup.c
+index f598a037eb04..f424abf5e792 100644
+--- a/mm/gup.c
++++ b/mm/gup.c
+@@ -787,6 +787,9 @@ struct page *follow_page(struct vm_area_struct *vma, unsigned long address,
+ 	if (vma_is_secretmem(vma))
+ 		return NULL;
+ 
++	if (foll_flags & FOLL_PIN)
++		return NULL;
++
+ 	page = follow_page_mask(vma, address, foll_flags, &ctx);
+ 	if (ctx.pgmap)
+ 		put_dev_pagemap(ctx.pgmap);
+diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+index 5add8bbd47cd..e4143eee7a3a 100644
+--- a/mm/hugetlb.c
++++ b/mm/hugetlb.c
+@@ -6701,9 +6701,11 @@ follow_huge_pmd(struct mm_struct *mm, unsigned long address,
+ 	spinlock_t *ptl;
+ 	pte_t pte;
+ 
+-	/* FOLL_GET and FOLL_PIN are mutually exclusive. */
+-	if (WARN_ON_ONCE((flags & (FOLL_PIN | FOLL_GET)) ==
+-			 (FOLL_PIN | FOLL_GET)))
++	/*
++	 * FOLL_PIN is not supported for follow_page(). Ordinary GUP goes via
++	 * follow_hugetlb_page().
++	 */
++	if (WARN_ON_ONCE(flags & FOLL_PIN))
+ 		return NULL;
+ 
+ retry:
+-- 
+2.37.3
+

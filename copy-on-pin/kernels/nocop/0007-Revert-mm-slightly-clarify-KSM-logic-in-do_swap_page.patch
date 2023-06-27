@@ -1,0 +1,65 @@
+From f058b2fe0e913fdaac636a96f39d68f690607d48 Mon Sep 17 00:00:00 2001
+From: David Hildenbrand <hildenbr@in.tum.de>
+Date: Tue, 4 Oct 2022 13:11:55 -0400
+Subject: [PATCH 07/11] Revert "mm: slightly clarify KSM logic in
+ do_swap_page()"
+
+This reverts commit 84d60fdd3733fb86c126f2adfd0361fdc44087c3.
+
+Signed-off-by: David Hildenbrand <hildenbr@in.tum.de>
+---
+ mm/memory.c | 38 +++++++++++++++-----------------------
+ 1 file changed, 15 insertions(+), 23 deletions(-)
+
+diff --git a/mm/memory.c b/mm/memory.c
+index 60e2f005a611..0cc323d0cc04 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -3607,29 +3607,21 @@ vm_fault_t do_swap_page(struct vm_fault *vmf)
+ 		goto out_release;
+ 	}
+ 
+-	if (swapcache) {
+-		/*
+-		 * Make sure try_to_free_swap or swapoff did not release the
+-		 * swapcache from under us.  The page pin, and pte_same test
+-		 * below, are not enough to exclude that.  Even if it is still
+-		 * swapcache, we need to check that the page's swap has not
+-		 * changed.
+-		 */
+-		if (unlikely(!PageSwapCache(page) ||
+-			     page_private(page) != entry.val))
+-			goto out_page;
+-
+-		/*
+-		 * KSM sometimes has to copy on read faults, for example, if
+-		 * page->index of !PageKSM() pages would be nonlinear inside the
+-		 * anon VMA -- PageKSM() is lost on actual swapout.
+-		 */
+-		page = ksm_might_need_to_copy(page, vma, vmf->address);
+-		if (unlikely(!page)) {
+-			ret = VM_FAULT_OOM;
+-			page = swapcache;
+-			goto out_page;
+-		}
++	/*
++	 * Make sure try_to_free_swap or reuse_swap_page or swapoff did not
++	 * release the swapcache from under us.  The page pin, and pte_same
++	 * test below, are not enough to exclude that.  Even if it is still
++	 * swapcache, we need to check that the page's swap has not changed.
++	 */
++	if (unlikely((!PageSwapCache(page) ||
++			page_private(page) != entry.val)) && swapcache)
++		goto out_page;
++
++	page = ksm_might_need_to_copy(page, vma, vmf->address);
++	if (unlikely(!page)) {
++		ret = VM_FAULT_OOM;
++		page = swapcache;
++		goto out_page;
+ 	}
+ 
+ 	cgroup_throttle_swaprate(page, GFP_KERNEL);
+-- 
+2.37.3
+

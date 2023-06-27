@@ -1,0 +1,37 @@
+From 24bbc1dca5c8712af9d48535071585a8f0336b94 Mon Sep 17 00:00:00 2001
+From: David Hildenbrand <hildenbr@in.tum.de>
+Date: Tue, 4 Oct 2022 13:16:00 -0400
+Subject: [PATCH 08/18] Revert "mm: optimize do_wp_page() for fresh pages in
+ local LRU pagevecs"
+
+This reverts commit d4c470970d45c863fafc757521a82be2f80b1232.
+
+Signed-off-by: David Hildenbrand <hildenbr@in.tum.de>
+---
+ mm/memory.c | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
+
+diff --git a/mm/memory.c b/mm/memory.c
+index 0cc323d0cc04..1b8b6876893e 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -3294,15 +3294,7 @@ static vm_fault_t do_wp_page(struct vm_fault *vmf)
+ 		 *
+ 		 * PageKsm() doesn't necessarily raise the page refcount.
+ 		 */
+-		if (PageKsm(page) || page_count(page) > 3)
+-			goto copy;
+-		if (!PageLRU(page))
+-			/*
+-			 * Note: We cannot easily detect+handle references from
+-			 * remote LRU pagevecs or references to PageLRU() pages.
+-			 */
+-			lru_add_drain();
+-		if (page_count(page) > 1 + PageSwapCache(page))
++		if (PageKsm(page) || page_count(page) > 1 + PageSwapCache(page))
+ 			goto copy;
+ 		if (!trylock_page(page))
+ 			goto copy;
+-- 
+2.37.3
+

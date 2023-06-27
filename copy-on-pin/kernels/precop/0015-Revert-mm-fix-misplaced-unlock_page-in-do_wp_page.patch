@@ -1,0 +1,29 @@
+From fa419b41ae087887fa475f5a22c131d5babe72f8 Mon Sep 17 00:00:00 2001
+From: David Hildenbrand <hildenbr@in.tum.de>
+Date: Tue, 4 Oct 2022 13:16:33 -0400
+Subject: [PATCH 15/18] Revert "mm: fix misplaced unlock_page in do_wp_page()"
+
+This reverts commit be068f29034fb00530a053d18b8cf140c32b12b3.
+
+Signed-off-by: David Hildenbrand <hildenbr@in.tum.de>
+---
+ mm/memory.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/mm/memory.c b/mm/memory.c
+index a5b6351bd2d8..e6f00c7234b6 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -3298,8 +3298,8 @@ static vm_fault_t do_wp_page(struct vm_fault *vmf)
+ 		 * page count reference, and the page is locked,
+ 		 * it's dark out, and we're wearing sunglasses. Hit it.
+ 		 */
+-		unlock_page(page);
+ 		wp_page_reuse(vmf);
++		unlock_page(page);
+ 		return VM_FAULT_WRITE;
+ 	} else if (unlikely((vma->vm_flags & (VM_WRITE|VM_SHARED)) ==
+ 					(VM_WRITE|VM_SHARED))) {
+-- 
+2.37.3
+

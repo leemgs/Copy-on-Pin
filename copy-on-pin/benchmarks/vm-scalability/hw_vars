@@ -1,0 +1,156 @@
+#!/bin/sh
+
+if [ -n "$runtime" ]; then
+	USEMEM="$CMD ./usemem --runtime $runtime"
+else
+	USEMEM="$CMD ./usemem"
+fi
+
+[ -n "$SYNC_RW" ] && USEMEM="$USEMEM -y"
+[ -n "$SYNC_FREE" ] && USEMEM="$USEMEM -x"
+[ -n "$BIND_CPU" ] && USEMEM="$USEMEM -b $BIND_CPU"
+[ -n "$REPEAT_COUNT" ] && USEMEM="$USEMEM -r $REPEAT_COUNT"
+[ -n "$DELAY" ] && USEMEM="$USEMEM -e $DELAY"
+
+TMPFS_MNT=/tmp/vm-scalability-tmp
+SHM_FILE=$TMPFS_MNT/sparse-${0#*case-}
+
+SPARSE_ROOT=${SPARSE_ROOT:-$TMPFS_MNT/vm-scalability}
+SPARSE_FILE=$SPARSE_ROOT/sparse-${0#*case-}
+# SPARSE_FSTYPE=$(/usr/bin/stat -fc %T $SPARSE_ROOT)
+# [ $SPARSE_FSTYPE = tmpfs ] && echo "$SPARSE_ROOT is tmpfs, sparse files won't eat memory." && exit 1
+# [ $SPARSE_FSTYPE = nfs ] && echo "$SPARSE_ROOT is nfs, sparse file reads will be slow." && exit 1
+
+PIDFILE=$SPARSE_ROOT/${0#*case-}.pid
+
+mount_tmpfs()
+{
+	if [ -d "$TMPFS_MNT" ]; then
+		mountpoint -q $TMPFS_MNT && umount $TMPFS_MNT
+	else
+		mkdir $TMPFS_MNT
+	fi
+	$CMD mount -t tmpfs -o size=100% vm-scalability-tmp $TMPFS_MNT
+
+	shm_size=$(/usr/bin/stat -f -c "%b*%S" $TMPFS_MNT)
+	export shm_size=$(($shm_size))
+}
+
+create_loop_devices()
+{
+	local i
+
+	modprobe loop 2>/dev/null
+	[ -e "/dev/loop0" ] || modprobe loop 2>/dev/null
+
+	for i in $(seq 0 8)
+	do
+		[ -e "/dev/loop$i" ] && continue
+		mknod /dev/loop$i b 7 $i
+	done
+}
+
+# sparse files won't work as expected on tmpfs/nfs
+create_sparse_root () {
+	$CMD truncate -s $((mem)) $SPARSE_ROOT.img
+	case ${fs:-xfs} in
+		btrfs)
+			$CMD mkfs.btrfs $SPARSE_ROOT.img > /dev/null
+			;;
+		ext4)
+			$CMD mkfs.ext4 -q -F $SPARSE_ROOT.img
+			;;
+		xfs)
+			$CMD mkfs.xfs -q $SPARSE_ROOT.img
+			;;
+	esac
+	[ -d "$SPARSE_ROOT" ] || mkdir $SPARSE_ROOT
+
+	# check if already mounted
+	if mountpoint -q $SPARSE_ROOT; then
+		echo "$SPARSE_ROOT already mounted"
+	else
+		create_loop_devices
+		$CMD mount -o loop $SPARSE_ROOT.img $SPARSE_ROOT 2>/dev/null || {
+			local loop_dev=$(losetup -f --show $SPARSE_ROOT.img)
+			[ -n "$loop_dev" ] || {
+				grep -q loop /proc/devices || echo 'No loop block device!' >&2
+				lsmod | grep -q loop || echo 'No loop module' >&2
+				LOOPDEV_DEBUG=1 losetup -f --show $SPARSE_ROOT.img
+				exit
+			}
+			mount $loop_dev $SPARSE_ROOT
+		}
+	fi
+}
+
+remove_tmpfs()
+{
+	$CMD umount $TMPFS_MNT
+}
+
+remove_sparse_root () {
+	$CMD umount $SPARSE_ROOT || {
+		df
+		lsof $SPARSE_ROOT
+	}
+	# rmdir $SPARSE_ROOT
+	$CMD rm $SPARSE_ROOT.img
+}
+
+create_sparse_file () {
+	name=$1
+	size=$2
+	# echo "$name is of size $size"
+	$CMD truncate $name -s $size
+	# dd if=/dev/zero of=$name bs=1k count=1 seek=$((size >> 10)) 2>/dev/null
+	# ls $SPARSE_ROOT
+	# ls /tmp/vm-scalability/*
+}
+
+
+pagesize=$(getconf PAGESIZE)
+
+nr_cpu=$(grep -c processor /proc/cpuinfo)
+nr_node=$(echo /sys/devices/system/node/node* | wc -w)
+
+nr_task=${nr_task:-$nr_cpu}
+
+while read key val; do
+	[ -n "${val}" ] || continue
+	[ -z "${val##*[0-9]}" -a -z "${val%%[0-9]*}" ] || {
+		echo "invalid vmstat line: $key $val" >&2
+		break
+	}
+	eval "$key=$val"
+done < /proc/vmstat
+
+reclaimable=$((nr_free_pages + nr_file_pages))
+reclaimable=$((reclaimable * pagesize))
+
+while read key val unit; do
+	key=${key%%:}
+	key=${key%%)}
+	[ "${key#*(}" != "$key" ] &&
+	key=${key%(*}_${key#*(}
+	eval $key=$val
+done < /proc/meminfo
+
+mem=$((MemTotal << 10))
+mem_avail=$((MemAvailable << 10))
+hugepagesize=$((Hugepagesize << 10))
+
+ROTATE_BYTES=$((1<<42))
+
+# Documentation/x86/x86_64/mm.txt
+# 0000000000000000 - 00007fffffffffff (=47 bits) user space, different per mm
+AS_LIMIT=$((1<<46))
+
+# prevent OOM: limit pagetable pages to half available memory
+# $mem_avail / 2 / 4K = upper_limit_nr_page_table_pages
+# every PTE maps 2M space, so
+# $upper_limit_nr_page_table_pages * 2M = upper_limit_test_size = PTE_LIMIT
+# PTE_LIMIT = 256 * $mem_tail
+PTE_LIMIT=$((mem_avail << 8))
+
+[ "$ROTATE_BYTES" -gt $PTE_LIMIT ] && ROTATE_BYTES=$PTE_LIMIT

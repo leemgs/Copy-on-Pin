@@ -1,0 +1,5 @@
+#!/bin/sh
+
+. ./small-allocs-common
+
+$USEMEM -t $nr_task --readonly --unit $((10 * pagesize)) $((size / nr_task))

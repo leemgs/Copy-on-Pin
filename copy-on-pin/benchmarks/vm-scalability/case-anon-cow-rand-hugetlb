@@ -1,0 +1,9 @@
+#!/bin/sh
+
+. ./hw_vars
+
+[ -n "$unit_size" ] || unit_size=$((mem / 2))
+
+. ./setup_hugetlb
+
+$USEMEM -n $nr_task --prealloc --prefault --random -O -U $((unit_size / (nr_task+1)))

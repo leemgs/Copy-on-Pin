@@ -1,0 +1,57 @@
+From 673403fc4c0ebf4e3571923bde06a5533f9faa77 Mon Sep 17 00:00:00 2001
+From: David Hildenbrand <hildenbr@in.tum.de>
+Date: Tue, 4 Oct 2022 13:11:39 -0400
+Subject: [PATCH 04/11] Revert "mm/khugepaged: remove reuse_swap_page() usage"
+
+This reverts commit 363106c4cefe7d08ca67cc77f3d38d4213190f31.
+
+Signed-off-by: David Hildenbrand <hildenbr@in.tum.de>
+---
+ include/trace/events/huge_memory.h |  1 +
+ mm/khugepaged.c                    | 11 +++++++++++
+ 2 files changed, 12 insertions(+)
+
+diff --git a/include/trace/events/huge_memory.h b/include/trace/events/huge_memory.h
+index d651f3437367..4fdb14a81108 100644
+--- a/include/trace/events/huge_memory.h
++++ b/include/trace/events/huge_memory.h
+@@ -29,6 +29,7 @@
+ 	EM( SCAN_VMA_NULL,		"vma_null")			\
+ 	EM( SCAN_VMA_CHECK,		"vma_check_failed")		\
+ 	EM( SCAN_ADDRESS_RANGE,		"not_suitable_address_range")	\
++	EM( SCAN_SWAP_CACHE_PAGE,	"page_swap_cache")		\
+ 	EM( SCAN_DEL_PAGE_LRU,		"could_not_delete_page_from_lru")\
+ 	EM( SCAN_ALLOC_HUGE_PAGE_FAIL,	"alloc_huge_page_failed")	\
+ 	EM( SCAN_CGROUP_CHARGE_FAIL,	"ccgroup_charge_failed")	\
+diff --git a/mm/khugepaged.c b/mm/khugepaged.c
+index a4e5eaf3eb01..1cdf7c38b9e5 100644
+--- a/mm/khugepaged.c
++++ b/mm/khugepaged.c
+@@ -46,6 +46,7 @@ enum scan_result {
+ 	SCAN_VMA_NULL,
+ 	SCAN_VMA_CHECK,
+ 	SCAN_ADDRESS_RANGE,
++	SCAN_SWAP_CACHE_PAGE,
+ 	SCAN_DEL_PAGE_LRU,
+ 	SCAN_ALLOC_HUGE_PAGE_FAIL,
+ 	SCAN_CGROUP_CHARGE_FAIL,
+@@ -682,6 +683,16 @@ static int __collapse_huge_page_isolate(struct vm_area_struct *vma,
+ 			result = SCAN_PAGE_COUNT;
+ 			goto out;
+ 		}
++		if (!pte_write(pteval) && PageSwapCache(page) &&
++				!reuse_swap_page(page)) {
++			/*
++			 * Page is in the swap cache and cannot be re-used.
++			 * It cannot be collapsed into a THP.
++			 */
++			unlock_page(page);
++			result = SCAN_SWAP_CACHE_PAGE;
++			goto out;
++		}
+ 
+ 		/*
+ 		 * Isolate the page to avoid collapsing an hugepage
+-- 
+2.37.3
+

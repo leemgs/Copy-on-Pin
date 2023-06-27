@@ -1,0 +1,38 @@
+#!/bin/sh
+
+#
+# Exercises code in mincore.c mm/
+#
+
+. ./hw_vars
+
+# set number of hugepages in the system
+echo never > /sys/kernel/mm/transparent_hugepage/enabled
+echo $((mem/Hugepagesize/1024 / 20)) > /proc/sys/vm/nr_hugepages
+echo $((mem/Hugepagesize/1024 / 10)) > /proc/sys/vm/nr_overcommit_hugepages
+
+#check for max shared memory allowed on system
+MAX_HUGEPAGES=$(( $(cat /proc/sys/vm/nr_hugepages) + $(cat /proc/sys/vm/nr_overcommit_hugepages) ))
+
+#segment size being requested
+SHM_SIZE=$(($MAX_HUGEPAGES*$hugepagesize / nr_task))
+
+#set shmmax to accommodate the request
+echo $SHM_SIZE > /proc/sys/kernel/shmmax
+
+#check to see if the request can be satisfied else exit with error
+MAX_SHARE_SEGMENT=$(cat /proc/sys/kernel/shmmax)
+if [ $SHM_SIZE -gt $MAX_SHARE_SEGMENT ]
+then
+        echo "Cannot allocate more shared memory segment than $MAX_SHARE_SEGMENT"
+        echo "exiting now..."
+        exit 1 #exit on failure
+fi
+
+create_sparse_file $SPARSE_FILE $SHM_SIZE
+
+$USEMEM -t $nr_task -f $SPARSE_FILE -H --prealloc --readonly --random $SHM_SIZE
+
+echo always > /sys/kernel/mm/transparent_hugepage/enabled
+
+rm $SPARSE_FILE

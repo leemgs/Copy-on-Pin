@@ -1,0 +1,20 @@
+#!/bin/sh
+
+#
+# Exercises the functions in fadvise.c of mm/
+#
+# Covers cases POSIX_FADV_WILLNEED and POSIX_FADV_DONTNEED
+#
+#
+
+. ./hw_vars
+
+
+for i in `seq $nr_task`
+do
+	create_sparse_file $SPARSE_FILE-$i $((ROTATE_BYTES / nr_task))
+	$USEMEM -D $SPARSE_FILE-$i --open-rw &
+done
+wait
+
+rm $SPARSE_FILE-*

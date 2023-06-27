@@ -1,0 +1,103 @@
+From fe4dd7b20d91ec32db7d20489fdeae624515b59d Mon Sep 17 00:00:00 2001
+From: David Hildenbrand <david@redhat.com>
+Date: Mon, 9 May 2022 18:20:43 -0700
+Subject: [PATCH 07/27] mm/rmap: pass rmap flags to hugepage_add_anon_rmap()
+
+Let's prepare for passing RMAP_EXCLUSIVE, similarly as we do for
+page_add_anon_rmap() now.  RMAP_COMPOUND is implicit for hugetlb pages and
+ignored.
+
+Link: https://lkml.kernel.org/r/20220428083441.37290-8-david@redhat.com
+Signed-off-by: David Hildenbrand <david@redhat.com>
+Acked-by: Vlastimil Babka <vbabka@suse.cz>
+Cc: Andrea Arcangeli <aarcange@redhat.com>
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: David Rientjes <rientjes@google.com>
+Cc: Don Dutile <ddutile@redhat.com>
+Cc: Hugh Dickins <hughd@google.com>
+Cc: Jan Kara <jack@suse.cz>
+Cc: Jann Horn <jannh@google.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>
+Cc: John Hubbard <jhubbard@nvidia.com>
+Cc: Khalid Aziz <khalid.aziz@oracle.com>
+Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: Liang Zhang <zhangliang5@huawei.com>
+Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>
+Cc: Michal Hocko <mhocko@kernel.org>
+Cc: Mike Kravetz <mike.kravetz@oracle.com>
+Cc: Mike Rapoport <rppt@linux.ibm.com>
+Cc: Nadav Amit <namit@vmware.com>
+Cc: Oded Gabbay <oded.gabbay@gmail.com>
+Cc: Oleg Nesterov <oleg@redhat.com>
+Cc: Pedro Demarchi Gomes <pedrodemargomes@gmail.com>
+Cc: Peter Xu <peterx@redhat.com>
+Cc: Rik van Riel <riel@surriel.com>
+Cc: Roman Gushchin <guro@fb.com>
+Cc: Shakeel Butt <shakeelb@google.com>
+Cc: Yang Shi <shy828301@gmail.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+Signed-off-by: David Hildenbrand <hildenbr@in.tum.de>
+---
+ include/linux/rmap.h | 2 +-
+ mm/migrate.c         | 3 ++-
+ mm/rmap.c            | 9 ++++++---
+ 3 files changed, 9 insertions(+), 5 deletions(-)
+
+diff --git a/include/linux/rmap.h b/include/linux/rmap.h
+index aa734d2e2b01..f47bc937c383 100644
+--- a/include/linux/rmap.h
++++ b/include/linux/rmap.h
+@@ -191,7 +191,7 @@ void page_add_file_rmap(struct page *, struct vm_area_struct *,
+ void page_remove_rmap(struct page *, struct vm_area_struct *,
+ 		bool compound);
+ void hugepage_add_anon_rmap(struct page *, struct vm_area_struct *,
+-		unsigned long address);
++		unsigned long address, rmap_t flags);
+ void hugepage_add_new_anon_rmap(struct page *, struct vm_area_struct *,
+ 		unsigned long address);
+ 
+diff --git a/mm/migrate.c b/mm/migrate.c
+index 1e1d9519e05c..0167463ea9c5 100644
+--- a/mm/migrate.c
++++ b/mm/migrate.c
+@@ -232,7 +232,8 @@ static bool remove_migration_pte(struct folio *folio,
+ 			pte = pte_mkhuge(pte);
+ 			pte = arch_make_huge_pte(pte, shift, vma->vm_flags);
+ 			if (folio_test_anon(folio))
+-				hugepage_add_anon_rmap(new, vma, pvmw.address);
++				hugepage_add_anon_rmap(new, vma, pvmw.address,
++						       RMAP_NONE);
+ 			else
+ 				page_dup_file_rmap(new, true);
+ 			set_huge_pte_at(vma->vm_mm, pvmw.address, pvmw.pte, pte);
+diff --git a/mm/rmap.c b/mm/rmap.c
+index ee349f905da0..065501642401 100644
+--- a/mm/rmap.c
++++ b/mm/rmap.c
+@@ -2347,9 +2347,11 @@ void rmap_walk_locked(struct folio *folio, const struct rmap_walk_control *rwc)
+  * The following two functions are for anonymous (private mapped) hugepages.
+  * Unlike common anonymous pages, anonymous hugepages have no accounting code
+  * and no lru code, because we handle hugepages differently from common pages.
++ *
++ * RMAP_COMPOUND is ignored.
+  */
+-void hugepage_add_anon_rmap(struct page *page,
+-			    struct vm_area_struct *vma, unsigned long address)
++void hugepage_add_anon_rmap(struct page *page, struct vm_area_struct *vma,
++			    unsigned long address, rmap_t flags)
+ {
+ 	struct anon_vma *anon_vma = vma->anon_vma;
+ 	int first;
+@@ -2359,7 +2361,8 @@ void hugepage_add_anon_rmap(struct page *page,
+ 	/* address might be in next vma when migration races vma_adjust */
+ 	first = atomic_inc_and_test(compound_mapcount_ptr(page));
+ 	if (first)
+-		__page_set_anon_rmap(page, vma, address, 0);
++		__page_set_anon_rmap(page, vma, address,
++				     !!(flags & RMAP_EXCLUSIVE));
+ }
+ 
+ void hugepage_add_new_anon_rmap(struct page *page,
+-- 
+2.37.3
+

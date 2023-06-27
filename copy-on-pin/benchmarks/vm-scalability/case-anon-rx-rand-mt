@@ -1,0 +1,5 @@
+#!/bin/sh
+
+. ./hw_vars
+
+$USEMEM -t $nr_task --prealloc --readonly --random $((ROTATE_BYTES / nr_task))

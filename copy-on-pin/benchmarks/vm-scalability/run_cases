@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# execute all the test cases
+
+reset_stats () {
+	echo "Resetting all stats now...."
+        echo 0 > /proc/lock_stat
+        echo 1 > /sys/kernel/debug/gcov/reset
+        echo $((1<<30)) > /proc/sys/vm/max_map_count
+        echo $((1<<20)) > /proc/sys/kernel/threads-max
+        echo 1 > /proc/sys/vm/overcommit_memory
+        echo 3 > /proc/sys/vm/drop_caches
+	echo "Done!"
+}
+
+reset_stats
+
+. ./hw_vars
+
+mount_tmpfs
+create_sparse_root
+
+TEST_CASES=${@:-$(echo case-*)}
+
+for testcase in $TEST_CASES
+do
+	echo
+	echo -n "executing $testcase"  && ./$testcase
+	echo -n "..........done!"
+	echo 3 > /proc/sys/vm/drop_caches   # drop caches after each case is done.
+done
+
+remove_tmpfs
+remove_sparse_root

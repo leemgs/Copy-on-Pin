@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# This case migrates pages across nodes
+
+. ./hw_vars
+
+USEMEM_MIGRATE=./usemem_migrate
+
+# Allocate pages to scale with available free memory
+PAGES=$((MemFree / nr_task / 10))
+
+# set the ksm on
+echo 1 > /sys/kernel/mm/ksm/run
+
+# migrate pages
+for i in `seq $((nr_node))`
+do
+	$USEMEM_MIGRATE $PAGES &
+done
+wait
+
+

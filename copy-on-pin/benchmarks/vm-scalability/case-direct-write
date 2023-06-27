@@ -1,0 +1,21 @@
+#!/bin/sh
+
+#
+# Exercises functions in filemap.c of mm/
+#
+#
+. ./hw_vars
+
+USEMEM_DIRECT_WRITE=./usemem_direct_write
+
+SIZE=$((mem / nr_task ))
+
+
+for i in $(seq $nr_task)
+do
+	create_sparse_file $SPARSE_FILE-$i $SIZE
+	$USEMEM_DIRECT_WRITE  $SPARSE_FILE-$i $SIZE &
+done
+wait
+
+rm $SPARSE_FILE-*

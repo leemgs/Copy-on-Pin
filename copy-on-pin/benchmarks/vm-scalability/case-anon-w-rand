@@ -1,0 +1,7 @@
+#!/bin/sh
+
+. ./hw_vars
+
+[ -n "$unit_size" ] || unit_size=$((mem / 2))
+
+$USEMEM -n $nr_task --random $((unit_size / $nr_task))

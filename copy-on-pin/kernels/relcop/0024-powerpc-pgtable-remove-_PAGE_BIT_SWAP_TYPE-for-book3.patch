@@ -1,0 +1,104 @@
+From 564b394303456f7ea1c4b4628ba78d7c1c287dbb Mon Sep 17 00:00:00 2001
+From: David Hildenbrand <david@redhat.com>
+Date: Mon, 9 May 2022 18:20:46 -0700
+Subject: [PATCH 24/27] powerpc/pgtable: remove _PAGE_BIT_SWAP_TYPE for book3s
+
+The swap type is simply stored in bits 0x1f of the swap pte.  Let's
+simplify by just getting rid of _PAGE_BIT_SWAP_TYPE.  It's not like that
+we can simply change it: _PAGE_SWP_SOFT_DIRTY would suddenly fall into
+_RPAGE_RSV1, which isn't possible and would make the
+BUILD_BUG_ON(_PAGE_HPTEFLAGS & _PAGE_SWP_SOFT_DIRTY) angry.
+
+While at it, make it clearer which bit we're actually using for
+_PAGE_SWP_SOFT_DIRTY by just using the proper define and introduce and use
+SWP_TYPE_MASK.
+
+Link: https://lkml.kernel.org/r/20220329164329.208407-8-david@redhat.com
+Signed-off-by: David Hildenbrand <david@redhat.com>
+Cc: Andrea Arcangeli <aarcange@redhat.com>
+Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: Don Dutile <ddutile@redhat.com>
+Cc: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+Cc: Heiko Carstens <hca@linux.ibm.com>
+Cc: Hugh Dickins <hughd@google.com>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Jan Kara <jack@suse.cz>
+Cc: Jann Horn <jannh@google.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>
+Cc: John Hubbard <jhubbard@nvidia.com>
+Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: Liang Zhang <zhangliang5@huawei.com>
+Cc: Matthew Wilcox (Oracle) <willy@infradead.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Michal Hocko <mhocko@kernel.org>
+Cc: Mike Kravetz <mike.kravetz@oracle.com>
+Cc: Mike Rapoport <rppt@linux.ibm.com>
+Cc: Nadav Amit <namit@vmware.com>
+Cc: Oded Gabbay <oded.gabbay@gmail.com>
+Cc: Oleg Nesterov <oleg@redhat.com>
+Cc: Paul Mackerras <paulus@samba.org>
+Cc: Pedro Demarchi Gomes <pedrodemargomes@gmail.com>
+Cc: Peter Xu <peterx@redhat.com>
+Cc: Rik van Riel <riel@surriel.com>
+Cc: Roman Gushchin <guro@fb.com>
+Cc: Shakeel Butt <shakeelb@google.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Vasily Gorbik <gor@linux.ibm.com>
+Cc: Vlastimil Babka <vbabka@suse.cz>
+Cc: Will Deacon <will@kernel.org>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+Signed-off-by: David Hildenbrand <hildenbr@in.tum.de>
+---
+ arch/powerpc/include/asm/book3s/64/pgtable.h | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
+
+diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
+index 875730d5af40..8e98375d5c4a 100644
+--- a/arch/powerpc/include/asm/book3s/64/pgtable.h
++++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
+@@ -13,7 +13,6 @@
+ /*
+  * Common bits between hash and Radix page table
+  */
+-#define _PAGE_BIT_SWAP_TYPE	0
+ 
+ #define _PAGE_EXEC		0x00001 /* execute permission */
+ #define _PAGE_WRITE		0x00002 /* write access allowed */
+@@ -751,17 +750,16 @@ static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
+ 	 * Don't have overlapping bits with _PAGE_HPTEFLAGS	\
+ 	 * We filter HPTEFLAGS on set_pte.			\
+ 	 */							\
+-	BUILD_BUG_ON(_PAGE_HPTEFLAGS & (0x1f << _PAGE_BIT_SWAP_TYPE)); \
++	BUILD_BUG_ON(_PAGE_HPTEFLAGS & SWP_TYPE_MASK); \
+ 	BUILD_BUG_ON(_PAGE_HPTEFLAGS & _PAGE_SWP_SOFT_DIRTY);	\
+ 	} while (0)
+ 
+ #define SWP_TYPE_BITS 5
+-#define __swp_type(x)		(((x).val >> _PAGE_BIT_SWAP_TYPE) \
+-				& ((1UL << SWP_TYPE_BITS) - 1))
++#define SWP_TYPE_MASK		((1UL << SWP_TYPE_BITS) - 1)
++#define __swp_type(x)		((x).val & SWP_TYPE_MASK)
+ #define __swp_offset(x)		(((x).val & PTE_RPN_MASK) >> PAGE_SHIFT)
+ #define __swp_entry(type, offset)	((swp_entry_t) { \
+-				((type) << _PAGE_BIT_SWAP_TYPE) \
+-				| (((offset) << PAGE_SHIFT) & PTE_RPN_MASK)})
++				(type) | (((offset) << PAGE_SHIFT) & PTE_RPN_MASK)})
+ /*
+  * swp_entry_t must be independent of pte bits. We build a swp_entry_t from
+  * swap type and offset we get from swap and convert that to pte to find a
+@@ -774,7 +772,7 @@ static inline pte_t pte_modify(pte_t pte, pgprot_t newprot)
+ #define __swp_entry_to_pmd(x)	(pte_pmd(__swp_entry_to_pte(x)))
+ 
+ #ifdef CONFIG_MEM_SOFT_DIRTY
+-#define _PAGE_SWP_SOFT_DIRTY   (1UL << (SWP_TYPE_BITS + _PAGE_BIT_SWAP_TYPE))
++#define _PAGE_SWP_SOFT_DIRTY	_PAGE_NON_IDEMPOTENT
+ #else
+ #define _PAGE_SWP_SOFT_DIRTY	0UL
+ #endif /* CONFIG_MEM_SOFT_DIRTY */
+-- 
+2.37.3
+

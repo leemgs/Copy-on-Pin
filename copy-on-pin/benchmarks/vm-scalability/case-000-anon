@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# fill memory with anon pages
+
+. ./hw_vars
+
+$USEMEM $((mem/3)) --detach --sleep 100000 --pid-file $PIDFILE

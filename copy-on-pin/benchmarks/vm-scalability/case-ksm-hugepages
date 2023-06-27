@@ -1,0 +1,24 @@
+#!/bin/sh
+
+. ./hw_vars
+
+# Turn on transparent hugepage support
+echo always > /sys/kernel/mm/transparent_hugepage/enabled
+
+# Turn on ksm scanning and set scan parameters
+echo 1 > /sys/kernel/mm/ksm/run
+echo 1000 > /sys/kernel/mm/ksm/pages_to_scan
+echo 20 > /sys/kernel/mm/ksm/sleep_millisecs
+
+#set scan to run continuously for transparent hugepages
+echo 0 > /sys/kernel/mm/transparent_hugepage/khugepaged/scan_sleep_millisecs
+
+USEMEM_KSM_HUGEPAGES=./usemem_ksm_hugepages
+
+# run as many instances as there are number of cpus
+for i in `seq $nr_task`
+do
+$USEMEM_KSM_HUGEPAGES $((mem / nr_task / 2)) &
+done
+wait
+

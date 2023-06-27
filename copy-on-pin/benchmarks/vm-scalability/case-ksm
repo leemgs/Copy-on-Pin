@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# This case exercises the ksm functionality of the kernel
+
+. ./hw_vars
+
+# Trun on the ksm
+echo 1 > /sys/kernel/mm/ksm/run
+
+# USEMEM_KSM exercises the functions in ksm.c file
+USEMEM_KSM=./usemem_ksm
+
+# create as many processes as there are nodes
+for i in `seq $((nr_node))`
+do
+$USEMEM_KSM  $((mem / 1000)) &
+done
+wait

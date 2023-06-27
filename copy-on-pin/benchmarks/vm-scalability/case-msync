@@ -1,0 +1,14 @@
+#!/bin/sh
+
+. ./hw_vars
+
+SIZE=$((mem / nr_task / 2))
+
+for i in `seq $nr_task`
+do
+	create_sparse_file $SPARSE_FILE-$i $mem
+	$USEMEM -S -f $SPARSE_FILE-$i -F --prealloc --open-rw  $SIZE &
+done
+wait
+
+rm $SPARSE_FILE-*

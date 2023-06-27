@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# flush memory and
+# create lots of small continuous VMAs
+
+. ./hw_vars
+
+# vm_area_struct slab could consume a hell lot of memory for this small alloc test
+# let's restrict it to 1/3 MemTotal
+slab_mem_max=$((mem/3))
+# vm_area_struct is 192 bytes, 1 page could host 21 vm_area_struct
+# below is a line from slabinfo, where it shows 1 slab has 2 pages and 42 objects in these 2 pages.
+# vm_area_struct           58264  60816    192   42    2 : tunables    0    0    0 : slabdata   1448   1448      0
+vma_nr_max=$((21*slab_mem_max/4096))
+
+size=$ROTATE_BYTES
+unit_size=$((10 * pagesize))
+while [ $((size/unit_size)) -gt $vma_nr_max ]
+do
+	size=$((size>>1))
+done

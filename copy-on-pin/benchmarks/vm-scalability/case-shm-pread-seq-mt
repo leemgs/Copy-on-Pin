@@ -1,0 +1,10 @@
+#!/bin/sh
+
+. ./hw_vars
+
+create_sparse_file $SHM_FILE $shm_size
+
+[ -n "$unit_size" ] || unit_size=$((shm_size / 2))
+$USEMEM -t $nr_task -f $SHM_FILE --readonly $unit_size
+
+rm $SHM_FILE

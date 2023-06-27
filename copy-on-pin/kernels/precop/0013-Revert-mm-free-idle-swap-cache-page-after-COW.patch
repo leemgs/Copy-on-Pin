@@ -1,0 +1,70 @@
+From d3b09229fe5d1ff15bf007b107b4bc2300150746 Mon Sep 17 00:00:00 2001
+From: David Hildenbrand <hildenbr@in.tum.de>
+Date: Tue, 4 Oct 2022 13:16:24 -0400
+Subject: [PATCH 13/18] Revert "mm: free idle swap cache page after COW"
+
+This reverts commit f4c4a3f48480730214c4f02ffa480f6bf5b0718f.
+
+Signed-off-by: David Hildenbrand <hildenbr@in.tum.de>
+---
+ include/linux/swap.h | 5 -----
+ mm/memory.c          | 5 +----
+ mm/swap_state.c      | 2 +-
+ 3 files changed, 2 insertions(+), 10 deletions(-)
+
+diff --git a/include/linux/swap.h b/include/linux/swap.h
+index b194733b3bff..c8f9ca447aef 100644
+--- a/include/linux/swap.h
++++ b/include/linux/swap.h
+@@ -458,7 +458,6 @@ extern void __delete_from_swap_cache(struct page *page,
+ extern void delete_from_swap_cache(struct page *);
+ extern void clear_shadow_from_swap_cache(int type, unsigned long begin,
+ 				unsigned long end);
+-extern void free_swap_cache(struct page *);
+ extern void free_page_and_swap_cache(struct page *);
+ extern void free_pages_and_swap_cache(struct page **, int);
+ extern struct page *lookup_swap_cache(swp_entry_t entry,
+@@ -568,10 +567,6 @@ static inline struct address_space *swap_address_space(swp_entry_t entry)
+ #define free_pages_and_swap_cache(pages, nr) \
+ 	release_pages((pages), (nr));
+ 
+-static inline void free_swap_cache(struct page *page)
+-{
+-}
+-
+ static inline void show_swap_cache_info(void)
+ {
+ }
+diff --git a/mm/memory.c b/mm/memory.c
+index b46576d6d067..a5b6351bd2d8 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -3123,11 +3123,8 @@ static vm_fault_t wp_page_copy(struct vm_fault *vmf)
+ 	 * the above ptep_clear_flush_notify() did already call it.
+ 	 */
+ 	mmu_notifier_invalidate_range_only_end(&range);
+-	if (old_page) {
+-		if (page_copied)
+-			free_swap_cache(old_page);
++	if (old_page)
+ 		put_page(old_page);
+-	}
+ 	return page_copied ? VM_FAULT_WRITE : 0;
+ oom_free_new:
+ 	put_page(new_page);
+diff --git a/mm/swap_state.c b/mm/swap_state.c
+index 013856004825..370741812fa3 100644
+--- a/mm/swap_state.c
++++ b/mm/swap_state.c
+@@ -286,7 +286,7 @@ void clear_shadow_from_swap_cache(int type, unsigned long begin,
+  * try_to_free_swap() _with_ the lock.
+  * 					- Marcelo
+  */
+-void free_swap_cache(struct page *page)
++static inline void free_swap_cache(struct page *page)
+ {
+ 	if (PageSwapCache(page) && !page_mapped(page) && trylock_page(page)) {
+ 		try_to_free_swap(page);
+-- 
+2.37.3
+

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# fill memory with shm/tmpfs pages
+
+. ./hw_vars
+
+create_sparse_file $TMPFS_MNT/XXX $shm_size
+
+$USEMEM -f $TMPFS_MNT/XXX $((shm_size / 3)) --detach --sleep 100000 --pid-file $PIDFILE
+
+rm $TMPFS_MNT/XXX

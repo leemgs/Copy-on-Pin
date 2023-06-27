@@ -1,0 +1,87 @@
+From 6ea7345ba782ae2da02b4467e1744e63040b3bb4 Mon Sep 17 00:00:00 2001
+From: David Hildenbrand <david@redhat.com>
+Date: Mon, 9 May 2022 18:20:45 -0700
+Subject: [PATCH 19/27] mm/debug_vm_pgtable: add tests for
+ __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+
+Let's test that __HAVE_ARCH_PTE_SWP_EXCLUSIVE works as expected.
+
+Link: https://lkml.kernel.org/r/20220329164329.208407-3-david@redhat.com
+Signed-off-by: David Hildenbrand <david@redhat.com>
+Acked-by: Vlastimil Babka <vbabka@suse.cz>
+Cc: Andrea Arcangeli <aarcange@redhat.com>
+Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: Don Dutile <ddutile@redhat.com>
+Cc: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+Cc: Heiko Carstens <hca@linux.ibm.com>
+Cc: Hugh Dickins <hughd@google.com>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Jan Kara <jack@suse.cz>
+Cc: Jann Horn <jannh@google.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>
+Cc: John Hubbard <jhubbard@nvidia.com>
+Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: Liang Zhang <zhangliang5@huawei.com>
+Cc: Matthew Wilcox (Oracle) <willy@infradead.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Michal Hocko <mhocko@kernel.org>
+Cc: Mike Kravetz <mike.kravetz@oracle.com>
+Cc: Mike Rapoport <rppt@linux.ibm.com>
+Cc: Nadav Amit <namit@vmware.com>
+Cc: Oded Gabbay <oded.gabbay@gmail.com>
+Cc: Oleg Nesterov <oleg@redhat.com>
+Cc: Paul Mackerras <paulus@samba.org>
+Cc: Pedro Demarchi Gomes <pedrodemargomes@gmail.com>
+Cc: Peter Xu <peterx@redhat.com>
+Cc: Rik van Riel <riel@surriel.com>
+Cc: Roman Gushchin <guro@fb.com>
+Cc: Shakeel Butt <shakeelb@google.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Vasily Gorbik <gor@linux.ibm.com>
+Cc: Will Deacon <will@kernel.org>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+Signed-off-by: David Hildenbrand <hildenbr@in.tum.de>
+---
+ mm/debug_vm_pgtable.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/mm/debug_vm_pgtable.c b/mm/debug_vm_pgtable.c
+index db2abd9e415b..55f1a8dc716f 100644
+--- a/mm/debug_vm_pgtable.c
++++ b/mm/debug_vm_pgtable.c
+@@ -837,6 +837,19 @@ static void __init pmd_soft_dirty_tests(struct pgtable_debug_args *args) { }
+ static void __init pmd_swap_soft_dirty_tests(struct pgtable_debug_args *args) { }
+ #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+ 
++static void __init pte_swap_exclusive_tests(struct pgtable_debug_args *args)
++{
++#ifdef __HAVE_ARCH_PTE_SWP_EXCLUSIVE
++	pte_t pte = pfn_pte(args->fixed_pte_pfn, args->page_prot);
++
++	pr_debug("Validating PTE swap exclusive\n");
++	pte = pte_swp_mkexclusive(pte);
++	WARN_ON(!pte_swp_exclusive(pte));
++	pte = pte_swp_clear_exclusive(pte);
++	WARN_ON(pte_swp_exclusive(pte));
++#endif /* __HAVE_ARCH_PTE_SWP_EXCLUSIVE */
++}
++
+ static void __init pte_swap_tests(struct pgtable_debug_args *args)
+ {
+ 	swp_entry_t swp;
+@@ -1288,6 +1301,8 @@ static int __init debug_vm_pgtable(void)
+ 	pte_swap_soft_dirty_tests(&args);
+ 	pmd_swap_soft_dirty_tests(&args);
+ 
++	pte_swap_exclusive_tests(&args);
++
+ 	pte_swap_tests(&args);
+ 	pmd_swap_tests(&args);
+ 
+-- 
+2.37.3
+

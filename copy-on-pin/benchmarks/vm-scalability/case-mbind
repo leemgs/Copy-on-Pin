@@ -1,0 +1,17 @@
+#!/bin/sh
+
+. ./hw_vars
+
+# usemem_mbind fails randomly. subsequent runs succeed. --have to fix that
+USEMEM_MBIND=./usemem_mbind
+
+# Allocate pages to scale with available free memory
+PAGES=$((MemFree / nr_task / 20))
+
+# run it for each cpu in system
+for i in $(seq $nr_task)
+do
+$USEMEM_MBIND  $PAGES &
+done
+wait
+

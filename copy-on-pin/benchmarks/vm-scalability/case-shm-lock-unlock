@@ -1,0 +1,29 @@
+#!/bin/sh
+
+#
+# Exercises the SYS V IPC code of mm/
+#
+# Creates a shared segment using shmget, attaches and locks it
+#
+# to calling process's VM and then unlocks and releases it.
+#
+
+. ./hw_vars
+
+#segment size being requested
+SHM_SIZE=$((shm_size / nr_task / 2))
+
+#check for max shared memory allowed on system
+MAX_SHARE_SEGMENT=$(cat /proc/sys/kernel/shmmax)
+
+echo "MAX SEGMENT is $MAX_SHARE_SEGMENT total asking is $((shm_size / 2))"
+
+#check to see if the request can be satisfied else exit with error
+if [ $MAX_SHARE_SEGMENT -lt $SHM_SIZE ]
+then
+	echo "Cannot allocate more shared memory segment than $MAX_SHARE_SEGMENT"
+	echo "exiting now..."
+	exit 1 #exit on failure
+fi
+
+$USEMEM -n $nr_task -L --random $SHM_SIZE

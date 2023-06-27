@@ -1,0 +1,32 @@
+#!/bin/sh
+
+#
+# Exercises code in mincore.c mm/
+#
+. ./hw_vars
+
+#check for max shared memory allowed on system
+MAX_SHARE_SEGMENT=$(cat /proc/sys/kernel/shmmax)
+
+#segment size being requested
+SHM_SIZE=$((mem / nr_task))
+#echo "shared segment size being requested $SHM_SIZE"
+
+#echo "Max shared segment allocatable is set to $MAX_SHARE_SEGMENT"
+
+#check to see if the request can be satisfied else exit with error
+if [ $MAX_SHARE_SEGMENT -lt $SHM_SIZE ]
+then
+        echo "Cannot allocate more shared memory segment than $MAX_SHARE_SEGMENT"
+        echo "exiting now..."
+        exit 1 #exit on failure
+fi
+
+for i in `seq nr_task`
+do
+	create_sparse_file $SPARSE_FILE-$i $SHM_SIZE
+	$USEMEM -t $nr_task -f $SPARSE_FILE -N --prealloc --readonly --random $SHM_SIZE &
+done
+wait
+
+rm $SPARSE_FILE-*

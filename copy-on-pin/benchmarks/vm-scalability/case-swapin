@@ -1,0 +1,51 @@
+#!/bin/sh
+
+. ./hw_vars
+
+if [ "$SwapTotal" -eq 0 ]; then
+        echo "No swap space. Please setup swap before running $0" >&2
+        exit 1
+fi
+
+[ -n "$unit_size" ] || unit_size=$((MemAvailable << 10))
+
+TMP=/tmp
+
+# start N detached processes and do write first to consume all memory
+# then wait for SIGUSR1 to resume to do read
+./usemem -n $nr_task -W -d -p $TMP/pidfile $((unit_size / nr_task))
+
+# Now that the N detached processes are done, start another process
+# to consume memory to push pages allocated by the first N processes
+# to swap.
+# Also, redirect its output to /dev/null so that it won't output any
+# statistics related information
+swapfree=$(grep SwapFree /proc/meminfo |awk '{print $2}')
+swapfree=$((swapfree << 10))
+pushsize=$(($swapfree < $unit_size ? $swapfree : $unit_size))
+./usemem $pushsize >/dev/null
+# do it again to push more memory to swap
+./usemem $pushsize >/dev/null
+
+# wake those detached processes up to do read
+kill -USR1 `cat $TMP/pidfile`
+
+any_pid_alive()
+{
+	local pidfile=$1
+	for pid in $(cat $pidfile)
+	do
+		test -d /proc/$pid && return
+	done
+	return 1
+}
+
+# wait till those detached processes exit
+while true
+do
+	sleep 5
+	any_pid_alive $TMP/pidfile && continue
+	break
+done
+
+rm $TMP/pidfile

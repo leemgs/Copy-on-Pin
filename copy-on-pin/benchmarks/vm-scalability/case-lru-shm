@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# flush memory with readonly shm/tmpfs pages
+
+# Unfortunately the kernel disables anon LRU scan on zero swap space.
+# If run a patched kernel without that kernel optimization, 
+# this script may trigger OOM which I suspect to be some kernel bug.
+
+# lru_lock coverage
+# 1781926	____pagevec_lru_add
+#  736056	shrink_inactive_list
+
+. ./hw_vars
+
+for i in `seq 1 $nr_task`
+do
+	create_sparse_file $SHM_FILE-$i $shm_size
+	$USEMEM -f $SHM_FILE-$i --readonly $((shm_size / nr_task / 2)) &
+done
+
+wait
+
+rm `seq -f $SHM_FILE-%g 1 $nr_task`

@@ -1,0 +1,115 @@
+From cc7679882ed785fd6098166002979d082deeff28 Mon Sep 17 00:00:00 2001
+From: David Hildenbrand <david@redhat.com>
+Date: Mon, 9 May 2022 18:20:46 -0700
+Subject: [PATCH 21/27] arm64/pgtable: support __HAVE_ARCH_PTE_SWP_EXCLUSIVE
+
+Let's use one of the type bits: core-mm only supports 5, so there is no
+need to consume 6.
+
+Note that we might be able to reuse bit 1, but reusing bit 1 turned out
+problematic in the past for PROT_NONE handling; so let's play safe and use
+another bit.
+
+Link: https://lkml.kernel.org/r/20220329164329.208407-5-david@redhat.com
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: David Hildenbrand <david@redhat.com>
+Cc: Andrea Arcangeli <aarcange@redhat.com>
+Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: Don Dutile <ddutile@redhat.com>
+Cc: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+Cc: Heiko Carstens <hca@linux.ibm.com>
+Cc: Hugh Dickins <hughd@google.com>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Jan Kara <jack@suse.cz>
+Cc: Jann Horn <jannh@google.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>
+Cc: John Hubbard <jhubbard@nvidia.com>
+Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: Liang Zhang <zhangliang5@huawei.com>
+Cc: Matthew Wilcox (Oracle) <willy@infradead.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Michal Hocko <mhocko@kernel.org>
+Cc: Mike Kravetz <mike.kravetz@oracle.com>
+Cc: Mike Rapoport <rppt@linux.ibm.com>
+Cc: Nadav Amit <namit@vmware.com>
+Cc: Oded Gabbay <oded.gabbay@gmail.com>
+Cc: Oleg Nesterov <oleg@redhat.com>
+Cc: Paul Mackerras <paulus@samba.org>
+Cc: Pedro Demarchi Gomes <pedrodemargomes@gmail.com>
+Cc: Peter Xu <peterx@redhat.com>
+Cc: Rik van Riel <riel@surriel.com>
+Cc: Roman Gushchin <guro@fb.com>
+Cc: Shakeel Butt <shakeelb@google.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Vasily Gorbik <gor@linux.ibm.com>
+Cc: Vlastimil Babka <vbabka@suse.cz>
+Cc: Will Deacon <will@kernel.org>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+Signed-off-by: David Hildenbrand <hildenbr@in.tum.de>
+---
+ arch/arm64/include/asm/pgtable-prot.h |  1 +
+ arch/arm64/include/asm/pgtable.h      | 23 ++++++++++++++++++++---
+ 2 files changed, 21 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+index b1e1b74d993c..62e0ebeed720 100644
+--- a/arch/arm64/include/asm/pgtable-prot.h
++++ b/arch/arm64/include/asm/pgtable-prot.h
+@@ -14,6 +14,7 @@
+  * Software defined PTE bits definition.
+  */
+ #define PTE_WRITE		(PTE_DBM)		 /* same as DBM (51) */
++#define PTE_SWP_EXCLUSIVE	(_AT(pteval_t, 1) << 2)	 /* only for swp ptes */
+ #define PTE_DIRTY		(_AT(pteval_t, 1) << 55)
+ #define PTE_SPECIAL		(_AT(pteval_t, 1) << 56)
+ #define PTE_DEVMAP		(_AT(pteval_t, 1) << 57)
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index dff2b483ea50..3278c6c0d873 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -402,6 +402,22 @@ static inline pgprot_t mk_pmd_sect_prot(pgprot_t prot)
+ 	return __pgprot((pgprot_val(prot) & ~PMD_TABLE_BIT) | PMD_TYPE_SECT);
+ }
+ 
++#define __HAVE_ARCH_PTE_SWP_EXCLUSIVE
++static inline pte_t pte_swp_mkexclusive(pte_t pte)
++{
++	return set_pte_bit(pte, __pgprot(PTE_SWP_EXCLUSIVE));
++}
++
++static inline int pte_swp_exclusive(pte_t pte)
++{
++	return pte_val(pte) & PTE_SWP_EXCLUSIVE;
++}
++
++static inline pte_t pte_swp_clear_exclusive(pte_t pte)
++{
++	return clear_pte_bit(pte, __pgprot(PTE_SWP_EXCLUSIVE));
++}
++
+ #ifdef CONFIG_NUMA_BALANCING
+ /*
+  * See the comment in include/linux/pgtable.h
+@@ -909,12 +925,13 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
+ /*
+  * Encode and decode a swap entry:
+  *	bits 0-1:	present (must be zero)
+- *	bits 2-7:	swap type
++ *	bits 2:		remember PG_anon_exclusive
++ *	bits 3-7:	swap type
+  *	bits 8-57:	swap offset
+  *	bit  58:	PTE_PROT_NONE (must be zero)
+  */
+-#define __SWP_TYPE_SHIFT	2
+-#define __SWP_TYPE_BITS		6
++#define __SWP_TYPE_SHIFT	3
++#define __SWP_TYPE_BITS		5
+ #define __SWP_OFFSET_BITS	50
+ #define __SWP_TYPE_MASK		((1 << __SWP_TYPE_BITS) - 1)
+ #define __SWP_OFFSET_SHIFT	(__SWP_TYPE_BITS + __SWP_TYPE_SHIFT)
+-- 
+2.37.3
+

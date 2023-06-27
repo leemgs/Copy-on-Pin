@@ -1,0 +1,77 @@
+From 5a6856f5431c4ddbee342b796bbef502c3b49e96 Mon Sep 17 00:00:00 2001
+From: David Hildenbrand <hildenbr@in.tum.de>
+Date: Tue, 4 Oct 2022 13:16:29 -0400
+Subject: [PATCH 14/18] Revert "mm/ksm: Remove reuse_ksm_page()"
+
+This reverts commit 1a0cf26323c80e2f1c58fc04f15686de61bfab0c.
+
+Signed-off-by: David Hildenbrand <hildenbr@in.tum.de>
+---
+ include/linux/ksm.h |  7 +++++++
+ mm/ksm.c            | 25 +++++++++++++++++++++++++
+ 2 files changed, 32 insertions(+)
+
+diff --git a/include/linux/ksm.h b/include/linux/ksm.h
+index 0630e545f4cb..17490f22f4f5 100644
+--- a/include/linux/ksm.h
++++ b/include/linux/ksm.h
+@@ -53,6 +53,8 @@ struct page *ksm_might_need_to_copy(struct page *page,
+ 
+ void rmap_walk_ksm(struct folio *folio, const struct rmap_walk_control *rwc);
+ void folio_migrate_ksm(struct folio *newfolio, struct folio *folio);
++bool reuse_ksm_page(struct page *page,
++			struct vm_area_struct *vma, unsigned long address);
+ 
+ #else  /* !CONFIG_KSM */
+ 
+@@ -86,6 +88,11 @@ static inline void rmap_walk_ksm(struct folio *folio,
+ static inline void folio_migrate_ksm(struct folio *newfolio, struct folio *old)
+ {
+ }
++static inline bool reuse_ksm_page(struct page *page,
++			struct vm_area_struct *vma, unsigned long address)
++{
++	return false;
++}
+ #endif /* CONFIG_MMU */
+ #endif /* !CONFIG_KSM */
+ 
+diff --git a/mm/ksm.c b/mm/ksm.c
+index 063a48eeb5ee..8893e3ce39c7 100644
+--- a/mm/ksm.c
++++ b/mm/ksm.c
+@@ -2655,6 +2655,31 @@ void rmap_walk_ksm(struct folio *folio, const struct rmap_walk_control *rwc)
+ 		goto again;
+ }
+ 
++bool reuse_ksm_page(struct page *page,
++		    struct vm_area_struct *vma,
++		    unsigned long address)
++{
++#ifdef CONFIG_DEBUG_VM
++	if (WARN_ON(is_zero_pfn(page_to_pfn(page))) ||
++			WARN_ON(!page_mapped(page)) ||
++			WARN_ON(!PageLocked(page))) {
++		dump_page(page, "reuse_ksm_page");
++		return false;
++	}
++#endif
++
++	if (PageSwapCache(page) || !page_stable_node(page))
++		return false;
++	/* Prohibit parallel get_ksm_page() */
++	if (!page_ref_freeze(page, 1))
++		return false;
++
++	page_move_anon_rmap(page, vma);
++	page->index = linear_page_index(vma, address);
++	page_ref_unfreeze(page, 1);
++
++	return true;
++}
+ #ifdef CONFIG_MIGRATION
+ void folio_migrate_ksm(struct folio *newfolio, struct folio *folio)
+ {
+-- 
+2.37.3
+

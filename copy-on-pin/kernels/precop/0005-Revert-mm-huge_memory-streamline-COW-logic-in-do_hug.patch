@@ -1,0 +1,55 @@
+From 04a4cfd977996130d233c5ff0c98f9b41eda5f3b Mon Sep 17 00:00:00 2001
+From: David Hildenbrand <hildenbr@in.tum.de>
+Date: Tue, 4 Oct 2022 13:15:47 -0400
+Subject: [PATCH 05/18] Revert "mm/huge_memory: streamline COW logic in
+ do_huge_pmd_wp_page()"
+
+This reverts commit 3bff7e3f1f16dc7305d12905c51c278b54970f0e.
+
+Signed-off-by: David Hildenbrand <hildenbr@in.tum.de>
+---
+ mm/huge_memory.c | 13 ++++---------
+ 1 file changed, 4 insertions(+), 9 deletions(-)
+
+diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+index 094b5dc7a2a1..b1efadeda0c6 100644
+--- a/mm/huge_memory.c
++++ b/mm/huge_memory.c
+@@ -1303,6 +1303,7 @@ vm_fault_t do_huge_pmd_wp_page(struct vm_fault *vmf)
+ 	page = pmd_page(orig_pmd);
+ 	VM_BUG_ON_PAGE(!PageHead(page), page);
+ 
++	/* Lock page for reuse_swap_page() */
+ 	if (!trylock_page(page)) {
+ 		get_page(page);
+ 		spin_unlock(vmf->ptl);
+@@ -1318,15 +1319,10 @@ vm_fault_t do_huge_pmd_wp_page(struct vm_fault *vmf)
+ 	}
+ 
+ 	/*
+-	 * See do_wp_page(): we can only map the page writable if there are
+-	 * no additional references. Note that we always drain the LRU
+-	 * pagevecs immediately after adding a THP.
++	 * We can only reuse the page if nobody else maps the huge page or it's
++	 * part.
+ 	 */
+-	if (page_count(page) > 1 + PageSwapCache(page) * thp_nr_pages(page))
+-		goto unlock_fallback;
+-	if (PageSwapCache(page))
+-		try_to_free_swap(page);
+-	if (page_count(page) == 1) {
++	if (reuse_swap_page(page)) {
+ 		pmd_t entry;
+ 		entry = pmd_mkyoung(orig_pmd);
+ 		entry = maybe_pmd_mkwrite(pmd_mkdirty(entry), vma);
+@@ -1337,7 +1333,6 @@ vm_fault_t do_huge_pmd_wp_page(struct vm_fault *vmf)
+ 		return VM_FAULT_WRITE;
+ 	}
+ 
+-unlock_fallback:
+ 	unlock_page(page);
+ 	spin_unlock(vmf->ptl);
+ fallback:
+-- 
+2.37.3
+

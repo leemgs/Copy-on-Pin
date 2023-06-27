@@ -1,0 +1,41 @@
+#!/bin/sh
+
+. ./hw_vars
+
+create_sparse_file $SPARSE_FILE $mem
+
+migrate_unit=$((mem/nr_node/2))
+numactl --interleave=all $USEMEM -f $SPARSE_FILE --readonly $migrate_unit --detach --sleep $((runtime * 2)) --pid-file $PIDFILE
+
+pid=$(cat $PIDFILE)
+rm $PIDFILE
+rm $SPARSE_FILE
+
+start_time=$(date +%s%N)
+start_time=${start_time%???}
+
+count=0
+while :
+do
+	for i in `seq $nr_node`
+	do
+		migratepages $pid $((i-1)) $(($i%$nr_node))
+		now=$(date +%s%N)
+		now=${now%???}
+		count=$((count+1))
+		usecs=$(( now - start_time  ))
+		[ "$usecs" -gt ${runtime}000000  ] && break 2
+	done
+done
+
+throughput=$((count * migrate_unit / usecs))
+echo "$count * $migrate_unit bytes migrated, $usecs usecs, $throughput MB/s"
+
+kill -INT $pid
+
+# the sleep is necessary for umount to succeed
+# it takes some time to kill the usemem process
+while [ -d /proc/$pid -a "$(cat /proc/$pid/comm 2>/dev/null)" = 'usemem' ]
+do
+	sleep 0.1
+done

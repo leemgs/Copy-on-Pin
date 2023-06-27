@@ -1,0 +1,83 @@
+From 0eba321749cfef98cc64b4c403500b9b22aa2433 Mon Sep 17 00:00:00 2001
+From: David Hildenbrand <david@redhat.com>
+Date: Mon, 9 May 2022 18:20:43 -0700
+Subject: [PATCH 09/27] mm/rmap: use page_move_anon_rmap() when reusing a
+ mapped PageAnon() page exclusively
+
+We want to mark anonymous pages exclusive, and when using
+page_move_anon_rmap() we know that we are the exclusive user, as properly
+documented.  This is a preparation for marking anonymous pages exclusive
+in page_move_anon_rmap().
+
+In both instances, we're holding page lock and are sure that we're the
+exclusive owner (page_count() == 1).  hugetlb already properly uses
+page_move_anon_rmap() in the write fault handler.
+
+Note that in case of a PTE-mapped THP, we'll only end up calling this
+function if the whole THP is only referenced by the single PTE mapping a
+single subpage (page_count() == 1); consequently, it's fine to modify the
+compound page mapping inside page_move_anon_rmap().
+
+Link: https://lkml.kernel.org/r/20220428083441.37290-10-david@redhat.com
+Signed-off-by: David Hildenbrand <david@redhat.com>
+Acked-by: Vlastimil Babka <vbabka@suse.cz>
+Cc: Andrea Arcangeli <aarcange@redhat.com>
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: David Rientjes <rientjes@google.com>
+Cc: Don Dutile <ddutile@redhat.com>
+Cc: Hugh Dickins <hughd@google.com>
+Cc: Jan Kara <jack@suse.cz>
+Cc: Jann Horn <jannh@google.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>
+Cc: John Hubbard <jhubbard@nvidia.com>
+Cc: Khalid Aziz <khalid.aziz@oracle.com>
+Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Cc: Liang Zhang <zhangliang5@huawei.com>
+Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>
+Cc: Michal Hocko <mhocko@kernel.org>
+Cc: Mike Kravetz <mike.kravetz@oracle.com>
+Cc: Mike Rapoport <rppt@linux.ibm.com>
+Cc: Nadav Amit <namit@vmware.com>
+Cc: Oded Gabbay <oded.gabbay@gmail.com>
+Cc: Oleg Nesterov <oleg@redhat.com>
+Cc: Pedro Demarchi Gomes <pedrodemargomes@gmail.com>
+Cc: Peter Xu <peterx@redhat.com>
+Cc: Rik van Riel <riel@surriel.com>
+Cc: Roman Gushchin <guro@fb.com>
+Cc: Shakeel Butt <shakeelb@google.com>
+Cc: Yang Shi <shy828301@gmail.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+Signed-off-by: David Hildenbrand <hildenbr@in.tum.de>
+---
+ mm/huge_memory.c | 2 ++
+ mm/memory.c      | 1 +
+ 2 files changed, 3 insertions(+)
+
+diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+index 48245367514f..7bb75ec45d22 100644
+--- a/mm/huge_memory.c
++++ b/mm/huge_memory.c
+@@ -1317,6 +1317,8 @@ vm_fault_t do_huge_pmd_wp_page(struct vm_fault *vmf)
+ 		try_to_free_swap(page);
+ 	if (page_count(page) == 1) {
+ 		pmd_t entry;
++
++		page_move_anon_rmap(page, vma);
+ 		entry = pmd_mkyoung(orig_pmd);
+ 		entry = maybe_pmd_mkwrite(pmd_mkdirty(entry), vma);
+ 		if (pmdp_set_access_flags(vma, haddr, vmf->pmd, entry, 1))
+diff --git a/mm/memory.c b/mm/memory.c
+index 22e732c266dd..e12f75e8617c 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -3303,6 +3303,7 @@ static vm_fault_t do_wp_page(struct vm_fault *vmf)
+ 		 * and the page is locked, it's dark out, and we're wearing
+ 		 * sunglasses. Hit it.
+ 		 */
++		page_move_anon_rmap(page, vma);
+ 		unlock_page(page);
+ 		wp_page_reuse(vmf);
+ 		return VM_FAULT_WRITE;
+-- 
+2.37.3
+

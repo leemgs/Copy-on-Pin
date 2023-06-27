@@ -1,0 +1,4 @@
+nr_hp=$((unit_size/Hugepagesize/1024))
+# More memory to deal with unaligned size/offset
+nr_hp=$((nr_hp + nr_task + 1))
+echo $nr_hp > /sys/kernel/mm/hugepages/hugepages-${Hugepagesize}kB/nr_overcommit_hugepages

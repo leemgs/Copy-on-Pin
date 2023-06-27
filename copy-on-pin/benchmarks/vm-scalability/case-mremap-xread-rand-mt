@@ -1,0 +1,16 @@
+#!/bin/sh
+
+#
+# Exercises code in mremap.c of mm/
+#
+# First creates a sparse file and then maps it to the VM of calling
+#
+# process. Then remaps it after scaling it by SCALE_FACTOR defined in usemem.
+#
+
+. ./hw_vars
+
+create_sparse_file $SPARSE_FILE $ROTATE_BYTES
+$USEMEM -t $nr_task -f $SPARSE_FILE -E --prealloc --readonly --random $((ROTATE_BYTES / nr_task))
+
+rm $SPARSE_FILE

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# step 1)  fill $mem with $nr_task files
+# step 2)  truncate the files sequentially
+
+. ./hw_vars
+
+t0=$(date +%s.%N)
+for i in `seq $nr_task`
+do
+	create_sparse_file $SPARSE_FILE-$i $((mem / nr_task))
+	cat $SPARSE_FILE-$i > /dev/null
+done
+t1=$(date +%s.%N)
+echo $mem bytes faulted in $t1-$t0 seconds
+
+t0=$(date +%s.%N)
+rm $SPARSE_FILE-*
+t1=$(date +%s.%N)
+
+echo $mem bytes truncated in $t1-$t0 seconds
